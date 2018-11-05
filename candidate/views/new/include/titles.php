@@ -1,0 +1,1 @@
+<title><?php if(!empty($title)){ echo $title; }else{echo 'CherryHire - Opportunities';} ?></title>

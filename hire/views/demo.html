@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Typeahead Tagging Plugin Demo</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link href="css/typeahead.tagging.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+<div class="container">
+<h1>jQuery Typeahead Tagging Plugin Demo</h1>
+
+<input id="demo" class="tags-input" value="jquery,jquery plugin">
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/typeahead.bundle.min.js"></script>
+<script src="js/typeahead.tagging.js"></script>
+ <script>
+        // The source of the tags for autocompletion
+        var tagsource = [
+            'jquery-libs', 'jquery-multilingual-news',
+            'jquert-typeahead-tagging', 'jquery-multilingual-tags',
+            'jquery-forms-ajaxified', 'jquery-project-template',
+            'jquery-development-fabfile', 'jquery-user-media',
+            'jquery-feedback-form', 'jquery-review', 'jquery-hero-slider',
+            'jquery-document-library', 'jquery-paypal-express-checkout'
+        ]
+
+
+        // Turn the input into the tagging input
+        $('#demo').tagging(tagsource);
+    </script>
+</body>
+</html>

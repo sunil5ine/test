@@ -1,0 +1,301 @@
+	
+    <link rel="stylesheet" href="<?php echo $this->config->base_url();?>web/Telebuild/css/intlTelInput.css">
+	<section id="candsection">
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+                	<img src="media/candidate-img.png" class="img-responsive">
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 cand-reg-form">
+                	<div class="content-header">
+                        <h1>Create Account</h1>
+                        <h2>Already have an account? Sign in <a class="page-scroll" href="#" data-toggle="modal" data-target="#SigninModal">here</a></h2>
+                    </div>
+                    <?php if(isset($status) && ($status=='success' || $status=='fail' || $status=='cvfail')) {  ?>
+                    <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Notification</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p><?php echo $message; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                 	<?php } ?>
+                  <?php
+                    $stamp = strtotime(date('Y-m-d H:i:s')); // get unix timestamp
+                    $time_in_ms = $stamp*1000;
+                  ?>
+                    <form data-toggle="validator" role="form" method="post" name="signupfrm" id="signupfrm" action="<?php echo $this->config->base_url('PostCV');?>" enctype="multipart/form-data">
+                    <div id="ErrAlert"></div>
+                    <input type="hidden" value="<?php echo $time_in_ms; ?>" name="time_in_ms" id="time_in_ms">
+	      	   	      <div class="form-group row">
+                          <div class="col-md-6 col-sm-6 space-top-30">                          	  
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="First Name" value="<?php echo $formdata['firstname']; ?>" name="firstname" id="firstname" tabindex="1" required >
+                              </div>
+                              <span id="firstname_validate"></span>
+                          </div>
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Last Name" value="<?php echo $formdata['lastname']; ?>" name="lastname" id="lastname" tabindex="2" required >
+                            </div>
+                            <span id="lastname_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input style="width:30%;" type="hidden" class="form-control" placeholder="Code" value="<?php echo $formdata['cntrycode']; ?>"  name="cntrycode" id="cntrycode" tabindex="3">
+                                <input type="text" class="form-control" maxlength="16" placeholder="Contact Number" value="<?php echo $formdata['phone']; ?>" name="phone" id="phone" tabindex="4" required >
+                             </div>
+                             <span id="phone_validate"></span>
+                         </div>
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="E-mail ID" name="emailid" value="<?php echo $formdata['emailid']; ?>" id="emailid" tabindex="5" required>
+                             </div>
+                             <span id="emailid_validate"></span>
+                         </div>
+                     </div>
+                         
+                     <div class="form-group row">
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input data-toggle="tooltip"  type="password" class="form-control" placeholder="Password" value="" name="usrpwd" id="usrpwd" tabindex="6" required >
+                              </div>
+                              <span id="usrpwd_validate"></span>
+                          </div>
+                              
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" placeholder="Confirm Password" value="" name="repwd" id="repwd" tabindex="7" required >
+                            </div>
+                            <span id="repwd_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
+									<input type="hidden" id="dob" class="form-control" value="<?php echo $formdata['dob']; ?>" name="dob" tabindex="8" required>
+                             </div>
+                             <span id="dob_validate"></span>
+                         </div>
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                            <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-female"></i></span>
+                            	<select name="gender" id="gender" class="form-control" tabindex="9" required>
+                                  <option disabled selected>Gender</option>
+                                  <option <?php echo ($formdata['gender']=='Male')?'selected':''; ?> value="Male">Male</option>
+                                  <option <?php echo ($formdata['gender']=='Female')?'selected':''; ?> value="Female">Female</option>
+                                  <option <?php echo ($formdata['gender']=='other')?'selected':''; ?> value="Other">Other</option>
+                                </select>                              
+                              </div>
+                            <span id="gender_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-book"></i></span>
+                                <?php echo form_dropdown('edu',$edu_list,$formdata['edu'],'id="edu" class=" form-control" tabindex="10" required');?>                             </div>
+                             <span id="edu_validate"></span>
+                         </div>
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                <?php echo form_dropdown('nation',$nation_list,$formdata['nation'],'id="nation" class=" form-control" tabindex="11" required');?>
+                             </div>
+                             <span id="nation_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-windows"></i></span>
+                                <?php echo form_dropdown('funarea',$funarea_list,$formdata['funarea'],'id="funarea" class=" form-control" tabindex="12" required');?>                                
+                             </div>
+                             <span id="funarea_validate"></span>
+                         </div>
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-anchor"></i></span>
+                                <?php echo form_dropdown('industry',$ind_list,$formdata['industry'],'id="industry" class=" form-control" tabindex="13" required');?>
+                             </div>
+                             <span id="industry_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-diamond"></i></span>
+                                <input type="text" class="form-control" placeholder="Current Designation" value="<?php echo $formdata['currdesig']; ?>" name="currdesig" id="currdesig" tabindex="14" required >                               
+                             </div>
+                             <span id="currdesig_validate"></span>
+                         </div>
+                         <div class="col-md-6 col-sm-6 space-top-30">
+                             <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                <select name="totexp" id="totexp" class="form-control" tabindex="15" required>
+                                  <option disabled selected>Total Experience</option>
+                                  <option <?php echo ($formdata['totexp']=="Fresher")?'selected':''; ?> value="Fresher">Fresher</option>
+                                  <option <?php echo ($formdata['totexp']=="01")?'selected':''; ?> value="01">1</option>
+                                  <option <?php echo ($formdata['totexp']=="02")?'selected':''; ?> value="02">2</option>
+                                  <option <?php echo ($formdata['totexp']=="03")?'selected':''; ?> value="03">3</option>
+                                  <option <?php echo ($formdata['totexp']=="04")?'selected':''; ?> value="04">4</option>
+                                  <option <?php echo ($formdata['totexp']=="05")?'selected':''; ?> value="05">5</option>
+                                  <option <?php echo ($formdata['totexp']=="06")?'selected':''; ?> value="06">6</option>
+                                  <option <?php echo ($formdata['totexp']=="07")?'selected':''; ?> value="07">7</option>
+                                  <option <?php echo ($formdata['totexp']=="08")?'selected':''; ?> value="08">8</option>
+                                  <option <?php echo ($formdata['totexp']=="09")?'selected':''; ?> value="09">9</option>
+                                  <option <?php echo ($formdata['totexp']=="10")?'selected':''; ?> value="10">10</option>
+                                  <option <?php echo ($formdata['totexp']=="11")?'selected':''; ?> value="11">11</option>
+                                  <option <?php echo ($formdata['totexp']=="12")?'selected':''; ?> value="12">12</option>
+                                  <option <?php echo ($formdata['totexp']=="13")?'selected':''; ?> value="13">13</option>
+                                  <option <?php echo ($formdata['totexp']=="14")?'selected':''; ?> value="14">14</option>
+                                  <option <?php echo ($formdata['totexp']=="15")?'selected':''; ?> value="15">15</option>
+                                  <option <?php echo ($formdata['totexp']=="16")?'selected':''; ?> value="16">16</option>
+                                  <option <?php echo ($formdata['totexp']=="17")?'selected':''; ?> value="17">17</option>
+                                  <option <?php echo ($formdata['totexp']=="18")?'selected':''; ?> value="18">18</option>
+                                  <option <?php echo ($formdata['totexp']=="19")?'selected':''; ?> value="19">19</option>
+                                  <option <?php echo ($formdata['totexp']=="20")?'selected':''; ?> value="20">20</option>
+                                  <option <?php echo ($formdata['totexp']=="21")?'selected':''; ?> value="21">21</option>
+                                  <option <?php echo ($formdata['totexp']=="22")?'selected':''; ?> value="22">22</option>
+                                  <option <?php echo ($formdata['totexp']=="23")?'selected':''; ?> value="23">23</option>
+                                  <option <?php echo ($formdata['totexp']=="24")?'selected':''; ?> value="24">24</option>
+                                  <option <?php echo ($formdata['totexp']=="25")?'selected':''; ?> value="25">25</option>
+                                  <option <?php echo ($formdata['totexp']=="26")?'selected':''; ?> value="26">26</option>
+                                  <option <?php echo ($formdata['totexp']=="27")?'selected':''; ?> value="27">27</option>
+                                  <option <?php echo ($formdata['totexp']=="28")?'selected':''; ?> value="28">28</option>
+                                  <option <?php echo ($formdata['totexp']=="29")?'selected':''; ?> value="29">29</option>
+                                  <option <?php echo ($formdata['totexp']=="30")?'selected':''; ?> value="30">30</option>
+                                  <option <?php echo ($formdata['totexp']=="31")?'selected':''; ?> value="31">30+</option>
+                              </select>
+                             </div>
+                             <span id="totexp_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-12 col-sm-12 space-top-30">
+                            <div class="input-group">
+                            	<span class="input-group-addon"><i class="fa fa-home"></i></span>
+                            	<input type="hidden" value="<?php echo $formdata['currcompany']; ?>" name="currcompany" id="currcompany">
+                                <?php echo form_dropdown('currloc',$country_list,$formdata['currloc'],'id="currloc" class=" form-control" tabindex="16" required');?>
+                            </div>
+                            <span id="currloc_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-12 col-sm-12 space-top-30">
+                            <div class="">
+                            	<input type="file" class="form-control input_syle" id="fileToUpload" name="fileToUpload" tabindex="17" required>
+                            </div>
+                            <span id="fileToUpload_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-12 col-sm-12 space-top-30">
+                            <div class="input-group">
+                            	<label>
+                                  <input type="checkbox" name="jobalert" id="jobalert" tabindex="18" value="1" <?php echo ($formdata['jobalert']==1)?'checked':''; ?>> Create a Job Alert - Get the freshest jobs in your inbox every day.
+                                </label>
+                            </div>
+                            <span id="jobalert_validate"></span>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group row">
+                         <div class="col-md-12 col-sm-12">
+                            <div class="input-group">
+                            	<label>
+                                	<input type="checkbox" name="tandc" id="tandc" value="1" checked tabindex="19" required> I agree with the Terms and Conditions 
+                                </label>
+                            </div>
+                            <span id="tandc_validate"></span>
+                            <input name="return_url" type="hidden" value="http://staging.cherryhire.com/postcv">
+                         </div>
+                     </div>
+                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6574db52fa2b53dbce48c4d82_4f65073406" tabindex="-1" value=""></div>
+                     <div class="col-md-12 col-sm-12 text-center">
+                            <input type="submit" value="Sign Up" class="btn btn-success btn-xl" tabindex="20">
+                     </div>
+                     </form>
+                </div>
+ 	  	   </div>
+           
+        </div>
+    </section>
+    <section id="testsection">
+    	<div class="container">
+        	<div class="row">
+           		<div class="col-md-12 col-sm-12 col-xs-12">
+                	<div class="col-md-6 col-sm-6 bdr-right">
+                    	<p>"Cherry Hire has exceeded my expectations and made my search for a new position easy and finally rewarding. I truly recommend Cherry Hire to all those who are looking for a new challenge in their career." </p>
+                        	<div class="tby">                            	
+                                Sooraj <br>
+                                Project Coordinator <br>
+                                Imax Web
+                            </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                    	<p>"I have joined my new job which I got through Cherry Hire. Thanks to Cherry Hire for your support along my way.You had made my job-hunting process easier and worth."</p>
+                        <div class="tby">                            	
+                            Andrew Barry
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </section>
+	
+	<script src="<?php echo $this->config->base_url();?>web/Telebuild/js/intlTelInput.js"></script>
+    <script src="<?php echo $this->config->base_url();?>web/js/countrySync.js"></script>
+    <script src="<?php echo $this->config->base_url();?>web/js/postcv.js"></script>
+    <script src="<?php echo $this->config->base_url();?>web/js/mc-process.js"></script>
+    <script src="<?php echo $this->config->base_url();?>web/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="<?php echo $this->config->base_url();?>web/js/bootstrap-filestyle.js"></script>
+    <script type="text/javascript" src="<?php echo $this->config->base_url();?>web/js/jquery.date-dropdowns.js"></script>
+    <link rel="stylesheet" href="<?php echo $this->config->base_url();?>web/css/jquery-ui.css" />
+	<script type="text/javascript">
+		$('#usrpwd').tooltip({'trigger':'focus', 'placement':'bottom', 'html':'true', 'title': '<b>Password must contain:</b> <br > Atleast 8 characters.'});
+		
+		//File upload button
+		$('#fileToUpload').filestyle({
+			buttonName : 'btn-danger'
+		});
+		//Email valid URL
+		var AjaxURL = "<?php echo $this->config->base_url().'EmailValid';?>";
+		//Date dropdown
+		$("#dob").dateDropdowns({
+			  defaultDateFormat: "dd/mm/yyyy",
+			  submitFormat: "dd/mm/yyyy",
+			  minAge: 18,
+			  maxAge: 70,
+			  monthFormat: 'short',
+			  required: true,
+			  dropdownClass:"form-control wauto"
+		});
+		
+		//Msg modal init
+		$("#myModal").modal('show');
+	</script>

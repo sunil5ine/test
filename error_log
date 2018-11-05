@@ -1,0 +1,16 @@
+[25-Jul-2018 13:34:36 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 13:34:53 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 13:40:53 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 13:40:55 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 13:42:09 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 13:46:10 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 13:47:13 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 14:15:18 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 14:15:25 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[25-Jul-2018 14:15:35 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on a non-object in /home/a5ineprojects9/public_html/devipuram/application/models/Index_model.php on line 208
+[06-Aug-2018 06:10:00 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/a5ineprojects9/public_html/devipuram/application/views/contact.php on line 99
+[06-Aug-2018 06:10:26 Etc/GMT] PHP Parse error:  syntax error, unexpected '{' in /home/a5ineprojects9/public_html/devipuram/application/views/contact.php on line 101
+[06-Aug-2018 06:10:48 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/a5ineprojects9/public_html/devipuram/application/views/contact.php on line 100
+[06-Aug-2018 07:50:53 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/a5ineprojects9/public_html/devipuram/application/views/emailverification.php on line 170
+[06-Aug-2018 07:51:16 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/a5ineprojects9/public_html/devipuram/application/views/emailverification.php on line 170
+[06-Aug-2018 07:51:36 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/a5ineprojects9/public_html/devipuram/application/views/emailverification.php on line 170

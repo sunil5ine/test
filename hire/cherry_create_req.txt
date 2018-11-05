@@ -1,0 +1,155 @@
+#########################Requirement Creation in CherryHire#############################################
+
+Cherry Hire Search JobID:336 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">36</range> <range oper="gteq" name="m_experience.v">24</range><p name="m_skill" oper="ineq"><i forv="57d03bb1a32158fca31cb538"><skillarea priority="1" oper="eq" disp="Human resource">57d03bb1a32158fca31cb538</skillarea></i><i forv="5656b4a0711c9dc4511dfcf7"><skillarea priority="1" oper="eq" disp="Human Resource Development">5656b4a0711c9dc4511dfcf7</skillarea></i><i forv="5656b4a0711c9dc4511dfd00"><skillarea priority="1" oper="eq" disp="Human Resource Planning">5656b4a0711c9dc4511dfd00</skillarea></i><i forv="5656b49f711c9dc4511dfabd"><skillarea priority="1" oper="eq" disp="Managerial Finance">5656b49f711c9dc4511dfabd</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Automotive">57f360f722eaf0ba59d35637</i></p><p name="m_country.v" disp="Bahrain" oper="eq" acceptmissing="false">510a0731ba36baaddd23fe72</p><p name="jobFunctions.v" disp="Human Resources" oper="eq" acceptmissing="false">56633d7807a606f1b796dbcb</p></need>
+HW Req Id: 4297566
+HW Req Status: success
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:337 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">48</range> <range oper="gteq" name="m_experience.v">36</range><p name="m_skill" oper="ineq"><i forv="-1"> <skillarea priority="1" oper="eq" disp="Engineering">-1</skillarea> </i><i forv="5656b4a3711c9dc4511e03a6"><skillarea priority="1" oper="eq" disp="Procurement">5656b4a3711c9dc4511e03a6</skillarea></i><i forv="-1"> <skillarea priority="1" oper="eq" disp="Operations">-1</skillarea> </i><i forv="5325a5edfa1f8d92cb6870d0"><skillarea priority="1" oper="eq" disp="Communication Skills">5325a5edfa1f8d92cb6870d0</skillarea></i><i forv="5325a5eefa1f8d92cb6872bd"><skillarea priority="1" oper="eq" disp="Microsoft Excel">5325a5eefa1f8d92cb6872bd</skillarea></i><i forv="5656b4a2711c9dc4511e012f"><skillarea priority="1" oper="eq" disp="Negotiation">5656b4a2711c9dc4511e012f</skillarea></i><i forv="-1"> <skillarea priority="1" oper="eq" disp="Quotations">-1</skillarea> </i><i forv="5325a5edfa1f8d92cb6870e8"><skillarea priority="1" oper="eq" disp="Cost accounting">5325a5edfa1f8d92cb6870e8</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">Manage suppliers</p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">Choose Suppliers</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Automotive">57f360f722eaf0ba59d35637</i></p><p name="m_country.v" disp="Bahrain" oper="eq" acceptmissing="false">510a0731ba36baaddd23fe72</p><p name="jobFunctions.v" disp="Engineering" oper="eq" acceptmissing="false">56b82f2ac36102a66168078d</p></need>
+HW Req Id: 4297568
+HW Req Status: success
+*************************************************************************** 
+
+Cherry Hire Search JobID:358 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">36</range> <range oper="gteq" name="m_experience.v">24</range><p name="m_skill" oper="ineq"><i forv="5656b49e711c9dc4511df833"><skillarea priority="1" oper="eq" disp="DDD">5656b49e711c9dc4511df833</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="m_country.v" disp="Afghanistan" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe60</p><p name="jobFunctions.v" disp="Architecture" oper="eq" acceptmissing="false">57c91d30943d2c12bce2bf45</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:359 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">72</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Development" oper="eq" acceptmissing="false">57cff9b6a32158fca31cb4e0</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:360 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">36</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Information Technology" oper="eq" acceptmissing="false">564d8700e1a67f1d99288aca</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:361 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">36</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Information Technology" oper="eq" acceptmissing="false">564d8700e1a67f1d99288aca</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:360 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">36</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Information Technology" oper="eq" acceptmissing="false">564d8700e1a67f1d99288aca</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:362 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">24</range> <range oper="gteq" name="m_experience.v">24</range><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">fdgd</p><p name="m_country.v" disp="Afghanistan" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe60</p><p name="jobFunctions.v" disp="Armed Forces" oper="eq" acceptmissing="false">57cef83bf3887d7f466febc7</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:363 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">24</range> <range oper="gteq" name="m_experience.v">12</range><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">php developer</p><p name="m_country.v" disp="Albania" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe62</p><p name="jobFunctions.v" disp="Architecture" oper="eq" acceptmissing="false">57c91d30943d2c12bce2bf45</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:361 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">36</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Information Technology" oper="eq" acceptmissing="false">564d8700e1a67f1d99288aca</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:361 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">36</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Information Technology" oper="eq" acceptmissing="false">564d8700e1a67f1d99288aca</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:361 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">36</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq"></p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Information Technology" oper="eq" acceptmissing="false">564d8700e1a67f1d99288aca</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:359 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">72</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="-1"> <skillarea priority="1" oper="eq" disp="html ">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">php developer</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Development" oper="eq" acceptmissing="false">57cff9b6a32158fca31cb4e0</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:359 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">72</range> <range oper="gteq" name="m_experience.v">12</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="-1"> <skillarea priority="1" oper="eq" disp="html  ">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">php developer</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Development" oper="eq" acceptmissing="false">57cff9b6a32158fca31cb4e0</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:1 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">72</range> <range oper="gteq" name="m_experience.v"></range><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">Job Role *</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="Afghanistan" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe60</p><p name="jobFunctions.v" disp="Information Technology" oper="eq" acceptmissing="false">564d8700e1a67f1d99288aca</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:2 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">72</range> <range oper="gteq" name="m_experience.v"></range><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">Job Role *</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="Afghanistan" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe60</p><p name="jobFunctions.v" disp="Information Technology" oper="eq" acceptmissing="false">564d8700e1a67f1d99288aca</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:3 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">12</range> <range oper="gteq" name="m_experience.v">0</range><p name="m_skill" oper="ineq"><i forv="-1"> <skillarea priority="1" oper="eq" disp="SDAS">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="DFDF">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="DSFSD">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="DFSD">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="DFSDDFDSF">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">web Developer</p><p name="m_country.v" disp="Albania" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe62</p><p name="jobFunctions.v" disp="Armed Forces" oper="eq" acceptmissing="false">57cef83bf3887d7f466febc7</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:4 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">0</range> <range oper="gteq" name="m_experience.v"></range><p name="m_skill" oper="ineq"><i forv="-1"> <skillarea priority="1" oper="eq" disp="wewq">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="erwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwewerwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwer">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="wefret">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="hytu">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">php developer</p><p name="m_country.v" disp="Albania" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe62</p><p name="jobFunctions.v" disp="Armed Forces" oper="eq" acceptmissing="false">57cef83bf3887d7f466febc7</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:4 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">0</range> <range oper="gteq" name="m_experience.v"></range><p name="m_skill" oper="ineq"><i forv="-1"> <skillarea priority="1" oper="eq" disp="wewq">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="erwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwewerwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwer">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="wefret">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="hytu">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">php developer</p><p name="m_country.v" disp="Albania" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe62</p><p name="jobFunctions.v" disp="Armed Forces" oper="eq" acceptmissing="false">57cef83bf3887d7f466febc7</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:4 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">0</range> <range oper="gteq" name="m_experience.v"></range><p name="m_skill" oper="ineq"><i forv="-1"> <skillarea priority="1" oper="eq" disp="wewq">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="erwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwewerwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwer">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="wefret">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="hytu">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">php developer</p><p name="m_country.v" disp="Albania" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe62</p><p name="jobFunctions.v" disp="Armed Forces" oper="eq" acceptmissing="false">57cef83bf3887d7f466febc7</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:4 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">0</range> <range oper="gteq" name="m_experience.v"></range><p name="m_skill" oper="ineq"><i forv="-1"> <skillarea priority="1" oper="eq" disp="wewq">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="erwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwewerwe">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="werwer">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="wefret">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="hytu">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">php developer</p><p name="m_country.v" disp="Albania" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe62</p><p name="jobFunctions.v" disp="Armed Forces" oper="eq" acceptmissing="false">57cef83bf3887d7f466febc7</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:5 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v"></range> <range oper="gteq" name="m_experience.v"></range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3fcd"><skillarea priority="1" oper="eq" disp="PHP">518b8574ba36fb112e6e3fcd</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i><i forv="52eb6ce2e4b0292aca334288"><skillarea priority="1" oper="eq" disp="Angularjs">52eb6ce2e4b0292aca334288</skillarea></i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">full stack developer</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="India" oper="eq" acceptmissing="false">510a0730ba36baaddd23fe5f</p><p name="jobFunctions.v" disp="Armed Forces" oper="eq" acceptmissing="false">57cef83bf3887d7f466febc7</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+

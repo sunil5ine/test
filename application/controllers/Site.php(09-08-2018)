@@ -1,0 +1,1378 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Site extends CI_Controller {
+	
+	/* Init function
+	 * return void
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->clear_cache();
+		$this->load->library('email'); // load email library
+		$this->load->model('sitemodel');
+		$this->data['thisyear'] = date('Y');
+		$this->data['mid'] 		= 0;
+		$this->data['emid'] 	= 99;
+		$this->data['cmid'] 	= 0;
+	}
+	
+	/* Index function
+	 *
+	 * return void
+	 */
+	public function index()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, Post job, CV shortlisting';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['mid'] 		= 0;
+		$this->data['emid'] 	= 99;
+                
+                
+//		$this->load->view('common/header',$this->data);
+//		$this->load->view('common/home-menu',$this->data);
+//		$this->load->view('home',$this->data);
+//		$this->load->view('common/footer',$this->data);
+                                
+                
+                $this->load->view('design/header',$this->data);
+                $this->load->view('design/nav',$this->data);
+                $this->load->view('design/homenew',$this->data);
+                $this->load->view('design/footer',$this->data);
+	}
+	
+	/* Home page function
+	 *
+	 * return void
+	 */
+	public function home()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('home',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Employer about-us page
+	 *
+	 * return void
+	 */
+	public function about()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('about',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Employer features page
+	 *
+	 * return void
+	 */
+	public function features()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 1;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/employer-menu',$this->data);
+		$this->load->view('features',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Employer pricing
+	 *
+	 * return void
+	 */
+	public function pricing()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 3;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/employer-menu',$this->data);
+		$this->load->view('pricing',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* CV Writing page
+	 *
+	 * return void
+	 */
+	public function cvwriting()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 1;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/candidate-menu',$this->data);
+		$this->load->view('cv-writing',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Candidate pricing
+	 *
+	 * return void
+	 */
+	public function plan()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post CV Online Free|Find Jobs|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['cmid'] 	= 3;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/candidate-menu',$this->data);
+		$this->load->view('candidate_pricing',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* FAQ page
+	 *
+	 * return void
+	 */
+	public function faq()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('faq',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Jobboards list page
+	 *
+	 * return void
+	 */
+	public function joboards()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('joboards',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Privacy page
+	 *
+	 * return void
+	 */
+	public function privacy()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('privacy',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Disclamer page
+	 *
+	 * return void
+	 */
+	public function disclaimer()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('disclaimer',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* T&C page
+	 *
+	 * return void
+	 */
+	public function terms()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('terms',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Employer Signup function
+	 *
+	 * return void
+	 */
+	public function postjob()
+	{
+		$this->data['message'] 	= '';
+		$this->data['status'] 	= '';
+		if ($this->input->post('fname') && $this->input->post('emailid')) {
+			//This section is used to handle if there is an input from the home page
+			$Username 	= ltrim(rtrim($this->input->post('fname')));
+			$name 		= explode(' ', $Username);
+			if (count($name) > 1) {
+				$string 	= ltrim(rtrim($this->input->post('fname')));
+				$last_space = strrpos($string, ' ');
+				$lname 		= substr($string, $last_space);
+				$fname 		= substr($string, 0, $last_space);
+			} else {
+				$fname = $name[0];
+				$lname = '';
+			}
+			$emailid = $this->input->post('emailid');
+			//Form validation
+			$this->form_validation->set_rules('fname', 'Name', 'trim|required|callback_name_check');
+			$this->form_validation->set_rules('emailid', 'Email ID', 'trim|required|valid_email|is_unique[ch_employer.emp_email]');
+			$this->form_validation->set_message('is_unique', 'An account with this %s already exists. Kindly use a different one or sign in using your username and password');
+			
+			if ($this->form_validation->run() == FALSE) {
+				//Validation fails
+				$this->data['status'] 	= 'fail';
+				$this->data['message'] 	= '<div class="alert alert-danger">
+                    <strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
+					'.validation_errors().'
+                  </div>';
+			}
+		} else {
+			$fname 		= '';
+			$lname 		= '';
+			$emailid 	= '';
+		}
+		
+		$this->data['formdata'] = array(
+			'firstname'=>ucwords($fname),
+			'lastname'=>ucwords($lname),
+			'designation'=>'',
+			'cntrycode'=>'',
+			'phone'=>'',
+			'emailid'=>$emailid,
+			'usrpwd'=>'',
+			'repwd'=>'',
+			'comp'=>'',
+			'complocation'=>'',
+			'url'=>'',
+			'empcnt'=>'',
+			'descr'=>'',
+			'emptype'=>'1',
+		);
+		
+		if($this->input->get('ins') == 1) {
+			$this->data['status'] 	= 'success';
+			$this->data['message'] 	= '<div class="alert alert-success fade in">
+			<strong>Success!</strong> Thank you for registering with Cherry Hire.com, the latest tool to shortlist and rank candidates as per your job description.<br > An email verification link has been sent to you. Kindly verify it for us to activate your account. <br > In case you do not hear from us in 48hrs, you can reach us on support@cherryhire.com. </div>';
+			
+		}
+		$this->data["country_list"] = $this->sitemodel->get_cmp_location(); //Get country list
+		$this->data['title']		= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']		= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']		= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 		= 2;
+		$this->data['submiturl'] 	= 'Employer/CreateAccount'; //Form submit URL
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/employer-menu',$this->data);
+		$this->load->view('signup',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Newsletter function
+	 *
+	 * return void
+	 */
+	public function newsletter()
+	{
+		$this->data['message'] 	= '';
+		$this->data['status'] 	= '';
+		if ($this->input->post('nl_emailid')) {			
+			$emailid 	= $this->input->post('nl_emailid');
+			$returnURL 	= $this->input->post('nl_Return');
+			//Form validation
+			$this->form_validation->set_rules('nl_emailid', 'Email ID', 'trim|required|valid_email|is_unique[ch_newsletter.nl_email]');
+			$this->form_validation->set_message('is_unique', 'An account with this %s already subscribed. Kindly use a different one');
+			
+			if ($this->form_validation->run() == FALSE) {
+				$this->data['status'] 	= 'fail';
+				$this->data['message'] 	= '<div class="alert alert-danger">
+                    <strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
+					'.validation_errors().'
+                  </div>';
+			} else {
+				$formdata = array(
+					'nl_email'=>$emailid,
+					'nl_date'=>date('Y-m-d H:i:s'),
+					'nl_status'=>'1',
+				);
+				$nlid = $this->sitemodel->post_newsletter($formdata);
+				$this->data['status'] 	= 'success';
+				$this->data['message'] 	= '<div class="alert alert-success fade in">
+					<strong>Success!</strong> Thank you for subscribing to the Cherry Hire newsletter. </div>';
+			}
+		} else {
+			$this->data['status'] 	= 'fail';
+			$this->data['message'] 	= '<div class="alert alert-danger">
+				<strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
+				'.validation_errors().'
+			  </div>';
+		}		
+		echo $this->data['message'];
+	}
+	
+	/* Employer free trial function
+	 *
+	 * return void
+	 */
+	public function reg_freetrial()
+	{
+		$this->data['message'] 	= '';
+		$this->data['status'] 	= '';
+		$this->data['formdata'] = array(
+			'firstname'=>'',
+			'lastname'=>'',
+			'designation'=>'',
+			'cntrycode'=>'',
+			'phone'=>'',
+			'emailid'=>'',
+			'usrpwd'=>'',
+			'repwd'=>'',
+			'comp'=>'',
+			'complocation'=>'',
+			'url'=>'',
+			'empcnt'=>'',
+			'descr'=>'',
+			'emptype'=>'1',
+		);
+		
+		if($this->input->get('ins') == 1) {
+			$this->data['status'] = 'success';
+			$this->data['message'] = '<div class="alert alert-success fade in">
+			<strong>Success!</strong> Thank you for registering with Cherry Hire.com, the latest tool to shortlist and rank candidates as per your job description.<br > An email verification link has been sent to you. Kindly verify it for us to activate your account. <br > In case you do not hear from us in 48hrs, you can reach us on support@cherryhire.com.</div>';			
+		}
+		$this->data["country_list"] = $this->sitemodel->get_cmp_location(); // Get country List
+		$this->data['title']		= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']		= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']		= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 		= 4;
+		$this->data['submiturl'] 	= 'Employer/CreateAccount'; //Form submit URL
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/employer-menu',$this->data);
+		$this->load->view('signup',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* PeopleSearch reg function
+	 *
+	 * return void
+	 */
+	public function peoplesearch()
+	{
+		$this->data['message'] 	= '';
+		$this->data['formdata'] = array(
+			'firstname'=>'',
+			'lastname'=>'',
+			'cntrycode'=>'',
+			'phone'=>'',
+			'emailid'=>'',
+			'usrpwd'=>'',
+			'repwd'=>'',
+			'comp'=>'',
+			'url'=>'',
+			'empcnt'=>'',
+			'descr'=>'',
+			'emptype'=>'1',
+		);
+		
+		if ($this->input->get('ins') == 1) {
+			$this->data['status'] = 'success';
+			$this->data['message'] = '<div class="alert alert-success fade in">
+			<strong>Success!</strong> Thank you for registering with Cherry Hire.com - People Search APP, the own storage and latest tool to shortlist and rank candidates as per your job description.<br > An email verification link has been sent to you. Kindly verify it for us to activate your account. <br > In case you do not hear from us in 48hrs, you can reach us on support@cherryhire.com.</div>';			
+		}
+		
+		$this->data['title']		= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']		= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']		= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 		= 99;
+		$this->data['submiturl'] 	= 'PeopleSearch'; //From submit URL
+		$this->load->view('common/header',$this->data);
+		$this->load->view('peoplesearch',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Contact-us page
+	 *
+	 * return void
+	 */
+	public function contact()
+	{
+		$this->data['message'] 	= '';
+		$this->data['formdata'] = array(
+			'cname'=>'',
+			'cemail'=>'',
+			'cphone'=>'',
+			'cmsg'=>'',
+			'captcha'=>''
+		);
+		
+		//Form Validation
+		$this->form_validation->set_rules('cname', 'First Name', 'trim|required|callback_name_check');
+		$this->form_validation->set_rules('cemail', 'Email ID', 'trim|required|valid_email');
+		$this->form_validation->set_rules('cphone', 'Phone No', 'trim|required');
+		$this->form_validation->set_rules('cmsg', 'Message', 'trim|required');
+		$this->form_validation->set_rules('captcha', 'Security Check', 'trim|required');
+		
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->session->userdata('correctsum') == $this->input->post('captcha')) {
+				$this->data['formdata'] = array(
+					'cname'=>$this->input->post('cname'),
+					'cemail'=>$this->input->post('cemail'),
+					'cphone'=>$this->input->post('cphone'),
+					'cmsg'=>$this->input->post('cmsg')
+				);
+				$mailstatus = $this->contact_sendmail($this->data['formdata']);
+				
+				if ($mailstatus == 1) {
+					$Tmailstatus = $this->contact_thankumail($this->input->post('cname'), $this->input->post('cemail'));
+				} else {
+					$this->data['status'] 	= 'fail';
+					$this->data['message'] 	= '<div class="alert alert-danger fade in">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
+					<br> Mail sending failed!
+				  	</div>';
+				}
+				$this->data['status'] 	= 'success';
+				$this->data['message'] 	= '<div class="alert alert-success fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Success!</strong> Thanks for contacting Cherry Hire. Your request is under process, will get in touch with you soon.
+				</div>';
+			} else {
+				$this->data['status'] 	= 'fail';
+				$this->data['message'] 	= '<div class="alert alert-danger fade in">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
+					<br> Security Check failed!
+				  </div>';
+			}
+						
+		  	$sess_array = array(
+				'correctsum' => 0
+			);
+			$this->session->set_userdata($sess_array);
+		} else {
+			if ($this->input->post('cname') || $this->input->post('cemail')) {
+				$this->data['formdata'] = array(
+					'cname'=>$this->input->post('cname'),
+					'cemail'=>$this->input->post('cemail'),
+					'cphone'=>$this->input->post('cphone'),
+					'cmsg'=>$this->input->post('cmsg')
+				);
+				$this->data['status'] 	= 'fail';
+				$this->data['message'] 	= '<div class="alert alert-danger fade in">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
+					'.validation_errors().'
+				  </div>';				
+				$sess_array = array(
+					'correctsum' => 0
+				);
+				$this->session->set_userdata($sess_array);  
+			}
+		}
+		
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->data['number1'] 	= rand(1,9);
+		$this->data['number2'] 	= rand(1,9);
+		$this->data['sum'] 		= $this->data['number1'] + $this->data['number2'];
+		
+		$sess_array = array(
+			'correctsum' => $this->data['sum']
+		);
+		$this->session->set_userdata($sess_array);
+		
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('contact',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Candidate Reg function
+	 *
+	 * return void
+	 */
+	public function postcv()
+	{
+		if($this->session->userdata('cand_chid')) { redirect("http://www.staging.cherryhire.com/candidate"); }
+		$this->data['message'] 	= '';
+		$this->data['status'] 	= '';
+		//From Home Page
+		if ($this->input->post('cname') && $this->input->post('cemailid')) {			
+			$name = explode(' ', ltrim(rtrim($this->input->post('cname'))));
+			if (count($name) > 1) {
+				$string 	= ltrim(rtrim($this->input->post('cname')));
+				$last_space = strrpos($string, ' ');
+				$lname 		= substr($string, $last_space);
+				$fname 		= substr($string, 0, $last_space);
+			} else {
+				$fname = $name[0];
+				$lname = '';
+			}
+			$emailid = $this->input->post('cemailid');
+			//From Validation
+			$this->form_validation->set_rules('cname', 'Name', 'trim|required|callback_name_check');
+			$this->form_validation->set_rules('cemailid', 'Email ID', 'trim|required|valid_email|is_unique[ch_candidate.can_email]');
+			$this->form_validation->set_message('is_unique', 'An account with this %s already exists. Kindly use a different one or sign in using your username and password');
+			
+			if ($this->form_validation->run() == FALSE) {
+				$this->data['status'] 	= 'fail';
+				$this->data['message'] 	= '<div class="alert alert-danger">
+                    <strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
+					'.validation_errors().'
+                  </div>';
+			}
+		} else {
+			$fname 		= '';
+			$lname 		= '';
+			$emailid 	= '';
+		}
+		
+		$this->data['formdata'] = array(
+			'firstname'=>ucwords($fname),
+			'lastname'=>ucwords($lname),
+			'cntrycode'=>'',
+			'phone'=>'',
+			'emailid'=>$emailid,
+			'usrpwd'=>'',
+			'repwd'=>'',
+			'dob'=>'',
+			'gender'=>'',
+			'edu'=>'',
+			'nation'=>'',
+			'totexp'=>'',
+			'currcompany'=>'',
+			'currloc'=>'',
+			'funarea'=>'',
+			'industry'=>'',
+			'currdesig'=>'',
+			'jobalert'=>'1'
+		);
+		
+		//Form validation
+		$this->form_validation->set_rules('firstname', 'First Name', 'trim|required|callback_name_check');
+		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|callback_name_check');
+		$this->form_validation->set_rules('cntrycode', 'Country Code', 'trim|required');
+		$this->form_validation->set_rules('phone', 'Phone No', 'trim|required');
+		$this->form_validation->set_rules('emailid', 'Email ID', 'trim|required|valid_email|is_unique[ch_candidate.can_email]');
+		$this->form_validation->set_rules('usrpwd', 'Password', 'trim|required|min_length[8]|callback_name_check');
+		$this->form_validation->set_rules('repwd', 'Confirm Password', 'trim|required|matches[usrpwd]');
+		$this->form_validation->set_rules('dob', 'Date of Birth', 'trim|required');
+		$this->form_validation->set_rules('gender', 'Gender', 'trim|required');
+		$this->form_validation->set_rules('edu', 'Gender', 'trim|required');
+		$this->form_validation->set_rules('nation', 'Gender', 'trim|required');
+		$this->form_validation->set_rules('totexp', 'Gender', 'trim|required');
+		$this->form_validation->set_rules('currloc', 'Current Location', 'trim|required|callback_name_check');
+		$this->form_validation->set_rules('funarea', 'Functional Area', 'trim|required');
+		$this->form_validation->set_rules('industry', 'Industry', 'trim|required');
+		$this->form_validation->set_rules('currdesig', 'Current Designation', 'trim|required|callback_name_check');
+		if (empty($_FILES['fileToUpload'])) {
+			$this->form_validation->set_rules('fileToUpload', 'Resume', 'required');
+		}
+		$this->form_validation->set_message('is_unique', 'An account with this %s already exists. Kindly use a different one or sign in using your username and password');
+
+		if ($this->form_validation->run() == TRUE) {
+			$cid 		= $this->sitemodel->postcv_record();			
+			$csummry 	= $this->sitemodel->postsummary($cid);
+			$smid 		= $this->sitemodel->postsocial_media($cid);
+			$csubs 		= $this->sitemodel->post_csubscribe($cid);
+			$upfilename = 'resume'.'_'.$cid; //Resume path
+			
+			$this->load->library('upload');
+			//$image_path = realpath(APPPATH . '../resume');
+			if (isset($_FILES['fileToUpload'])  && !empty($_FILES['fileToUpload']) && is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
+				$image_path 			= realpath(APPPATH . '../resume');
+				$cv['upload_path'] 		= $image_path;
+				$cv['allowed_types'] 	= 'doc|docx|pdf|DOC|DOCX|PDF';
+				$cv['max_size']			= '0';
+				$cv['file_name'] 		= $upfilename;
+				
+				$this->upload->initialize($cv);
+				if ($this->upload->do_upload('fileToUpload')) {
+					$this->upload_file_name = '';
+					$data 	=  $this->upload->data();									
+					$this->upload_file_name = $data['file_name'];	
+					$cvpath = $data['full_path'];
+					
+					$cvid 		= $this->sitemodel->postcv_details($cid,$cvpath); // Post cv
+                                        
+                                        $person_id=$this->sitemodel->upload_resume_api($cvpath);
+                                        
+					$mailstatus = $this->cvsendmail($cid,$cvpath); //Sent mail to employer
+                                        
+					if ($mailstatus == 1) {
+						$Tmailstatus = $this->cvthankumail($cid); //Thankyou mail to candidate
+					} else { 
+						//Mail send fail
+						$this->data['status'] 	= 'fail';
+						$this->data['message'] 	= '<div class="alert alert-danger">
+						<strong>Failed!</strong> Congrats! <br> Thank You for registering at CherryHire.com, the premium online HR solution provider but failed to complete the process. 
+						<br> Mail sending failed! 
+						<br> Send your updated resume to cv@cherryhire.com
+						<br> Kindly log into your account and update your profile to get the best matching jobs instantly
+						<br> Wishing you the very best for a bright career!
+						</div>';
+					}					
+					
+					//Registration success
+					$this->data['status'] 	= 'success';
+					$this->data['message'] 	= '<div class="alert alert-success">
+                    <strong>Success!</strong> Congrats! <br> Thank You for registering at CherryHire.com, the premium online HR solution provider. <br> Kindly log into your account and update your profile to get the best matching jobs instantly.<br> Wishing you the very best for a bright career! </div>';					
+				} else {	
+					//CV upoad fail
+					$error = $this->upload->display_errors();
+					$this->data['status'] 	= 'cvfail';
+					$this->data['message'] 	= '<div class="alert alert-info">
+                    	<strong>Failed!</strong> Congrats! <br> Thank You for registering at CherryHire.com, the premium online HR solution provider but failed to upload your CV. <br> Kindly log into your account and update your profile to get the best matching jobs instantly<br> Upload your CV and get your profile quickly noticed!!!<br> Wishing you the very best for a bright career!
+						'.$error.'
+                  		</div>';
+				}
+				
+			 } else {
+				//CV upload fail
+				$this->data['status'] 	= 'cvfail';
+				$this->data['message'] 	= '<div class="alert alert-info">
+					<strong>Failed!</strong> Congrats! <br> Thank You for registering at CherryHire.com, the premium online HR solution provider but failed to upload your CV.  <br> Kindly log into your account and update your profile to get the best matching jobs instantly<br> Upload your CV and get your profile quickly noticed!!!<br> Wishing you the very best for a bright career!
+					</div>'; 
+			 }		
+		} else {
+			if ($this->input->post('firstname') || $this->input->post('lastname')) {
+				$this->data['formdata'] = array(
+					'firstname'=>$this->input->post('firstname'),
+					'lastname'=>$this->input->post('lastname'),
+					'cntrycode'=>$this->input->post('cntrycode'),
+					'phone'=>$this->input->post('phone'),
+					'emailid'=>$this->input->post('emailid'),
+					'usrpwd'=>$this->input->post('usrpwd'),
+					'repwd'=>$this->input->post('repwd'),
+					'dob'=>$this->input->post('dob'),
+					'gender'=>$this->input->post('gender'),
+					'edu'=>$this->input->post('edu'),
+					'nation'=>$this->input->post('nation'),
+					'totexp'=>$this->input->post('totexp'),
+					'currcompany'=>$this->input->post('currcompany'),
+					'currloc'=>$this->input->post('currloc'),
+					'funarea'=>$this->input->post('funarea'),
+					'industry'=>$this->input->post('industry'),
+					'currdesig'=>$this->input->post('currdesig'),
+					'jobalert'=>$this->input->post('jobalert'),
+				);
+			
+				$this->data['status'] = 'fail';
+				$this->data['message'] = '<div class="alert alert-danger">
+                    <strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
+					'.validation_errors().'
+                  </div>';
+			}
+		}
+		
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['cmid'] 	= 1;
+		$this->data['number1'] 	= rand(1,9);
+		$this->data['number2'] 	= rand(1,9);
+		$this->data['sum'] 		= $this->data['number1'] + $this->data['number2'];
+		
+		$sess_array = array(
+			'correctsum' => $this->data['sum']
+		);
+		$this->session->set_userdata($sess_array);
+		
+		$this->data["nation_list"] 	= $this->sitemodel->get_nationality();
+		$this->data["country_list"] = $this->sitemodel->get_country();
+		$this->data["edu_list"] 	= $this->sitemodel->get_edu();
+		$this->data["funarea_list"] = $this->sitemodel->get_farea();
+		$this->data["ind_list"] 	= $this->sitemodel->get_industry();
+		
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/candidate-menu',$this->data);
+		$this->load->view('postcv',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Handle upload Function
+	 *
+	 * return boolean
+	 */
+	function handle_upload()
+	{
+		if (isset($_FILES['image']) && !empty($_FILES['image']['name'])) {
+		  if ($this->upload->do_upload('image')) {
+			// set a $_POST value for 'image' that we can use later
+			$upload_data    = $this->upload->data();
+			$_POST['image'] = $upload_data['file_name'];
+			return true;
+		  } else {
+			// possibly do some clean up ... then throw an error
+			$this->form_validation->set_message('handle_upload', $this->upload->display_errors());
+			return false;
+		  }
+		} else {
+		  // throw an error because nothing was uploaded
+		  $this->form_validation->set_message('handle_upload', "You must upload an image!");
+		  return false;
+		}
+	}
+	
+	/* Name Check Function
+	 * @param string $str
+	 * return boolean
+	 */
+	public function name_check($str)
+	{
+		if ($str == 'test' || $str == 'Test') {
+			$this->form_validation->set_message('name_check', 'The %s field can not be the word "test"');
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
+	
+	/* Password Check Function
+	 * @param string $pwd
+	 * return boolean
+	 */
+	public function pwd_check($pwd)
+	{
+		$error = "";
+		if( strlen($pwd) < 8 ) {
+			$error .= "Password should be minimum 8 characters in length.<br>";
+		}		
+		
+		if( !preg_match("#[0-9]+#", $pwd) ) {
+			$error .= "Password should be containing minimum one number!<br>";
+		}		
+		
+		if( !preg_match("#[a-z]+#", $pwd) ) {
+			$error .= "Password should be containing minimum one letter!<br>";
+		}		
+		
+		if( !preg_match("#[A-Z]+#", $pwd) ) {
+			$error .= "Password should be containing minimum one uppercase letter!<br>";
+		}
+		
+		if ($error) {
+			$error = rtrim($error,'<br>');
+			$this->form_validation->set_message('pwd_check', 'Password should be minimum 8 characters in length containing one uppercase letter and one digit');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+
+	}
+
+	/* Password Valid Check Function
+	 *
+	 * return int
+	 */
+	public function pwd_valid_check()
+	{
+		$pwd  = $this->input->post('pwd');
+		$error = "";
+		if( strlen($pwd) < 8 ) {
+			$error .= "Password should be minimum 8 characters in length.<br>";
+		}		
+		
+		if( !preg_match("#[0-9]+#", $pwd) ) {
+			$error .= "Password should be containing minimum one number!<br>";
+		}		
+		
+		if( !preg_match("#[a-z]+#", $pwd) ) {
+			$error .= "Password should be containing minimum one letter!<br>";
+		}		
+		
+		if( !preg_match("#[A-Z]+#", $pwd) ) {
+			$error .= "Password should be containing minimum one uppercase letter!<br>";
+		}
+		
+		if ($error) {
+			echo 0; //False
+		} else {
+			echo 1; //True
+		}
+	}
+	
+	/* Email Vaild Ajax Function
+	 *
+	 * return int
+	 */
+	public function email_valid_ajax()
+	{
+		$email = $this->input->post('email');		
+		$result = $this->sitemodel->valid_candidate_email($email);	 
+		if ($result == 0) {
+			echo 0;//email is unique. not signed up before
+		} else {
+			echo 1;
+		}
+	}
+	
+	/* CV Send mail Function
+	 * @param int $cid
+	 * @param string $cvpath
+	 * return int
+	 */
+	function cvsendmail($cid=null, $cvpath=null)
+	{
+		$result = $this->sitemodel->get_candidate($cid);
+		
+		$to 		= 'cv@cherryhire.com';
+		$from 		= 'postmaster@mailer.cherryhire.com';
+		
+		$FName 		= $result['can_fname'];
+		$LName 		= $result['can_lname'];
+		$ContactNo 	= $result['can_ccode'].'-'.$result['can_phone'];
+		$RegEmail 	= $result['can_email'];
+		$DOB 		= date('d-m-Y', strtotime($result['can_dob']));
+		$Gender 	= $result['can_gender'];
+		$Edu 		= $result['edu_name'];
+		$Nation 	= $result['co_nationality'];
+		$TotExp 	= $result['can_experience'];
+		$CEmployer 	= $result['can_curr_company'];
+		$CurrLoc 	= $result['can_curr_loc'];
+		$FunArea 	= $result['fun_name'];
+		$JobAlert 	= $result['can_alert'];
+		//Subject
+		$subject 	= 'Resume from Cherry Hire Admin -'.$FName.' '.$LName;
+		
+		if ($JobAlert == 1) {
+			$AlertJob = 'Yes';
+		} else {
+			$AlertJob = 'No';
+		}
+		//Resume path
+		$Resumewebpath = base_url().'resume/'. basename($cvpath);
+		//Mail body
+		$message = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+					<html>
+					<head>
+					  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+					  <title>Cherry Hire</title>
+					</head>
+					<body>
+					<div style="width: 640px; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+					  
+					  <p>Dear Team, </p>
+					  <p><strong>CV posting From Cherry Hire Website</strong></p>
+					  <div align="left">
+					  <table width="100%" border="0" style="border:1px solid #000; line-height:35px;">
+						  <tr>
+							<td width="20%"  style="border:1px solid #000; background:#CCC;"><strong>First Name :</strong></td>
+							<td width="24%" style="border:1px solid #000;"> '.$FName.'</td>
+							<td width="20%" style="border:1px solid #000; background:#CCC;"><strong>Last Name :</strong></td>
+							<td width="26%" style="border:1px solid #000;"> '.$LName.'</td>
+						  </tr>
+						  <tr>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Contact No : </strong></td>
+							<td style="border:1px solid #000;"> '.$ContactNo.'</td>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Email Id : </strong></td>
+							<td style="border:1px solid #000;"> '.$RegEmail.'</td>
+						  </tr>
+						  <tr>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Date of Birth : </strong></td>
+							<td style="border:1px solid #000;"> '.$DOB.'</td>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Gender : </strong></td>
+							<td style="border:1px solid #000;"> '.$Gender.'</td>
+						  </tr>
+						  <tr>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Educational Qualification : </strong></td>
+							<td style="border:1px solid #000;"> '.$Edu.'</td>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Nationality : </strong></td>
+							<td style="border:1px solid #000;"> '.$Nation.'</td>
+						  </tr>
+						  <tr>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Total Experience : </strong></td>
+							<td style="border:1px solid #000;">  '.$TotExp.' year(s)</td>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Current Employer : </strong></td>
+							<td style="border:1px solid #000;"> '.$CEmployer.'</td>
+						  </tr>
+						  <tr>
+						    <td style="border:1px solid #000; background:#CCC;"><strong>Current Location :</strong></td>
+						    <td style="border:1px solid #000;">'.$CurrLoc.'</td>
+						    <td style="border:1px solid #000; background:#CCC;"><strong>Functional Area : </strong></td>
+						    <td style="border:1px solid #000;">'.$FunArea.'</td>
+  						  </tr>
+						  <tr>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Job Alert : </strong></td>
+							<td colspan="3" style="border:1px solid #000;"> '.$AlertJob.'</td>
+						  </tr>
+						  <tr>
+							<td style="border:1px solid #000; background:#CCC;"><strong>Resume Link</strong></td>
+							<td colspan="3" style="border:1px solid #000;"> <a href="'.$Resumewebpath.'" title="Download CV"><img src="'.base_url().'images/download_cv.png" alt="Download CV"></a></td>
+						  </tr>
+						</table>
+						</div>
+					  <p>-- </p>
+					  <p>Regards, <br> Webmaster - Cherry Hire</p>
+					</div>
+					</body>
+					</html>';
+		//Mail configurations
+//		$config['protocol'] 	= "mail";
+//		$config['smtp_crypto']	= "ssl"; 
+//		$config['smtp_host'] 	= "smtp.zoho.com";
+//		$config['smtp_user'] 	= "do-not-reply@cherryhire.com";
+//		$config['smtp_pass'] 	= "Chire@DNply";
+//		$config['smtp_port'] 	= "465"; //587
+//		$config['charset']		= "utf-8";
+//		$config['newline']		= "\r\n";
+//		$config['crlf'] 		= "\r\n";
+//		$config['mailtype'] 	= 'html';
+                
+                
+                
+$config['protocol'] = 'mail';
+$config['smtp_host'] = 'smtp.mailgun.org';
+$config['smtp_port'] = '465';//25
+$config['smtp_user'] = 'postmaster@mailer.cherryhire.com';
+$config['smtp_pass'] = '22791f6b72fae68475e40fe33280b63e-a5d1a068-9e7535ca';
+$config['charset'] = 'utf-8';
+$config['newline'] = "\r\n";
+$config['mailtype'] = 'html';
+$config['crlf'] 		= "\r\n";
+$config['smtp_crypto']	= "ssl"; 
+
+		
+		$this->email->initialize($config);		
+		$this->email->clear(TRUE);
+		$this->email->set_newline("\r\n");
+		$this->email->from($from, 'Webmaster');
+		$this->email->to($to);
+		//$this->email->bcc('sreejith.g@ipfhr.com'); 
+		$this->email->cc('sreejith.g@ipfhr.com');
+		$this->email->bcc('anupama.balakrishnan8@gmail.com');
+		$this->email->subject($subject);
+		$this->email->message($message);
+		$this->email->attach($cvpath); // attach file
+		//$this->email->attach('/path/to/file2.pdf');
+		if ($this->email->send()) {
+			//"Mail Sent!";
+			return 1;
+		} else {
+			//"There is error in sending mail!";
+			return 0;
+		}
+	}
+	
+	/* Thankyou mail Function
+	 * @param int $cid
+	 * return int
+	 */
+	function cvthankumail($cid=null)
+	{
+		$result 	= $this->sitemodel->get_candidate($cid);
+		$subject 	= 'Welcome to Cherry Hire.com';
+		$from 		= 'postmaster@mailer.cherryhire.com';
+		
+		$FName 		= $result['can_fname'];
+		$LName 		= $result['can_lname'];
+		$RegEmail 	= $result['can_email'];
+		
+		$to 		= $RegEmail;	
+		//Mail body
+		$thanksmessage = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+							<html><head><title>Candidate_Register</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+								<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+								<table id="Table_01" width="642" height="933" border="0" cellpadding="0" cellspacing="0" align="center" style="background:#FFF; font-size:14px; font-family:Arial, Helvetica, sans-serif;">
+								    <tr>
+								        <td colspan="9" style="width:642px; height:30px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td rowspan="13" style="width:28px; height:903px; border-top:1px solid #CCC; border-left:1px solid #CCC; border-bottom:1px solid #CCC;">
+								        </td>
+								        <td colspan="7" style="width:585px; height:103px; border-top:1px solid #CCC;">
+								            <a href="http://www.staging.cherryhire.com" target="_blank"><img src="'.base_url().'emailtemplate/logohome.png" alt=""></a>
+								        </td>
+								        <td rowspan="13" style="width:29px; height:903px; border-top:1px solid #CCC; border-right:1px solid #CCC; border-bottom:1px solid #CCC;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td colspan="7" style="background:#AD1E24; width:585px; height:111px; vertical-align:middle; color:#FFF; padding:10px 0px 0px 30px; font-size:28px; font-weight:bold;">
+								            Welcome aboard
+								        </td>
+								    </tr>
+								    <tr>
+								        <td style="width:10px; height:10px; line-height:0px;" valign="top">
+								            <img src="'.base_url().'emailtemplate/Candidate_Register_06.png" alt="">
+								        </td>
+								        <td colspan="5" style="background:#F0EFEC; width:564px; height:10px; line-height:0px;">
+								        </td>
+								        <td style="width:11px; height:10px; line-height:0px;" valign="top">
+								            <img src="'.base_url().'emailtemplate/Candidate_Register_08.png" alt="">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td rowspan="9" style="background:#FFF; width:10px; height:643px;">
+								        </td>
+								        <td style="background:#F0EFEC; width:36px; height:122px;">
+								        </td>
+								        <td colspan="3" style="background:#F0EFEC; width:488px; height:122px; line-height:30px;">
+								            <p>Dear '.$FName.'</p>
+								            <p>Thank you for registering your profile with cherryhire.com. Give your job search a head start& get searched, noticed and contacted by top employers.</p>
+								        </td>
+								        <td style="background:#F0EFEC; width:40px; height:122px;">
+								        </td>
+								        <td rowspan="9" style="background:#FFF; width:11px; height:643px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td rowspan="4" style="background:#F0EFEC; width:36px; height:128px;">
+								        </td>
+								        <td colspan="3" style="background:#FFF; width:488px; height:36px; padding:0px 0px 0px 16px; font-weight:bold; line-height:30px;">
+								            <p>Your account details are</p>
+								        <td rowspan="4" style="background:#F0EFEC; width:36px; height:128px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td style="background:#FFF; width:55px; height:40px;">
+								            <img src="'.base_url().'emailtemplate/Candidate_Register_17.png" alt="">
+								        </td>
+								        <td style="background:#FFF; width:221px; height:40px; ">
+								            <table>
+								                <tr>
+								                    <td style="border:1px solid #CCC; padding:5px 5px 5px 5px; min-width:55px; font-size:12px;">'.$RegEmail.'</td>
+								                </tr>
+								            </table>
+								        </td>
+								        <td rowspan="2" style="background:#FFF; width:212px; height:82px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td style="background:#FFF; width:55px; height:42px;">
+								            <img src="'.base_url().'emailtemplate/Candidate_Register_20.png" alt="">
+								        </td>
+								        <td style="background:#FFF; width:221px; height:42px;">
+								            <a href="http://staging.cherryhire.com/candidate" target="_blank"><img src="'.base_url().'emailtemplate/Candidate_Register_21.png" alt="Login to account"></a>
+								        </td>
+								    </tr>
+								    <tr>
+								        <td colspan="3" style="background:#FFF; width:488px; height:10px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td style="background:#F0EFEC; width:36px; height:151px;">
+								        </td>
+								        <td colspan="3" style="background:#F0EFEC; width:488px; height:151px; padding:0px 0px 0px 10px; line-height:30px;">
+								            <p style="font-weight:bold;">To get noticed, we recommended you do the following:</p>
+								            <p>
+								                &bull; Update your profile regularly <br >
+								                &bull; Search and Apply to Jobs <br >
+								                &bull; Set Profile Privacy Settings
+								            </p>
+
+								        </td>
+								        <td style="background:#F0EFEC; width:40px; height:151px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td style="background:#F0EFEC; width:36px; height:82px;">
+								        </td>
+								        <td colspan="3" style="background:#F0EFEC; width:488px; height:82px; padding:0px 0px 0px 10px; line-height:30px;">
+								            For any queries send us an email at jobassist@cherryhire.com <br >
+								            Good Luck in your journey to find a great job!
+								        </td>
+								        <td style="background:#F0EFEC; width:40px; height:82px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td style="background:#F0EFEC; width:36px; height:104px;">
+								        </td>
+								        <td colspan="3" style="background:#F0EFEC; width:488px; height:104px; padding:0px 0px 0px 10px; line-height:21px; font-size:12px;">
+								            Regards, <br >
+								            Jacob Thomas <br >
+								            Co-Founder & CEO, Cherry Hire.com <br >
+								            www.cherryhire.com
+								        </td>
+								        <td style="background:#F0EFEC; width:40px; height:104px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td style="background:#F0EFEC; width:36px; height:56px;">
+								        </td>
+								        <td colspan="3" style="background:#F0EFEC; width:488px; height:56px; padding:0px 180px 0px 180px;">
+								            <a href="https://www.facebook.com/cherryhire" target="_blank"><img src="'.base_url().'emailtemplate/sicon1.png" alt=""></a>
+											<a href="https://twitter.com/cherry_hire" target="_blank"><img src="'.base_url().'emailtemplate/sicon2.png" alt=""></a>
+											<a href="https://www.linkedin.com/company/cherry-hire" target="_blank"><img src="'.base_url().'emailtemplate/sicon3.png" alt=""></a>
+											<a href="https://www.instagram.com/cherryhire/" target="_blank"><img src="'.base_url().'emailtemplate/sicon4.png" alt=""></a>
+								        </td>
+								        <td style="background:#F0EFEC; width:40px; height:56px;">
+								        </td>
+								    </tr>
+								    <tr>
+								        <td colspan="7"  style="width:585px; height:36px; border-bottom:1px solid #CCC;">
+								        </td>
+								    </tr>
+								</table></body></html>';
+		//Mail configuration						
+//		$config['protocol'] 	= "mail";
+//		$config['smtp_crypto']	= "ssl"; 
+//		$config['smtp_host'] 	= "smtp.zoho.com";
+//		$config['smtp_user'] 	= "do-not-reply@cherryhire.com";
+//		$config['smtp_pass'] 	= "Chire@DNply";
+//		$config['smtp_port'] 	= "465"; //587
+//		$config['charset']		= "utf-8";
+//		$config['newline']		= "\r\n";
+//		$config['crlf'] 		= "\r\n";
+//		$config['mailtype'] 	= 'html';
+		
+$config['protocol'] = 'mail';
+$config['smtp_host'] = 'smtp.mailgun.org';
+$config['smtp_port'] = '465'; //25
+$config['smtp_user'] = 'postmaster@mailer.cherryhire.com';
+$config['smtp_pass'] = '22791f6b72fae68475e40fe33280b63e-a5d1a068-9e7535ca';
+$config['charset'] = 'utf-8';
+$config['newline'] = "\r\n";
+$config['mailtype'] = 'html';
+$config['crlf'] 		= "\r\n";
+$config['smtp_crypto']	= "ssl"; 
+                
+                
+		$this->email->initialize($config);		
+		$this->email->clear(TRUE);
+		$this->email->set_newline("\r\n");
+		$this->email->from($from, 'Cherry Hire');
+		$this->email->to($to);
+		//$this->email->bcc('sreejith.g@ipfhr.com');
+		$this->email->subject($subject);
+		$this->email->message($thanksmessage);
+		if ($this->email->send()) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	/* Contact form mail Function
+	 * @param array $formdata
+	 * return int
+	 */
+	function contact_sendmail($formdata=null)
+	{
+		$subject 	= 'Enquiry from Cherry Hire Website';		
+		$to 		= 'info@cherryhire.com';
+		$from 		= 'do-not-reply@cherryhire.com';
+		
+		$cemail = $formdata['cemail'];
+		$cname 	= $formdata['cname'];
+		$cphone = $formdata['cphone'];
+		$cmsg 	= $formdata['cmsg'];
+		
+		$message = "<html><head><title>Enquiry with Cherry Hire</title></head><body>";
+		$message = $message."<p><strong>Enquiry from Cherry Hire Website </strong> </p>";
+		$message = $message."<br><p> Hi Team, </p>";
+		$message = $message."<p> Please see the Details listed below </p>";
+		$message = $message."<br><p> Name :".$cemail.' </p>';
+		$message = $message."<p> Email Id :".$cname.' </p>';
+		$message = $message."<p> Contact No :".$cphone.' </p>';
+		$message = $message."<p> Message :".$cmsg.' </p>';
+		$message = $message."<p><br> Regards, ";
+		$message = $message." <br> Webmaster - Cherry Hire </p>";
+		$message = $message."</body></html></html>";
+		
+		//Mail configuration
+		$config['protocol'] 	= "mail";
+		$config['smtp_crypto']	= "ssl"; 
+		$config['smtp_host'] 	= "smtp.zoho.com";
+		$config['smtp_user'] 	= "do-not-reply@cherryhire.com";
+		$config['smtp_pass'] 	= "Chire@DNply";
+		$config['smtp_port'] 	= "465"; //587
+		$config['charset']		= "utf-8";
+		$config['newline']		= "\r\n";
+		$config['crlf'] 		= "\r\n";
+		$config['mailtype'] 	= 'html';
+		
+		$this->email->initialize($config);		
+		$this->email->clear(TRUE);
+		$this->email->set_newline("\r\n");
+		$this->email->from($from, 'Webmaster');
+		$this->email->to($to);
+		$this->email->subject($subject);
+		$this->email->message($message);
+		if ($this->email->send()) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	/* Contact Thankyou mail Function
+	 * @param sting $name
+	 * @param sting $emailid
+	 * return int
+	 */
+	function contact_thankumail($name=null, $emailid=null)
+	{
+		$subject 	= 'Greetings from Cherry Hire';		
+		$from 		= 'do-not-reply@cherryhire.com';		
+		$FName 		= $name;		
+		$to 		= $emailid;
+		
+		//Mail Body
+		$thanksmessage = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+								<html><head><title>Cherry Hire</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+								<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+								<table id="Table_01" width="596" height="507" border="0" cellpadding="0" cellspacing="0" align="center" style="background:#ececec; font-size:14px; font-family:Arial, Helvetica, sans-serif;">
+									<tr>
+										<td rowspan="7" style="width:5px; height:507px;"> </td>
+										<td colspan="7" style="width:585px; height:82px; background:#ececec;">
+											<a href="http://www.staging.cherryhire.com" target="_blank"><img src="'.$this->config->base_url().'emailtemplate/logohome.png" alt=""></a>
+										</td>
+										<td rowspan="7" style="width:6px; height:507px;"> </td>
+									</tr>
+									<tr>
+										<td colspan="7" style="background:#AD1E24; width:585px; height:110px; vertical-align:middle; color:#FFF; padding:10px 40px 0px 40px; font-size:40px; font-weight:bold;" valign="middle">
+											Greetings from <span style="color:#FC0">Cherry Hire.com</span>
+										</td>
+									</tr>
+									<tr>
+										<td><img src="'.$this->config->base_url().'emailtemplate/Cherry-Hire_Register_05.jpg" width="10" height="10" alt=""></td>
+										<td colspan="5" style="width:564px; height:10px;background:#FFF; "> </td>
+										<td><img src="'.$this->config->base_url().'emailtemplate/Cherry-Hire_Register_07.jpg" width="11" height="10" alt=""></td>
+									</tr>
+									<tr>
+										<td rowspan="3" style="width:10px; height:260px;"> </td>
+										<td colspan="5" style="width:564px; height:24px;background:#FFF; "></td>
+										<td rowspan="3" style="width:11px; height:260px;"> </td>
+									</tr>
+									<tr>
+										<td rowspan="2" style="width:27px; height:236px;background:#FFF; "> </td>
+										<td colspan="3" style="width:492px; height:93px;background:#FFF; line-height:30px;">
+										<p>Dear '.$FName.'</p>
+								
+										<p>Thank you for interesting with Cherry Hire. We are currently processing it for you and will contact you shortly.</p>
+										
+										</td>
+										<td rowspan="2" style="width:45px; height:236px;background:#FFF; "> </td>
+									</tr>
+									<tr>
+										<td colspan="3" style="width:492px; height:143px;background:#FFF; padding:0px 0px 0px 10px; line-height:21px; font-size:12px; ">
+											Regards, <br >
+											Jacob Thomas <br >
+											Co-Founder & CEO, Cherry Hire.com <br >
+											www.cherryhire.com        
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" style="width:37px; height:45px; background:#ececec;"></td>
+										<td style="width:193px; height:45px; background:#ececec;"></td>
+										<td style="width:119px; height:45px; background:#ececec;">
+											<a href="https://www.facebook.com/cherryhire" target="_blank"><img src="'.$this->config->base_url().'emailtemplate/sicon1.png" alt=""></a>
+											<a href="https://twitter.com/cherry_hire" target="_blank"><img src="'.$this->config->base_url().'emailtemplate/sicon2.png" alt=""></a>
+											<a href="https://www.linkedin.com/company/cherry-hire" target="_blank"><img src="'.$this->config->base_url().'emailtemplate/sicon3.png" alt=""></a>
+											<a href="https://www.instagram.com/cherryhire/" target="_blank"><img src="'.$this->config->base_url().'emailtemplate/sicon4.png" alt=""></a>
+										</td>
+										<td style="width:180px; height:45px; background:#ececec;"></td>
+										<td colspan="2" style="width:56px; height:45px; background:#ececec;"></td>
+									</tr>
+								</table>
+								</body></html>';
+		//Mail configuration
+		$config['protocol'] 	= "mail";
+		$config['smtp_crypto']	= "ssl"; 
+		$config['smtp_host'] 	= "smtp.zoho.com";
+		$config['smtp_user'] 	= "do-not-reply@cherryhire.com";
+		$config['smtp_pass'] 	= "Chire@DNply";
+		$config['smtp_port'] 	= "465"; //587
+		$config['charset']		= "utf-8";
+		$config['newline']		= "\r\n";
+		$config['crlf'] 		= "\r\n";
+		$config['mailtype'] 	= 'html';
+		
+		$this->email->initialize($config);		
+		$this->email->clear(TRUE);
+		$this->email->set_newline("\r\n");
+		$this->email->from($from, 'Cherry Hire');
+		$this->email->to($to);
+		$this->email->subject($subject);
+		$this->email->message($thanksmessage);
+		if ($this->email->send()) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	/* 404 page Function
+	 * 
+	 * return void
+	 */
+	public function notfound()
+	{
+		$this->data['message'] 	= '';
+		$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['mid'] 		= 0;
+		$this->load->view('common/header',$this->data);
+		$this->load->view('common/home-menu',$this->data);
+		$this->load->view('404',$this->data);
+		$this->load->view('common/footer',$this->data);
+	}
+	
+	/* Cache clear Function
+	 * 
+	 * return void
+	 */
+	function clear_cache()
+    {
+        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0");
+        $this->output->set_header("Pragma: no-cache");
+    }
+	
+	/* Sync profile to HW Function
+	 * @param int $cid
+	 * return array
+	 */
+    public function publish_hire($cid=null)
+    {
+    	$this->sitemodel->publish_hire_req($cid);
+    }
+}
+
+/* End of file Site.php */
+/* Location: ./application/controllers/Site.php */
