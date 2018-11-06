@@ -586,10 +586,12 @@ class Site extends CI_Controller {
 		);
 		$this->session->set_userdata($sess_array);
 		
-		$this->load->view('common/header',$this->data);
-		$this->load->view('common/home-menu',$this->data);
-		$this->load->view('contact',$this->data);
-		$this->load->view('common/footer',$this->data);
+		// $this->load->view('common/header',$this->data);
+		// $this->load->view('common/home-menu',$this->data);
+		// $this->load->view('contact',$this->data);
+		// $this->load->view('common/footer',$this->data);
+		$this->load->view('new/contact', $this->data);
+		
 	}
 	
 	/* Candidate Reg function
