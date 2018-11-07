@@ -13,10 +13,19 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+		/** Counts */
 		$data['contCandidate'] = $this->dashboardModel->getCandidate(); 
-		exit;
-		$this->load->view('Dashboard/dashboard');
-		
+		$data['employers']     = $this->dashboardModel->getEmployers(); 
+		$data['jobscont']      = $this->dashboardModel->countofJobs(); 
+
+		/** aprovels */
+		$data['alempr']     	= $this->dashboardModel->allempr();
+		$data['pempr'] 			= $this->dashboardModel->pempr();
+		$data['pcand'] 			= $this->dashboardModel->pcand();
+		$data['acand']     		= $this->dashboardModel->acand();
+
+
+		$this->load->view('Dashboard/dashboard',$data);
 	}
 	
 	function clear_cache()

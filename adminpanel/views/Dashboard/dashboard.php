@@ -37,7 +37,7 @@
                                        <div class="round amber accent-4"><i class="fas fa-user-alt  white-text"></i></div>
                                     </div>
                                     <div class="col l9 m9 s9">
-                                       <p class="h5-para1 black-text m0">128 <i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
+                                       <p class="h5-para1 black-text m0"><?php echo $contCandidate ?>  <i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
                                        <p class="para-p1 grey-text m0">New Candidates(+7)</p>
                                     </div>
                                  </div>
@@ -50,7 +50,7 @@
                                        <div class="round deep-purple lighten-1"><i class="fas fa-users   white-text"></i></div>
                                     </div>
                                     <div class="col l9 m9 s9">
-                                       <p class="h5-para1 black-text m0">35 <i class="fas fa-chevron-circle-down red-text down-aro"></i></p>
+                                       <p class="h5-para1 black-text m0"><?php echo count($employers) ?><i class="fas fa-chevron-circle-down red-text down-aro"></i></p>
                                        <p class="para-p1 grey-text m0">New Employeers(-5)</p>
                                     </div>
                                  </div>
@@ -63,7 +63,7 @@
                                        <div class="round light-green accent-4"><i class="fas fa-briefcase  white-text"></i></div>
                                     </div>
                                     <div class="col l9 m9 s9">
-                                       <p class="h5-para1 black-text m0">1340 <i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
+                                       <p class="h5-para1 black-text m0"><?php echo $jobscont ?> <i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
                                        <p class="para-p1 grey-text m0">Total Jobs(+25)</p>
                                     </div>
                                  </div>
@@ -112,6 +112,13 @@
                               </div>
                            </div>
                            <div class="col m4 s12 l4">
+                           <?php
+                                $actviEmp   = $employers;
+                                $pendingEmp = $pempr;
+                                $totalEmp   = count($alempr);
+                                $perPen     = $pempr * 100 / $totalEmp;
+                                $perAct     = $actviEmp * 100 / $totalEmp;
+                           ?>
                               <div class="bar-line white">
                                  <p class="h5-para-p1 ">Pending Employeer Approval</p>
                                  <div class="row m0">
@@ -119,13 +126,13 @@
                                        <div class="list-height">
                                           <div class="progress-bar-set">
                                              <div class="title-bar">
-                                                <span>Approve</span>
+                                                <span>Active</span>
                                              </div>
                                              <div class="progress progress-app ">
-                                                <span class="determinate deter1" style="width: 70%"></span>
+                                                <span class="determinate deter1" style="width: <?php echo $perAct ?>%"></span>
                                              </div>
                                              <div class="">
-                                                <span>100</span>
+                                                <span><?php echo count($employers) ?></span>
                                              </div>
                                           </div>
 
@@ -134,10 +141,10 @@
                                                 <span>Pending</span>
                                              </div>
                                              <div class="progress progress-app ">
-                                                <span class="determinate deter2" style="width: 30%"></span>
+                                                <span class="determinate deter2" style="width: <?php echo $perPen ?>%"></span>
                                              </div>
                                              <div class="">
-                                                <span>34</span>
+                                                <span><?php echo $pempr ?></span>
                                              </div>
                                           </div>
 
@@ -149,7 +156,7 @@
                                                 <span class="determinate deter3" style="width: 100%"></span>
                                              </div>
                                              <div class="">
-                                                <span>103</span>
+                                                <span><?php echo $totalEmp ?></span>
                                              </div>
                                           </div>
                                        </div>
@@ -157,6 +164,13 @@
                                  </div>
                               </div>
                               <br>
+                              <?php
+                                $acand = $contCandidate;
+                                $pcand = $pcand;
+                                $tcand = $acand;
+                                $perPenc  = $pcand * 100 / $tcand;
+                                $perActc   = $acand * 100 / $tcand;
+                              ?>
                               <div class="bar-line white">
                                  <p class="h5-para-p1 ">Candidate Search</p>
                                  <div class="row m0" >
@@ -168,10 +182,10 @@
                                                 <span>Active</span>
                                              </div>
                                              <div class="progress progress-app ">
-                                                <span class="determinate deter1" style="width: 70%"></span>
+                                                <span class="determinate deter1" style="width: <?php echo $perActc ?>%"></span>
                                              </div>
                                              <div class="">
-                                                <span>150</span>
+                                                <span><?php echo $acand ?></span>
                                              </div>
                                           </div>
 
@@ -180,10 +194,10 @@
                                                 <span>Pending</span>
                                              </div>
                                              <div class="progress progress-app ">
-                                                <span class="determinate deter2" style="width: 30%"></span>
+                                                <span class="determinate deter2" style="width: <?php echo $perPenc ?>%"></span>
                                              </div>
                                              <div class="">
-                                                <span>50</span>
+                                                <span><?php echo $pcand ?></span>
                                              </div>
                                           </div>
 
@@ -195,7 +209,7 @@
                                                 <span class="determinate deter3" style="width: 100%"></span>
                                              </div>
                                              <div class="">
-                                                <span>200</span>
+                                                <span><?php echo $tcand ?></span>
                                              </div>
                                           </div>
                                        </div>
@@ -212,115 +226,38 @@
                            <div class="col l12 m12 s12">
                               <div class="">
                                  <p class="h5-para-p2">Manage Employees</p>
-                                 <table id="table-short" class="responsive-table tab-time">
+                                <table id="table-short" class="responsive-table tab-time">
                                     <thead>
                                        <tr class="tt">
-                                          <th id="a" class="h5-para-p2">Company Name</th>
-                                          <th id="b" class="h5-para-p2">Company Person</th>
-                                          <th id="c" class="h5-para-p2">Contact No</th>
+                                          <th id="a" class="h5-para-p2" width="130px">Company Name</th>
+                                          <th id="b" class="h5-para-p2" width="100px">Company Person</th>
+                                          <th id="c" class="h5-para-p2" width="120px">Contact No</th>
                                           <th id="d" class="h5-para-p2">Email ID</th>
-                                          <th id="e" class="h5-para-p2">Reg Date</th>
-                                          <th id="f" class="h5-para-p2">Status</th>
-                                          <th id="g" class="h5-para-p2">Action</th>
+                                          <th id="e" class="h5-para-p2" width="100px">Reg Date</th>
+                                          <th id="f" class="h5-para-p2" width="100px">Status</th>
+                                          <th id="g" class="h5-para-p2" width="62px">Action</th>
                                        </tr>
                                     </thead>
-                                    <tbody>
+                                    <?php foreach ($alempr as $key => $value) { ?>
                                        <tr>
-                                          <td >Abc Pvt Ltd</td>
-                                          <td >John Mark</td>
-                                          <td >987878980</td>
-                                          <td >john@gmail.com</td>
-                                          <td >2-3-2018</td>
-                                          <td class="red-text">Remove</td>
+                                          <td ><?php echo $value->emp_comp_name ?></td>
+                                          <td ><?php echo $value->emp_fname.' '. $value->emp_lname ?></td>
+                                          <td ><?php echo '+'.$value->emp_ccode .' '. $value->emp_phone ?></td>
+                                          <td ><?php echo $value->emp_email ?></td>
+                                          <td ><?php echo $value->emp_reg_date ?></td>
+                                          <td>
+                                            <?php 
+                                                if($value->emp_status == 1){ echo "<span class='green-text'>Active</span>"; } 
+                                                if($value->emp_status == 0){ echo "<span class='red-text'>Pending</span>"; } 
+                                                if($value->emp_status == 2){ echo "<span class='Red-text'>Remove</span>"; } 
+                                            ?>
+                                          </td>
                                           <td class="para-sub">
-                                             <a href=""><i class="fas fa-pen yellow-text"></i></a>
-                                             <a href=""><i class="far fa-trash-alt grey-text"></i></a>
+                                             <a href=""><i class="fas fa-pen blue-text  darken-4"></i></a>
+                                             <a href=""><i class="far fa-trash-alt red-text"></i></a>
                                           </td>
                                        </tr>
-                                       <tr>
-                                          <td >Abc Pvt Ltd</td>
-                                          <td >John Mark</td>
-                                          <td >987878980</td>
-                                          <td >john@gmail.com</td>
-                                          <td >2-3-2018</td>
-                                          <td class="para-sub green-text">Approve</td>
-                                          <td class="para-sub">
-                                             <a href=""><i class="fas fa-pen yellow-text"></i></a>
-                                             <a href=""><i class="far fa-trash-alt grey-text"></i></a>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td >Abc Pvt Ltd</td>
-                                          <td >John Mark</td>
-                                          <td >987878980</td>
-                                          <td >john@gmail.com</td>
-                                          <td >2-3-2018</td>
-                                          <td class="para-sub green-text">Approve</td>
-                                          <td class="para-sub">
-                                             <a href=""><i class="fas fa-pen yellow-text"></i></a>
-                                             <a href=""><i class="far fa-trash-alt grey-text"></i></a>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td >Abc Pvt Ltd</td>
-                                          <td >John Mark</td>
-                                          <td >987878980</td>
-                                          <td >john@gmail.com</td>
-                                          <td >2-3-2018</td>
-                                          <td class="para-sub green-text">Approve</td>
-                                          <td class="para-sub">
-                                             <a href=""><i class="fas fa-pen yellow-text"></i></a>
-                                             <a href=""><i class="far fa-trash-alt grey-text"></i></a>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td >Abc Pvt Ltd</td>
-                                          <td >John Mark</td>
-                                          <td >987878980</td>
-                                          <td >john@gmail.com</td>
-                                          <td >2-3-2018</td>
-                                          <td class="para-sub red-text">Remove</td>
-                                          <td class="para-sub">
-                                             <a href=""><i class="fas fa-pen yellow-text"></i></a>
-                                             <a href=""><i class="far fa-trash-alt grey-text"></i></a>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td >Abc Pvt Ltd</td>
-                                          <td >John Mark</td>
-                                          <td >987878980</td>
-                                          <td >john@gmail.com</td>
-                                          <td >2-3-2018</td>
-                                          <td class="para-sub red-text">Remove</td>
-                                          <td class="para-sub">
-                                             <a href=""><i class="fas fa-pen yellow-text"></i></a>
-                                             <a href=""><i class="far fa-trash-alt grey-text"></i></a>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td >Abc Pvt Ltd</td>
-                                          <td >John Mark</td>
-                                          <td >987878980</td>
-                                          <td >john@gmail.com</td>
-                                          <td >2-3-2018</td>
-                                          <td class="para-sub red-text">Remove</td>
-                                          <td class="para-sub">
-                                             <a href=""><i class="fas fa-pen yellow-text"></i></a>
-                                             <a href=""><i class="far fa-trash-alt grey-text"></i></a>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td >Abc Pvt Ltd</td>
-                                          <td >John Mark</td>
-                                          <td >987878980</td>
-                                          <td >john@gmail.com</td>
-                                          <td >2-3-2018</td>
-                                          <td class="para-sub green-text">Approve</td>
-                                          <td class="para-sub">
-                                             <a href=""><i class="fas fa-pen yellow-text"></i></a>
-                                             <a href=""><i class="far fa-trash-alt grey-text"></i></a>
-                                          </td>
-                                       </tr>
+                                    <?php } ?>   
                                     </tbody>
                                  </table>
                               </div>
@@ -386,9 +323,7 @@
             text: 'New Registration',
             position:'top'
         }
-      }
-
-         
+      }   
       });
 </script>
    </body>
