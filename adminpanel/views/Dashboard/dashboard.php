@@ -219,6 +219,7 @@
                            </div>
                         </div>
                      </div>
+
                      <!-- chart-table -->
                      <!-- shorting -->
                      <div class="shorting-table">

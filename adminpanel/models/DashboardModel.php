@@ -74,7 +74,17 @@ class dashboardModel extends CI_Model {
         $cout = $query->num_rows();
         return  $cout;
     }
-   
+    /**
+        * 1year employer data
+    */
+    public function newEmployee($wnf)
+    {
+        $now    = date("Y-m-d H:i:s");
+        $expire = date("Y-m-d H:i:s",strtotime($wnf)); 
+        $this->db->where('emp_reg_date <=', $now);        
+        $this->db->where('emp_reg_date >=', $expire);
+        return $query = $this->db->get('ch_employer')->result();
+    }
 
 
 
