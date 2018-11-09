@@ -91,20 +91,12 @@
                         <div class="row">
                            <div class="col l8 m12 s12">
                               <div class="chart-border">
-                                 <div class="row chart-postion">
-                                   
-                                   
-                                    <div class="col l4 m12 s12">
+                                 <div class="row">
+                                    <div class="col l12 m12 s12">
                                        <div class="m0 border-button">
-                                          <span class="mr-4">
-                                          <a class="waves-effect waves-light btn-day grey lighten-3">Day</a>
-                                          </span>
-                                          <span class="mr-4">
-                                          <a class="waves-effect waves-light btn-day">Month</a>
-                                          </span>
-                                          <span class="mr-4">
-                                          <a class="waves-effect waves-light btn-day">Year</a>
-                                          </span>
+                                            <a class="btn-flat waves-effect waves-light  btn-small">Day</a>
+                                            <a class="btn-flat waves-effect waves-light btn-small">Month</a>
+                                            <a class="btn-flat waves-effect waves-light active btn-small">Year</a>
                                        </div>
                                     </div>
                                  </div>
@@ -283,49 +275,61 @@
           $(function () {
              $("table").sortpaginate();
          });
-      var ctx = document.getElementById("myChart").getContext('2d');
-
-         var myChart = new Chart(ctx, {
-          type: 'line',
-         data: {
-              labels: ["mon", "tue", "wed", "thu", "fri", "sat","sun"],
-              datasets: [
-                    {
-                        label: 'New  Employer',
-                        data: [100, 50, 82, 4, 26, 37, 1],
-                        backgroundColor: "rgba(155,155,155,0.4)",
-                        borderColor:"rgba(155,155,155,1)",
-                        lineTension:0,
-                        borderWidth:2,
-                        
-                    },
-                    {
-                        label: 'New  Candidate',
-                        data: [5, 9, 13, 8, 1, 6, 12],
-                        backgroundColor: "rgba(126,87,194,0.4)",
-                        borderColor:"rgba(126,87,194,1)",
-                        lineTension:0,
-                        borderWidth:2,
-                        
+         var ctx = document.getElementById("myChart").getContext('2d');
+            $(document).ready(function(){
+                var lab = [];
+                var con = [];
+                var canCon = [];
+                $.ajax({
+                    url: '<?php echo base_url("Dashboard/newemployeeYear") ?>',
+                    method: 'GET',
+                    async: true,
+                    dataType: 'json',
+                    success: function (d) {
+                        for (let i = 0; i < d.length; i++) {
+                            lab.push(d[i].month);
+                            con.push(d[i].valeus);
+                            canCon.push(d[i].canval);
+                        }
+                        var myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: lab,
+                                datasets: [{
+                                    label: 'New  Employer',
+                                    data: con,
+                                    backgroundColor: "rgba(155,155,155,0.1)",
+                                    borderColor: "rgba(155,155,155,1)",
+                                    lineTension: 0.3,
+                                    borderWidth: 2,
+                                }, {
+                                    label: 'New  Candidate',
+                                    data: canCon,
+                                    backgroundColor: "rgba(126,87,194,0.1)",
+                                    borderColor: "rgba(126,87,194,1)",
+                                    lineTension: 0.3,
+                                    borderWidth: 2,
+                                }]
+                            },
+                            options: {
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontColor: 'rgb(158,158,158)',
+                                        fontSize: 12,
+                                        usePointStyle: true
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'New Registration',
+                                    position: 'top'
+                                }
+                            }
+                        });
                     }
-              ]
-         },
-      options: {
-         legend: {
-            display: true,
-            labels: {
-                fontColor: 'rgb(158,158,158)',
-                fontSize:12,
-                usePointStyle:true
-            }
-         },
-           title: {
-            display: true,
-            text: 'New Registration',
-            position:'top'
-        }
-      }   
-      });
-</script>
-   </body>
+                });
+            });
+    </script>
+</body>
 </html>

@@ -28,26 +28,17 @@ class Dashboard extends CI_Controller {
 		$this->load->view('Dashboard/dashboard',$data);
 	}
 	
-	function NewemployeeYear()
+	function newemployeeYear()
     {
-		$wnf = date('Y-m-d',strtotime(date('Y-01-01')));
-		$data['monts'] = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-		$employers = $this->dashboardModel->newEmployee($wnf);
+		$wnf 	= date('Y-m-d',strtotime(date('Y-01-01')));
+		$result  = $this->dashboardModel->newEmployee($wnf);
+		$cresult = $this->dashboardModel->newCandidates($wnf);
 		
-		
-		print_r ($employers);
-		
-		$data = 0;
-		foreach ($employers as $key => $value) {
-			// $mothry = date('m',strtotime($value->emp_reg_date));
-			// if( $mothry == 10){
-			// 	$data['10'] = $data['10'] + count($value->emp_reg_date);
-			// }
+		foreach ($result as $key => $value) {
+			$result[$key]['canval'] = $cresult[$key]['canval']; 
 		}
-		// echo $data10;
-
-		exit;
-
+		echo json_encode($result);
+		
     }
 }
 

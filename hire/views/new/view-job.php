@@ -33,8 +33,6 @@
 						<div class="appl-job-heading col m8 s8 l12 ">
 							<p class="black-text h5">My jobs </p>
 							<small><i><?php if($publish_count > 0) { echo ' Note : If you edit this job, it will not reflect the previous publications. You need to republish the job as a new posting.'; }
-							
-
 							?></i></small>
 						</div>
 
@@ -42,7 +40,6 @@
 					</div>
 					<div class="row m0">
 						<div class="col s12">
-						<?php echo $message; ?>
 						</div>
 					</div>
 					<div class="card">
@@ -58,23 +55,28 @@
 				        	<div class="col s12 l10 m8 ">
 				        		<div class="ptb15">
 					        		<h6 class="bold"><?php echo $formdata['jtitle']; ?></h6>
-					        		<ul class="job-card" style="overflow: hidden;">
+									<ul class="job-card" style="overflow: hidden;">
+									<?php if(!empty($formdata['hcompany'])) { ?>
 					        			<li>
 					        				<span class="back-icon"><i class="material-icons">card_travel</i></span>
-											<span></span>
-					        			</li>
+											<span><?php echo $formdata['hcompany']; ?></span>
+										</li>
+									<?php } if(!empty($formdata['location'])) { ?>
 					        			<li>
 					        				<span class="back-icon"><i class="material-icons">map</i></span>
-											<span>Bangalore</span>
-					        			</li>
+											<span><?php echo $formdata['location']; ?></span>
+										</li>
+									<?php } if(!empty($formdata['minexp'])) { ?>	
 					        			<li>
 					        				<span class="back-icon"><i class="material-icons">access_time</i></span>
-											<span>3 Years</span>
-					        			</li>
+											<span><?php echo $formdata['minexp'].'-'.$formdata['maxexp']; ?></span>
+										</li>
+									<?php } if(!empty($formdata['industry'])) { ?>
 					        			<li>
 					        				<span class="back-icon"><i class="material-icons">business</i></span>
-											<span>IT</span>
-					        			</li>
+											<span><?php echo $formdata['industry']; ?></span>
+										</li>
+										<?php } ?>
 					        		</ul>
 					        		
 				        		</div>

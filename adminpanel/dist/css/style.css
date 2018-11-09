@@ -92,9 +92,10 @@ padding-left: 8px;
 .list-height {line-height: 30px; } 
 .new-float {float: left; padding-right: 16px; }
 .chart-border {background: white; padding-top: 25px; padding-left: 10px; padding-right: 0px; border: 1px solid #ddd; }
-.border-button {border-radius: 3px; width: 93%; border-top: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
+.border-button{margin-right: 10px; border-radius: 3px; border: 1px solid #e0e0e0; display: inline-block; float: right; }
 .btn-day {padding: 8px 12px; color: black; border-left: 1px solid #e0e0e0; height: 36px; font-size: 13px; }
-
+.btn-flat.active{background-color: gray;color: #fff}
+.border-button .btn-flat{ margin: 0; border-radius: 0px; padding: 0 10px; }
 .mr-4{
 	margin-right: -4px;
 }
