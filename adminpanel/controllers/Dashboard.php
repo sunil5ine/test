@@ -13,6 +13,7 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+		$data['title'] = 'Dashboard';
 		/** Counts */
 		$data['contCandidate'] = $this->dashboardModel->getCandidate(); 
 		$data['employers']     = $this->dashboardModel->getEmployers(); 

@@ -25,8 +25,8 @@
 
         _$this.closest(".sp_wrapper")
                 .find(".sp_navigator")
-                .append("<span class='sp_paginate sp_previous'><a href='' class='left-left'>Page 1 of 20<a/><i class='far fa-caret-square-left arrow-icon blue-text'></span>")
-                .append("<span class='sp_paginate sp_next'><a href=''>Page 1 of 20</a><i  class='far fa-caret-square-right arrow-icon'> </i></span>");
+                .append("<span class='sp_paginate sp_previous'><a href='' class='left-left'><i class='far fa-caret-square-left arrow-icon blue-text'></span>")
+                .append("<span class='sp_paginate sp_next'><a href=''></a><i  class='far fa-caret-square-right arrow-icon'> </i></span>");
 
         function initTable() {
             $(_$this).find("tbody").attr("data-firstRecord", 0);

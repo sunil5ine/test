@@ -2,7 +2,7 @@
 <html>
 
    <head>
-      <title>Recurment Dashboard</title>
+      <title><?php echo $title ?></title>
       <meta charset="UTF-8">
       <meta name="description" content="Free Web tutorials">
       <meta name="keywords" content="HTML,CSS,XML,JavaScript">
@@ -91,7 +91,7 @@
                         <div class="row">
                            <div class="col l8 m12 s12">
                               <div class="chart-border">
-                                 <div class="row">
+                                 <!-- <div class="row">
                                     <div class="col l12 m12 s12">
                                        <div class="m0 border-button">
                                             <a class="btn-flat waves-effect waves-light  btn-small">Day</a>
@@ -99,7 +99,7 @@
                                             <a class="btn-flat waves-effect waves-light active btn-small">Year</a>
                                        </div>
                                     </div>
-                                 </div>
+                                 </div> -->
                                  <canvas id="myChart" width="100%" height="60"></canvas>
                               </div>
                            </div>
