@@ -13,14 +13,6 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .fab.fa-linkedin.fil:hover {color: green; }
 
 
-/*table*/
-/*.table-overflow{
-    width: 130% !important;
-    overflow-x: auto;
-}*/
-
-/*droup down*/
-
 #dropdown3 {display: none; width: 418px !important; left: 860.267px !important; top: 67px !important; height: 195px !important; transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
 #dropdown4 {display: none; width: 335px !important; left: 803.267px !important; top: 67px !important; height: 105px !important; transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
 #dropdown2 {display: none; width: 155px !important; left: 1054.267px !important; top: 67px !important; height: 105px !important; transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
