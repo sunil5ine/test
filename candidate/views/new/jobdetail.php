@@ -73,8 +73,10 @@
 				        	</div>
 				        	<div class="col s12 l4 m12 push-m4">
 				        		<div class="ptb30 btnboxs">
-				        			<?php if($formdata['job_applycount'] == 0) { ?>
-										<?php if($subsType == 1 || $this->data["postdisable"]!='') { ?> 
+									<?php 
+									
+									if($formdata['job_applycount'] == 0) { ?>
+										<?php if($applposible->csub_nojobs <= 0) { ?> 
                                 	 		<a href="<?php echo $this->config->base_url();?>Subscriptions" class="z-depth-0 btn brand waves-effect waves-light white-text btn-m"><i class="fa fa-arrow-circle-up left"></i> Upgrade Now!</a>
                                 		<?php } else{ ?>
 					        			<a href="<?php echo $this->config->base_url().'Jobs/ApplyJob/'.$formdata['job_url_id']; ?>" class="z-depth-0 btn brand waves-effect waves-light white-text btn-m">Apply Job</a>
@@ -132,8 +134,8 @@
 							<img src="https://dummyimage.com/600x400/878787/ffffff" class="responsive-img">
 						</div>
 						<div class="recet-jobs">
-							<h6>Recent jobs</h6>
-							<div class="recet-jobs-list">
+							<!-- <h6>Recent jobs</h6> -->
+							<!-- <div class="recet-jobs-list">
 								<h6>IT Project Manager at 5ine</h6>
 								<ul>
 									<li class="truncate">
@@ -200,10 +202,10 @@
 										<span>3 Years</span>
 						        	</li>
 								</ul>
-							</div>
+							</div>-->
 						</div>
 					</div>
-				</div>
+				</div> 
 			</div><!-- end job Detail -->
 	
 		</div>

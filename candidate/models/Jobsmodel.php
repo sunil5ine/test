@@ -1274,4 +1274,42 @@ class Jobsmodel extends CI_Model {
 		return $this->db->get('ch_can_savejobs')->row_array();
 	}
 
+	/**
+	 * Check the apply posiblity
+	 */
+	public function subscriptionPosible($jid)
+		{	
+			$this->db->where('can_id', $jid);
+			$this->db->where('csub_expire_dt >= ', date('Y-m-d h:i:s'));
+			$this->db->select_sum('csub_nojobs');
+			$query = $this->db->get('ch_can_subscribe')->row();
+			return 	$query;		 
+		}
+	
+	/**
+	* decreez id
+	*/
+	public function dcrjobs_count($user)
+	{
+		
+		$this->db->select_min('csub_expire_dt');
+		$this->db->where('can_id', $user);
+		$this->db->where('csub_nojobs > ', 0);
+		$this->db->where('csub_expire_dt >= ', date('Y-m-d h:i:s'));
+		$query = $this->db->get('ch_can_subscribe')->row();
+		$this->decreez($query);
+		return true;
+	}
+
+	/**
+	 * decreez value
+	 */
+	function decreez($query)
+	{
+		$this->db->where('csub_expire_dt', $query->csub_expire_dt);
+		$this->db->set('csub_nojobs', 'csub_nojobs-1', FALSE);
+		$this->db->update('ch_can_subscribe');
+		return true;
+	
+	}
 }

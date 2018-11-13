@@ -1713,7 +1713,66 @@ function sendPayentsuccess($subid)
 		}
 }
 
+function wiretransfe()
+{
+	if(!$this->session->userdata('hireid')) { redirect($this->config->base_url().'login'); } // Handling Session
+	$this->data['title'] 	= 'Cherry Hire App - Subscriptions';
+	$this->data['pagehead'] = 'Subscriptions';
+	$this->data['message'] = '';
+	$this->sent();
+	$this->load->view('new/wiretransfe', $this->data);
+	
+}
 
+function sent()
+{
+	$id = $this->session->userdata('hireid');
+	$candata = $this->subscriptionmodel->getmuser($id);
+	
+	$from = 'do-not-reply@cherryhire.com';
+	$to   = $candata['emp_email'];
+	$subject 	= 'Payment Success';
+	$message    = '
+	<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta http-equiv="X-UA-Compatible" content="ie=edge"> <title>Document</title> </head> <body>
+	<p>Thank you for selecting the job posting plan.<br> Please refer to your cart for the total amount due.<br> Request you to wire transfer the due amount to our bank account as per details shown. Your plan will be immediately activated on receipt of payment. </p>
+	<br>
+	<table class="m_3906602186747293702MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="0" style="width:470.0pt;border-collapse:collapse"><tbody><tr style="height:18.0pt"><td width="627" nowrap="" colspan="2" valign="bottom" style="width:470.0pt;border:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.0pt;background:#538ed5;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt"><p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:white">Bank Account Details-&nbsp;IPF consulting Bank details&nbsp;</span></b><u></u><u></u></p></td></tr><tr style="height:16.5pt"><td width="155" nowrap="" valign="bottom" style="width:116.6pt;border-top:none;border-left:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Beneficiary Name</span><u></u><u></u></p></td><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">IPF CONSULTING W.L.L</span><u></u><u></u></p></td></tr><tr style="height:16.5pt"><td width="155" nowrap="" valign="bottom" style="width:116.6pt;border-top:none;border-left:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Office Address</span><u></u><u></u></p></td><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">PO Box No 60705,,AL Seef ,Kingdom of Bahrain</span><u></u><u></u></p></td></tr><tr style="height:16.5pt"><td width="155" nowrap="" valign="bottom" style="width:116.6pt;border-top:none;border-left:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal" style="text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Bank Name</span><u></u><u></u></p></td><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">State Bank of India, Bahrain</span><u></u><u></u></p></td></tr><tr style="height:16.5pt"><td width="155" nowrap="" rowspan="2" style="width:116.6pt;border-top:none;border-left:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Bank Address</span><u></u><u></u></p></td><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Office No 707, Building No 705 (Diplomat City Tower)</span><u></u><u></u></p></td></tr><tr style="height:16.5pt"><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Diplomat Area, Manama, PO Box No 10763</span><u></u><u></u></p></td></tr><tr style="height:16.5pt"><td width="155" nowrap="" valign="bottom" style="width:116.6pt;border-top:none;border-left:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal" style="text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Account No</span><u></u><u></u></p></td><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">02700683020001</span><u></u><u></u></p></td></tr><tr style="height:16.5pt"><td width="155" nowrap="" valign="bottom" style="width:116.6pt;border-top:none;border-left:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal" style="text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Swift Code</span><u></u><u></u></p></td><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">SBINBHBMFCB</span><u></u><u></u></p></td></tr><tr style="height:16.5pt"><td width="155" nowrap="" valign="bottom" style="width:116.6pt;border-top:none;border-left:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal" style="text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">IBAN No</span><u></u><u></u></p></td><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.0pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.5pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">BH13SBIN02700683020001</span><u></u><u></u></p></td></tr><tr style="height:17.25pt"><td width="155" nowrap="" valign="bottom" style="width:116.6pt;border-top:none;border-left:solid #538ed5 1.5pt;border-bottom:solid #538ed5 1.5pt;border-right:solid #538ed5 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:17.25pt;background-size:initial"><p class="MsoNormal" style="text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Currency</span><u></u><u></u></p></td><td width="471" nowrap="" valign="bottom" style="width:353.4pt;border-top:none;border-left:none;border-bottom:solid #538ed5 1.5pt;border-right:solid #538ed5 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:17.25pt;background-size:initial"><p class="MsoNormal"><span style="font-size:11.0pt;font-family:&quot;Palatino Linotype&quot;,serif;color:red">Bahraini Dinar (BHD)</span><u></u><u></u></p></td></tr></tbody></table>
+	<br>
+	<p>Best regards.<br>
+	Cherryhire</p>
+
+	</body> </html>	';
+
+					$config = Array(
+                   'protocol' => 'mail',
+                   'smtp_host' => 'mail.cherryhire.com',
+                   'smtp_port' => 587,
+                   'smtp_user' => 'no-reply@cherryhire.com',
+                   'smtp_pass' => 'Chire@DNply',
+                   'mailtype'  => 'html', 
+                   'wordwrap'  =>true,
+                   'charset'   => 'utf-8'
+               );
+         $this->load->library('email'); 
+         $this->email->initialize($config);
+         $this->email->set_newline('\r\n'); 
+         // $this->email->clear(TRUE);
+   
+         $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
+         $this->email->to($to);
+         $this->email->cc('jitinajithk@gmail.com');
+         $this->email->subject('Payment success'); 
+         $this->email->message($message);
+
+		if ($this->email->send()) {
+			return 1;
+
+		} else {
+			return 0;
+		}
+	
+	
+}
 
 
 

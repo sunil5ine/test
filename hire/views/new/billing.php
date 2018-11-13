@@ -89,12 +89,14 @@
 						<div id="paypal-button" class="right">
 							<br>
 							<!-- <a href="https://www.cherryhire.com/candidate/Psychotest/buy?name=Management Aptitude Test&amp;amt=20"> -->
-								<a type="button" class="btn brand white-text hoverable waves-effect waves-lighten mr10 " value="Pay with Lightbox" style="margin-top: 8px" onclick="Checkout.showPaymentPage();" >Proceed to checkout</a>
-								
-							<button type="submit" class="btn-flat ">
+								<a type="button" class="btn brand white-text hoverable waves-effect waves-lighten  " value="Pay with Lightbox" style="margin-top: 8px" onclick="Checkout.showPaymentPage();" >Proceed to check out</a>
+								<span>or</span>
+							<button type="submit" class="btn-flat btn hoverable">
 								<img src="https://www.cherryhire.com/candidate/images/bye.png" style="max-width: 100%;width: 150px">
 							</button>
-							
+							<span>or</span>
+							<a type="button" href="<?php echo base_url('Subscription/wiretransfe') ?>" class="btn stbank white-text hoverable waves-effect waves-lighten  "  style="margin-top: 8px">Wire Transfer </a>
+								
 							<br>
 							
 							<!-- </a> -->

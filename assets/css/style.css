@@ -822,3 +822,8 @@ span.profile-pic .label a{display: block;}
 	.inner .btn.btn-large.rounded-6 { padding: 0 17px; height: 46px; line-height: 46px; }
 	.con-section{padding: 0px;margin-top: -6px}
 }
+#paypal-button button {background: #ffc439; margin-top: 6px}
+.stbank{background-color: #292075}
+#paypal-button button:hover { box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15); }
+.wrf-table { background: #038541; color: #fff; padding: 16px 0; }
+.wrf-table h6 { color: #fff; font-weight: 600; margin: 0; }

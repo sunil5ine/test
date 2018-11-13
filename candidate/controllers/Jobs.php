@@ -426,7 +426,7 @@ class Jobs extends CI_Controller {
 		if(empty($this->data['jdata'])) { redirect($this->config->base_url().'MyJobs/?Process=Update&upd=2&Stat=Failed'); }
 
 		
-
+		$this->data['applposible'] = $this->jobsmodel->subscriptionPosible($this->session->userdata('cand_chid'));
 		$this->data['formdata'] = array(
 
 			'jobid'=>$this->data['jdata']['job_id'],
@@ -502,17 +502,7 @@ class Jobs extends CI_Controller {
 		$this->data['title'] = 'Cherry Hire - Job - View Details';
 
 		$this->data['pagehead'] = 'View Details';
-
-
-
-
-		// $this->load->view('common/header_inner',$this->data);
-		// $this->load->view('common/leftmenu',$this->data);
-		// $this->load->view('common/topmenu',$this->data);
-		// $this->data['footer_nav']=$this->load->view('common/footerbar',$this->data,true);
-		// $this->load->view('jobs/viewjob',$this->data);
-		// $this->load->view('common/footer_inner',$this->data);
-
+		
 		$this->load->view('new/jobdetail',$this->data);
 	}
 
@@ -524,27 +514,31 @@ class Jobs extends CI_Controller {
 
 		if(!$this->session->userdata('cand_chid')) { redirect($this->config->base_url().'LoginProcess'); } // Handling Session
 
-		if($this->data["subsType"] == 1 || $this->data["postdisable"]!='') { redirect($this->config->base_url().'Subscriptions'); }
-
+		$applposible = $this->jobsmodel->subscriptionPosible($this->session->userdata('cand_chid'));
+		
+		if($applposible->csub_nojobs <= 0) { redirect($this->config->base_url().'Subscriptions'); }
+		
 		if($jid)
 
 		{
 
 			$JobResult = $this->jobsmodel->get_single_record($jid);
-
+			
+			
 			if(empty($JobResult)) { redirect($this->config->base_url().'MyJobs/?Process=Apply&app=2&Stat=Failed101'); }
 
 			$this->session->set_flashdata('jobtitle', $JobResult['job_title']);
 
 			$result = $this->jobsmodel->applyjob($JobResult['job_id']);
-
+			$this->jobsmodel->dcrjobs_count($this->session->userdata('cand_chid'));
+			
 			if($result == '0') { redirect($this->config->base_url().'MyJobs/?Process=Apply&app=2&Stat=Failed102'); }
 
 			$notify_result = $this->apply_notify($jid, $result);	
 
 			$this->applymail($this->session->userdata('cand_chid'), $jid, $JobResult['job_title']);
-
-			redirect($this->config->base_url().'MyJobs/?Process=Apply&app=1&Stat=Success');
+exit;
+			redirect($this->config->base_url().'applied-jobs/?Process=Apply&app=1&Stat=Success');
 
 		}
 
@@ -552,7 +546,7 @@ class Jobs extends CI_Controller {
 
 		{
 
-			redirect($this->config->base_url().'MyJobs/?Process=Apply&app=2&Stat=Failed103');
+			redirect($this->config->base_url().'applied-jobs/?Process=Apply&app=2&Stat=Failed103');
 
 		}
 
