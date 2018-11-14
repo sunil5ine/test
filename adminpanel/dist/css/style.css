@@ -166,3 +166,72 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .close-tost { cursor: pointer; } 
 .close-tost:hover { opacity: 0.5; } 
 .btn-small i { font-size: 13px; }
+.bold{font-weight: 600}
+.social-share-box-myjob li { float: left; font-size: 17px; text-align: center; padding-right: 20px; }
+.smal { font-size: 13px; line-height: 23px; }
+.pr-container { margin-bottom: 15px; }
+.border-r{border-right: 1px solid gray}
+.social-share-box-myjob li a{font-size: 14px}
+.mb10{margin-bottom: 10px !important}
+.mb15{margin-bottom: 15px !important}
+
+
+ /****************** Candidate Profile ********************/
+ .profile-detail{padding-bottom: 30px; }
+ .profile-detail .profile-content p{margin-bottom: 10px;font-size: 14px}
+ .tab-buttons .tabs1 .tab1 a{color: #393939;font-weight: 600}
+ .tab-buttons .tabs1 .tab1 a{color:#393939; outline-width: 0px;} 
+ .tab-buttons .tabs1 .tab1 a:hover {background-color:#eee; color:#393939; } 
+ .tab-buttons .tabs1 .tab1 a.active {color:#393939; } 
+ .tab-buttons .tabs1 .indicator {background-color:#393939; }
+ .tab-buttons .tabs1 {border-bottom: 0.5px solid #b1b1b166 !important; margin-bottom: 25px; }
+ .tab-buttons .tabs1  a{display: block; width: 100%;line-height:45px ;height: 100%; padding: 0 0px; font-size: 14px; text-overflow: ellipsis; overflow: hidden; -webkit-transition: color .28s ease, background-color .28s ease; transition: color .28s ease, background-color .28s ease;}
+ .pofile-details-table-card table tr{border: transparent;}
+ .tab-buttons .tabs1 .tab1  a:hover, .tabs1 .tab1  a.active {background-color: transparent; border-bottom: 2px solid green}
+ .pofile-details-table-card table tr th, .pofile-details-table-card table tr td{padding: 10px 5px; font-size: 13px;}
+ .pofile-details-table-card table tr th{font-weight: 600;}
+ .font25{font-size: 25px;}
+ .profile-box {overflow: hidden; }
+ .profile-box .profile-items {overflow: hidden; line-height: 16px; width: 50%; float: left; padding-right: 15px; margin-bottom: 22px; }
+ .profile-box .profile-items .profile-item-title{font-size: 13px; font-weight: 600; color: #2c2323;float: left;width: 50%;}
+ .profile-box .profile-items .profile-item-title i{width: 20px;}
+ .profile-box .profile-items .profile-item-content{float: left; font-size: 13px; padding-left: 15px; width: 50%;}
+ .profile-box .profile-items .profile-item-content span{}
+ .set-box .exp-items-box {overflow: hidden; padding: 10px 15px; box-shadow: 0px 0px 6px -1px; margin-bottom: 15px; border-radius: 4px; }
+ .set-box .exp-items-box .exp-items .exp-items-title i{width: 20px;}
+ .set-box .exp-items-box .exp-items .exp-items-title{font-size: 13px}
+ .set-box .exp-items-box .exp-items .exp-items-content{font-size: 13px}
+ .tab-buttons .tabs1 .tab1 {display: inline-block; text-align: center; line-height: 48px; height: 48px; padding: 0; margin: 0; text-transform: uppercase; }
+ .tab-buttons .tabs1 {position: relative; overflow-x: auto; overflow-y: hidden; height: 48px; width: 100%; background-color: #fff; margin: 0 auto; white-space: nowrap; }
+ 
+ @media (min-width: 601px) and (max-width: 992px) 
+ {
+ .appl-job-heading {padding-top: 20px !important; }
+ .profile-card {margin-bottom: -6px ;}
+ .profile-box .profile-items{overflow: hidden;line-height: 35px;width: 100%;float: none;padding-right: 15px;}
+ .set-box .exp-items-box .exp-items .exp-items-title {font-weight: 600; color: #443636; float: left; width: 50%; line-height: 31px; }
+ .set-box .exp-items-box .exp-items .exp-items-content {float: left; width: 50%; line-height: 31px;}
+ .pofile-details-table-card{margin-top: 15px}
+ 
+ }
+ 
+ @media (max-width: 600px) 
+ {
+ .profile-card {margin-bottom: -6px ;text-align: center}
+ .profile-box .profile-items{overflow: hidden;line-height: 22px;width: 100%;float: none;padding-right: 15px;margin-bottom: 15px;}
+ .profile-box .profile-items .profile-item-content{float: none; font-size: 13px; padding-left: 25px; width: 100%;}
+ .profile-box .profile-items .profile-item-title{font-size: 13px; font-weight: 600; color: #2c2323;float: none;width: 100%;}
+ .set-box .exp-items-box .exp-items .exp-items-title {font-weight: 600; color: #443636; float: left; width: 100%; line-height: 20px; }
+ .set-box .exp-items-box .exp-items .exp-items-content {float: left; width: 100%; line-height: 20px;margin-left: 24px;}
+ .set-box .exp-items-box .exp-items {overflow: hidden; padding: 7px 0px;}
+ .pofile-details-table-card{margin-top: 15px}
+ 
+ 
+ }
+
+.pofile-details-table-card table tr th, .pofile-details-table-card table tr td { padding: 10px 5px; font-size: 13px; } 
+.pofile-details-table-card table tr th { font-weight: 600; } 
+.w205 { width: 205px; } 
+.h6 { font-size: 18px; }
+.mr10{margin-right: 10px}
+.profile-box .profile-items .profile-item-content{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block}
