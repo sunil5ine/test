@@ -1731,7 +1731,7 @@ function sent()
 	
 	$from = 'do-not-reply@cherryhire.com';
 	$to   = $candata['emp_email'];
-	$subject 	= 'Payment Success';
+	$subject 	= 'Wire Transfer Account Details';
 	$message    = '
 	<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta http-equiv="X-UA-Compatible" content="ie=edge"> <title>Document</title> </head> <body>
 	<p>Thank you for selecting the job posting plan.<br> Please refer to your cart for the total amount due.<br> Request you to wire transfer the due amount to our bank account as per details shown. Your plan will be immediately activated on receipt of payment. </p>
@@ -1760,8 +1760,8 @@ function sent()
    
          $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
          $this->email->to($to);
-         $this->email->cc('jitinajithk@gmail.com');
-         $this->email->subject('Payment success'); 
+        //  $this->email->cc('jitinajithk@gmail.com');
+         $this->email->subject($subject); 
          $this->email->message($message);
 
 		if ($this->email->send()) {
