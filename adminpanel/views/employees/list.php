@@ -16,8 +16,7 @@
       <!-- headder -->
       <?php $this->load->view('include/header'); ?>
       <!-- end headder -->
-      <!-- first layout -->
-      
+     
       <section class="sec-top">
          <div class="container-wrap">
             <div class="col l12 m12 s12">

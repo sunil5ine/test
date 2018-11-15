@@ -50,7 +50,7 @@
                                        <div class="round deep-purple lighten-1"><i class="fas fa-users   white-text"></i></div>
                                     </div>
                                     <div class="col l9 m9 s9">
-                                       <p class="h5-para1 black-text m0"><?php echo count($employers) ?><i class="fas fa-chevron-circle-down red-text down-aro"></i></p>
+                                       <p class="h5-para1 black-text m0"><?php echo $employers ?><i class="fas fa-chevron-circle-down red-text down-aro"></i></p>
                                        <p class="para-p1 grey-text m0">New Employeers(-5)</p>
                                     </div>
                                  </div>
@@ -124,7 +124,7 @@
                                                 <span class="determinate deter1" style="width: <?php echo $perAct ?>%"></span>
                                              </div>
                                              <div class="">
-                                                <span><?php echo count($employers) ?></span>
+                                                <span><?php echo $employers ?></span>
                                              </div>
                                           </div>
 
@@ -164,7 +164,7 @@
                                 $perActc   = $acand * 100 / $tcand;
                               ?>
                               <div class="bar-line white">
-                                 <p class="h5-para-p1 ">Candidate Search</p>
+                                 <p class="h5-para-p1 ">Candidate </p>
                                  <div class="row m0" >
                                     <div class="col s12">
                                       
@@ -177,7 +177,7 @@
                                                 <span class="determinate deter1" style="width: <?php echo $perActc ?>%"></span>
                                              </div>
                                              <div class="">
-                                                <span><?php echo $acand ?></span>
+                                                <span><?php echo $acand-$pcand ?></span>
                                              </div>
                                           </div>
 
