@@ -79,7 +79,7 @@
                                                 <?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?>
                                              </td>
                                              <td class="action-btn  center-align">
-                                             <a href="<?php echo base_url() ?>candidates/detail" class="blue hoverable tooltipped" ><i class="fas fa-eye "></i><br><small>Details</small></a>
+                                             <a href="<?php echo base_url('candidates/detail/').$val->can_id ?>" class="blue hoverable tooltipped" ><i class="fas fa-eye "></i></a>
                                              </td>
                                           </tr>
                                        <?php } ?>

@@ -827,3 +827,4 @@ span.profile-pic .label a{display: block;}
 #paypal-button button:hover { box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15); }
 .wrf-table { background: #038541; color: #fff; padding: 16px 0; }
 .wrf-table h6 { color: #fff; font-weight: 600; margin: 0; }
+.profile-box .profile-items .profile-item-content{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block}

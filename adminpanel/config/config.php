@@ -28,6 +28,7 @@ $root .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME'
 $config['base_url']    = "http://localhost/cherryhire1/adminpanel/";
 $config['site_url']	= "$root";
 $config['web_url']	= 'http://localhost/cherryhire1/';
+$config['canurl']	= 'http://localhost/cherryhire1/candidate';
 
 /*
 |--------------------------------------------------------------------------

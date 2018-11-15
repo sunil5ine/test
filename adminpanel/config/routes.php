@@ -53,6 +53,7 @@ $route['Dashboard'] = "dashboard/index";
 $route['delete-employee/(:any)'] = "employees/delete_employee/$1";
 $route['employees/approve/(:any)'] = "employees/approve/$1";
 $route['employees/reject/(:any)'] = "employees/reject/$1";
+$route['candidates/detail/(:any)'] = "candidates/detail/$1";
 
 $route['Logout'] = "logout";
 $route['Login'] = "login";
