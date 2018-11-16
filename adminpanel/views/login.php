@@ -33,12 +33,9 @@
 						          	<input name="password" id="password" type="password" class="validate">
 						          	<label  for="password">Password</label>
 								</div>
-								<div class="col s12 center">
-									<span class="red-text"><?php echo $this->session->flashdata('check_database');
-									 ?></span>
-								</div>
+								
 						        <div class="input-field col s12">
-						        	<button class="waves-effect z-depth-2 waves-light btn white-text  green darken-4 login-btn block btn-md">Login</button>
+						        	<button style="width:100%" class="waves-effect z-depth-2 waves-light btn white-text hoverable green darken-4 login-btn block btn-md">Login</button>
                                 </div>
                                 <div class="col s12 center">
                                     <a href="#forgot-password"  class="modal-trigger blue-text " >Forgot Password</a>
@@ -55,23 +52,34 @@
 	<div id="forgot-password" class="modal">
     <div class="modal-content center row">
       <h5 class="bold">Forgot Password!</h5>
-      	<form>
+      	<form action="<?php echo base_url() ?>login/forgot" method="post">
 	      	<div class="input-field col l8 push-l2">
-				<input id="last_name" type="email" class="validate borderd-0" placeholder="Enter your email address" style="border-radius: 0; height: 38px;">
+				<input id="last_name" name="email"  type="email" class="validate borderd-0" placeholder="Enter your email address" style="border-radius: 0; height: 38px;">
 			</div>
 			<div class="clearfix"></div>
 			<div class="input-field col l6 push-l3" style="margin-top: 0">
-				<a href="" class="btn waves-effect brand hoverable white-text">Send Password reset link</a>
+				<button tylpe="submit" class="btn waves-effect brand hoverable white-text">Send Password reset link</button>
 			</div>
 			<div class="clearfix"></div>
 			<a href="#!" class="blue-text modal-close">Back To Login</a>
 		</form>
     </div>
-  
-  </div>
+  </div> 
+ 
     
     <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
+	<?php if($this->session->flashdata('check_database')){ ?>
+		<script>
+		M.toast({html: '<?php echo $this->session->flashdata("check_database")?>', classes: 'red'});
+		</script>
+		
+	<?php }  ?>
+	<?php if($this->session->flashdata('success')){ ?>
+		<script>
+			M.toast({html: '<?php echo $this->session->flashdata("success")?>', classes: 'green'});
+		</script>
+	<?php }  ?>
 	<script>
 		$(document).ready(function(){
 			$('.modal').modal();

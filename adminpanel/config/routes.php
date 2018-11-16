@@ -49,16 +49,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['Dashboard'] = "dashboard/index";
-$route['delete-employee/(:any)'] = "employees/delete_employee/$1";
-$route['employees/approve/(:any)'] = "employees/approve/$1";
-$route['employees/reject/(:any)'] = "employees/reject/$1";
-$route['candidates/detail/(:any)'] = "candidates/detail/$1";
+$route['Dashboard']                 = "dashboard/index";
+$route['delete-employee/(:any)']    = "employees/delete_employee/$1";
+$route['employees/approve/(:any)']  = "employees/approve/$1";
+$route['employees/reject/(:any)']   = "employees/reject/$1";
+$route['candidates/detail/(:any)']  = "candidates/detail/$1";
+$route['forgotp/(:any)']       = "login/forgotp/$1";
 
-$route['Logout'] = "logout";
-$route['Login'] = "login";
-$route['PageContent'] = "pagecontent/pagelist";
-$route['default_controller'] = "login";
-$route['404_override'] = 'nopage';
-$route['translate_uri_dashes'] = FALSE;
+$route['Logout']                    = "logout";
+$route['Login']                     = "login";
+$route['PageContent']               = "pagecontent/pagelist";
+$route['default_controller']        = "login";
+$route['404_override']              = 'nopage';
+$route['translate_uri_dashes']      = FALSE;
                

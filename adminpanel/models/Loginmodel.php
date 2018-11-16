@@ -29,4 +29,32 @@ class Loginmodel extends CI_Model {
 			return false;
 		}
 	}
+
+	public function chekexist($email,$rand)
+	{
+		$this->db->where('ad_email', $email);
+		$query = $this->db->update($this->table_master,array('aut_rese'=>$rand));
+		if($this->db->affected_rows() > 0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}	
+	}
+
+	function getpfror($var)
+	{
+		$this->load->helper('string');
+		$rand = date('Ydm').random_string('numeric', 10);
+		$this->db->where('aut_rese', $var);
+		$query = $this->db->get($this->table_master);
+		if($query->num_rows() > 0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}	
+	}
 }
