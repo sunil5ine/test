@@ -8,4 +8,11 @@ class Logout extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect($this->config->base_url().'login');
 	}
+
+	function test()
+	{
+		$data['title'] = 'Add New admin';
+		$this->load->view('dashboard/new-admin', $data, FALSE);
+		
+	}
 }
