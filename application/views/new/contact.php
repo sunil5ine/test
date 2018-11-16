@@ -39,7 +39,7 @@
 							
 										<div class="address-content">
 											<ul>
-												<li>IPF Consulting WLL</li>
+												
 												<li>PO Box 76056</li>
 												<li>Email: <a href="mailto:support@cherryhire.com">support@cherryhire.com</a></li>
 											</ul>
@@ -56,7 +56,7 @@
 							
 										<div class="address-content">
 											<ul>
-												<li>+1 800 23456789</li>
+												<li> <a href="tel:+97334002887"> +973 34002887</a></li>
 											</ul>
 										</div>
 									</div>
@@ -78,14 +78,14 @@
 
 									<div class="s-box center ptb30">
 										<h6 class="ptb10">Connect with social media</h6>
-										<a class="mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-2 rounded-6">
+										<a href="https://twitter.com/hashtag/cherryhire" target="_blank" class="mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-2 rounded-6">
 											<i class="fab fa-twitter"></i>
 										</a>
-										<a class="mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-4 rounded-6">
+										<a href="https://www.facebook.com/cherryhire/" target="_blank" class="mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-4 rounded-6">
 											<i class="fab fa-facebook-f"></i>
 										</a>
-										<a class="mlr10 waves-effect z-depth-2 waves-light btn btn-large red rounded-6">
-										<i class="fab fa-google-plus-g"></i>
+										<a href="https://www.instagram.com/cherryhire/" target="_blank" class="mlr10 waves-effect z-depth-2 waves-light btn btn-large red rounded-6">
+										<i class="fab fa-instagram"></i>
 										</a>
 									</div>
 								</div>
