@@ -10,6 +10,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		
 		if($this->session->userdata('adminid')) {
 			redirect($this->config->base_url().'Dashboard');
 		} else {

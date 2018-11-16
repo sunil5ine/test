@@ -62,3 +62,4 @@ $route['default_controller'] = "login";
 $route['404_override'] = 'nopage';
 $route['translate_uri_dashes'] = FALSE;
                
+
