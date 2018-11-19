@@ -26,8 +26,7 @@
 			      <div class="card z-depth-2">
 			        <div class="card-content">
 			          	<div class="center">
-			          		<h5 class=""><b>Login</b></h5>
-			          		<h6>EASILY USING</h6>
+			          		<h5 class=""><b>Candidate Login</b></h5>
 			          	</div>
 			          	<div class="clearfix"> </div>
 			          	<div><?php echo $errmsg; ?></div>
@@ -71,6 +70,8 @@
 						        </div>
 			          		</form>
 			          		<p class="center">New to Cherryhire? <a href="<?php echo $this->config->item('web_url').'PostCV';?>" class="blue-text">Create Account</a></p>
+							  <div class="center"><span>or</span></div>
+			          		<p class="center"><a href="<?php echo $this->config->item('web_url').'hire/login';?>" class="blue-text">Epmloyer Login</a></p>
 			          	</div>
 			        </div>
 			      </div>
