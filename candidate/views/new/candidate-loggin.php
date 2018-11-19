@@ -71,7 +71,7 @@
 			          		</form>
 			          		<p class="center">New to Cherryhire? <a href="<?php echo $this->config->item('web_url').'PostCV';?>" class="blue-text">Create Account</a></p>
 							  <div class="center"><span>or</span></div>
-			          		<p class="center"><a href="<?php echo $this->config->item('web_url').'hire/login';?>" class="blue-text">Epmloyer Login</a></p>
+			          		<p class="center"><a href="<?php echo $this->config->item('web_url').'hire/login';?>" class="blue-text">Employer Login</a></p>
 			          	</div>
 			        </div>
 			      </div>
