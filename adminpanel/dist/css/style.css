@@ -246,3 +246,10 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .droupdown-holder{position: relative;}
 .droupdown-holder .dropdowns{display: block; width: 11px; text-align: center; cursor: pointer;}
 .dropdown-ele a:hover{background-color: #eeeeee}
+
+/*****  CK EDITOR  *****/
+#editor {
+    border: 1px solid #c4c4c4;
+    border-radius: 0px 0px 3px 3px;
+}
+.mtb20{margin: 20px 0}
