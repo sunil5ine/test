@@ -828,3 +828,7 @@ span.profile-pic .label a{display: block;}
 .wrf-table { background: #038541; color: #fff; padding: 16px 0; }
 .wrf-table h6 { color: #fff; font-weight: 600; margin: 0; }
 .profile-box .profile-items .profile-item-content{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block}
+
+/****** blog  ********/
+.blog.card .card-content{padding: 15px}
+.pagination li.active { background-color: #038541; }
