@@ -832,3 +832,10 @@ span.profile-pic .label a{display: block;}
 /****** blog  ********/
 .blog.card .card-content{padding: 15px}
 .pagination li.active { background-color: #038541; }
+.blog-detail .bak-holder a,{font-size: 17px;}
+.blog-detail .bak-holder a i { font-size: 18px; margin-top: 3px; }
+.blog-detail .bak-holder { margin-bottom: 10px; }
+.blog-detail .blo-heading-small { margin: 15px 0 0 0; }
+.blog-detail .blog-mcontent p{font-size: 14px}
+.blog-detail .blog-btn-actions { padding: 15px 0; }
+.blog-tfooter{ padding: 50px 0; margin-bottom: 10px; background-color: #fff}

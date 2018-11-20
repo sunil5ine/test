@@ -36,7 +36,20 @@
 						<div class="col s12 m6 l3">
 							<div class="card blog grey lighten-5">
 								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""/>
+									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
+									<span class="card-title"></span>
+								</div>
+								<div class="card-content">
+									<p class="mb10">I am a very simple card. I am good at containing.</p>
+									<a href="<?php echo base_url() ?>blog/detail" class="bold blue-text">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col s12 m6 l3">
+							<div class="card blog grey lighten-5">
+								<div class="card-image">
+									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
 									<span class="card-title"></span>
 								</div>
 								<div class="card-content">
@@ -49,7 +62,7 @@
 						<div class="col s12 m6 l3">
 							<div class="card blog grey lighten-5">
 								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""/>
+									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
 									<span class="card-title"></span>
 								</div>
 								<div class="card-content">
@@ -62,7 +75,7 @@
 						<div class="col s12 m6 l3">
 							<div class="card blog grey lighten-5">
 								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""/>
+									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
 									<span class="card-title"></span>
 								</div>
 								<div class="card-content">
@@ -75,7 +88,7 @@
 						<div class="col s12 m6 l3">
 							<div class="card blog grey lighten-5">
 								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""/>
+									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
 									<span class="card-title"></span>
 								</div>
 								<div class="card-content">
@@ -88,7 +101,7 @@
 						<div class="col s12 m6 l3">
 							<div class="card blog grey lighten-5">
 								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""/>
+									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
 									<span class="card-title"></span>
 								</div>
 								<div class="card-content">
@@ -101,7 +114,7 @@
 						<div class="col s12 m6 l3">
 							<div class="card blog grey lighten-5">
 								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""/>
+									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
 									<span class="card-title"></span>
 								</div>
 								<div class="card-content">
@@ -114,20 +127,7 @@
 						<div class="col s12 m6 l3">
 							<div class="card blog grey lighten-5">
 								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="" class="bold blue-text">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""/>
+									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
 									<span class="card-title"></span>
 								</div>
 								<div class="card-content">
@@ -171,22 +171,9 @@
 	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/materialize.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/component.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/script.js"></script>
-	<script>
-	
-	$(function(){
-
-		$('form').on('submit', function(e) {
-
-		if(grecaptcha.getResponse() == "") {
-
-			e.preventDefault();
-
-			$('.error').text('Captcha is required')
-
-		} 
-
-		});
-
+	<script>	
+		$(function(){
+			$('.materialboxed').materialbox();
 		});
 	</script>
 </body>
