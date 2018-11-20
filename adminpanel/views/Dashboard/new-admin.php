@@ -75,15 +75,16 @@
                                                 <tr>
                                                     <td>Alan</td>
                                                     <td>Jellybean</td>
-                                                    <td class='right pr15'><div class="droupdown-holder">        
+                                                    <td class='right pr15'>
+                                                        <div class="droupdown-holder">        
                                                             <a class='dropdowns'><i class="fas fa-ellipsis-v"></i></a>
-                                                                                                                
                                                             <!-- Dropdown Structure -->
                                                             <ul  class='dropdown-ele'>
                                                             <li><a href="#!">Edite</a></li>
                                                             <li><a href="#!">Delete</a></li>
                                                             </ul>
-                                                        </div></td>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Jonathan</td>
@@ -118,8 +119,7 @@
 
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
-      <!-- <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script> -->
-      <!-- <script type="text/javascript" src="<?php echo base_url() ?>dist/js/short.js"></script> -->
+     
       <script type='text/javascript'>
          $(function () {
             
