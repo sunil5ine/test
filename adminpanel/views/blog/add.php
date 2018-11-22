@@ -34,20 +34,20 @@
                                 <div class="card-content">
                                     
                                     <div class="form-container">
-                                        <form action="" style="overflow-y: auto;overflow-x: hidden;">
+                                        <form enctype="multipart/form-data" action="<?php echo base_url() ?>blog/post" method="post" style="overflow-y: auto;overflow-x: hidden;">
                                         
                                           <div class="input-field col s12 l6">
                                             <i class="far fa-calendar-alt prefix"></i>
-                                            <input type="text" id="first_name" class="validate datepicker">
-                                            <label for="first_name">Posted Date</label>
+                                            <input type="text" id="pdate" name="postdate" class="validate datepicker">
+                                            <label for="pdate">Posted Date</label>
                                           </div>
                                           <div class="input-field col s12 l6">
-                                            <input type="text" id="last_name" class="validate">
-                                            <label for="last_name">Blog Title</label>
+                                            <input type="text" id="blog-title" name="title" class="validate">
+                                            <label for="blog-title">Blog Title</label>
                                           </div>
                                           
                                           <div class="input-field col s12 l6">
-                                                <select>
+                                                <select name="category">
                                                     <option value="" disabled selected>Choose your option</option>
                                                     <option value="1">Option 1</option>
                                                     <option value="2">Option 2</option>
@@ -56,24 +56,24 @@
                                             <label for="last_name">Category</label>
                                           </div>
                                           <div class="input-field col s12 l6">
-                                            <input type="text" id="first_name" class="validate">
-                                            <label for="first_name">SEO Title</label>
+                                            <input type="text" id="seoTitle" name="stitle" class="validate">
+                                            <label for="seoTitle">SEO Title</label>
                                           </div>
                                           <div class="input-field col s12 l6">
-                                            <input type="text" id="first_name" class="validate">
-                                            <label for="first_name">SEO Description</label>
+                                            <input type="text" id="seoDes" name="sdes" class="validate">
+                                            <label for="seoDes">SEO Description</label>
                                           </div>
                                           
                                           <div class="input-field col s12 l6">
-                                            <input type="text" id="last_name" class="validate">
-                                            <label for="last_name">SEO Keywords</label>
+                                            <input type="text" id="skey" name="skeyword" class="validate">
+                                            <label for="skey">SEO Keywords</label>
                                           </div>
 
-                                            <div class="file-field input-field">
+                                            <div class="file-field input-field col s12 l12">
                                                 <div class="btn btn-small black-text grey lighten-3">
                                                 <i class="far fa-image left  "></i>
                                                     <span class="">Add Media</span>
-                                                    <input type="file">
+                                                    <input type="file" name="file">
                                                 </div>
                                                 <div class="file-path-wrapper">
                                                     <input class="file-path validate" type="text" style="border:transparent">
@@ -82,18 +82,16 @@
                                             <div class="col s12">
                                                 <div id="toolbar-container"></div>
                                                 <div id="editor">
-                                                    <p>This is the initial editor content.</p>
+                                                    
                                                 </div>
+                                                <textarea name="descr" id="description" style="display:none"></textarea>
                                             </div>
                                             <div class="col s12 center mtb20">
-                                                <button class="btn waves-effect waves-light green darken-4 hoverable btn-large" type="submit" name="action">Publish
+                                                <button class="btn waves-effect waves-light green darken-4 hoverable btn-large" type="submit" id="submit" name="action">Publish
                                                     <i class="fas fa-paper-plane right"></i>
                                                 </button>
                                                 <br>
-                                            </div>
-                                            
-
-                                              
+                                            </div>                                              
                                           </div>
                                         </form>
                                     </div>
@@ -105,8 +103,6 @@
             </div>
         </section>
 
-
-
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
@@ -115,6 +111,11 @@
              $(document).ready(function(){
                 $('.datepicker').datepicker();
                 $('select').formSelect();
+
+                $('form').submit(function(){
+                  var text = $('#editor').html(); 
+                  $('#description').val(text);
+                });
             });
         </script>
         <script>
