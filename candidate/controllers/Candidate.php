@@ -1005,7 +1005,7 @@ class Candidate extends CI_Controller {
 		$resultrecord 	= $this->candidatemodel->get_single_record($this->session->userdata('cand_chid'));
 		$patchtoCV = realpath(APPPATH . '../resume');
 		$currentResumewebpath = $resultrecord['cv_path'];
-		//$cvfilenamesplit = explode("http://cherryhire.com/resume/",$result['cv_path']);
+		$cvfilenamesplit = explode("http://cherryhire.com/resume/",$result['cv_path']);
 		if($currentResumewebpath !='' ) {
 			$link_array = explode('/',$currentResumewebpath);
 			$cvfilenamesplit = end($link_array);
