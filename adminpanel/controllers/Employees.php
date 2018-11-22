@@ -80,6 +80,23 @@ class employees extends CI_Controller {
         redirect('employees/pending');
     }
 
+    /**
+     * EMPLOYEERS DETAIL
+    */
+    public function details()
+    {
+        $data['title'] = 'Employer Name';
+        $this->load->view('employees/detail', $data, FALSE);
+    }
+
+    /**
+     * EMPLOYEERS POSTED JOBS
+    */
+    public function posted_jobs()
+    {
+        $data['title'] = 'Employer Name';
+        $this->load->view('employees/jobs', $data, FALSE);
+    }
 
 
 

@@ -215,18 +215,7 @@ body {background-color: whitesmoke; overflow-x: hidden}
  
  }
  
- @media (max-width: 600px) 
- {
- .profile-card {margin-bottom: -6px ;text-align: center}
- .profile-box .profile-items{overflow: hidden;line-height: 22px;width: 100%;float: none;padding-right: 15px;margin-bottom: 15px;}
- .profile-box .profile-items .profile-item-content{float: none; font-size: 13px; padding-left: 25px; width: 100%;}
- .profile-box .profile-items .profile-item-title{font-size: 13px; font-weight: 600; color: #2c2323;float: none;width: 100%;}
- .set-box .exp-items-box .exp-items .exp-items-title {font-weight: 600; color: #443636; float: left; width: 100%; line-height: 20px; }
- .set-box .exp-items-box .exp-items .exp-items-content {float: left; width: 100%; line-height: 20px;margin-left: 24px;}
- .set-box .exp-items-box .exp-items {overflow: hidden; padding: 7px 0px;}
- .pofile-details-table-card{margin-top: 15px}
- 
- }
+
 
 .pofile-details-table-card table tr th, .pofile-details-table-card table tr td { padding: 10px 5px; font-size: 13px; } 
 .pofile-details-table-card table tr th { font-weight: 600; } 
@@ -254,3 +243,46 @@ body {background-color: whitesmoke; overflow-x: hidden}
 }
 .mtb20{margin: 20px 0}
 .fiter-btn{margin-top: 15px;display: block}
+
+/********** employer details **********/
+.ptb15{padding:15px 0px}
+.border-right{border-right:1px solid gray}
+.green-text { color: #128116 !important; }
+.mt15{margin-top: 15px}
+.mt20{margin-top: 20px}
+.plr40{padding: 0 40px}
+.boder-bottom{border-bottom: 1px solid gray;}
+.pl0{padding-left: 0px !important}
+.pt0{padding-top: 0px !important}
+.pr0{padding-right: 0px !important}
+.pb0{padding-bottom: 0px !important}
+.no-border tr { border: transparent !important; }
+.no-border  td, th{padding:7px 5px; font-size: 13px}
+.no-border  th{font-weight: 600;width:200px}
+.overflow-h{overflow: hidden;}
+.borderd div{border:1px solid gray !important;height: 35px !important;line-height: 30px;margin-bottom: 20px !important;padding: 0 5px !important}
+.borderd div i{line-height: 30px;}
+#dynamic_length .select-wrapper{width:75px;display: inline-block;}
+#dynamic_length .select-wrapper input{font-size: 15px; height: 26px; padding: 0 2px; width: 84%;}
+#dynamic_filter input{width: 75%; height: 26px;}
+#dynamic th{border-radius: 0px}
+#dynamic_paginate .paginate_button{padding: 0px 7px;background: transparent;border: transparent}
+#dynamic_paginate .paginate_button.current{padding: 0px 7px; background: green; border: transparent; color: #fff !important;}
+#dynamic_paginate .paginate_button:hover { background: #9b9b9b !important; }
+.dt-buttons .dt-button { padding: 3px 15px; border: 1px solid green; background: green; color: #fff; }
+.dt-buttons .dt-button:hover{border: 1px solid #03a203 !important; background: #03a203 !important;}
+#dynamic_wrapper{overflow-x: auto}
+
+@media (max-width: 600px) 
+{
+.profile-card {margin-bottom: -6px ;text-align: center}
+.profile-box .profile-items{overflow: hidden;line-height: 22px;width: 100%;float: none;padding-right: 15px;margin-bottom: 15px;}
+.profile-box .profile-items .profile-item-content{float: none; font-size: 13px; padding-left: 25px; width: 100%;}
+.profile-box .profile-items .profile-item-title{font-size: 13px; font-weight: 600; color: #2c2323;float: none;width: 100%;}
+.set-box .exp-items-box .exp-items .exp-items-title {font-weight: 600; color: #443636; float: left; width: 100%; line-height: 20px; }
+.set-box .exp-items-box .exp-items .exp-items-content {float: left; width: 100%; line-height: 20px;margin-left: 24px;}
+.set-box .exp-items-box .exp-items {overflow: hidden; padding: 7px 0px;}
+.pofile-details-table-card{margin-top: 15px}
+.border-right{border-right:transparent}
+
+}

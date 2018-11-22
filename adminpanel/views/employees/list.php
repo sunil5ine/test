@@ -66,7 +66,7 @@
                                             <td ><?php echo date('d M Y', strtotime($value->emp_reg_date)) ?></td>
                                             <td class=""><?php echo date('d M Y', strtotime($value->emp_update_date)) ?></td>
                                             <td class="action-btn  center-align">
-                                              <a href="<?php echo base_url('employees-details/').$value->emp_authkey ?>" class="blue hoverable"><i class="fas fa-eye "></i></i></a>
+                                              <a href="<?php echo base_url('employees/details/').$value->emp_authkey ?>" class="blue hoverable"><i class="fas fa-eye "></i></i></a>
                                               <a href="<?php echo base_url('delete-employee/').$value->emp_authkey ?>" class="red hoverable delete-btn"><i class="fas fa-trash  "></i></a>
                                             </td>
                                         </tr>
