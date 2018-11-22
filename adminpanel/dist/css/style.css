@@ -273,6 +273,32 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .dt-buttons .dt-button:hover{border: 1px solid #03a203 !important; background: #03a203 !important;}
 #dynamic_wrapper{overflow-x: auto}
 
+/******* Plans *********/
+.plans .card-action ul li {line-height: 32px; color: #2d2d2d; font-size: 13px;}
+.plans .card-action ul li span i.material-icons{font-size: 20px}
+.plans .card-title-box span.card-title {font-size: 19px; }
+.card-sub-title span {font-size: 12px; font-style: italic; }
+.card-title-box{border-bottom: .5px solid gray;}
+.card-title-box {border-bottom: .5px solid gray; padding-bottom: 20px; margin-bottom: 15px; }
+.card-panel.plans{border: 1px solid #fff}
+.card-panel.plans:hover { box-shadow: 1px 1px 5px -1px black;cursor: pointer; }
+
+@media(max-width: 599px)
+{
+	.plans .card-action ul li span i.material-icons{font-size: 13px}
+	.switch-container .right-align{text-align: center;}
+	.switch{text-align: center;}
+}
+@media (min-width: 601px) and (max-width: 992px)
+{
+	.plans .card-action ul li span i.material-icons{font-size: 13px;font-weight: 700}
+}
+
+
+
+
+
+
 @media (max-width: 600px) 
 {
 .profile-card {margin-bottom: -6px ;text-align: center}
