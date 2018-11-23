@@ -37,22 +37,27 @@ class blog extends CI_Controller {
         $config['max_size']  = '512';
         $config['max_width']  = '0';
         $config['max_height']  = '0';
+        $config['encrypt_name']  = TRUE;
         
         $this->load->library('upload', $config);
         if(!is_dir($config['upload_path'])) mkdir($config['upload_path'], 0777, TRUE);
         if ( ! $this->upload->do_upload('file')){
             $error = array('error' => $this->upload->display_errors());
-            
-            echo "<pre>";
-            print_r ($error);
-            echo "</pre>";
-            
+            $this->session->set_flashdata('error', $error['error']);
+            redirect('blog','refresh');
+                        
         }
         else{
-            $data = array('upload_data' => $this->upload->data());
-            echo "success";
+            $filedatas = array('filedata' => $this->upload->data());
+            
+            echo "<pre>";
+            print_r ($filedatas);
+            echo "</pre>";
+            
+
+            
         }
-        exit;
+       
         $data = array(
             'postingdate'   => $postdate, 
             'title'         => $titile, 
