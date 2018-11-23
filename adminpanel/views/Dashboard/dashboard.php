@@ -273,21 +273,23 @@
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/chart.min.js"></script>
       <!-- data table -->
       <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/datatables.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/dataTables.buttons.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.flash.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.html5.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/pdfmake.min.js"></script>
-        <script>
-            $(document).ready( function () {
-                $('table').DataTable({
-                    dom: 'Bfrtip',
-                    buttons: [
-                        'copy', 'csv', 'excel', 'pdf'
-                    ], 
-                });
-                $('select').formSelect();
-            } );
-        </script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/dataTables.buttons.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.flash.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.html5.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/pdfmake.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/vfs_fonts.js"></script>
+
+      <script>
+          $(document).ready( function () {
+              $('table').DataTable({
+                  dom: 'Bfrtip',
+                  buttons: [
+                      'copy', 'csv', 'excel', 'pdf'
+                  ], 
+              });
+              $('select').formSelect();
+          } );
+      </script>
       <script>
          var ctx = document.getElementById("myChart").getContext('2d');
             $(document).ready(function(){
@@ -312,8 +314,8 @@
                                 datasets: [{
                                     label: 'New  Employer',
                                     data: con,
-                                    backgroundColor: "rgba(155,155,155,0.1)",
-                                    borderColor: "rgba(155,155,155,1)",
+                                    backgroundColor: "rgba(0,128,0,0.1)",
+                                    borderColor: "rgba(0, 128, 0, 1)",
                                     lineTension: 0.3,
                                     borderWidth: 2,
                                 }, {

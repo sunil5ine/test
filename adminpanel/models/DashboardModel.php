@@ -80,7 +80,6 @@ class dashboardModel extends CI_Model {
         $expire = date("Y-m-d H:i:s",strtotime($wnf)); 
         $this->db->where('emp_reg_date <=', $now);        
         $this->db->where('emp_reg_date >=', $expire);
-        $this->db->group_by('emp_reg_date');
         $query = $this->db->get('ch_employer')->result();
         
         foreach ($query as $key => $value) {
@@ -103,12 +102,13 @@ class dashboardModel extends CI_Model {
     public function newCandidates($wnf)
     {
         $this->db->select('can_reg_date');
-        $now    = date("Y-m-d H:i:s");
-        $expire = date("Y-m-d H:i:s",strtotime($wnf)); 
+        $now    = date("Y-m-d");
+        $expire = date("Y-m-d",strtotime($wnf)); 
         $this->db->where('can_reg_date <=', $now);        
         $this->db->where('can_reg_date >=', $expire);
-        $this->db->group_by('can_reg_date');
+        // $this->db->group_by('can_reg_date');
         $query = $this->db->get('ch_candidate')->result();
+
         foreach ($query as $key => $value) {
             $newData[]= date("M",strtotime($value->can_reg_date));
         }

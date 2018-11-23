@@ -53,7 +53,7 @@
                                           <th id="d" class="h5-para-p2">Email ID</th>
                                           <th id="e" class="h5-para-p2">Reg Date</th>
                                           <th id="f" class="h5-para-p2">Last Update</th>
-                                          <th id="g" class="h5-para-p2">Action</th>
+                                          <th style="width: 65px;" class="h5-para-p2">Action</th>
                                        </tr>
                                     </thead>
                                     <tbody>
@@ -98,6 +98,7 @@
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.flash.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.html5.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/pdfmake.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/vfs_fonts.js"></script>
         <script>
             $(document).ready( function () {
                 $('#dynamic').DataTable({

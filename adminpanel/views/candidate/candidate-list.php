@@ -96,12 +96,13 @@
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
          <!-- data table -->
-         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/datatables.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/dataTables.buttons.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.flash.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.html5.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/pdfmake.min.js"></script>
-        <script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/datatables.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/dataTables.buttons.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.flash.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.html5.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/pdfmake.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/vfs_fonts.js"></script>
+      <script>
             $(document).ready( function () {
                 $('#dynamic').DataTable({
                     dom: 'Bfrtip',
@@ -111,7 +112,7 @@
                 });
                 $('select').formSelect();
             } );
-        </script>
+      </script>
       
    
       

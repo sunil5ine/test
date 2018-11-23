@@ -282,6 +282,7 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .card-title-box {border-bottom: .5px solid gray; padding-bottom: 20px; margin-bottom: 15px; }
 .card-panel.plans{border: 1px solid #fff}
 .card-panel.plans:hover { box-shadow: 1px 1px 5px -1px black;cursor: pointer; }
+
 @media(max-width: 599px)
 {
 	.plans .card-action ul li span i.material-icons{font-size: 13px}
@@ -294,7 +295,7 @@ body {background-color: whitesmoke; overflow-x: hidden}
 }
 
 table tr td{font-size: 13px; font-weight: 500; font-family: arial;}
-
+.progress{background-color: #f5f5f5;}
 
 
 

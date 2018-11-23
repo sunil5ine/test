@@ -34,6 +34,10 @@ class Dashboard extends CI_Controller {
 		$wnf 	= date('Y-m-d',strtotime(date('Y-01-01')));
 		$result  = $this->dashboardModel->newEmployee($wnf);
 		$cresult = $this->dashboardModel->newCandidates($wnf);
+
+		
+		
+		
 		
 		foreach ($result as $key => $value) {
 			$result[$key]['canval'] = $cresult[$key]['canval']; 
