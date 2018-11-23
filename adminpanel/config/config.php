@@ -29,6 +29,7 @@ $config['base_url']    = "http://localhost/cherryhire1/adminpanel/";
 $config['site_url']	= "$root";
 $config['web_url']	= 'http://localhost/cherryhire1/';
 $config['canurl']	= 'http://localhost/cherryhire1/candidate';
+$config['empurl']	= 'http://localhost/cherryhire1/hire';
 
 /*
 |--------------------------------------------------------------------------

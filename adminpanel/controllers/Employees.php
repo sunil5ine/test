@@ -83,20 +83,24 @@ class employees extends CI_Controller {
     /**
      * EMPLOYEERS DETAIL
     */
-    public function details()
+    public function details($id)
     {
-        $data['title'] = 'Employer Name';
+        $data['employers'] = $this->employeesModel->companyDetails($id);
+        $data['title'] = $data['employers']['emp_comp_name'] .' | CherryHire employers';
         $this->load->view('employees/detail', $data, FALSE);
     }
 
     /**
      * EMPLOYEERS POSTED JOBS
     */
-    public function posted_jobs()
+    public function posted_jobs($id)
     {
-        $data['title'] = 'Employer Name';
+        $data['jobs'] = $this->employeesModel->postedJobs($id);
+        $data['employers'] = $this->employeesModel->companyDetails($id);
+        $data['title'] = $data['jobs']['0']->emp_comp_name.' | CherryHire employers';
         $this->load->view('employees/jobs', $data, FALSE);
     }
+
 
 
 
