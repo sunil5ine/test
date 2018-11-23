@@ -4,6 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class blog extends CI_Controller {
 
+    
+    public function __construct()
+    {
+        parent::__construct();
+        if(!$this->session->userdata('adminid')) { redirect($this->config->base_url().'login'); }
+        $this->load->model('blogModel');
+    }
+    
+
     public function index()
     {
         $data['title'] = 'Post A blog';
@@ -49,28 +58,35 @@ class blog extends CI_Controller {
         }
         else{
             $filedatas = array('filedata' => $this->upload->data());
+            $data = array(
+                'postFor'   => $postdate, 
+                'title'         => $titile, 
+                'catogory'      => $category , 
+                'metatitle'     => $stitle, 
+                'metades'       => $sdes, 
+                'metakey'       => $skeyw, 
+                'des'           => $descr, 
+                'file'          => 'blog-file/'.$filedatas['filedata']['file_name'], 
+                'file_origin'   => $filedatas['filedata']['orig_name'], 
+            );
+            if($this->blogModel->addpost($data)){
+                $this->session->set_flashdata('messeg', '<div id="snackbar" class="green"><a class="close-tost ">X</a><p>Successfully Posted. </p></div>');
+                redirect('blog/lists','refresh');
+                
+            }else{
+                $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p><b>Unavailable to post a blog.</b> <br /> Please try again later</p></div>');
+                redirect('blog/lists','refresh');
+            }
             
-            echo "<pre>";
-            print_r ($filedatas);
-            echo "</pre>";
-            
+           
 
             
         }
        
-        $data = array(
-            'postingdate'   => $postdate, 
-            'title'         => $titile, 
-            'catogory'      => $category , 
-            'metatitle'     => $stitle, 
-            'metades'       => $sdes, 
-            'metakey'       => $skeyw, 
-            'des'           => $descr, 
-            'file'          => $filename, 
-        );
+        
         
         echo "<pre>";
-        print_r ($n);
+        print_r ($data);
         echo "</pre>";
         
     }
