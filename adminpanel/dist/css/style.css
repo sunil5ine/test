@@ -13,9 +13,9 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .fab.fa-linkedin.fil:hover {color: green; }
 
 
-#dropdown3 {display: none; width: 418px !important; left: 860.267px !important; top: 67px !important; height: 195px !important; transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
-#dropdown4 {display: none; width: 335px !important; left: 803.267px !important; top: 67px !important; height: 105px !important; transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
-#dropdown2 {display: none; width: 155px !important; left: 1054.267px !important; top: 67px !important; height: 105px !important; transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
+#dropdown3 {display: none; width: 418px !important; left: 860.267px !important; top: 67px !important;  transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
+#dropdown4 {display: none; width: 335px !important; left: 803.267px !important; top: 67px !important;  transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
+#dropdown2 {display: none; width: 155px !important; left: 1054.267px !important; top: 67px !important;  transform-origin: 0px 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1); }
 .h5-para{font-size: 20px; font-weight: 600; color: black; }
 .h5-para1{font-size: 16px; font-weight: 600; padding-left: 8px; line-height: 30px;}
 .h5-para3{font-size: 14px; font-weight: 700; color: #7d7d7d; } 
@@ -272,7 +272,7 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .dt-buttons .dt-button { padding: 3px 15px; border: 1px solid green; background: green; color: #fff; }
 .dt-buttons .dt-button:hover{border: 1px solid #03a203 !important; background: #03a203 !important;}
 #dynamic_wrapper{overflow-x: auto}
-
+#dynamic { border-top: 1px dotted #d2d2d2; margin-top: 50px; }
 /******* Plans *********/
 .plans .card-action ul li {line-height: 32px; color: #2d2d2d; font-size: 13px;}
 .plans .card-action ul li span i.material-icons{font-size: 20px}
@@ -282,7 +282,6 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .card-title-box {border-bottom: .5px solid gray; padding-bottom: 20px; margin-bottom: 15px; }
 .card-panel.plans{border: 1px solid #fff}
 .card-panel.plans:hover { box-shadow: 1px 1px 5px -1px black;cursor: pointer; }
-
 @media(max-width: 599px)
 {
 	.plans .card-action ul li span i.material-icons{font-size: 13px}
@@ -294,7 +293,7 @@ body {background-color: whitesmoke; overflow-x: hidden}
 	.plans .card-action ul li span i.material-icons{font-size: 13px;font-weight: 700}
 }
 
-
+table tr td{font-size: 13px; font-weight: 500; font-family: arial;}
 
 
 

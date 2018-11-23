@@ -8,9 +8,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="<?php echo $this->config->item('web_url');?>assets/fonts/css/all.min.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/materialize.min.css">
+      <link rel="stylesheet" href="<?php echo base_url() ?>dist/dataTable/datatables.min.css">
+      <link rel="stylesheet" href="<?php echo base_url() ?>dist/dataTable/button/css/buttons.dataTables.css">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/style.css">
-      <!-- bar -->
-      <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/short.css">
+      
    </head>
    <body>
       <!-- headder -->
@@ -48,12 +49,12 @@
                             <div class="col s12">
                                 <div class="card z-depth-0">
                                     <div class="card-content">
-                                        <table class="striped">
+                                        <table id="dynamic" class="striped">
                                             <thead>
                                                 <tr>
                                                     <th data-field="id">Name</th>
                                                     <th data-field="name">Email</th>
-                                                    <th data-field="price" class='right pr15'>Action</th>
+                                                    <th data-field="price" class='right-align pr15'>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -119,6 +120,23 @@
 
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
+      <!-- data table -->
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/datatables.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/dataTables.buttons.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.flash.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.html5.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/pdfmake.min.js"></script>
+      <script>
+          $(document).ready( function () {
+              $('#dynamic').DataTable({
+                  dom: 'Bfrtip',
+                  buttons: [
+                      'copy', 'csv', 'excel', 'pdf'
+                  ], 
+              });
+              $('select').formSelect();
+          } );
+      </script>
      
       <script type='text/javascript'>
          $(function () {

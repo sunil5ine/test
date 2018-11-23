@@ -8,9 +8,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="<?php echo $this->config->item('web_url');?>assets/fonts/css/all.min.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/materialize.min.css">
-      <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/style.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>dist/dataTable/datatables.min.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>dist/dataTable/button/css/buttons.dataTables.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/style.css">
    </head>
    <body>
       <!-- headder -->
@@ -216,7 +216,6 @@
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
         <!-- data table -->
-        <!-- <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/jquery.dataTables.min.js"></script> -->
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/datatables.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/dataTables.buttons.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.flash.min.js"></script>
@@ -228,8 +227,7 @@
                     dom: 'Bfrtip',
                     buttons: [
                         'copy', 'csv', 'excel', 'pdf'
-                    ],
-                    
+                    ], 
                 });
                 $('select').formSelect();
             } );
