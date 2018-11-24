@@ -156,11 +156,6 @@ else{
 
 <!-- Modal Trigger -->
 
-<?php 
-echo "<pre>";
-print_r ($employers);
-echo "</pre>";
- ?>
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
 <form action="<?php echo base_url()?>employees/pushCv" method="post">

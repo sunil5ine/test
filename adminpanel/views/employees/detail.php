@@ -1,12 +1,20 @@
+
 <?php 
 $this->ci =& get_instance();
 $this->load->model('employeesModel');
-if(!empty($employers['sub_packid'])){
-    $sub_detail = $this->ci->employeesModel->getSubcriptionDetail($employers['sub_packid']);
-}else{
-    $sub_detail = 'Free';
+if($employers['sub_expire_dt'] >= date('Y-m-d H:i:s')){
+    if(!empty($employers['sub_packid'])){
+        $sub_detail = $this->ci->employeesModel->getSubcriptionDetail($employers['sub_packid']);
+    }
+    else{
+         $sub_detail = 'Expired';
+    }
+}
+else{
+    $sub_detail = 'Expired';
 }
 ?>
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -62,12 +70,12 @@ if(!empty($employers['sub_packid'])){
                                                            <p>Number of CV Uploaded</p>
                                                         </div>
                                                         <div class="col s12 m4">
-                                                        <h5 class="green-text darken-4"><?php echo  $sub_detail; ?></h5> 
-                                                           <p>Package Type <a href="" class="blue-text">[Upgrade]</a></p>
+                                                        <h5 class=" darken-4"><?php echo($sub_detail != 'Expired' )?'<span class="green-text">'.$sub_detail.'</span>' : '<span class="red-text">'.$sub_detail.'</span>'; ?></h5> 
+                                                           <p>Package Type <a class="blue-text " href="">[Upgrade]</a></p>
                                                         </div>
 
                                                         <div class="col s12 center mt15">
-                                                            <a href="#" class="waves-effect waves-light btn green darken-4 plr40">Upload Resume</a>
+                                                            <a href="#modal1" class="waves-effect waves-light btn green hoverable white-text darken-4 plr40 modal-trigger">Upload Resume</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -161,11 +169,51 @@ if(!empty($employers['sub_packid'])){
                 </div>
             </div>
         </section>
-
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+<form action="<?php echo base_url()?>employees/pushCv" method="post">
+  <div class="modal-content">
+    <h4>Upload Resume</h4>
+    <br>
+    
+        <div class="input-field col s12 m6">
+            <select name="job" required>
+                <?php foreach ($jobs as $key => $value) { 
+                    echo '<option value="'.$value->job_id.'">'.$value->job_title.'</option>';
+               } ?>                                               
+            </select>
+            <label>Select Job <span class="red-text">*</span> </label>
+        </div>
+      <div class="input-field col s12 m6">
+        <input type="hidden" name="empId" value="<?php echo $employers['emp_id'] ?>">
+        <input type="hidden" id="" class="validate" value="<?php echo $this->uri->segment(3) ?>" name="uqid">
+        <input type="text" id="" class="validate" name="canId" required>
+        <label for="last_name">Candidate Id <span class="red-text">*</span> </label>
+      </div>
+      <div class="input-field col s12">
+        <textarea id="textarea1" class="materialize-textarea" name="des"></textarea>
+        <label for="textarea1">Description (Optional)</label>
+      </div>
+    
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-red btn red">cancle</a>
+    <button type="submit" class=" waves-effect waves-green  btn green darken-4 white-text hoverable">Submit</button>
+  </div>
+  </form>
+</div>
+<?php echo $this->session->flashdata('messeg'); ?>
 
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
+        <script>
+            $(document).ready( function () {
+                $('.modal').modal();
+                
+                $('select').formSelect();
+            } );
+        </script>
     </body>
 </html>
 
