@@ -153,3 +153,24 @@ HW Req Status: fail
 *************************************************************************** 
 
 
+Cherry Hire Search JobID:6 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">24</range> <range oper="gteq" name="m_experience.v">0</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i><i forv="5325a5eefa1f8d92cb68723b"><skillarea priority="1" oper="eq" disp="jQuery">5325a5eefa1f8d92cb68723b</skillarea></i><i forv="518b8574ba36fb112e6e3fa7"><skillarea priority="1" oper="eq" disp="Java">518b8574ba36fb112e6e3fa7</skillarea></i><i forv="-1"> <skillarea priority="1" oper="eq" disp="k">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">web Developer</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="Algeria" oper="eq" acceptmissing="false">510a0731ba36baaddd23fe63</p><p name="jobFunctions.v" disp="Sales" oper="eq" acceptmissing="false">56633de707a606f1b796dbcf</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:7 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">24</range> <range oper="gteq" name="m_experience.v">0</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i><i forv="5325a5eefa1f8d92cb68723b"><skillarea priority="1" oper="eq" disp="jQuery">5325a5eefa1f8d92cb68723b</skillarea></i><i forv="518b8574ba36fb112e6e3fa7"><skillarea priority="1" oper="eq" disp="Java">518b8574ba36fb112e6e3fa7</skillarea></i><i forv="-1"> <skillarea priority="1" oper="eq" disp="k">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">web Developer</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="Algeria" oper="eq" acceptmissing="false">510a0731ba36baaddd23fe63</p><p name="jobFunctions.v" disp="Sales" oper="eq" acceptmissing="false">56633de707a606f1b796dbcf</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
+Cherry Hire Search JobID:8 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">24</range> <range oper="gteq" name="m_experience.v">0</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i><i forv="5325a5eefa1f8d92cb68723b"><skillarea priority="1" oper="eq" disp="jQuery">5325a5eefa1f8d92cb68723b</skillarea></i><i forv="518b8574ba36fb112e6e3fa7"><skillarea priority="1" oper="eq" disp="Java">518b8574ba36fb112e6e3fa7</skillarea></i><i forv="-1"> <skillarea priority="1" oper="eq" disp="k">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">web Developer</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="Algeria" oper="eq" acceptmissing="false">510a0731ba36baaddd23fe63</p><p name="jobFunctions.v" disp="Sales" oper="eq" acceptmissing="false">56633de707a606f1b796dbcf</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+

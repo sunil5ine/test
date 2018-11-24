@@ -97,10 +97,35 @@ class employees extends CI_Controller {
     {
         $data['jobs'] = $this->employeesModel->postedJobs($id);
         $data['employers'] = $this->employeesModel->companyDetails($id);
-        $data['title'] = $data['jobs']['0']->emp_comp_name.' | CherryHire employers';
+        // $data['title'] = $data['jobs']['0']->emp_comp_name.' | CherryHire employers';
+        $data['title'] = ' | CherryHire employers';
         $this->load->view('employees/jobs', $data, FALSE);
     }
 
+    /**
+     *  Push CVs 
+    */
+    public function pushCv(){
+        $uqid = $this->input->post('uqid');
+        $data = array(
+            'job_id'        => $this->input->post('job'), 
+            'emp_id'        => $this->input->post('empId'), 
+            'can_id'        => $this->input->post('canId'), 
+            'vc_des'        => $this->input->post('des'), 
+            'vc_createdBy'  => $this->session->userdata('adminid'), 
+        );
+        
+       if($this->employeesModel->pushCV($data))       {
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="green"><a class="close-tost ">X</a><p>Successfully verified CV submited</p></div>');
+            redirect('employees/posted-jobs/'.$uqid,'refresh');
+            
+       }else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p>Verified CV submission failed!<br />  Please try agin later. </p></div>');
+            redirect('employees/posted-jobs/'.$uqid,'refresh');
+
+       }
+        
+    }
 
 
 

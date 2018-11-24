@@ -295,7 +295,8 @@ class Jobs extends CI_Controller {
 		}
 
 		if ($this->form_validation->run() == TRUE) {
-			$jid = $this->jobsmodel->insert_record();
+			$cvcount = $this->jobsmodel->checkpacake();
+			$jid = $this->jobsmodel->insert_record($cvcount);
 			redirect($this->config->base_url().'MyJobs/?Process=Insert&ins=1&Stat=Success');
 		} else {
 			if ($this->input->post('jtitle') || $this->input->post('jrole') || $this->input->post('skillval')) {

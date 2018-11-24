@@ -297,7 +297,7 @@ class Jobsmodel extends CI_Model {
 		return $hwjobid;
     }
 	
-	public function insert_record()
+	public function insert_record($cvcount)
 	{
 		$monsal = explode('~',$this->input->post('monsal'));
 		$jdata = array(
@@ -319,6 +319,8 @@ class Jobsmodel extends CI_Model {
 			'job_site'			=>$this->input->post('jobsite'),
 			'job_notes'			=>$this->input->post('jobnotes'),
 			'job_noprofiles'	=>40,
+			'jp_cvs'			=>$cvcount['pr_cvno'],
+			'job_expaired'		=>$cvcount['peried'],
 			'job_created_dt'	=>date('Y-m-d H:i:s'),
 			'job_updated_dt'	=>date('Y-m-d H:i:s'),	
 			'hire_jobid'		=>'0',
@@ -363,6 +365,19 @@ class Jobsmodel extends CI_Model {
 		return $insert_id;
 	}
 	
+	function checkpacake()
+	{
+		$max = $this->input->post('maxexp');
+		$this->db->where('cp_max_ex <= ', $max);
+		$this->db->order_by('cp_max_ex', 'desc');		
+		$package = $this->db->select('cp_max_ex, pr_cvno, peried');
+		$data = $this->db->get('ch_pricing')->row_array();
+		return $data;	
+	}
+
+
+
+
 
 	function jobposted($jdata)
 	{

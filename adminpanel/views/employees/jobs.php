@@ -77,7 +77,7 @@ else{
                                                         </div>
 
                                                         <div class="col s12 center mt15">
-                                                            <a href="#modal1" class="waves-effect waves-light btn green darken-4 plr40 modal-trigger">Upload Resume</a>
+                                                            <a href="#modal1" class="waves-effect waves-light btn green hoverable white-text darken-4 plr40 modal-trigger">Upload Resume</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,36 +156,45 @@ else{
 
 <!-- Modal Trigger -->
 
-
+<?php 
+echo "<pre>";
+print_r ($employers);
+echo "</pre>";
+ ?>
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
+<form action="<?php echo base_url()?>employees/pushCv" method="post">
   <div class="modal-content">
     <h4>Upload Resume</h4>
     <br>
-    <form action="">
+    
         <div class="input-field col s12 m6">
-            <select>
+            <select name="job" required>
                 <?php foreach ($jobs as $key => $value) { 
                     echo '<option value="'.$value->job_id.'">'.$value->job_title.'</option>';
                } ?>                                               
             </select>
-            <label>Job Title * </label>
+            <label>Select Job <span class="red-text">*</span> </label>
         </div>
       <div class="input-field col s12 m6">
-        <input type="text" id="last_name" class="validate">
-        <label for="last_name">Candidate Id * </label>
+        <input type="hidden" name="empId" value="<?php echo $employers['emp_id'] ?>">
+        <input type="hidden" id="" class="validate" value="<?php echo $this->uri->segment(3) ?>" name="uqid">
+        <input type="text" id="" class="validate" name="canId" required>
+        <label for="last_name">Candidate Id <span class="red-text">*</span> </label>
       </div>
       <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea"></textarea>
+        <textarea id="textarea1" class="materialize-textarea" name="des"></textarea>
         <label for="textarea1">Description (Optional)</label>
       </div>
-    </form>
+    
   </div>
   <div class="modal-footer">
     <a href="#!" class=" modal-action modal-close waves-effect waves-red btn red">cancle</a>
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn green darken-4">Submit</a>
+    <button type="submit" class=" waves-effect waves-green  btn green darken-4 white-text hoverable">Submit</button>
   </div>
+  </form>
 </div>
+<?php echo $this->session->flashdata('messeg'); ?>
 
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>

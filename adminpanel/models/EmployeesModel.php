@@ -116,10 +116,39 @@ class EmployeesModel extends CI_Model {
     {
         $this->db->where('job_id', $jid);
         $this->db->select('count(job_id) as couts');
-        return $this->db->get('ch_jobapply')->row();
+        return $this->db->get('ch_jobapply')->row();     
+    }
+
+    /**
+     * Push cv
+     */
+    public function pushCV($data)
+    {
+        $this->db->insert('ch_varified_cv', $data);
+        if($this->db->affected_rows() > 0 ){
+            $this->cvadded($data['job_id']);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * decreez verified cvs
+    */
+    function cvadded($jid){
+        $this->db->where('job_id', $jid);
+        $this->db->set('jp_cvs', 'jp_cvs-1', FALSE);
+        $this->db->update('ch_jobs');
+        if($this->db->affected_rows() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
         
 
-        
         
     }
 
