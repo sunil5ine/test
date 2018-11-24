@@ -695,6 +695,7 @@ class Jobs extends CI_Controller {
 		$this->data['sid'] 		= 1;
 		$this->data['title'] 	= 'Cherry Hire - Job - View Details';
 		$this->data['pagehead'] = 'View Details';
+		
 
 
 		// $this->load->view('common/header_inner',$this->data);
@@ -1359,6 +1360,35 @@ class Jobs extends CI_Controller {
 		}
 	}
 
+	/**
+	 * Verified cvs
+	 */
+	public function verified_cv()
+	{
+		$this->data['vcv'] = $this->jobsmodel->verified_cv();
+		$this->data['title'] 	= 'Cherry Hire - Job - Verified CVs';
+		$this->data['pagehead'] = 'View Details';
+		$this->data['message'] = '';		
+		
+		$this->load->view('new/verifiedcv', $this->data, FALSE);
+		
+		
+	}
+
+	/**
+	 * Download
+	 */
+	public function download()
+	{
+		$id =  $this->input->get('id');
+		$data = $this->jobsmodel->getcvd($id);
+		$this->load->helper('download');
+		$name = $data['can_fname'].' '.$data['can_lname'];
+		$file = $data['cv_path'];
+		force_download($file, $name);
+		redirect('verified-cv','refresh');
+		
+	}
 
 
 

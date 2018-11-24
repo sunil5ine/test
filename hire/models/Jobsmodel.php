@@ -1248,5 +1248,57 @@ public function checkJobsremaining($hid)
 	}
 
 
+/**
+ * Verified Cvs
+ */
+function verified_cv()
+{
+	
+	   $query=$this->db->query("
+		select distinct(a.can_id), 
+		c.can_encrypt_id, 
+		c.can_fname,
+		c.can_lname, 
+		c.can_ccode,
+		c.can_phone, 
+		c.can_email, 
+		c.can_experience,
+		c.can_curr_desig, 
+		c.can_curr_loc, 
+		c.can_upd_date, 
+		co.co_name, 
+		ch.cv_path,
+		ch.cv_headline,
+		cv_id,
+		f.jfun_display as fun_name, 
+		j.job_url_id, j.job_title, 
+		j.job_location from ch_varified_cv a left join 
+		".$this->table_candidate." c on c.can_id=a.can_id left join 
+		".$this->table_country." co on co.co_id = c.co_id left join 
+		ch_cv ch on ch.can_id = c.can_id left join
+		".$this->table_farea." f on f.jfun_id = c.fun_id left join ch_jobs j on j.job_id=a.job_id left join 
+		".$this->table_emp." emp on emp.emp_id=j.job_created_by where c.can_status=1 and emp.emp_id=".$this->session->userdata('hireid')." order by can_id desc ");
+
+	if ($query->num_rows() > 0) {
+		foreach ($query->result() as $row) {
+			$data[] = $row;
+		}
+		return $data;
+	}
+	
+}
+
+/**
+ * download cv
+ */
+
+ public function getcvd($id)
+ {
+	$this->db->where('cv_id', $id);
+	$this->db->from('ch_cv');
+	$this->db->join($this->table_candidate, $this->table_candidate.'.can_id = ch_cv.can_id', 'left');
+	
+	return $this->db->get()->row_array();
+}
 
 }

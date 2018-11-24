@@ -97,7 +97,7 @@ class Dashboardmodel extends CI_Model {
 		} else {
 			$climit='limit 0,'.$limit;
 		}
-       	$query=$this->db->query("select distinct(a.can_id), c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_experience,c.can_curr_desig, c.can_curr_loc, c.can_upd_date, co.co_name, f.jfun_display as fun_name, j.job_url_id, j.job_title, j.job_location from ".$this->table_jobapply." a left join ".$this->table_candidate." c on c.can_id=a.can_id left join ".$this->table_country." co on co.co_id = c.co_id left join ".$this->table_farea." f on f.jfun_id = c.fun_id left join ".$this->table_jobs." j on j.job_id=a.job_id left join ".$this->table_emp." emp on emp.emp_id=j.job_created_by where c.can_status=1 and emp.emp_id=".$this->session->userdata('hireid')." order by can_id desc ".$climit);
+		   $query=$this->db->query(" select distinct(a.can_id), c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_experience, c.can_curr_desig, c.can_curr_loc, c.can_upd_date, co.co_name, f.jfun_display as fun_name, j.job_url_id, j.job_title, j.job_location from ch_varified_cv a left join ".$this->table_candidate." c on c.can_id=a.can_id left join ".$this->table_country." co on co.co_id = c.co_id left join ".$this->table_farea." f on f.jfun_id = c.fun_id left join ".$this->table_jobs." j on j.job_id=a.job_id left join ".$this->table_emp." emp on emp.emp_id=j.job_created_by where c.can_status=1 and emp.emp_id=".$this->session->userdata('hireid')." order by can_id desc ".$climit);
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $row) {
@@ -107,6 +107,7 @@ class Dashboardmodel extends CI_Model {
 		}
 		return false;
     }
+	
 	
 	public function get_job_record($limit=0)
     {

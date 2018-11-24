@@ -189,14 +189,6 @@ class Dashboard extends CI_Controller {
 		/*************************Latest 5 Application**************************************************/
 		$this->data["top5_candidate"] 	= $this->dashboardmodel->get_cand_record(5);
 		/***********************************************************************************************/
-		
-		/*************************Latest 5 Transactions**************************************************/
-		$this->data["top5_bills"]		= $this->dashboardmodel->get_bill_record(5);
-		/***********************************************************************************************/
-		
-		$this->data['left_nav']	= $this->load->view('common/leftmenu',$this->data,true);
-		$this->data['top_nav']	= $this->load->view('common/topmenu',$this->data,true);
-		
 		$this->load->view('new/dashboard',$this->data);
 	}
 	

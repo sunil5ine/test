@@ -839,3 +839,9 @@ span.profile-pic .label a{display: block;}
 .blog-detail .blog-mcontent p{font-size: 14px}
 .blog-detail .blog-btn-actions { padding: 15px 0; }
 .blog-tfooter{ padding: 50px 0; margin-bottom: 10px; background-color: #fff}
+
+/******* verified cvs ********/
+.cv-lists p{margin: 2px 0; font-size: 13px;}
+.cv-heading {font-weight: 700;}
+.cv-content {margin-left: 10px;}
+.cv-lists .btn{margin-top:3px}

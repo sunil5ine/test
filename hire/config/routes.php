@@ -69,6 +69,7 @@ $route['Jobs/SubmitJob/(:any)'] = "jobs/submit_job/$1";
 $route['Jobs/EmailJob/(:any)'] = "jobs/email_job/$1";
 $route['Jobs/CandidateList/(:any)'] = "jobs/cand_list/$1";
 $route['Jobs/CreateHireJob/(:any)'] = "jobs/create_hire_job/$1";
+$route['verified-cv']       = "jobs/verified_cv";
 
 $route['Profile/List/(:any)'] = "profile/viewlist/$1";
 $route['Profile/Viewdetails/(:any)'] = "profile/viewdetails/$1";
@@ -108,6 +109,8 @@ $route['Candidate/ViewDetails/(:any)'] = "candidate/viewdetails/$1";
 $route['Candidate/Update/(:any)'] = "candidate/update_candidate/$1";
 $route['Candidate/Delete'] = "candidate/delete_candidate";
 $route['Candidate/Delete/(:any)'] = "candidate/delete_candidate/$1";
+
+$route['Apply/ViewProfile/(:any)'] = "candidate/apply_profile_details/$1";
 
 $route['Apply/ViewProfile/(:any)'] = "candidate/apply_profile_details/$1";
 

@@ -128,13 +128,13 @@
 								<div class="collection with-header card">
 									<div class="collection-header p20 grey lighten-3">
 										<p class="m0">
-											<spn class="h6 black-text"><b>Recent Applications</b></spn> 
-											<a href="" class="right green-text">View all</a>
+											<span class="h6 black-text"><b>Verified CV's</b></span> 
+											<a href="<?php echo base_url() ?>verified-cv" class="right green-text">View all</a>
 										</p>
 									</div>
 									<?php  if(!empty($top5_candidate)) { foreach ($top5_candidate as $canresult)
                                         { ?>
-							        <a href="<?php echo $this->config->base_url('Jobs/Viewdetails').$canresult->job_url_id; ?>" class="collection-item">
+							        <a href="<?php echo $this->config->base_url('Jobs/Viewdetails/').$canresult->job_url_id; ?>" class="collection-item">
 							        	<div class="">
 							        		<p class="h7 black-text"><?php echo $canresult->can_fname.' '.$canresult->can_lname; ?></p>
 							        		<ul class="applied-job-card-resume">
