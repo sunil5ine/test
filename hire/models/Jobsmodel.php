@@ -1251,7 +1251,7 @@ public function checkJobsremaining($hid)
 /**
  * Verified Cvs
  */
-function verified_cv()
+function verified_cv($id)
 {
 	
 	   $query=$this->db->query("
@@ -1277,11 +1277,18 @@ function verified_cv()
 		".$this->table_country." co on co.co_id = c.co_id left join 
 		ch_cv ch on ch.can_id = c.can_id left join
 		".$this->table_farea." f on f.jfun_id = c.fun_id left join ch_jobs j on j.job_id=a.job_id left join 
-		".$this->table_emp." emp on emp.emp_id=j.job_created_by where c.can_status=1 and emp.emp_id=".$this->session->userdata('hireid')." order by can_id desc ");
+		".$this->table_emp." emp on emp.emp_id=j.job_created_by where c.can_status=1 and emp.emp_id=".$this->session->userdata('hireid')."  order by can_id desc ");
 
 	if ($query->num_rows() > 0) {
 		foreach ($query->result() as $row) {
-			$data[] = $row;
+			if(!empty($id)){
+				if($id === $row->job_url_id){
+					$data[] = $row;
+				}
+				
+			}else{
+				$data[] = $row;
+			}	
 		}
 		return $data;
 	}

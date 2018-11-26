@@ -134,7 +134,7 @@
 									</div>
 									<?php  if(!empty($top5_candidate)) { foreach ($top5_candidate as $canresult)
                                         { ?>
-							        <a href="<?php echo $this->config->base_url('Jobs/Viewdetails/').$canresult->job_url_id; ?>" class="collection-item">
+							        <a href="<?php echo $this->config->base_url('verified-cv/').$canresult->job_url_id; ?>" class="collection-item">
 							        	<div class="">
 							        		<p class="h7 black-text"><?php echo $canresult->can_fname.' '.$canresult->can_lname; ?></p>
 							        		<ul class="applied-job-card-resume">

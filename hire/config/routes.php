@@ -70,6 +70,7 @@ $route['Jobs/EmailJob/(:any)'] = "jobs/email_job/$1";
 $route['Jobs/CandidateList/(:any)'] = "jobs/cand_list/$1";
 $route['Jobs/CreateHireJob/(:any)'] = "jobs/create_hire_job/$1";
 $route['verified-cv']       = "jobs/verified_cv";
+$route['verified-cv/(:any)']       = "jobs/verified_cv/$1";
 
 $route['Profile/List/(:any)'] = "profile/viewlist/$1";
 $route['Profile/Viewdetails/(:any)'] = "profile/viewdetails/$1";

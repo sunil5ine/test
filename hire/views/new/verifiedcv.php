@@ -38,7 +38,9 @@
                     </div>
                         <div class="row">
                             <ul class="collection with-header">
-                                <?php foreach ($vcv as $key => $value) { ?>
+                                <?php
+                                    if(!empty($vcv)){
+                                    foreach ($vcv as $key => $value) { ?>
                                     <li class="collection-item cv-lists">
                                         <div class="row m0">
                                             <div class="col s12">
@@ -93,7 +95,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                <?php } ?>    
+                                <?php } }?>    
                             </ul>
                         </div>
                 </div>
