@@ -2,7 +2,7 @@
       <nav class="white">
          <div class="nav-wrapper container-wrap">
             <a href="http://5ineprojects.com/cherryhire/" class="brand-logo">
-            <img src="assets/img/logo.png" class="responsive-img" alt="logo">
+            <img src="<?php echo $this->config->item('web_url') ?>assets/img/logo.png" class="responsive-img" alt="logo">
             </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
             <i class="fas fa-bars black-text"></i>
@@ -21,7 +21,7 @@
                   <li><a href="#!" class="black-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</a></li>
                </ul>
                <li class="dropdown-trigger hide-ref1" data-target='dropdown2'>
-                  <img src="assets/img/droupdown-img.png" class="responsive-img droup-img "  alt="">
+                  <img src="<?php echo $this->config->item('base_url') ?>dist/img/droupdown-img.png" class="responsive-img droup-img "  alt="">
                   <i class="fas fa-caret-down font-col1 dropdown-trigger" ></i>
                </li>
                <!-- Dropdown Structure -->

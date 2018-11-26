@@ -127,11 +127,11 @@ else{
                                                     $farea = $this->ci->employeesModel->getFunctionArea($value->job_farea, $value->job_id);
                                                 ?>
                                                     <tr>
-                                                        <td><a href="<?php echo base_url('job/detail/').$value->job_id ?>"><?php echo $value->job_title ?></a></td>
-                                                        <td><a href="<?php echo base_url('candidates/detail/').$value->can_id  ?>"><?php echo $value->can_fname .' '.$value->can_lname ?></a></td>
+                                                        <td class="td-a"><a href="<?php echo base_url('jobs/detail/').$value->job_id ?>"><?php echo $value->job_title ?></a></td>
+                                                        <td  class="td-a"><a href="<?php echo base_url('candidates/detail/').$value->can_id  ?>"><?php echo $value->can_fname .' '.$value->can_lname ?></a></td>
                                                         <td><?php echo (!empty($farea['function']->fun_name))? $farea['function']->fun_name:'' ?></td>
                                                         <td class="center-align"><?php echo $value->can_experience ?></td>
-                                                        <td><a href="mailto:<?php echo $value->can_email ?>"><?php echo $value->can_email ?></a></td>
+                                                        <td  class="td-a"><a href="mailto:<?php echo $value->can_email ?>"><?php echo $value->can_email ?></a></td>
                                                         <td class="action-btn center-align"><a href="<?php echo base_url('candidates/download-resume/').$value->can_id ?>" class="hoverable blue darken-3"><i class="fas fa-file-download"></i></a></td>
                                                     </tr>                                         
                                                 

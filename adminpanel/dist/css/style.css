@@ -295,10 +295,60 @@ body {background-color: whitesmoke; overflow-x: hidden}
 
 table tr td{font-size: 13px; font-weight: 500; font-family: arial;}
 .progress{background-color: #f5f5f5;}
-table tr td a{display: block;padding: 0 1px;}
-table tr td a:hover { color: #179205; background: #e6e5c3;}
+table tr .td-a a{display: block;padding: 10px;}
+table tr .td-a a:hover { color: #179205; background: #e6e5c3;}
+table tr .td-a{
+    padding: 0px !important
+}
 
 
+/**************** Manage jobs *****************/
+.arrow-edit { float: left; padding-right: 5px; padding-top: 2px; } 
+.manage-job p { font-size: 11px; color: #363636; font-style: italic; letter-spacing: 1px; } 
+.form-list { margin-top: 10px !important; padding-left: 6px !important; background: white !important; border: 1px solid #e3e3e3 !important; height: 43px !important; } 
+.lable-form { font-size: 13px !important; color: #242424 !important; font-weight: 600 !important; } 
+.chip-text{ margin-top: 10px !important; background-color: white; } 
+.manage-job-form { padding-top: 15px; } 
+.button-save { text-align: center; } 
+.bt-but { background: white; color: black; font-weight: 600; padding: 10px 50px; border: 1px solid green; } 
+.bt-but1 { border: 1px solid green; color: white; font-weight: 600; padding: 10px 50px; } 
+.sss{ border: 1px solid #e3e3e3 ; height: 47px; margin-top: 10px; padding-left: 5px; background: white; } 
+.select-wrapper input.select-dropdown { border: none !important; color: #383838; } 
+.mb0{ margin-bottom: 0px; } 
+.m0{ margin:0px; } 
+.para-left{ padding-left: 30px; }
+
+/*2 design*/
+.job-list { border: none; } 
+.h1-job { font-size: 12px; color: #323232; padding: 6px 10px; width: 40%; } 
+.para-job { font-size: 13px; color: #323232; padding: 6px 10px; } 
+.manage-job-edit { padding-top: 15px; padding-left: 25px; padding-right: 25px; padding-bottom: 1px; margin-top: 25px; border-radius: 5px; } 
+.act{ float: right; margin: 0; font-size: 14px; } 
+.bot-f { float: left; font-size: 15px; padding-top: 4px; padding-right: 6px; } 
+.edit-btn { width: 40%; } 
+.edit-btn-1 { padding-top: 20px; }
+
+@media(max-width: 599px){
+    .form-top { padding-top: 15px; } 
+    .manage-job { padding-top: 20px; }
+}
+@media(min-width: 600px) and (max-width: 991px){
+        .form-top { padding-top: 15px; } 
+        .manage-job { padding-top: 20px; }
+}
+
+/****      Add new job      ****/
+
+#area2{min-height: 200px}
+#addform input, #addform select { border: 1px solid #cfcece; width: 96% ; height: 38px; border-radius: 2px; padding: 0px 3px;}
+#addform  .select2-container--default .select2-selection--single { border: transparent !important; border-radius: 0 !important; height: 36px; }
+#addform  .select2-container--default .select2-selection--single .select2-selection__rendered { color: #444; line-height: 36px !important; }
+.select2{width: 98% !important; border: 1px solid #cfcece; border-radius: 2px;margin-bottom:8px !important;}
+.p0.col{padding: 0px !important}
+#addform textarea{border: 1px solid #cccbcb; min-height: 150px; margin-top: 5px;}
+#skillstags_tagsinput { width: 98% !important; }
+#skillstags_tag { border: transparent !important; }
+.plr60{padding: 0 60px}
 
 
 @media (max-width: 600px) 
