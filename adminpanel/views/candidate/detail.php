@@ -74,12 +74,11 @@
                                                 </div> 
                                             </div>
                                         </div>
-
                                         <div class="col s12 m6">
                                             <div class="resume-box center">
                                                <p class="mb10">View Resume:</p>     
                                                <p class="mb15 bold"><?php echo $cv['cv_headline'] ?></p>  
-                                               <a target='_blank' href="<?php echo $cv['cv_path'] ?>" class="btn waves-effect waves-light green darken-4">View Resume</a>   
+                                               <a  href="<?php echo base_url('candidates/download-resume/').$profile['can_id'] ?>" class="btn waves-effect waves-light green darken-4">View Resume</a>   
                                             </div>
                                         </div>
                                     </div>

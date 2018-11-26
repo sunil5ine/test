@@ -49,23 +49,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['Dashboard']                 = "dashboard/index";
+$route['Dashboard']                             = "dashboard/index";
+$route['delete-employee/(:any)']                = "employees/delete_employee/$1";
+$route['employees/approve/(:any)']              = "employees/approve/$1";
+$route['employees/reject/(:any)']               = "employees/reject/$1";
+$route['employees/details/(:any)']              = "employees/details/$1";
+$route['employees/posted-jobs/(:any)']          = "employees/posted_jobs/$1";
+$route['employees/uploaded-resumes/(:any)']     = "employees/uploaded_resumes/$1";
 
-$route['delete-employee/(:any)']    = "employees/delete_employee/$1";
-$route['employees/approve/(:any)']  = "employees/approve/$1";
-$route['employees/reject/(:any)']   = "employees/reject/$1";
-$route['employees/details/(:any)']  = "employees/details/$1";
-$route['employees/posted-jobs/(:any)']  = "employees/posted_jobs/$1";
-$route['employees/uploaded-resumes/(:any)']  = "employees/uploaded_resumes/$1";
-
-$route['candidates/detail/(:any)']  = "candidates/detail/$1";
-$route['blog/add-new']              = "blog/index";
-
-$route['Logout']                    = "logout";
-$route['Login']                     = "login";
-$route['PageContent']               = "pagecontent/pagelist";
-$route['default_controller']        = "login";
-$route['404_override']              = 'nopage';
-$route['translate_uri_dashes']      = FALSE;
+$route['candidates/download-resume/(:any)']     = "candidates/download_resume/$1";
+$route['candidates/detail/(:any)']              = "candidates/detail/$1";
+$route['blog/add-new']                          = "blog/index";
+$route['Logout']                                = "logout";
+$route['Login']                                 = "login";
+$route['PageContent']                           = "pagecontent/pagelist";
+$route['default_controller']                    = "login";
+$route['404_override']                          = 'nopage';
+$route['translate_uri_dashes']                  = FALSE;
                
 

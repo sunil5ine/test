@@ -153,7 +153,7 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .progress-bar-set {padding: 5px 0; }
 .h5-para-p1 {margin: 10px 0; }
 .chart-postion{position: absolute; width: 47%; right: -32px; margin-top: -10px;}
-.action-btn a { color: #fff; padding: 4px 10px; text-align: center; font-size: 13px; float: left; margin: 0 2px; border-radius: 7px;}
+.action-btn a { color: #fff; padding: 4px 10px; text-align: center; font-size: 13px; float: left; margin: 0 2px; border-radius: 4px;}
 .action-btn a:hover{box-shadow:0 3px 3px 0 rgba(0,0,0,0.2),0 2px 0px 0 rgba(0,0,0,0.19); -webkit-box-shadow:0 3px 3px 0 rgba(0,0,0,0.2),0 2px 0px 0 rgba(0,0,0,0.19)}
 /* popus */
 #snackbar { visibility: hidden; min-width: 250px; margin-left: -125px; color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; bottom: 150px; right: 64px; font-size: 17px; max-width: 375px; display: inline-table; }
@@ -196,7 +196,6 @@ body {background-color: whitesmoke; overflow-x: hidden}
  .profile-box .profile-items .profile-item-title{font-size: 13px; font-weight: 600; color: #2c2323;float: left;width: 50%;}
  .profile-box .profile-items .profile-item-title i{width: 20px;}
  .profile-box .profile-items .profile-item-content{float: left; font-size: 13px; padding-left: 15px; width: 50%;}
- .profile-box .profile-items .profile-item-content span{}
  .set-box .exp-items-box {overflow: hidden; padding: 10px 15px; box-shadow: 0px 0px 6px -1px; margin-bottom: 15px; border-radius: 4px; }
  .set-box .exp-items-box .exp-items .exp-items-title i{width: 20px;}
  .set-box .exp-items-box .exp-items .exp-items-title{font-size: 13px}
@@ -296,6 +295,9 @@ body {background-color: whitesmoke; overflow-x: hidden}
 
 table tr td{font-size: 13px; font-weight: 500; font-family: arial;}
 .progress{background-color: #f5f5f5;}
+table tr td a{display: block;padding: 0 1px;}
+table tr td a:hover { color: #179205; background: #e6e5c3;}
+
 
 
 

@@ -122,9 +122,19 @@ class employees extends CI_Controller {
        }else{
             $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p>Verified CV submission failed!<br />  Please try agin later. </p></div>');
             redirect('employees/posted-jobs/'.$uqid,'refresh');
-
        }
         
+    }
+
+    /**
+     * Fetch uploaded resumes
+     */
+    public function uploaded_resumes($var = null)
+    {
+        $data['title'] = ' CherryHire Employers';
+        $data['resumes'] = $this->employeesModel->uploadedResumes($var);
+        $data['employers'] = $this->employeesModel->companyDetails($var);
+        $this->load->view('employees/uploaded-resumes', $data, FALSE);     
     }
 
 

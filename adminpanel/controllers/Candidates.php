@@ -32,7 +32,18 @@ class candidates extends CI_Controller {
        $data['edu']     =  $this->candidateModel->education($id);
 
        $this->load->view('candidate/detail', $data);
-       
+    }
+
+    public function download_resume($id = null)
+    {
+        $data = $this->candidateModel->download($id);
+        $this->load->helper('download');
+        $file = file_get_contents($data['cv_path']);
+        $name = $data['cv_headline'];
+        force_download($data['cv_path'], $file);
+        redirect('candidates/detail/'.$id,'refresh');
+        
+        
     }
 
 }

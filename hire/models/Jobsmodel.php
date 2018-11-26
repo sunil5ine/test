@@ -368,8 +368,8 @@ class Jobsmodel extends CI_Model {
 	function checkpacake()
 	{
 		$max = $this->input->post('maxexp');
-		$this->db->where('cp_max_ex <= ', $max);
-		$this->db->order_by('cp_max_ex', 'desc');		
+		$this->db->where('cp_max_ex >= ', $max);
+		$this->db->order_by('cp_max_ex', 'asc');		
 		$package = $this->db->select('cp_max_ex, pr_cvno, peried');
 		$data = $this->db->get('ch_pricing')->row_array();
 		return $data;	

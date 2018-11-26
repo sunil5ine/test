@@ -83,6 +83,19 @@ class candidateModel extends CI_Model {
         return $this->db->get('ch_candidate_education')->row_array();
     }
 
+    /**
+     * download resume
+     */
+    public function download($id)
+    {
+        $this->db->select('cv_path, cv_headline');
+        $this->db->from('ch_candidate c');        
+        $this->db->where('c.can_id', $id);
+        $this->db->join('ch_cv r', 'r.can_id = c.can_id', 'left');
+        return $this->db->get()->row_array(); 
+        
+    }
+
 }
 
 /* End of file candidateModel.php */

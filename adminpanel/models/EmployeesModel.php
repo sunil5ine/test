@@ -60,15 +60,32 @@ class EmployeesModel extends CI_Model {
     */
     public function companyDetails($id)
     {
+       
         $this->db->select('*');
+        // $this->db->select_sum('jp_cvs');
         $this->db->from('ch_employer');
         $this->db->where('emp_authkey', $id);
         $this->db->order_by('sub_expire_dt', 'desc');
+        // $this->db->join('ch_jobs', 'ch_jobs.job_created_by = ch_employer.emp_id', 'left');
         $this->db->join('ch_emp_subscribe', 'ch_emp_subscribe.emp_id = ch_employer.emp_id', 'left');
         $this->db->join('ch_emp_social',  'ch_emp_social.emp_id = ch_employer.emp_id', 'left');
         $this->db->join('ch_emp_profile',  'ch_emp_profile.emp_id = ch_employer.emp_id', 'left');
         $query = $this->db->get()->row_array();
+
+        $this->pendingcv($id);
         return $query;  
+        
+    }
+
+    /**
+     * Pending cv
+     */
+    public function pendingcv($id){
+        $this->db->select_sum('jp_cvs');
+        $this->db->from('ch_employer');
+        $this->db->where('emp_authkey', $id);
+        $this->db->join('ch_jobs', 'ch_jobs.job_created_by = ch_employer.emp_id', 'left');
+        $query = $this->db->get()->row_array();
         
     }
 
@@ -145,13 +162,25 @@ class EmployeesModel extends CI_Model {
         }
         else{
             return false;
-        }
-        
-        
-
-        
+        }    
     }
 
+    /**
+     * Uploaded Resumes
+     */
+    public function uploadedResumes($var)
+    {
+        $this->db->select('job_farea, job_title, v.job_id, v.can_id, can_fname, can_lname, can_experience, can_email');
+        $this->db->from('ch_employer e');
+        $this->db->where('emp_authkey',$var);
+        $this->db->join('ch_varified_cv v', 'v.emp_id = e.emp_id', 'left');
+        $this->db->join('ch_jobs c', 'c.job_id = v.job_id', 'left');
+        $this->db->join('ch_candidate n', 'n.can_id = v.can_id', 'left');
+        
+        $data = $this->db->get();
+        
+        return $data->result();
+    }
 
 }
 
