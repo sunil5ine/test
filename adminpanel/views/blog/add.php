@@ -35,49 +35,49 @@
                                     <div class="form-container">
                                         <form enctype="multipart/form-data" action="<?php echo base_url() ?>blog/post" method="post" style="overflow-y: auto;overflow-x: hidden;">
                                         
-                                          <div class="input-field col s12 l6">
-                                            <i class="far fa-calendar-alt prefix"></i>
-                                            <input type="text" id="pdate" name="postdate" class="validate datepicker">
-                                            <label for="pdate">Posted Date</label>
-                                          </div>
-                                          <div class="input-field col s12 l6">
-                                            <input type="text" id="blog-title" name="title" class="validate">
-                                            <label for="blog-title">Blog Title</label>
-                                          </div>
-                                          
-                                          <div class="input-field col s12 l6">
-                                                <select name="category">
-                                                    <option value="" disabled selected>Choose your option</option>
-                                                    <option value="1">Option 1</option>
-                                                    <option value="2">Option 2</option>
-                                                    <option value="3">Option 3</option>
-                                                </select>
-                                            <label for="last_name">Category</label>
-                                          </div>
-                                          <div class="input-field col s12 l6">
-                                            <input type="text" id="seoTitle" name="stitle" class="validate">
-                                            <label for="seoTitle">SEO Title</label>
-                                          </div>
-                                          <div class="input-field col s12 l6">
-                                            <input type="text" id="seoDes" name="sdes" class="validate">
-                                            <label for="seoDes">SEO Description</label>
+                                          <div class="row m0">
+                                              <div class="input-field col s12 l6">
+                                                <i class="far fa-calendar-alt prefix"></i>
+                                                <input type="text" id="pdate" name="postdate" class="validate datepicker">
+                                                <label for="pdate">Schedule date (Optional)</label>
+                                              </div>
+                                              <div class="input-field col s12 l6">
+                                                <input type="text" id="blog-title" name="title" class="validate" required>
+                                                <label for="blog-title">Blog Title <span class="red-text">*</span></label>
+                                              </div>
                                           </div>
                                           
-                                          <div class="input-field col s12 l6">
-                                            <input type="text" id="skey" name="skeyword" class="validate">
-                                            <label for="skey">SEO Keywords</label>
-                                          </div>
+                                          
+                                            <div class="row m0">
+                                              <div class="input-field col s12 l6">
+                                                <input type="text" id="seoTitle" name="stitle" class="validate" required>
+                                                <label for="seoTitle">SEO Title <span class="red-text">*</span></label>
+                                              </div>
+                                              <div class="input-field col s12 l6">
+                                                <input type="text" id="seoDes" name="sdes" class="validate" required>
+                                                <label for="seoDes">SEO Description <span class="red-text">*</span></label>
+                                              </div>
+                                            </div> 
 
-                                            <div class="file-field input-field col s12 l12">
-                                                <div class="btn btn-small black-text grey lighten-3">
-                                                <i class="far fa-image left  "></i>
-                                                    <span class="">Add Media</span>
-                                                    <input type="file" name="file">
+                                            <div class="row ">
+                                                <div class="input-field col s12 l6">
+                                                  <input type="text" id="skey" name="skeyword" class="validate" required>
+                                                  <label for="skey">SEO Keywords <span class="red-text">*</span></label>
                                                 </div>
-                                                <div class="file-path-wrapper">
-                                                    <input class="file-path validate" type="text" style="border:transparent">
+                                                
+                                                <div class="file-field input-field col s12 l6">
+                                                    <div class="btn btn-small black-text grey lighten-3">
+                                                    <i class="far fa-image left  "></i>
+                                                        <span class="">Add Media</span>
+                                                        <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif" required>
+                                                    </div>
+                                                    <div class="file-path-wrapper">
+                                                        <input class="file-path validate" type="text" style="border:transparent">
+                                                    </div>
+                                                    <h6 class=" m0"><small> <i><b>Note</b>: Please select only image file (eg: .jpg, .png, .jpeg, .gif etc.) <br> <span class="bold">Max file size:</span> 512kb  </i> <span class="red-text">*</span></small></h6>
                                                 </div>
                                             </div>
+
                                             <div class="col s12">
                                                 <div id="toolbar-container"></div>
                                                 <div id="editor">
@@ -101,7 +101,8 @@
                 </div>
             </div>
         </section>
-
+        <?php echo $this->session->flashdata('messeg'); ?>
+        
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
@@ -115,6 +116,8 @@
                   var text = $('#editor').html(); 
                   $('#description').val(text);
                 });
+
+                
             });
         </script>
         <script>

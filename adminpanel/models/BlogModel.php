@@ -13,10 +13,18 @@ class BlogModel extends CI_Model {
             return true;
         }else{
             return false;
-        }
-        
-        
+        } 
     }
+
+    /**
+     * Get list
+     */
+    function getblog()
+    {
+        $this->db->order_by('creted_on', 'desc');
+        return $this->db->get('ch_blogposts')->result();        
+    }
+    
 
 }
 

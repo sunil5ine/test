@@ -313,7 +313,7 @@ table tr .td-a{
 .bt-but { background: white; color: black; font-weight: 600; padding: 10px 50px; border: 1px solid green; } 
 .bt-but1 { border: 1px solid green; color: white; font-weight: 600; padding: 10px 50px; } 
 .sss{ border: 1px solid #e3e3e3 ; height: 47px; margin-top: 10px; padding-left: 5px; background: white; } 
-.select-wrapper input.select-dropdown { border: none !important; color: #383838; } 
+#addform .select-wrapper input.select-dropdown { border: none !important; color: #383838; } 
 .mb0{ margin-bottom: 0px; } 
 .m0{ margin:0px; } 
 .para-left{ padding-left: 30px; }
