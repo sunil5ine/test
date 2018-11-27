@@ -34,7 +34,7 @@
 
                      <div class="card ">
                         <div class="card-content ">
-                            <form action="<?php echo base_url('jobs/add') ?>" method="post" style="overflow:hidden" id="addform">
+                            <form action="<?php echo base_url('jobs/post') ?>" method="post" style="overflow:hidden" id="addform">
                                 <div class="row">
                                     <div class=" col s12 l6">
                                         <label for="jtitle" class="active">Job  Title <span class="red-text">*</span></label>
@@ -75,18 +75,30 @@
                                     </div>
                                         <div class=" col s12 l6 ">
                                             <select required name="minexp">
-                                                <option value="" disabled selected>Choose your option</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                                <option value="3">Option 3</option>
+                                                <option value="" disabled selected>Min Exp</option>
+                                                <option value="0">Fresher</option>
+                                                <?php for ($i=1; $i < 16; $i++) {  ?>
+                                                    <option value="<?php echo $i ?>">
+                                                    <?php if($i > 1 && $i < 15){echo $i.' Years'; } 
+                                                         else{ echo $i .' Year';}                                                         
+                                                    ?>
+                                                    </option>
+                                                <?php  } ?>
+                                                <option value="16">16 +years</option>
                                             </select>
                                         </div>
                                         <div class=" col s12 l6 ">
                                             <select required name="maxexp">
-                                                <option value="" disabled selected>Choose your option</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                                <option value="3">Option 3</option>
+                                                <option value="" disabled selected>Max Exp</option>
+                                                <option value="0">Fresher</option>
+                                                <?php for ($i=1; $i < 16; $i++) {  ?>
+                                                    <option value="<?php echo $i ?>">
+                                                    <?php if($i > 1 && $i < 15){echo $i.' Years'; } 
+                                                         else{ echo $i .' Year';}                                                         
+                                                    ?>
+                                                    </option>
+                                                <?php  } ?>
+                                                <option value="16">16 +years</option>
                                             </select>
                                         </div>
                                     </div>
@@ -94,31 +106,42 @@
                                     <div class="col s12  l6">
                                         <label for="" class="">Offered Salary Range (Monthly)<span class="red-text">*</span></label>
                                        <select required name="salary">
-                                           <option value="" disabled selected>Choose your option</option>
-                                           <option value="1">Option 1</option>
-                                           <option value="2">Option 2</option>
-                                           <option value="3">Option 3</option>
+                                            <option value="" selected="selected" data-select2-id="11">Monthly Salary</option>
+                                            <option value="0~0" >Unspecified</option>
+                                            <option value="0~500" >$0 - $500</option>
+                                            <option value="500~1000">$500 - $1000</option>
+                                            <option value="1000~1500">$1000 - $1500</option>
+                                            <option value="1500~2000">$1500 - $2000</option>
+                                            <option value="2000~3000">$2000 - $3000</option>
+                                            <option value="3000~4000">$3000 - $4000</option>
+                                            <option value="4000~5000">$4000 - $5000</option>
+                                            <option value="5000~6000">$5000 - $6000</option>
+                                            <option value="6000~7000">$6000 - $7000</option>
+                                            <option value="7000~8000">$7000 - $8000</option>
+                                            <option value="8000~9000">$8000 - $9000</option>
+                                            <option value="9000~10000">$9000 - $10000</option>
+                                            <option value="10000~15000">$10000 - $15000</option>
+                                            <option value="15000~30000">$15000 - $30000</option>
+                                            <option value="30000~50000">$30000 - $50000</option>
                                        </select>
                                     </div>
                                 </div>
-
+                                               
                                 <div class="row">
                                     <div class=" col s12 l6">
                                         <label for="" class="">Function Area<span class="red-text">*</span></label>
                                         <select name="funarea">
-                                            <option value="" disabled selected>Choose your option</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
+                                            <?php foreach ($funarea as $key => $value) { ?>
+                                               <option value="<?php echo $value->fun_id ?>"><?php echo $value->fun_name ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                     <div class=" col s12 l6">
                                         <label for="" class="">Educational Qualification<span class="red-text">*</span></label>
                                         <select name="education">
-                                            <option value="" disabled selected>Choose your option</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
+                                            <?php foreach ($education as $key => $value) { ?>
+                                               <option value="<?php echo $value->edu_id ?>"><?php echo $value->edu_name ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>
@@ -126,11 +149,16 @@
                                 <div class="row">
                                     <div class=" col s12 l6">
                                         <label for="" class=""> Industry <span class="red-text">*</span></label>
-                                        <input type="text" id="first_name" name="industry" class="validate">
+                                        <select name="industry">
+                                            <?php foreach ($industry as $key => $value) { ?>
+                                               <option value="<?php echo $value->ind_name ?>"><?php echo $value->ind_name ?></option>
+                                            <?php } ?>
+                                            <option value="other">Other...</option>
+                                        </select>
                                     </div>
                                     <div class=" col s12 l6">
-                                        <label for="" id="" name="skils" class=""> Skills  <span class="red-text"></span></label>
-                                        <input type="text" id="skillstags" class="validate">                                        
+                                        <label for="" id=""  class=""> Skills  <span class="red-text"></span></label>
+                                        <input type="text" id="skillstags" name="skils" class="validate">                                        
                                     </div>
                                 </div>
 
@@ -148,18 +176,24 @@
                                 <div class="col s12 m12 l12"> <br> <div class="dividers"></div> <br> </div>
 
                                 <div class="row"> 
-                                    <div class="col s12 m6 l6 mobile-m10"> 
-                                        <label for="hire" class="active">Employer Name</label> 
-                                        <input id="hire" type="text" placeholder="Hiring For" class="validate" value="5ine" name="hcompany"> 
-                                        <label class="active"> 
-                                            <input type="checkbox" name="hire4" value="1"> 
-                                            <span>Set as Confidential</span> 
-                                        </label> 
+                                    <div class="col s12 m4 l4 mobile-m10"> 
+                                        <label for="hire" class="active">Employer Name / Compny Name</label> 
+                                        <input id="hire" type="text" placeholder="Hiring For" class="validate" value="CherryHire" name="hcompany"> 
+                                        
                                     </div> 
-                                    <div class="col s12 m6 l6"> 
+                                    <div class="col s12 m4 l4"> 
                                         <label for="noty" class="active">Send Notifications to</label> 
-                                        <input type="email" value="testing@5ines.com" class="validate" name="notifyemail" placeholder="Enter Email ID" id="noty"> 
-                                        <p style=""><small><i>Email id where the notifications are to be sent when a candidate applies for this job. Leave blank if you do not want any notifications</i></small></p> 
+                                        <input type="email" value="" class="validate" name="notifyemail" placeholder="Enter Email ID" id="noty"> 
+                                        <p style=""><small><i>Email id where the notifications are to be sent when a candidate applies for this job.</i></small></p> 
+                                    </div> 
+                                    <div class="col s12 m4 l4"> 
+                                        <label for="noty" class="active">Number of verified Cv <span class="red-text">*</span></label> 
+                                        <select name="cv" required>
+                                            <?php for ($i=1; $i < 51 ; $i++) {  ?>
+                                                <option value="<?php echo  $i ?>"><?php echo  $i ?></option>
+                                            <?php } ?>
+                                        </select>
+                                         
                                     </div> 
                                 </div>
                                 <div class="row"> 

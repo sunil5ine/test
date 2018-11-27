@@ -57,6 +57,49 @@ class jobs extends CI_Controller {
         $this->load->view('jobs/add-jobs', $data, FALSE);
         
     }
+
+    /**
+     * Post a job
+     */
+    public function post(){
+        $input = $this->input->post();
+        $this->load->helper('string');
+        $sal = explode('~', $input['salary']);
+        $minsal = $sal['0']; $maxsal = $sal['1'];
+        $data = array(
+            'job_title'         => $input['title'],
+            'job_role'          => $input['role'],
+            'job_type'          => $input['type'],
+            'job_location'      => $input['location'],
+            'job_min_exp'       => $input['minexp'],
+            'job_max_exp'       => $input['maxexp'],
+            'job_min_sal'       => $minsal,
+            'job_max_sal'       => $maxsal,
+            'job_farea'         => $input['funarea'],
+            'job_edu'           => $input['education'],
+            'job_industry'      => $input['industry'],
+            'job_desc'          => $input['jobdesc'],
+            'job_company'       => $input['hcompany'],
+            'job_notifyemail'   => $input['notifyemail'],
+            'job_notes'         => $input['jobnotes'],
+            'job_skills'        => $input['skils'],
+            'jp_cvs'            => $input['cv'],
+            'hire_status'       => 'success',
+            'job_url_id'        => random_string('alnum', 26),
+            'job_created_by'    => '0',
+            'job_created_dt'    => date('Y-m-d H:i:s'),
+            'hire_jobid'        =>'0',
+        );
+        if ($this->jobsModel->potJob($data)) {
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="green darken-4"><a class="close-tost ">X</a><p>Successfully Job Posted </p></div>');
+            redirect('jobs/manage-jobs');
+            
+        }else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red "><a class="close-tost ">X</a><p>Unavailable to post this job! <br> Please try again later. </p></div>');
+            redirect('jobs/add');
+
+        }
+    }
 }
 
 /* End of file jobs.php */

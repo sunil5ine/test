@@ -48,6 +48,7 @@ class jobsModel extends CI_Model {
     */
     function funarea()
     {
+        $this->db->order_by('fun_name', 'asc');
         return $this->db->get('ch_funarea ')->result();        
     }
 
@@ -64,7 +65,8 @@ class jobsModel extends CI_Model {
     */
     function industry()
     {
-        return $this->db->get('enum_industry ')->result();        
+        $this->db->order_by('ind_name', 'asc');
+        return $this->db->get('ch_industry ')->result();        
     }
 
     /**
@@ -84,6 +86,21 @@ class jobsModel extends CI_Model {
         return $this->db->get('ch_employer')->result();
     }
     
+    /**
+     * Post a job
+     */
+    public function potJob($data)
+    {
+        $this->db->insert('ch_jobs',$data);        
+        if($this->db->affected_rows() > 0)
+        {
+            return true;
+        }else{
+            echo'not';
+            exit;
+        }
+        
+    }
 
 }
 

@@ -174,3 +174,10 @@ HW Req Status: fail
 *************************************************************************** 
 
 
+Cherry Hire Search JobID:10 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">24</range> <range oper="gteq" name="m_experience.v"></range><p name="m_skill" oper="ineq"><i forv="-1"> <skillarea priority="1" oper="eq" disp="fghfhg">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="ghgf">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="ghg">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="ghggjh">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="hjgh">-1</skillarea> </i><i forv="-1"> <skillarea priority="1" oper="eq" disp="hjghghjgh">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">php developer</p><p name="jobIndustries.v" oper="ineq" acceptmissing="false"><i disp="Information Technology">57f360f722eaf0ba59d3563c</i></p><p name="m_country.v" disp="Algeria" oper="eq" acceptmissing="false">510a0731ba36baaddd23fe63</p><p name="jobFunctions.v" disp="Architecture" oper="eq" acceptmissing="false">57c91d30943d2c12bce2bf45</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
