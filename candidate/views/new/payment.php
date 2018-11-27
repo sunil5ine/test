@@ -51,7 +51,7 @@
 				foreach ($mon_plan as $plan) { 
 					if ($plan->pr_gat == 1) { ?>
 					
-						<div class="col m6 l3 xl3 s12">
+						<div class="col m6 l4 push-l2 s12">
 						<!-- card start -->
 						<div class="card-panel plans plan-test">
 							<?php  if (!empty($plan->pr_notify)) { $btn_class = 'white-text brand'; ?>
@@ -105,7 +105,7 @@
 
 					<?php  } if ($plan->pr_gat == 0) { ?>
 				
-					<div class="col m6 l3 xl3 s12">
+					<div class="col m6 l4 push-l2 s12">
 						<!-- card start -->
 						<div class="card-panel plans">
 							<?php  if (!empty($plan->pr_notify)) { $btn_class = 'white-text brand'; ?>
@@ -176,6 +176,15 @@
 					        				<i class="material-icons"><?php echo ($plan->pr_enrichment== 1)? ' done':' close'; ?></i>
 					        			</span>
 					        		</li>
+
+									<?php if(!empty($plan->pr_details)){ ?>
+										<li>
+											<span class="left-align"><?php echo $plan->pr_details ?></span>
+											<span class="right brand-text">
+												<i class="material-icons">done</i>
+											</span>
+										</li>
+									<?php	}	?>
 					        		
 					        	</ul>
 					        	<div class="center">
