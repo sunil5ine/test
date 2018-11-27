@@ -89,6 +89,8 @@ class jobs extends CI_Controller {
             'job_created_by'    => '0',
             'job_created_dt'    => date('Y-m-d H:i:s'),
             'hire_jobid'        =>'0',
+            'job_updated_dt'    => date('Y-m-d H:i:s'),
+
         );
         if ($this->jobsModel->potJob($data)) {
             $this->session->set_flashdata('messeg', '<div id="snackbar" class="green darken-4"><a class="close-tost ">X</a><p>Successfully Job Posted </p></div>');
@@ -97,8 +99,61 @@ class jobs extends CI_Controller {
         }else{
             $this->session->set_flashdata('messeg', '<div id="snackbar" class="red "><a class="close-tost ">X</a><p>Unavailable to post this job! <br> Please try again later. </p></div>');
             redirect('jobs/add');
-
         }
+    }
+
+    /**
+     * edite Job
+     */
+    public function edite($id){
+        $data['funarea']    = $this->jobsModel->funarea();
+        $data['industry']   = $this->jobsModel->industry();
+        $data['education']  = $this->jobsModel->education();
+        $data['location']   = $this->jobsModel->location();
+        $data['jobs']       = $this->jobsModel->singlejob($id);
+        $this->load->view('jobs/edite', $data, FALSE);
+        
+    }
+
+    /**
+     * Update job detail
+     */
+    public function update_post()
+    {
+        $input = $this->input->post();
+
+        $sal = explode('~', $input['salary']);
+        $minsal = $sal['0']; $maxsal = $sal['1'];
+        $data = array(
+            'job_title'         => $input['title'],
+            'job_role'          => $input['role'],
+            'job_type'          => $input['type'],
+            'job_location'      => $input['location'],
+            'job_min_exp'       => $input['minexp'],
+            'job_max_exp'       => $input['maxexp'],
+            'job_min_sal'       => $minsal,
+            'job_max_sal'       => $maxsal,
+            'job_farea'         => $input['funarea'],
+            'job_edu'           => $input['education'],
+            'job_industry'      => $input['industry'],
+            'job_desc'          => $input['jobdesc'],
+            'job_company'       => $input['hcompany'],
+            'job_notifyemail'   => $input['notifyemail'],
+            'job_notes'         => $input['jobnotes'],
+            'job_skills'        => $input['skils'],
+            'jp_cvs'            => $input['cv'],
+            'job_updated_dt'    => date('Y-m-d H:i:s'),
+        );
+        
+        if ($this->jobsModel->updateJob($data,$input['id'])) {
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="green darken-4"><a class="close-tost ">X</a><p>Successfully Job updated </p></div>');
+            redirect('jobs/detail/'.$input['id']);
+            
+        }else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red "><a class="close-tost ">X</a><p>Unavailable to upload this job! <br> Please try again later. </p></div>');
+            redirect('jobs/edite/'.$input['id']);
+        }
+        
     }
 }
 

@@ -96,12 +96,35 @@ class jobsModel extends CI_Model {
         {
             return true;
         }else{
-            echo'not';
-            exit;
-        }
-        
+            return false;
+        } 
     }
 
+    /**
+     * fetch single data
+     */
+    public function singlejob($id)
+    {
+        $this->db->select('*');
+        $this->db->from('ch_jobs');
+        $this->db->where('job_id', $id);
+        return $this->db->get()->row_array();        
+    }
+
+    /**
+     * Update Jobs
+     */
+    function updateJob($data,$id)
+    {
+        $this->db->where('job_id', $id);
+        $this->db->update('ch_jobs', $data);
+        if($this->db->affected_rows() > 0)
+        {
+            return true;
+        }else{
+            return false;
+        }    
+    }
 }
 
 /* End of file jobsModel.php */
