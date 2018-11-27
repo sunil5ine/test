@@ -122,8 +122,10 @@ else{
                                             </thead>
                                             <tbody>
                                                 <?php 
-                                                if(!empty($resumes)){
-                                                foreach ($resumes as $key => $value) {  
+                                                if(!empty($resumes )){
+                                                foreach ($resumes as $key => $value) { 
+                                                   if(!empty($value->can_id)){
+                                                    
                                                     $farea = $this->ci->employeesModel->getFunctionArea($value->job_farea, $value->job_id);
                                                 ?>
                                                     <tr>
@@ -135,7 +137,7 @@ else{
                                                         <td class="action-btn center-align"><a href="<?php echo base_url('candidates/download-resume/').$value->can_id ?>" class="hoverable blue darken-3"><i class="fas fa-file-download"></i></a></td>
                                                     </tr>                                         
                                                 
-                                                <?php } }?>                                                
+                                                <?php } } }?>                                                
                                             </tbody>
                                         </table>
                                     </div>
