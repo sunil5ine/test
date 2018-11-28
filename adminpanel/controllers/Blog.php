@@ -93,8 +93,8 @@ class blog extends CI_Controller {
         $config['source_image']     = './blog-file/'.$file;
         $config['new_image']        = './blog-file/tumb/'.$file;
         $config['maintain_ratio']   = TRUE;
-        $config['width']            = 250;
-        $config['height']           = 150;
+        $config['width']            = 260;
+        $config['height']           = 175;
         $this->load->library('image_lib', $config);
         if ( ! $this->image_lib->resize())
         {

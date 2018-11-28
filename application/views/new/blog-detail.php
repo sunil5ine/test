@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include 'include/titles.php'  ?>
+	<title><?php echo $blog['metatitle']?></title>
 	<meta charset="utf-8">
+	<meta name="keywords" content="<?php echo $blog['metakey']?>">
+	<meta name="description" content="<?php echo $blog['metades'] ?>">
   	<meta name="viewport" content="width=device-width" />
   	<meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no"/>
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
@@ -22,36 +24,22 @@
 				<div class="col s12">
 					<?php if(isset($status) && $status=='success') { echo $message; } if(isset($status) && $status=='fail') { echo $message; } ?>
 				</div>
-				
 				<div class="col s12 m12 l10 push-l1">
 					<div class="bak-holder">
 						<a href="#" class=""> <i class="material-icons left">arrow_back</i> Back</a>
 					</div>
 
 					<div class="blog-bimage">
-						<img src="http://dummy-images.com/business/dummy-1000x350-Laptop.jpg" alt="" class="responsive-img materialboxed"/>
+						<img src="<?php echo $this->config->item('ad_url').$blog['file']?>" alt="<?php echo $blog['title'] ?>" class="responsive-img materialboxed" style="min-width:100%"/>
 					</div>
 
 					<div class="blo-heading-small row">
-						<p class="col s12 m11">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae natus dolor aut.</p>
+						<p class="col s12 m11"><?php echo $blog['title'] ?></p>
 						<p class="col s12 m1"><a><i class="fas fa-share small right "></i></a></p>
 					</div>
 					
 					<div class="blog-mcontent black-text">
-						<p>
-							<b>1: Lorem, ipsum dolor sit amet consectetur adipisicing elit.</b><br />
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quaerat repudiandae perferendis! Ratione consequuntur earum nam sint nemo quae ex? Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, aliquid ex corrupti nemo esse, omnis consequuntur, ducimus excepturi quaerat delectus ut? Facere assumenda amet recusandae ab velit totam eius cumque quas nihil animi officiis quos tempore, quia maxime veritatis unde, nesciunt, illum magni earum illo?
-						</p>
-
-						<p>
-							<b>2: Lorem, ipsum dolor sit amet consectetur adipisicing elit.</b><br />
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quaerat repudiandae perferendis! Ratione consequuntur earum nam sint nemo quae ex? Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, aliquid ex corrupti nemo esse, omnis consequuntur, ducimus excepturi quaerat delectus ut? Facere assumenda amet recusandae ab velit totam eius cumque quas nihil animi officiis quos tempore, quia maxime veritatis unde, nesciunt, illum magni earum illo?
-						</p>
-
-						<p>
-							<b>3: Lorem, ipsum dolor sit amet consectetur adipisicing elit.</b><br />
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quaerat repudiandae perferendis! Ratione consequuntur earum nam sint nemo quae ex? Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, aliquid ex corrupti nemo esse, omnis consequuntur, ducimus excepturi quaerat delectus ut? Facere assumenda amet recusandae ab velit totam eius cumque quas nihil animi officiis quos tempore, quia maxime veritatis unde, nesciunt, illum magni earum illo?
-						</p>
+						<?php echo $blog['des'] ?>
 					</div>
 
 					<div class="blog-btn-actions">

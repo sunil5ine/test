@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['base_url']    = "http://localhost/cherryhire1/";
 // $config['site_url']	= "$root";
 $config['web_url']	= 'https://www.cherryhire.com/';
+$config['ad_url']	= 'http://localhost/cherryhire1/adminpanel/';
 
 /*
 |--------------------------------------------------------------------------

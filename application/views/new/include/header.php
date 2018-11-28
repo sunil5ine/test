@@ -12,6 +12,7 @@
 		        <li><a href="<?php echo base_url()?>Psychometric" class="waves-effect">Psychometric Test</a></li>
 		        <li><a href="<?php echo base_url()?>CV_Writing" class="waves-effect">Professional CV Writing</a></li>
 		        <li><a href="<?php echo base_url()?>Pricing" class="waves-effect">Pricing</a></li>
+		        <li><a href="<?php echo base_url()?>blog" class="waves-effect">Blog</a></li>
 		      </ul>
 
 		      <ul class="right hide-on-med-and-down ">
@@ -117,7 +118,9 @@
 		    <li><a href="<?php echo base_url()?>Pricing" class="waves-effect">Pricing</a></li>
 	    	<li><a href="<?php echo base_url()?>candidate" class="waves-effect">Login</a></li>
 		    <li><a href="<?php echo base_url()?>PostCV" class="waves-effect">Register</a></li>
-		    <li><a href="<?php echo base_url()?>hire/login" class="waves-effect"> Post a Job</a></li>
+			<li><a href="<?php echo base_url()?>hire/login" class="waves-effect"> Post a Job</a></li>
+			<li><a href="<?php echo base_url()?>blog" class="waves-effect">Blog</a></li>
+			
 		<?php }
 
 		elseif($this->session->userdata('cand_chid')){ ?>

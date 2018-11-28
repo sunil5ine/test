@@ -32,114 +32,25 @@
 				<div class="container-wrap">
 
 					<div class="row">
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="<?php echo base_url() ?>blog/detail" class="bold blue-text">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="" class="bold blue-text">Read More</a>
+						<?php foreach ($blog as $key => $value) { ?>
+							<div class="col s12 m6 l3">
+								<div class="card blog grey lighten-5">
+									<div class="card-image" style="overflow: hidden;">
+										<?php $file = explode('/',$value->file) ?>
+										<img src="<?php echo $this->config->item('ad_url').$file['0'].'/tumb/'.$file['1'] ?>" alt="<?php echo $value->title ?>" style="height:173px;max-wdth:100%;"  class="materialboxed"/>
+										<span class="card-title"></span>
+									</div>
+									<div class="card-content">
+										<p class="mb10"><?php echo $value->title ?></p>
+										<a href="<?php echo base_url('blog/detail/').$value->id ?>" class="bold blue-text">Read More</a>
+									</div>
 								</div>
 							</div>
-						</div>
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="" class="bold blue-text">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="" class="bold blue-text">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="" class="bold blue-text">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="" class="bold blue-text">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="" class="bold blue-text">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col s12 m6 l3">
-							<div class="card blog grey lighten-5">
-								<div class="card-image">
-									<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-									<span class="card-title"></span>
-								</div>
-								<div class="card-content">
-									<p class="mb10">I am a very simple card. I am good at containing.</p>
-									<a href="" class="bold blue-text">Read More</a>
-								</div>
-							</div>
-						</div>
-
+						<?php } ?>
+						
 					</div><!-- end row -->
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col s12 m6">
 							<h6>Show <span class="black-text">8</span> out of <span class="black-text">20</span></h6>
 						</div>
@@ -154,7 +65,7 @@
 							  <li class="waves-effect"><a href="#!">Next</a></li>
 							</ul>
 						</div>
-					</div>
+					</div> -->
 
 				</div>
 
