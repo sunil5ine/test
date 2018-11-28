@@ -159,7 +159,7 @@ body {background-color: whitesmoke; overflow-x: hidden}
 #snackbar { visibility: hidden; min-width: 250px; margin-left: -125px; color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; bottom: 150px; right: 64px; font-size: 17px; max-width: 375px; display: inline-table; }
 #snackbar p{margin: 0px}
 #snackbar a{color:white}
-.close-tost{float: right;}
+.close-tost{float: right; margin-top: -13px; margin-right: -10px; font-size: 12px; font-weight: bold;}
 #snackbar.show { visibility: visible; -webkit-animation: fadein 0.5s, fadeout 0.5s 5s; animation: fadein 0.5s, fadeout 0.5s 5s; }
 
 @-webkit-keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 150px; opacity: 1;} } @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 150px; opacity: 1;} } @-webkit-keyframes fadeout { from {bottom: 150px; opacity: 1;} to {bottom: 0; opacity: 0;} } @keyframes fadeout { from {bottom: 150px; opacity: 1;} to {bottom: 0; opacity: 0;} }

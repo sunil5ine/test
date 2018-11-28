@@ -28,35 +28,16 @@
                         <?php $this->load->view('include/menu'); ?> 
 
                         <div class="col m12 s12 l9">
-                            <p class="h5-para black-text m0">Blog lists</p>
-                            <!-- <div class="filterbox">
-                            
-                                <div class="row m0">
 
-                                    <div class="col s12 m7">
-                                        <div class="input-field col s12 m4">
-                                            <input type="text" class="datepicker" placeholder ="All Dates">
-                                        </div>
-                                        <div class="input-field col s12 m4">
-                                            <select>
-                                            <option value="" disabled selected>All Category</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
-                                            </select>
-                                        </div>
-                                        <div class="input-field col s12 m4">
-                                            <a href="#" class="waves-effect white-text hoverable waves-light btn-small green darken-4 fiter-btn" style="">Filter</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col s12 m5 ">
-                                        <div class="input-field col s12 m7 push-m5">
-                                            <input type="text" class="text" placeholder ="Serch by company etc...">
-                                        </div>
-                                    </div>
+                            <div class="row">
+                                <div class="col 12 m6">
+                                    <p class="h5-para black-text m0">Blog lists</p>
                                 </div>
-                            </div> -->
+                                <div class="col 12 m6 right-align">
+                                    <a href="<?php echo base_url('blog') ?>" class="waves-effect waves-light btn green darken-4 white-text hoverable "><i class="fas fa-plus left"></i> Post Blog</a>
+                                </div>
+                            </div>
+                     
                             <div class="card">
                                 <div class="card-content">
                                     <table class="striped" id="dynamic">
@@ -79,12 +60,12 @@
                                                 <td class="center"><?php echo ($value->postOn == '0000-00-00')? date('d-m-Y',strtotime($value->creted_on)) : $value->postOn ?></td>
                                                 <td class="<?php echo($value->bg_status == 0)? 'td-a':''  ?> center"><?php echo($value->bg_status == 1)? '<span class="green-text">Posted</span>' : '<a href="" class="red-text">Post Now</a>' ?></td>
                                                 <td class='right pr15'>
-                                                    <div class="droupdown-holder">        
+                                                    <div class="droupdown-holder ">        
                                                         <a class='dropdowns'><i class="fas fa-ellipsis-v"></i></a>
                                                         <!-- Dropdown Structure -->
-                                                        <ul  class='dropdown-ele'>
-                                                        <li><a href="#!">Edite</a></li>
-                                                        <li><a href="#!">Delete</a></li>
+                                                        <ul  class='dropdown-ele z-depth-1'>
+                                                        <li><a href="<?php echo base_url('blog/edite/').$value->id ?>"> Edite </a></li>
+                                                        <li><a href="<?php echo base_url('blog/delete/').$value->id  ?>"> Delete </a></li>
                                                         </ul>
                                                     </div>
                                                 </td>

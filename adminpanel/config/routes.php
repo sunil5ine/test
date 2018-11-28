@@ -59,6 +59,8 @@ $route['employees/uploaded-resumes/(:any)']     = "employees/uploaded_resumes/$1
 $route['jobs/manage-jobs']                      = "jobs/index";
 $route['jobs/detail/(:any)']                    = "jobs/detail/$1";
 $route['jobs/delete/(:any)']                    = "jobs/delete/$1";
+$route['blog/edite/(:any)']                     = "blog/edite/$1";
+$route['blog/delete/(:any)']                    = "blog/delete/$1";
 
 $route['candidates/download-resume/(:any)']     = "candidates/download_resume/$1";
 $route['candidates/detail/(:any)']              = "candidates/detail/$1";
