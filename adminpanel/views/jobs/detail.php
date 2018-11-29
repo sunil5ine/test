@@ -36,9 +36,9 @@
                               ?>
                            
                            <div class="row">
-                              <div class="col l8 s12">
+                              <div class="col l12 s12">
                                  <div class="jod-details">
-                                 <table>
+                                 <table class="highlight">
                                  <tbody>
                                     <tr class="job-list">
                                        <td class="h1-job"><b>Job Tittle</b></td>
@@ -100,9 +100,18 @@
                                  </tbody>
                                  </table>    
                               </div>
-                              <div class="edit-btn-1">
-                                 <a class="waves-effect waves-light btn edit-btn green hoverable" href="<?php echo base_url('jobs/edite/').$detail['job_id'] ?>">edit</a>
-                              </div>
+                              <hr />
+                             <div class="row">
+                                 <div class="edit-btn-1 col m6">
+                                    <p class="mb10">Edite the job detail</p>
+                                    <a class="waves-effect waves-light btn block blue darken-2 hoverable white-text" href="<?php echo base_url('jobs/edite/').$detail['job_id'] ?>">edit</a>
+                                 </div>
+                                
+                                 <div class="edit-btn-1 col m6">
+                                    <p class="mb10"><?php echo ($detail['couts'] > 1)?$detail['couts'].' Candidates' :$detail['couts'].' Candidate' ?>  applied for this job</p>
+                                    <a class="waves-effect waves-light btn block green  darken-4 hoverable white-text <?php echo ($detail['couts'] < 1)?'disabled' :'' ?>" href="<?php echo base_url('applied/').$detail['job_id'] ?>">Download CV</a>
+                                 </div>
+                             </div>
                            </div>
                         </div>
                      </div>

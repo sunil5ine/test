@@ -49,7 +49,7 @@
                                           <th id="d" class="h5-para-p2">Function Area</th>
                                           <th id="e" class="h5-para-p2">Posted Date</th>
                                           <th id="f" class="h5-para-p2">Status</th>
-                                          <th style="width: 65px;" class="h5-para-p2">Action</th>
+                                          <th style="width: 100px;" class="h5-para-p2">Action</th>
                                        </tr>
                                     </thead>
                                     <tbody>
@@ -67,8 +67,9 @@
                                             } ?></td>
                                             
                                             <td class="action-btn  center-align">
-                                              <a href="<?php echo base_url('jobs/detail/').$value->job_id ?>" class="blue hoverable"><i class="fas fa-eye "></i></i></a>
-                                              <a href="<?php echo base_url('jobs/delete/').$value->job_id ?>" class="red hoverable delete-btn"><i class="fas fa-trash  "></i></a>
+                                              <a href="<?php echo base_url('jobs/detail/').$value->job_id ?>" class="blue hoverable tooltipped" data-position="top" data-tooltip="View detail"><i class="fas fa-eye "></i></i></a>
+                                              <a href="<?php echo base_url('jobs/delete/').$value->job_id ?>" class="red hoverable delete-btn tooltipped" data-position="top" data-tooltip="Delete the job"><i class="fas fa-trash  "></i></a>
+                                              <a href="<?php echo base_url('applied/').$value->job_id ?>" class="green darken-4 hoverable tooltipped" data-position="top" data-tooltip="View applied candidates"><i class="far fa-file"></i></a>
                                             </td>
                                         </tr>
                                       <?php } ?>
@@ -109,6 +110,7 @@
                     ], 
                 });
                 $('select').formSelect();
+                $('.tooltipped').tooltip();
             } );
         </script>                                
 

@@ -25,7 +25,13 @@
                <?php $this->load->view('include/menu'); ?> 
 
                   <div class="col m12 s12 l9">
-                     <p class="h5-para black-text  mtb-20">Manage Candidates</p>
+                     <div class="mb10">
+                        <h5 class="bold black-text  m0 mb10">Applied list</h5>
+                        <?php if(!empty($candidate)){ ?>
+                           <p class="m0"><?php echo $candidate['0']->job_title.' - '. $candidate['0']->job_role?></p>
+                        <?php } ?>
+                        <br>
+                     </div>
                      <div class="main-bar">
                         <!-- shorting -->
                         <div class="shorting-table1 z-depth-1">
@@ -37,10 +43,9 @@
                                        <tr class="tt">
                                           <th id="a" class="h5-para-p2">Candidate Name</th>
                                           <th id="b" class="h5-para-p2">Email ID</th>
-                                          <th id="c" class="h5-para-p2 ">Gender</th>
                                           <th id="d" class="h5-para-p2">Designation</th>
                                           <th id="e" class="h5-para-p2 ">Experience</th>
-                                          <th id="f" class="h5-para-p2">Nationality</th>
+                                          <th  class="h5-para-p2">Nationality</th>
                                           <!-- <th id="g" class="h5-para-p2">PreferredLocation</th> -->
                                           <th class="h5-para-p2">Phone</th>  
                                           <th class="h5-para-p2">Action</th>  
@@ -51,11 +56,10 @@
                                     <tbody id="my">
                                        <?php foreach ($candidate as $key => $val) { ?>
                                           <tr>
-                                             <td><?php echo $val->can_fname. ' '. $val->can_lname ?></td>
-                                             <td><?php echo $val->can_email ?></td>
-                                             <td><?php echo $val->can_gender ?></td>
-                                             <td><?php echo $val->can_curr_desig ?></td>
-                                             <td>
+                                             <td  class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>" ><?php echo $val->can_fname. ' '. $val->can_lname ?></a></td>
+                                             <td  class="td-a"><a href="mailto:<?php echo $val->can_email ?>"><?php echo $val->can_email ?></a></td>
+                                             <td  class="td-a"><?php echo $val->can_curr_desig ?></td>
+                                             <td  class="td-a">
                                                 <?php if($val->can_experience == 'Fresher')
                                                 {
                                                    echo $val->can_experience;
@@ -67,12 +71,13 @@
                                              ?>
                                                 
                                              </td>
-                                             <td><?php echo $val->can_curr_loc ?></td>
-                                             <td>
-                                                <?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?>
+                                             <td  class="td-a"><?php echo $val->can_curr_loc ?></td>
+                                             <td  class="td-a">
+                                                <a href="tel:<?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.$val->can_phone:$val->can_phone ?>"><?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?></a>
                                              </td>
                                              <td class="action-btn  center-align">
-                                             <a href="<?php echo base_url('candidates/detail/').$val->can_id ?>" class="blue hoverable tooltipped" ><i class="fas fa-eye "></i></a>
+                                                <a href="<?php echo base_url('candidates/detail/').$val->can_id ?>" class="blue hoverable tooltipped tooltipped" data-position="top" data-tooltip="View detail"><i class="fas fa-eye "></i></a>
+                                                <a href="<?php echo base_url('candidates/download-resume/').$val->can_id ?>" class="green darken-4 hoverable tooltipped tooltipped" data-position="top" data-tooltip="download cv"><i class="fas fa-download"></i></a>
                                              </td>
                                           </tr>
                                        <?php } ?>
@@ -111,6 +116,7 @@
                     ], 
                 });
                 $('select').formSelect();
+                $('.tooltipped').tooltip();
             } );
       </script>
       

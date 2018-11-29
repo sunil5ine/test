@@ -153,6 +153,16 @@ class jobs extends CI_Controller {
             $this->session->set_flashdata('messeg', '<div id="snackbar" class="red "><a class="close-tost ">X</a><p>Unavailable to upload this job! <br> Please try again later. </p></div>');
             redirect('jobs/edite/'.$input['id']);
         }
+    }
+
+    /**
+     * Pllied list
+     */
+    public function applied($id)
+    {
+        $data['candidate'] = $this->jobsModel->getapplication($id);
+        $data['title'] = 'Job applied list | Cherryhire';
+        $this->load->view('jobs/applied-list', $data, FALSE);
         
     }
 }

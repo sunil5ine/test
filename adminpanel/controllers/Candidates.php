@@ -38,9 +38,14 @@ class candidates extends CI_Controller {
     {
         $data = $this->candidateModel->download($id);
         $this->load->helper('download');
-        $file = file_get_contents($data['cv_path']);
-        $name = $data['cv_headline'];
-        force_download($data['cv_path'], $file);
+        if(!empty($data['cv_path'])){
+            $file = file_get_contents($data['cv_path']);
+            $name = $data['cv_headline'];
+            force_download($data['cv_path'], $file);
+        }else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p><b>Sorry! </b> No CV found</p></div>');
+        }
+        
         redirect('candidates/detail/'.$id,'refresh');
         
         

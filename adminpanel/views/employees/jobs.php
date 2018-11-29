@@ -40,7 +40,7 @@ else{
                         <div class="col m12 s12 l9">
                             <div class="row">
                                 <p class="h5-para black-text  m0">Company Details</p>
-                                <small><i>Hello, Comapny name. Check out what's happening!</i></small>
+                                <small><i>Hello, Admin. Check out what's happening!</i></small>
                             </div><!-- end row1 -->
 
                             <div class="row">
@@ -118,6 +118,7 @@ else{
                                                     <th class="center">Experience</th>
                                                     <th class="center">Status</th>
                                                     <th class="center">Applications</th>
+                                                    <th class="center">View CV</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -126,7 +127,7 @@ else{
                                                                                                     
                                                 ?>
                                                     <tr>
-                                                        <td><?php echo $value->job_title ?></td>
+                                                        <td class="td-a"><a href="<?php echo base_url('jobs/detail/').$value->job_id ?>"><?php echo $value->job_title ?></a></td>
                                                         <td><?php echo $farea['function']->fun_name ?></td>
                                                         <td class="center"><?php echo $value->job_min_sal.' - '. $value->job_max_sal ?></td>
                                                         <td class="center"><?php echo $value->job_min_exp.' - '. $value->job_max_exp ?></td>
@@ -140,6 +141,7 @@ else{
                                                             ?>
                                                         </td>
                                                         <td class="center"><?php echo $farea['pllication']->couts ?></td>
+                                                        <td class="center action-btn"><a href="<?php echo base_url('applied/').$value->job_id ?>" class="blue hoverable"><i class="fas fa-eye "></i></a></td>
                                                     </tr>
                                                 <?php } ?>                                                
                                             </tbody>

@@ -128,7 +128,7 @@
 												</div>
 
 											  	<div class="col s12 m6 l6">
-											  		<label for="skills">Skills:[*Only required for IT Jobs] <span class="red-text">*</span></label>
+											  		<label for="skills">Skills: <span class="red-text">*</span></label>
 											  		<div class="chips">
 														<input class="custom-class" id="skills" name="skillval" value="<?php echo $formdata['skillval']; ?> " >
 													</div>

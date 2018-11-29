@@ -320,7 +320,7 @@ table tr .td-a{
 
 /*2 design*/
 .job-list { border: none; } 
-.h1-job { font-size: 12px; color: #323232; padding: 6px 10px; width: 40%; } 
+.h1-job { font-size: 12px; color: #323232; padding: 6px 10px; width: 22%; } 
 .para-job { font-size: 13px; color: #323232; padding: 6px 10px; } 
 .manage-job-edit { padding-top: 15px; padding-left: 25px; padding-right: 25px; padding-bottom: 1px; margin-top: 25px; border-radius: 5px; } 
 .act{ float: right; margin: 0; font-size: 14px; } 
@@ -349,6 +349,10 @@ table tr .td-a{
 #skillstags_tagsinput { width: 98% !important; }
 #skillstags_tag { border: transparent !important; }
 .plr60{padding: 0 60px}
+.block{display: block;}
+
+
+
 
 
 @media (max-width: 600px) 

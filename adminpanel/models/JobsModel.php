@@ -19,11 +19,12 @@ class jobsModel extends CI_Model {
      */
     function detail($id)
     {
-        $this->db->select('job_company,job_id, job_title, job_status, job_title, job_notifyemail, fun_name, job_role, job_type, job_min_exp, job_max_exp, job_min_sal, job_max_sal, job_location, edu_name, job_industry, job_skills, job_created_dt, job_desc');
+        $this->db->select('count(a.job_id) as couts, job_company,j.job_id, job_title, job_status, job_title, job_notifyemail, fun_name, job_role, job_type, job_min_exp, job_max_exp, job_min_sal, job_max_sal, job_location, edu_name, job_industry, job_skills, job_created_dt, job_desc');
         $this->db->from('ch_jobs j');
         $this->db->where('j.job_id', $id);
         $this->db->join('ch_funarea f', 'f.fun_id = j.job_farea', 'left');
         $this->db->join('ch_education e', 'e.edu_id = j.job_edu', 'left');
+        $this->db->join('ch_jobapply a', 'a.job_id = j.job_id', 'left');
         return $this->db->get()->row_array();     
     }
 
@@ -124,6 +125,19 @@ class jobsModel extends CI_Model {
         }else{
             return false;
         }    
+    }
+
+    /**
+     * Applied lis
+     */
+    function getapplication($id)
+    {
+        $this->db->where('a.job_id', $id);
+        $this->db->select('job_role, job_title, a.job_id, a.can_id, can_fname, can_lname, can_ccode, can_phone, can_email, can_experience, can_curr_loc, can_curr_desig');
+        $this->db->from('ch_jobapply a');
+        $this->db->join('ch_candidate c', 'c.can_id = a.can_id', 'left');
+        $this->db->join('ch_jobs j', 'j.job_id = a.job_id', 'left');
+        return $this->db->get()->result();    
     }
 }
 

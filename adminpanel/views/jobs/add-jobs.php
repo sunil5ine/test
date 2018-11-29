@@ -221,10 +221,7 @@
          </div>
          <!-- container wrap -->
       </section>
-      <?php
-        echo $this->session->flashdata('messeg'); 
-             
-      ?>
+      <?php echo $this->session->flashdata('messeg'); ?>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
