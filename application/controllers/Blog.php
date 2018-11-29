@@ -19,10 +19,13 @@ class blog extends CI_Controller {
         $this->load->view('new/blog', $data, FALSE);        
     }
 
-    public function detail($id)
+    public function detail($title,$id)
     {
         $data['title'] = 'Blog Detail';
         $data['blog'] = $this->blogModel->singlegetlist($id);
+        $data['next'] = $this->blogModel->next($id);
+        $data['prev'] = $this->blogModel->previous($id);
+        $data['fblog'] = $this->blogModel->getfblog($id);
         $this->load->view('new/blog-detail', $data, FALSE);
     }
 }

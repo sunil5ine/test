@@ -32,7 +32,15 @@
 				<div class="container-wrap">
 
 					<div class="row">
-						<?php foreach ($blog as $key => $value) { ?>
+						<?php foreach ($blog as $key => $value) { 
+							$title 	= str_replace(" ", "-", $value->title);
+							$title = str_replace(",", "", $title);
+							$title = str_replace(".", "", $title);
+							$title = str_replace("?", "", $title);
+							$title = str_replace("/", "", $title);
+							
+							
+							?>
 							<div class="col s12 m6 l3">
 								<div class="card blog grey lighten-5">
 									<div class="card-image" style="overflow: hidden;">
@@ -41,8 +49,8 @@
 										<span class="card-title"></span>
 									</div>
 									<div class="card-content">
-										<p class="mb10"><?php echo $value->title ?></p>
-										<a href="<?php echo base_url('blog/detail/').$value->id ?>" class="bold blue-text">Read More</a>
+										<p class="mb10 bold black-text truncate"><?php echo $value->title ?></p>
+										<a href="<?php echo base_url('blog/').$title.'/'.$value->id ?>" class="bold blue-text">Read More</a>
 									</div>
 								</div>
 							</div>

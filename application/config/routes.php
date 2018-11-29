@@ -56,7 +56,7 @@ $route['Home'] = "site/home";
 
 $route['Psychometric'] = "site/psychometric";
 $route['blog'] = "blog/index";
-$route['blog/detail/(:any)'] = "blog/detail/$1";
+$route['blog/(:any)/(:any)'] = "blog/detail/$1/$2";
 
 $route['CV_Writing'] = "site/cv_writing";
 $route['About'] = "site/about";

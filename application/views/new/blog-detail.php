@@ -1,3 +1,16 @@
+<?php
+$nexttitile1 = str_replace(" ", "-", $next['title']);
+$nexttitile2 = str_replace(",", "", $nexttitile1);
+$nexttitile2 = str_replace(".", "", $nexttitile2);
+$nexttitile2 = str_replace("?", "", $nexttitile2);
+$nexttitile = str_replace("/", "", $nexttitile2);
+
+$pretitile1 = str_replace(" ", "-", $prev['title']);
+$pretitile2 = str_replace(",", "", $pretitile1);
+$pretitile2 = str_replace(".", "", $pretitile2);
+$pretitile2 = str_replace("?", "", $pretitile2);
+$pretitile = str_replace("/", "", $pretitile2);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +28,9 @@
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
+
 	<!-- navigation bar -->
 <?php include 'include/header.php'  ?>
-
     <section class="blog-detail">
         <div class="row">
 			<div class="container-wrap">
@@ -26,7 +39,7 @@
 				</div>
 				<div class="col s12 m12 l10 push-l1">
 					<div class="bak-holder">
-						<a href="#" class=""> <i class="material-icons left">arrow_back</i> Back</a>
+						<a href="<?php echo base_url('blog') ?>" class=""> <i class="material-icons left">arrow_back</i> Back</a>
 					</div>
 
 					<div class="blog-bimage">
@@ -34,8 +47,8 @@
 					</div>
 
 					<div class="blo-heading-small row">
-						<p class="col s12 m11"><?php echo $blog['title'] ?></p>
-						<p class="col s12 m1"><a><i class="fas fa-share small right "></i></a></p>
+						<h6 class="col s12 m11 bold black-text"><?php echo $blog['title'] ?></h6>
+						<!-- <p class="col s12 m1"><a><i class="fas fa-share small right "></i></a></p> -->
 					</div>
 					
 					<div class="blog-mcontent black-text">
@@ -43,8 +56,8 @@
 					</div>
 
 					<div class="blog-btn-actions">
-						<a href="#" class="waves-effect waves-light btn white-text  brand left">Previous Post</a>
-						<a href="#" class="waves-effect waves-light btn white-text  brand right">Next Post</a>
+						<a href="<?php echo base_url('blog/').$pretitile.'/'.$prev['id'] ?>" class="waves-effect waves-light btn white-text  brand left">Previous Post</a>
+						<a href="<?php echo base_url('blog/').$nexttitile.'/'.$next['id'] ?>" class="waves-effect waves-light btn white-text  brand right">Next Post</a>
 					</div>
 				</div>
 			</div>
@@ -54,46 +67,29 @@
 	<section class="blog-tfooter">
 		<div class="container-wrap">
 			<div class="row">
-
+			<?php foreach ($fblog as $key => $value) {  
+				$file = explode('/',$value->file); 
+				$title 	= str_replace(" ", "-", $value->title);
+				$title = str_replace(",", "", $title);
+				$title = str_replace(".", "", $title);
+				$title = str_replace("?", "", $title);
+				$title = str_replace("/", "", $title);
+			?>
+				
 				<div class="col s12 m4 l4">
 					<div class="card blog grey lighten-5">
 						<div class="card-image">
-							<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
+						<img src="<?php echo $this->config->item('ad_url').$file['0'].'/tumb/'.$file['1'] ?>" alt="<?php echo $value->title ?>" style="height:236px;max-wdth:100%;"  class="materialboxed"/>
 							<span class="card-title"></span>
 						</div>
 						<div class="card-content">
-							<p class="mb10">I am a very simple card. I am good at containing.</p>
-							<a href="" class="bold blue-text">Read More</a>
+						<p class="mb10 bold black-text truncate"><?php echo $value->title ?></p>
+						<a href="<?php echo base_url('blog/').$title.'/'.$value->id ?>" class="bold blue-text">Read More</a>
 						</div>
 					</div>
 				</div>
-
-				<div class="col s12 m4 l4">
-					<div class="card blog grey lighten-5">
-						<div class="card-image">
-							<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-							<span class="card-title"></span>
-						</div>
-						<div class="card-content">
-							<p class="mb10">I am a very simple card. I am good at containing.</p>
-							<a href="" class="bold blue-text">Read More</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col s12 m4 l4">
-					<div class="card blog grey lighten-5">
-						<div class="card-image">
-							<img src="http://dummy-images.com/business/dummy-300x200-BankCard.jpg" alt=""  class="materialboxed"/>
-							<span class="card-title"></span>
-						</div>
-						<div class="card-content">
-							<p class="mb10">I am a very simple card. I am good at containing.</p>
-							<a href="" class="bold blue-text">Read More</a>
-						</div>
-					</div>
-				</div>
-
+			<?php } ?>
+				
 			</div>
 		</div>
 	</section>
