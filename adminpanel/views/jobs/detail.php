@@ -66,7 +66,13 @@
                                     </tr>
                                     <tr class="job-list">
                                        <td class="h1-job"><b>Expected Salary (Annually)</b></td>
-                                       <td class="para-job"><?php echo '$ ' .$detail['job_min_sal'] .' - '. $detail['job_max_sal']?></td>   
+                                       <td class="para-job"><?php 
+                                       if($detail['job_max_sal'] == 0){
+                                          echo 'Unspecified';
+                                       }else{
+                                          echo '$ ' .$detail['job_min_sal'] .' - '. $detail['job_max_sal'];
+                                       }
+                                       ?></td>   
                                     </tr>
                                     <tr class="job-list">
                                        <td class="h1-job"><b>Preffered job location</b></td>

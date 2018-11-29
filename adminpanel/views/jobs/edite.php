@@ -90,15 +90,15 @@
                                         <div class=" col s12 l6 ">
                                             <select required name="maxexp">
                                                 <option value="" disabled selected>Max Exp</option>
-                                                <option value="0" <?php echo($jobs['job_min_exp'] == 0)? 'selected':'' ; ?>>Fresher</option>
+                                                <option value="0" <?php echo($jobs['job_max_exp'] == 0)? 'selected':'' ; ?>>Fresher</option>
                                                 <?php for ($i=1; $i < 16; $i++) {  ?>
-                                                    <option value="<?php echo $i ?>"  <?php echo($jobs['job_min_exp'] == $i)? 'selected':'' ; ?>>
+                                                    <option value="<?php echo $i ?>"  <?php echo($jobs['job_max_exp'] == $i)? 'selected':'' ; ?>>
                                                     <?php if($i > 1 && $i < 15){echo $i.' Years'; } 
                                                          else{ echo $i .' Year';}                                                         
                                                     ?>
                                                     </option>
                                                 <?php  } ?>
-                                                <option value="16" <?php echo($jobs['job_min_exp'] == 16)? 'selected':'' ; ?>>16 +years</option>
+                                                <option value="16" <?php echo($jobs['job_max_exp'] == 16)? 'selected':'' ; ?>>16 +years</option>
                                             </select>
                                         </div>
                                     </div>

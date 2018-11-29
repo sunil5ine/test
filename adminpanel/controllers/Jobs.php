@@ -106,6 +106,7 @@ class jobs extends CI_Controller {
      * edite Job
      */
     public function edite($id){
+        $data['title'] = 'Edite Job | Cherryhire Manage Jobs';
         $data['funarea']    = $this->jobsModel->funarea();
         $data['industry']   = $this->jobsModel->industry();
         $data['education']  = $this->jobsModel->education();
