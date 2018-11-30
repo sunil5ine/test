@@ -26,25 +26,36 @@
                     <div class="col m12 s12 l9">
                         <div class="mb10">
                             <p class="h5-para black-text  m0">Add New admin</p>
-                            <small><i>This option will  shows in super admin only.</i></small>
+                            <small><i>This option will be visible only for super admin.</i></small>
                         </div>
-
+                        <span class="red-text"><?php echo validation_errors(); ?></span>
                         <div class="row">
-                            <form class="noborder-form">
-                                <div class="col s12 m4 input-field">
-                                    <input type="text" id="first_name" class="validate white plr10">
-                                    <label for="first_name" class="plr10">Name</label>
+                            <form class="admin-add" method="post" action="<?php echo base_url('admin/newadmin') ?>">
+                                <div class="col s12 m3 ">
+                                    <input type="text" id="" name="user" placeholder="Admin user name" class="validate  plr10" required>
+                                    <span class="red-text"><?php echo form_error('user'); ?></span>
                                 </div>
-                                <div class="col s12 m4 input-field">
-                                    <input type="text" id="first_name" class="validate white plr10">
-                                    <label for="first_name" class="plr10">Email</label>
+                                <div class="col s12 m3 ">
+                                    <input type="email" id="" name="email" placeholder="Admin email id" class="validate  plr10" required>
+                                    <span class="red-text"><?php echo form_error('email'); ?></span>
                                 </div>
-                                <div class="col s12 m4">
-                                    <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Add user </button>
+                                <div class="col s12 m3 ">
+                                    <input type="password" id="" name="psw" placeholder="Admin Password" class="validate  plr10" required>
+                                    <span class="red-text"><?php echo form_error('psw'); ?></span>
+                                </div>
+                                <div class="col s12 m2 ">
+                                    <label>
+                                        <p></p>
+                                        <input type="checkbox" name="type" class="filled-in"  />
+                                        <span>super admin</span>
+                                        
+                                    </label>
+                                </div>
+                                <div class="col s12 m1 right-align">
+                                    <button class="btn waves-effect right waves-light green darken-4 block" type="submit" name="action">Add user </button>
                                 </div>
                             </form>
                         </div>
-
                         <div class="row">
                             <div class="col s12">
                                 <div class="card z-depth-0">
@@ -52,63 +63,37 @@
                                         <table id="dynamic" class="striped">
                                             <thead>
                                                 <tr>
-                                                    <th data-field="id">Name</th>
-                                                    <th data-field="name">Email</th>
-                                                    <th data-field="price" class='right-align pr15'>Action</th>
+                                                    <th >Name</th>
+                                                    <th >Email</th>
+                                                    <th class="center-align">Administrators <br/>Type</th>
+                                                    <th  class='right-align pr15'>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Alvin</td>
-                                                    <td>Eclair</td>
-                                                    <td class='right pr15'>
-                                                        <div class="droupdown-holder">        
-                                                            <a class='dropdowns'><i class="fas fa-ellipsis-v"></i></a>
-                                                                                                                
-                                                            <!-- Dropdown Structure -->
-                                                            <ul  class='dropdown-ele'>
-                                                            <li><a href="#!">Edite</a></li>
-                                                            <li><a href="#!">Delete</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Alan</td>
-                                                    <td>Jellybean</td>
-                                                    <td class='right pr15'>
-                                                        <div class="droupdown-holder">        
-                                                            <a class='dropdowns'><i class="fas fa-ellipsis-v"></i></a>
-                                                            <!-- Dropdown Structure -->
-                                                            <ul  class='dropdown-ele'>
-                                                            <li><a href="#!">Edite</a></li>
-                                                            <li><a href="#!">Delete</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Jonathan</td>
-                                                    <td>Lollipop</td>
-                                                    <td class='right pr15'><div class="droupdown-holder">        
-                                                            <a class='dropdowns'><i class="fas fa-ellipsis-v"></i></a>
-                                                                                                                
-                                                            <!-- Dropdown Structure -->
-                                                            <ul  class='dropdown-ele'>
-                                                            <li><a href="#!">Edite</a></li>
-                                                            <li><a href="#!">Delete</a></li>
-                                                            </ul>
-                                                        </div></td>
-                                                </tr>
+                                                <?php foreach ($admin as $key => $value) { ?>
+                                                    <tr>
+                                                        <td><?php echo $value->ad_name ?></td>
+                                                        <td><?php echo $value->ad_email ?></td>
+                                                        <td class="center-align"><?php echo ($value->type == 1) ?'Super Administrators' :'Department Administrators' ?> </td>
+                                                        <td class='right pr15'>
+                                                            <div class="droupdown-holder">        
+                                                                <a class='dropdowns'><i class="fas fa-ellipsis-v"></i></a>
+                                                                                                                    
+                                                                <!-- Dropdown Structure -->
+                                                                <ul  class='dropdown-ele'>
+                                                                <li><a href="#!">Edite</a></li>
+                                                                <li><a href="#!">Delete</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
-                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
-                   
-                     
                     </div>
                   </div>
                </div>
@@ -117,9 +102,11 @@
          </div>
          <!-- container wrap -->
       </section>
-
+      <?php echo $this->session->flashdata('messeg'); ?>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
+
       <!-- data table -->
       <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/datatables.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/dataTables.buttons.min.js"></script>

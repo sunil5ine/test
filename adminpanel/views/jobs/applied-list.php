@@ -48,7 +48,7 @@
                                           <th  class="h5-para-p2">Nationality</th>
                                           <!-- <th id="g" class="h5-para-p2">PreferredLocation</th> -->
                                           <th class="h5-para-p2">Phone</th>  
-                                          <th class="h5-para-p2">Action</th>  
+                                          <th class="h5-para-p2" style="width:66px">Action</th>  
 
                                        </tr>
                                        

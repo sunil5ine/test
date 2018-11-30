@@ -227,13 +227,15 @@ body {background-color: whitesmoke; overflow-x: hidden}
 .m0{margin:0px}
 .plr10{padding: 0 10px !important;}
 .noborder-form .input-field input{border:transparent !important;width: 95%;}
-.noborder-form button { margin-top: 16px; height: 42px; width: 60%; }
+.noborder-form button { height: 42px; width: 60%; }
 .pr15{padding-right: 15px}
 .dropdown-ele{width: 70px; padding:  0;display:none;position: absolute; background: rgb(255, 255, 255); font-size: 12px; border-radius: 2px;left: -70px; top: -9px;border: 1px solid #f8f8f8;}
 .dropdown-ele a{padding: 0 20px 0 10px; line-height: 22px;display: block;}
 .droupdown-holder{position: relative;}
 .droupdown-holder .dropdowns{display: block; width: 11px; text-align: center; cursor: pointer;}
 .dropdown-ele a:hover{background-color: #eeeeee}
+.admin-add input{border: 1px solid #ede1e1 !important; width: 95% !important; height: 36px !important; background-color: #fff !important;}
+
 
 /*****  CK EDITOR  *****/
 #editor {
