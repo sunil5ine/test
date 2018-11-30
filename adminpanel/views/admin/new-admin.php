@@ -30,20 +30,49 @@
                         </div>
                         <span class="red-text"><?php echo validation_errors(); ?></span>
                         <div class="row">
+                        
+                        <?php if(!empty($edite)) { ?>
+                            <form class="admin-add" method="post" action="<?php echo base_url('update') ?>">
+                                <div class="col s12 m6 l3">
+                                    <input type="text" id="" name="user" value="<?php echo $edite['ad_name'] ?>" placeholder="Admin user name" class="validate  plr10" required>
+                                    <span class="red-text"><?php echo form_error('user'); ?></span>
+                                </div>
+                                <div class="col s12 m6  l3 ">
+                                    <input type="email" id="" value="<?php echo $edite['ad_email'] ?>" name="email" placeholder="Admin email id" class="validate  plr10" required>
+                                    <span class="red-text"><?php echo form_error('email'); ?></span>
+                                </div>
+                                <div class="col s12 m4 l3 ">
+                                    <input type="password" id="" value="<?php echo $edite['ad_hash'] ?>" name="psw" placeholder="Admin Password" class="validate  plr10" required>
+                                    <span class="red-text"><?php echo form_error('psw'); ?></span>
+                                </div>
+                                <div class="col s12 m4 l2">
+                                    <div class="checkbox-container">
+                                        <label>
+                                            <input type="hidden" name="id" value="<?php echo $edite['ad_id'] ?>">
+                                            <input type="checkbox" name="type" class="filled-in" <?php echo ($edite['type'] == 1)?'checked' : '' ?>  />
+                                            <span>super admin</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m4 l1 ">
+                                    <button class="btn waves-effect  waves-light blue darken-4 block" type="submit" name="action">Update</button>
+                                </div>
+                            </form>
+                        <?php } else { ?>
                             <form class="admin-add" method="post" action="<?php echo base_url('admin/newadmin') ?>">
-                                <div class="col s12 m3 ">
+                                <div class="col s12 m6 l3">
                                     <input type="text" id="" name="user" placeholder="Admin user name" class="validate  plr10" required>
                                     <span class="red-text"><?php echo form_error('user'); ?></span>
                                 </div>
-                                <div class="col s12 m3 ">
+                                <div class="col s12 m6  l3 ">
                                     <input type="email" id="" name="email" placeholder="Admin email id" class="validate  plr10" required>
                                     <span class="red-text"><?php echo form_error('email'); ?></span>
                                 </div>
-                                <div class="col s12 m3 ">
+                                <div class="col s12 m4 l3 ">
                                     <input type="password" id="" name="psw" placeholder="Admin Password" class="validate  plr10" required>
                                     <span class="red-text"><?php echo form_error('psw'); ?></span>
                                 </div>
-                                <div class="col s12 m2 ">
+                                <div class="col s12 m4 l2">
                                     <div class="checkbox-container">
                                         <label>
                                             <input type="checkbox" name="type" class="filled-in"  />
@@ -51,10 +80,11 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col s12 m1 right-align">
-                                    <button class="btn waves-effect right waves-light green darken-4 block" type="submit" name="action">Add user </button>
+                                <div class="col s12 m4 l1 ">
+                                    <button class="btn waves-effect  waves-light green darken-4 block" type="submit" name="action">Add user </button>
                                 </div>
                             </form>
+                        <?php  } ?>
                         </div>
                         <div class="row">
                             <div class="col s12">
@@ -84,7 +114,7 @@
                                                                                                                     
                                                                 <!-- Dropdown Structure -->
                                                                 <ul  class='dropdown-ele'>
-                                                                <li><a href="#!">Edite</a></li>
+                                                                <li><a href="<?php echo base_url('admin/').$value->ad_id ?>" >Edite</a></li>
                                                                 <li><a href="<?php echo base_url('admin/delete/').$value->ad_id ?>" class="delete-btn">Delete</a></li>
                                                                 </ul>
                                                             </div>

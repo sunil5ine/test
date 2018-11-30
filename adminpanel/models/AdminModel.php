@@ -57,12 +57,44 @@ class adminModel extends CI_Model {
             return true;
         }else{
             return false;
+        }        
+    }
+
+    /**
+     * Get single user
+     */
+    function singleuser($id)
+    {
+        $this->db->where('ad_id', $id);
+        return $this->db->get('ch_admin')->row_array();        
+    }
+
+    /**
+     * Admin user updation 
+     */
+    function update($input)
+    {
+        if($this->input->post('type') == "on"){$type='1';}else{$type='0';}
+        $data = array(
+            'ad_name'       => $this->input->post('user'), 
+            'ad_email'      => $this->input->post('email'), 
+            'ad_hash'       => $this->input->post('psw'), 
+            'ad_password'   => md5($this->input->post('psw')), 
+            'aut_rese'      => md5($this->input->post('user')),
+            'ad_status'     => '1',
+            'type'          => $type,
+        );
+        $this->db->where('ad_id', $input['id']);
+        $this->db->update('ch_admin', $data);
+        if($this->db->affected_rows() > 0){
+            return true;
+        }else{
+            return false;
         }
         
         
-        
+
     }
-    
 
 }
 

@@ -13,10 +13,13 @@ class admin extends CI_Controller {
     }
     
 
-    function index()
+    function index($id = null)
 	{
         $data['title'] = 'Add New admin';
         $data['admin'] = $this->adminModel->lists();
+        if(!empty($id)){
+            $data['edite'] = $this->adminModel->singleuser($id);
+        }
 		$this->load->view('admin/new-admin', $data);
 		
 	}
@@ -78,6 +81,29 @@ class admin extends CI_Controller {
         }else{
             $this->session->set_flashdata('messeg', '<div id="snackbar" class="red darken-3"><a class="close-tost ">X</a><p>Sorry No data found! Try again later.</p></div>');
             redirect('admin','refresh');
+        }
+    }
+
+    /**
+     * update 
+    */
+    public function update()
+    {
+        $input = $this->input->post();
+        $this->form_validation->set_rules('user', 'User', 'trim|required');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required');
+        $this->form_validation->set_rules('psw', 'psw', 'trim|required|min_length[8]');
+        if ($this->form_validation->run() == TRUE) {
+            if($this->adminModel->update($input))
+            {
+                $this->session->set_flashdata('messeg', '<div id="snackbar" class="green darken-3"><a class="close-tost ">X</a><p>Admin user successfully updated.</p></div>');
+                redirect('admin','refresh');
+            }else{
+                $this->session->set_flashdata('messeg', '<div id="snackbar" class="red darken-3"><a class="close-tost ">X</a><p>Sorry admin user updation failed.<br/> Please try agin later</p></div>');
+                redirect('admin/'.$input['id'],'refresh');
+            }
+        }else{
+            redirect('admin/'.$input['id'],'refresh');
         }
     }
 }
