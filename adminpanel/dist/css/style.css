@@ -357,6 +357,10 @@ table tr .td-a{
 .checkbox-container [type="checkbox"].filled-in:checked + span:not(.lever)::before { top: 3px !important;}
 .checkbox-container [type="checkbox"].filled-in:checked + span:not(.lever)::after { top: 3px !important;}
 .checkbox-container [type="checkbox"] + span:not(.lever) { padding-left: 26px !important;}
+.btn-flat.btn:hover{background: #046304}
+.btn-flat.btn:hover span{color: #ffffff !important}
+.profile-pic-container { width: 100px; height: 100px; background: gray; border-radius: 50%; }
+
 @media (max-width: 600px) 
 {
 .profile-card {margin-bottom: -6px ;text-align: center}

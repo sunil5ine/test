@@ -66,6 +66,8 @@ $route['admin/delete/(:any)']                   = "admin/delete/$1";
 $route['admin/(:any)']                          = "admin/index/$1";
 $route['admin']                                 = "admin/index";
 $route['update']                                = "admin/update";
+$route['setting']                               = "admin/setting";
+$route['setting/update']                        = "admin/update_profile";
 
 $route['candidates/download-resume/(:any)']     = "candidates/download_resume/$1";
 $route['candidates/detail/(:any)']              = "candidates/detail/$1";

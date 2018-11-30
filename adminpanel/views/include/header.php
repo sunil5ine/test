@@ -27,7 +27,7 @@
                <!-- Dropdown Structure -->
                <ul id='dropdown2' class='dropdown-content'>
                   <li ><a href="#!">Profile</a></li>
-                  <li ><a href="#!">Settings</a></li>
+                  <li ><a href="<?php echo  base_url() ?>setting">Settings</a></li>
                   <li><a href="<?php echo base_url() ?>logout">Logout</a></li>
                </ul>
             </ul>

@@ -10,7 +10,6 @@ class admin extends CI_Controller {
         parent::__construct();
         if(!$this->session->userdata('adminid')) { redirect($this->config->base_url().'login'); }
         $this->load->model('adminModel');
-        
     }
     
 
@@ -22,12 +21,12 @@ class admin extends CI_Controller {
             $data['edite'] = $this->adminModel->singleuser($id);
         }
 		$this->load->view('admin/new-admin', $data);
-		
 	}
 
     public function setting()
     {
        $data['title'] = 'Admin Settings';
+       $data['profile'] = $this->adminModel->getProfile();
        $this->load->view('admin/account-setting', $data);
     }
 
@@ -43,8 +42,7 @@ class admin extends CI_Controller {
             redirect('admin','refresh');
         } else {
             redirect('admin','refresh');
-        }
-        
+        }  
     }
     
     public function username_check($str)
@@ -107,6 +105,100 @@ class admin extends CI_Controller {
             redirect('admin/'.$input['id'],'refresh');
         }
     }
+
+    /**
+     * update_profile
+     */
+    public function update_profile()
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('psw', 'Password', 'trim|required');
+        $this->form_validation->set_rules('cpsw', 'Password Confirmation', 'trim|required|matches[psw]');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required');
+        if ($this->form_validation->run() == TRUE ) {
+            if($this->adminModel->upadteAdminUserAccount())
+            {
+                $file = $_FILES['pic']['name'];
+                if(!empty($file)){  $picName = $this->uploadpic(); }
+                $input = $this->input->post();
+                if(!empty($picName))
+                {
+                    $profileupdate = array(
+                        'ap_mobile'         => $input['phone'],
+                        'ap_notification'   => $input['nemail'],
+                        'ap_payment'        => $input['pemail'],
+                        'ap_cvwriting'      => $input['cemail'],
+                        'ad_id'             => $input['id'],
+                        'ap_pic'            => $picName,
+                    );
+                }
+                else
+                {
+                    $profileupdate = array(
+                        'ap_mobile'         => $input['phone'],
+                        'ap_notification'   => $input['nemail'],
+                        'ap_payment'        => $input['pemail'],
+                        'ap_cvwriting'      => $input['cemail'],
+                        'ad_id'             => $input['id'],
+                    );
+                }
+                
+                    if($this->adminModel->update_profile($profileupdate,$input['id']))
+                    {
+                        $this->session->set_flashdata('messeg', '<div id="snackbar" class="green darken-3"><a class="close-tost ">X</a><p>Admin user successfully updated.</p></div>');
+                        redirect('setting','refresh');
+                    }else{
+                        $this->session->set_flashdata('messeg', '<div id="snackbar" class="red darken-3"><a class="close-tost ">X</a><p>Sorry admin user updation failed.<br/> Please try agin later</p></div>');
+                        redirect('setting','refresh');
+                    }
+            }else{
+                $this->session->set_flashdata('messeg', '<div id="snackbar" class="red darken-3"><a class="close-tost ">X</a><p>Sorry admin user updation failed.<br/> Please try agin later</p></div>');
+                redirect('setting','refresh');
+            }
+        
+            
+        } 
+        else{
+            $data['title'] = 'Admin Settings';
+            $data['profile'] = $this->adminModel->getProfile();
+            $this->load->view('admin/account-setting', $data);
+        }   
+    }
+
+    /**
+     * upload pic
+     */
+    function uploadpic()
+    {
+        $config['upload_path']          = './profile/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 0;
+        $config['max_width']            = 0;
+        $config['max_height']           = 0;
+        $config['encrypt_name']         = TRUE;
+        $this->load->library('upload', $config);
+        if (!file_exists($config['upload_path'])) { mkdir($config['upload_path'], 0777, true); }
+        $this->upload->do_upload('pic');
+        $filename = $this->upload->data('file_name');
+        $config['image_library']    = 'gd2';
+        $config['source_image']     = $config['upload_path'].$filename;
+        $config['create_thumb']     = FALSE;
+        $config['maintain_ratio']   = FALSE;
+        $config['width']            = 100;
+        $config['height']           = 100;   
+        $config['quality']          = '60%';  
+        $config['new_image']        = $config['upload_path'].$filename;  
+        $this->load->library('image_lib', $config);
+        if($this->image_lib->resize()){
+            return 'profile/'.$filename;
+        }else{
+            return FALSE;
+        }
+       
+    }
+
 }
 
 /* End of file Admin.php */
