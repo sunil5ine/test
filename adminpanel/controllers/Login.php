@@ -38,10 +38,11 @@ class Login extends CI_Controller {
 			$sess_array = array();
 			foreach($result as $row) {
 				$sess_array = array(
-				'adminid' => $row->ad_id,
-				'adminname' => $row->ad_name,
+				'adminid' 	 => $row->ad_id,
+				'admintype'  => $row->type,
+				'adminname'  => $row->ad_name,
 				'adminemail' => $row->ad_email,
-				'logged_in' => TRUE
+				'logged_in'  => TRUE
 				);
 				$this->session->set_userdata($sess_array);
 			}
