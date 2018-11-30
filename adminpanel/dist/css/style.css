@@ -352,11 +352,11 @@ table tr .td-a{
 #skillstags_tag { border: transparent !important; }
 .plr60{padding: 0 60px}
 .block{display: block;}
-
-
-
-
-
+.checkbox-container{ background: #fff; padding: 5px 4px; border: 1px solid #ede1e1; }
+.checkbox-container [type="checkbox"].filled-in:not(:checked) + span:not(.lever)::after {top:3px !important}
+.checkbox-container [type="checkbox"].filled-in:checked + span:not(.lever)::before { top: 3px !important;}
+.checkbox-container [type="checkbox"].filled-in:checked + span:not(.lever)::after { top: 3px !important;}
+.checkbox-container [type="checkbox"] + span:not(.lever) { padding-left: 26px !important;}
 @media (max-width: 600px) 
 {
 .profile-card {margin-bottom: -6px ;text-align: center}

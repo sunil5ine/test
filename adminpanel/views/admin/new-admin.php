@@ -44,12 +44,12 @@
                                     <span class="red-text"><?php echo form_error('psw'); ?></span>
                                 </div>
                                 <div class="col s12 m2 ">
-                                    <label>
-                                        <p></p>
-                                        <input type="checkbox" name="type" class="filled-in"  />
-                                        <span>super admin</span>
-                                        
-                                    </label>
+                                    <div class="checkbox-container">
+                                        <label>
+                                            <input type="checkbox" name="type" class="filled-in"  />
+                                            <span>super admin</span>
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="col s12 m1 right-align">
                                     <button class="btn waves-effect right waves-light green darken-4 block" type="submit" name="action">Add user </button>
@@ -63,18 +63,21 @@
                                         <table id="dynamic" class="striped">
                                             <thead>
                                                 <tr>
+                                                    <th >ID</th>
                                                     <th >Name</th>
                                                     <th >Email</th>
-                                                    <th class="center-align">Administrators <br/>Type</th>
+                                                    <th class="">Administrators Type</th>
                                                     <th  class='right-align pr15'>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($admin as $key => $value) { ?>
                                                     <tr>
+                                                        <td><?php echo $value->ad_id ?></td>
                                                         <td><?php echo $value->ad_name ?></td>
                                                         <td><?php echo $value->ad_email ?></td>
-                                                        <td class="center-align"><?php echo ($value->type == 1) ?'Super Administrators' :'Department Administrators' ?> </td>
+                                                        <td class=""><?php echo ($value->type == 1) ?'Super Administrators' :'Department Administrators' ?> </td>
+                                                        
                                                         <td class='right pr15'>
                                                             <div class="droupdown-holder">        
                                                                 <a class='dropdowns'><i class="fas fa-ellipsis-v"></i></a>
@@ -82,7 +85,7 @@
                                                                 <!-- Dropdown Structure -->
                                                                 <ul  class='dropdown-ele'>
                                                                 <li><a href="#!">Edite</a></li>
-                                                                <li><a href="#!">Delete</a></li>
+                                                                <li><a href="<?php echo base_url('admin/delete/').$value->ad_id ?>" class="delete-btn">Delete</a></li>
                                                                 </ul>
                                                             </div>
                                                         </td>

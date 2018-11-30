@@ -42,7 +42,23 @@ class adminModel extends CI_Model {
     function lists()
     {
         $this->db->where('ad_status', 1);
-        return $this->db->get('ch_admin')->result();
+        return $this->db->get('ch_admin')->result();    
+    }
+
+    /**
+     * Delete admin user
+     */
+    function delete($id)
+    {
+        $this->db->where('ad_id', $id);
+        $this->db->delete('ch_admin');
+        if($this->db->affected_rows() > 0 )
+        {
+            return true;
+        }else{
+            return false;
+        }
+        
         
         
     }

@@ -66,6 +66,20 @@ class admin extends CI_Controller {
        }
     }
 
+    /**
+     * Delete admin
+     */
+    public function delete($id)
+    {
+        if($this->adminModel->delete($id))
+        {
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="green darken-3"><a class="close-tost ">X</a><p>Admin user successfully deleted.</p></div>');
+            redirect('admin','refresh');
+        }else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red darken-3"><a class="close-tost ">X</a><p>Sorry No data found! Try again later.</p></div>');
+            redirect('admin','refresh');
+        }
+    }
 }
 
 /* End of file Admin.php */
