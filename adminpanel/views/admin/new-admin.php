@@ -25,7 +25,10 @@
                <?php $this->load->view('include/menu'); ?>
                     <div class="col m12 s12 l9">
                         <div class="mb10">
-                            <p class="h5-para black-text  m0">Add New admin</p>
+                            <p class="h5-para black-text  m0">
+                                <?php echo (!empty($edite))? 'Edit admin' : 'Add New admin' ?>
+                                
+                            </p>
                             <small><i>This option will be visible only for super admin.</i></small>
                         </div>
                         <span class="red-text"><?php echo validation_errors(); ?></span>
@@ -114,7 +117,7 @@
                                                                                                                     
                                                                 <!-- Dropdown Structure -->
                                                                 <ul  class='dropdown-ele'>
-                                                                <li><a href="<?php echo base_url('admin/').$value->ad_id ?>" >Edite</a></li>
+                                                                <li><a href="<?php echo base_url('admin/').$value->ad_id ?>" >Edit</a></li>
                                                                 <li><a href="<?php echo base_url('admin/delete/').$value->ad_id ?>" class="delete-btn">Delete</a></li>
                                                                 </ul>
                                                             </div>
