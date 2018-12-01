@@ -51,7 +51,7 @@
 				foreach ($mon_plan as $plan) { 
 					if ($plan->pr_gat == 1) { ?>
 					
-						<div class="col m6 l4 push-l2 s12">
+						<div class="col m6 l4  s12">
 						<!-- card start -->
 						<div class="card-panel plans plan-test">
 							<?php  if (!empty($plan->pr_notify)) { $btn_class = 'white-text brand'; ?>

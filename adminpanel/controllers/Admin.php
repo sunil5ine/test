@@ -132,6 +132,8 @@ class admin extends CI_Controller {
                         'ap_cvwriting'      => $input['cemail'],
                         'ad_id'             => $input['id'],
                         'ap_pic'            => $picName,
+                        'refid'             => date('Ymdhis'),
+
                     );
                 }
                 else
@@ -142,6 +144,7 @@ class admin extends CI_Controller {
                         'ap_payment'        => $input['pemail'],
                         'ap_cvwriting'      => $input['cemail'],
                         'ad_id'             => $input['id'],
+                        'refid'             => date('Ymdhis'),
                     );
                 }
                 

@@ -351,7 +351,7 @@ table tr .td-a{
 #skillstags_tagsinput { width: 98% !important; }
 #skillstags_tag { border: transparent !important; }
 .plr60{padding: 0 60px}
-.block{display: block;}
+.block{display: block;width: 100%;}
 .checkbox-container{ background: #fff; padding: 5px 4px; border: 1px solid #ede1e1; }
 .checkbox-container [type="checkbox"].filled-in:not(:checked) + span:not(.lever)::after {top:3px !important}
 .checkbox-container [type="checkbox"].filled-in:checked + span:not(.lever)::before { top: 3px !important;}
@@ -360,6 +360,12 @@ table tr .td-a{
 .btn-flat.btn:hover{background: #046304}
 .btn-flat.btn:hover span{color: #ffffff !important}
 .profile-pic-container { width: 100px; height: 100px; background: gray; border-radius: 50%; }
+.card-content form{overflow: hidden;}
+
+
+
+
+
 
 @media (max-width: 600px) 
 {

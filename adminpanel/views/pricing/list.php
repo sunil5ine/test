@@ -39,187 +39,106 @@
                             </div>
 
                             <div class="row" id="candidate">
-                                <div class="col s12 m6 l4">
-                                    <div class="card-panel plans">
-                                        <div class="center" style="margin-top: -37px;">
-                                            <div class="chip green darken-4 white-text ">Most popular</div>
-                                        </div>
-                                        <div class="card-title-box"> <span class="card-title left-align"> Silver </span>
-                                            <span class="card-title right"> $ 20.00 </span>
-                                            <div class="card-sub-title"> <span class="left-align"></span>
-                                                <span class="right">/ 6 months</span>
-                                            </div>
-                                        </div>
-                                        <div class="card-action ">
-                                            <ul>
-                                                <li> <span class="left-align">Validity Period </span>
-                                                    <span class="right">6 months</span>
-                                                </li>
-                                                <li> <span class="left-align">Job Applications</span>
-                                                    <span class="right">5</span>
-                                                </li>
-                                                <li> <span class="left-align">Personalised Job Alerts</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">View Employer  Details</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Who Viewd Your Profile</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">More Profile Views</span>
-                                                    <span class="right  red-text">
-                                                    <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Assisted Job Search</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Resume Review</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Profile Enrichment</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                            <div class="center"> <a style="min-width: 180px"  class=" btn btn-m white-text green darken-4  waves-green hoverable  waves-effect transparent">Get Started</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6 l4">
-                                    <div class="card-panel plans">
-                                        <div class="center" style="margin-top: -37px;">
-                                            <div class="chip green darken-4 white-text ">Most popular</div>
-                                        </div>
-                                        <div class="card-title-box"> <span class="card-title left-align"> Silver </span>
-                                            <span class="card-title right"> $ 20.00 </span>
-                                            <div class="card-sub-title"> <span class="left-align"></span>
-                                                <span class="right">/ 6 months</span>
-                                            </div>
-                                        </div>
-                                        <div class="card-action ">
-                                            <ul>
-                                                <li> <span class="left-align">Validity Period </span>
-                                                    <span class="right">6 months</span>
-                                                </li>
-                                                <li> <span class="left-align">Job Applications</span>
-                                                    <span class="right">5</span>
-                                                </li>
-                                                <li> <span class="left-align">Personalised Job Alerts</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">View Employer  Details</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Who Viewd Your Profile</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">More Profile Views</span>
-                                                    <span class="right  red-text">
-                                                    <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Assisted Job Search</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Resume Review</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Profile Enrichment</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                            <div class="center"> <a style="min-width: 180px" href="" class=" btn btn-m white-text green darken-4  btn-nc waves-green hoverable  waves-effect transparent">Get Started</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6 l4">
-                                    <div class="card-panel plans">
-                                        <div class="center" style="margin-top: -37px;">
-                                            <div class="chip green darken-4 white-text ">Most popular</div>
-                                        </div>
-                                        <div class="card-title-box"> <span class="card-title left-align"> Silver </span>
-                                            <span class="card-title right"> $ 20.00 </span>
-                                            <div class="card-sub-title"> <span class="left-align"></span>
-                                                <span class="right">/ 6 months</span>
-                                            </div>
-                                        </div>
-                                        <div class="card-action ">
-                                            <ul>
-                                                <li> <span class="left-align">Validity Period </span>
-                                                    <span class="right">6 months</span>
-                                                </li>
-                                                <li> <span class="left-align">Job Applications</span>
-                                                    <span class="right">5</span>
-                                                </li>
-                                                <li> <span class="left-align">Personalised Job Alerts</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">View Employer  Details</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Who Viewd Your Profile</span>
-                                                    <span class="right  green-text">
-                                                        <i class="fas fa-check"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">More Profile Views</span>
-                                                    <span class="right  red-text">
-                                                    <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Assisted Job Search</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Resume Review</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                                <li> <span class="left-align">Profile Enrichment</span>
-                                                    <span class="right  red-text">
-                                                        <i class="fas fa-times"></i>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                            <div class="center"> <a style="min-width: 180px" href="" class=" btn btn-m white-text green darken-4  btn-nc waves-green hoverable  waves-effect transparent">Get Started</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php 
+                                if(!empty($canprice)){
+                                foreach ($canprice as $plan) { 
+                                    if ($plan->pr_gat == 0) { ?>
+                                    
+                                    <div class="col m6 l4  s12">
+                                            <!-- card start -->
+                                            <div class="card-panel plans">
+                                                <?php  if (!empty($plan->pr_notify)) { $btn_class = 'white-text green'; ?>
+                                                    <div class="center" style="margin-top: -37px;">
+                                                        <div class="chip green darken-4 white-text ">
+                                                            <?php  echo $plan->pr_notify; ?>
+                                                        </div>
+                                                    </div>
+                                                <?php }else{ $btn_class = 'green-text';} ?>
+                                                <div class="card-title-box">
+                                                    <span class="card-title left-align"> <?php echo $plan->pr_name ?> </span>
+                                                    <span class="card-title right"> $ <?php echo $plan->pr_offer ?> </span>
+                                                    <div class="card-sub-title">
+                                                        <span class="left-align"></span>
+                                                        <span class="right">/ <?php echo $plan->pr_limit;echo ($plan->pr_id>1)? ' months':' month';?></span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card-action ">
+                                                    <ul>
+                                                        <li>
+                                                            <span class="left-align">Validity Period </span>
+                                                            <span class="right"><?php echo $plan->pr_limit;echo ($plan->pr_id>1)? ' months':' month';?></span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="left-align">Job Applications</span>
+                                                            <span class="right"><?php echo $plan->pr_nojob ?></span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="left-align">Personalised Job Alerts</span>
+                                                            <span class="right <?php echo ($plan->pr_job_aler== 1)? ' green-text':' red-text'; ?>">
+                                                                <?php echo ($plan->pr_job_aler == 1)? ' <i class="fas fa-check green-text"></i>':' <i class="fas fa-times red-text"></i>'; ?>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="left-align">View Employer  Details</span>
+                                                            <span class="right <?php echo ($plan->pr_view_employer_detail == 1)? ' green-text':' red-text'; ?>">
+                                                                <?php echo ($plan->pr_view_employer_detail== 1)? ' <i class="fas fa-check green-text"></i>':' <i class="fas fa-times red-text"></i>'; ?>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="left-align">Who Viewd Your Profile</span>
+                                                            <span class="right <?php echo ($plan->pr_prfle_viewrs== 1)? ' green-text':' red-text'; ?>">
+                                                                <?php echo ($plan->pr_prfle_viewrs== 1)? ' <i class="fas fa-check green-text"></i>':' <i class="fas fa-times red-text"></i>'; ?>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="left-align">More Profile Views</span>
+                                                            <span class="right <?php echo ($plan->pr_boost== 1)? ' green-text':' red-text'; ?>">
+                                                               <?php echo ($plan->pr_boost== 1)? ' <i class="fas fa-check green-text"></i>':' <i class="fas fa-times red-text"></i>'; ?>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="left-align">Assisted Job Search</span>
+                                                            <span class="right <?php echo ($plan->pr_as_jobsearch== 1)? ' green-text':' red-text'; ?>">
+                                                                <?php echo ($plan->pr_as_jobsearch== 1)? ' <i class="fas fa-check green-text"></i>':' <i class="fas fa-times red-text"></i>'; ?>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="left-align">Resume Review</span>
+                                                            <span class="right <?php echo ($plan->pr_resume_view== 1)? ' green-text':' red-text'; ?>">
+                                                               <?php echo ($plan->pr_resume_view== 1)? ' <i class="fas fa-check green-text"></i>':' <i class="fas fa-times red-text"></i>'; ?>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="left-align">Profile Enrichment</span>
+                                                            <span class="right <?php echo ($plan->pr_enrichment== 1)? ' green-text':' red-text'; ?>">
+                                                               <?php echo ($plan->pr_enrichment== 1)? ' <i class="fas fa-check green-text"></i>':' <i class="fas fa-times red-text"></i>'; ?>
+                                                            </span>
+                                                        </li>
+
+                                                        <?php if(!empty($plan->pr_details)){ ?>
+                                                            <li>
+                                                                <span class="left-align"><?php echo $plan->pr_details ?></span>
+                                                                <span class="right green-text">
+                                                                    <i class="fas fa-check green-text"></i>
+                                                                </span>
+                                                            </li>
+                                                        <?php	}	?>
+                                                        
+                                                    </ul>
+                                                    <div class="center">
+                                                        <a style="min-width: 180px" href="<?php echo $this->config->base_url();?>price/update/<?php echo $plan->pr_encrypt_id;?>" class=" btn btn-m green darken-4  white-text btn-nc waves-green hoverable  waves-effect ">Edite</a>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card  1-->
+                                        </div><!-- end col -->
+
+                                <?php } } } ?>                
+                            </div>                                    
+
+
+
+                                
 
                             <!-- Employers -->
                             <div class="row" id="employer" style="display:none">
@@ -274,7 +193,7 @@
                                             </li>
                                         </ul>
                                         <div class="center">                                                                            
-                                            <a href="" style="min-width: 180px" class=" btn btn-m white-text brand waves-green  waves-effect ">Get Started</a>
+                                            <a href="" style="min-width: 180px" class=" btn btn-m white-text green waves-green  waves-effect ">Get Started</a>
                                         </div>
                                     </div>
                                 </div><!-- end card  1-->

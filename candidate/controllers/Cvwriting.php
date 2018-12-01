@@ -1351,7 +1351,7 @@ function cvsend()
          // $this->email->clear(TRUE);
    
          $this->email->from('do-not-reply@cherryhire.com', 'Cherryhire'); 
-         $this->email->to('danshajjsri@gmail.com');
+         $this->email->to('shunal@cherryhire.com');
          $this->email->cc('jitinajithk@gmail.com, do-not-reply@cherryhire.com');
          // $this->email->cc('shahirkm@5ines.com');
          $this->email->subject('Payment success'); 
