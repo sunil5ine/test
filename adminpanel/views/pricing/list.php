@@ -22,22 +22,26 @@
                         <div class="col m12 s12 l9">
                            
                             <div class="row">
-                                <div class="col s12 m6"> 
-                                    <p class="h5-para black-text  m0">Manage Pricing</p>
+                                <div class="col s12 m4"> 
+                                    <p class="h5-para black-text  m0 mb10">Manage Pricing</p>
                                     <small><i>Hello, Comapny name. Check out what's happening!</i></small>
                                 </div>
-                                <div class="col s12 m6"> 
-                                    <div class="switch">
+                                <div class="col s12 m4"> 
+                                    <div class="switch center mb10">
                                         <label>
-                                            <span class="bold black-text">Candidates Plan</span>
+                                            <span class="bold black-text p-txt1">Candidates Plan</span>
                                             <input type="checkbox" id="plan-selector">
                                             <span class="lever"></span>
-                                            <span class="fad-text ">Employers Plan</span>
+                                            <span class="fad-text p-txt2">Employers Plan</span>
                                         </label>
                                     </div>
+                                    <p class="m0 center"><small><i>Choose Package</i></small></p>
+                                </div>
+                                <div class="col s12 m4 ">
+                                    <a href="<?php echo base_url() ?>price/add-candidate" class="waves-effect block waves-light hoverable white-text can-btn  green darken-4 btn">Add New Candidate Package</a>
+                                    <a href="<?php echo base_url() ?>price/employer"  style="display:none" class="waves-effect block waves-light hoverable white-text emp-btn  blue darken-4 btn">Add New Employer Package</a>
                                 </div>
                             </div>
-
                             <div class="row" id="candidate">
                             <?php 
                                 if(!empty($canprice)){
@@ -141,13 +145,8 @@
                                             </div><!-- end card  1-->
                                         </div><!-- end col -->
 
-                                <?php } } } ?>                
-                            </div>                                    
-
-
-
-                                
-
+                                <?php } } } ?>  
+                            </div>       
                             <!-- Employers -->
                             <div class="row" id="employer" style="display:none">
                             <?php if(!empty($empprice)) {  foreach ($empprice as $result) {  ?>
@@ -232,10 +231,18 @@
                     {
                         $('#candidate').toggle(500);
                         $('#employer').toggle(500);
+                        $('.can-btn').toggle();
+                        $('.emp-btn').toggle();
+                        $('.p-txt1').removeClass('bold black-text').addClass('fad-text');
+                        $('.p-txt2').removeClass(' fad-text').addClass('bold black-text');
 
                     }else{
                         $('#employer').toggle(500);
                         $('#candidate').toggle(500);
+                        $('.can-btn').toggle();
+                        $('.emp-btn').toggle();
+                        $('.p-txt2').removeClass('bold black-text').addClass('fad-text');
+                        $('.p-txt1').removeClass(' fad-text').addClass('bold black-text');
                     }
                 });
             });

@@ -33,13 +33,13 @@
 			        <div class="card-content" style="padding: 40px 8%;">
 			          	<div class="center">
 			          		<p class="card-title"><b>Register</b></>
-			          		<h6>EASILY USING</h6>
+			          		<!-- <h6>EASILY USING</h6> -->
 			          	</div>
 			          	<!-- <div>
 			          		<?php //echo $message ?>
 			          	</div> -->
 						<br>
-			          	<div class="center otherlogin">
+			          	<!-- <div class="center otherlogin">
 							<a class="mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-2 rounded-6">
 								<i class="fab fa-twitter"></i>
 							</a>
@@ -49,9 +49,9 @@
 							<a class="mlr10 waves-effect z-depth-2 waves-light btn btn-large transparent black-text rounded-6">
 								<img src="<?php echo base_url() ?>assets/img/google.png" class="responsive-img" style="max-height: 40px;float: left; margin-top: 5px;"> Google </a>
 			          	</div>
-			          	<br>
+			          	<br> -->
 			          	<div class="emil-contect  row">
-			          		<h6 class="center">OR USING EMAIL</h6>
+			          		<!-- <h6 class="center">OR USING EMAIL</h6> -->
 							<br>
 
 			          		<form class="form-inline" method="post" id="signupForm"  action="<?php echo base_url('PostCV');?>" enctype="multipart/form-data" style="overflow: visible;">

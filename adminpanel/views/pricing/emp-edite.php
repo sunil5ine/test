@@ -16,7 +16,6 @@
       <!-- headder -->
       <?php $this->load->view('include/header'); ?>
       <!-- end headder -->
-     
       <section class="sec-top">
          <div class="container-wrap">
             <div class="col l12 m12 s12">
@@ -25,8 +24,8 @@
                   <div class="col m12 s12 l9">
                      <div class="row">
                         <div class="col s12 m6 l7">
-                           <p class="h5-para black-text  m0">Edit candidate package</p>
-                           <h6 class="m0 bold"> <small><i>Hello, Admin. Change candidate package!</i></small> </h6>
+                           <p class="h5-para black-text  m0">Edit employer package</p>
+                           <h6 class="m0 bold"> <small><i>Hello, Admin. Change employer package!</i></small> </h6>
                         </div>                        
                      </div>
 

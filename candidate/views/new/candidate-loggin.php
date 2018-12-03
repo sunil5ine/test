@@ -31,7 +31,7 @@
 			          	<div class="clearfix"> </div>
 			          	<div><?php echo $errmsg; ?></div>
                         <div class="clearfix"> </div>
-						<br>
+						<!-- <br>
 			          	<div class="center otherlogin">
 							<a class=" mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-2 rounded-6">
 								<i class="fab fa-twitter"></i>
@@ -43,10 +43,10 @@
 								<img src="<?php echo $this->config->item('web_url');?>assets/img/google.png" class="responsive-img" style="max-height: 40px;margin-top: 5px; float: left; margin-right: 4px;">
 								<span>Google</span>
 							</a>
-			          	</div>
+			          	</div> -->
 			          	<br>
 			          	<div class="emil-contect  row">
-			          		<h6 class="center-align">OR USING EMAIL</h6>
+			          		<!-- <h6 class="center-align">OR USING EMAIL</h6> -->
 			          		<form method="post" name="signinfrm" action="<?php echo base_url()?>LoginProcess/" data-toggle="validator" role="form">
 			          			<div class=" col s12 m0">
 						          	<label for="last_name">Email</label>
