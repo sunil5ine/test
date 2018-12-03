@@ -135,7 +135,7 @@
                                                         
                                                     </ul>
                                                     <div class="center">
-                                                        <a style="min-width: 180px" href="<?php echo $this->config->base_url();?>price/update/<?php echo $plan->pr_encrypt_id;?>" class=" btn btn-m green darken-4  white-text btn-nc waves-green hoverable  waves-effect ">Edite</a>
+                                                        <a style="min-width: 180px" href="<?php echo $this->config->base_url();?>price/update/<?php echo $plan->pr_encrypt_id;?>" class=" btn btn-m green darken-4  white-text btn-nc waves-green hoverable  waves-effect ">Edit</a>
                                                     </div>
                                                 </div>
                                             </div><!-- end card  1-->
@@ -150,62 +150,68 @@
 
                             <!-- Employers -->
                             <div class="row" id="employer" style="display:none">
-                            <div class="col m6 l6 xl4 s12">
-                                <!-- card start -->
-                                <div class="card-panel plans">
-                                    <div class="center" style="margin-top: -37px;">
-                                        <div class="chip green darken-4 white-text ">
-                                            Most popular
+                            <?php if(!empty($empprice)) {  foreach ($empprice as $result) {  ?>
+                                <div class="col m6 l6 xl4 s12">
+                                    <!-- card start -->
+                                    <div class="card-panel plans">
+                                        <?php if($result->pr_notify != '') { ?>
+                                            <div class="center" style="margin-top: -37px;">
+                                                <div class="chip green darken-4 white-text ">
+                                                    Most popular
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                        <div class="card-title-box">
+                                            <span class="card-title left-align"> <?php echo $result->pr_name;?> </span>
+                                            <span class="card-title right">  <?php echo ($result->pr_offer != 0)? '$ '. number_format($result->pr_offer,0): ''?> </span>
+                                            <div class="card-sub-title">
+                                                <span class="left-align"><?php echo $result->exprence_level ?> </span>
+                                                <span class="right">/  <s> <?php echo ($result->pr_offer != 0)? '$ '. number_format($result->pr_orginal,0): ''?></s></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card-title-box">
-                                        <span class="card-title left-align"> Mid Level  </span>
-                                        <span class="card-title right">  $ 200 </span>
-                                        <div class="card-sub-title">
-                                            <span class="left-align">6-8 years </span>
-                                            <span class="right">/  <s> $ 400</s></span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card-action ">
-                                        <ul>
-                                            <li>
-                                                <span class="left-align">Plan Name</span>
-                                                <span class="right">Mid Level </span>
-                                            </li>
-                                            <li>
-                                                <span class="left-align">Candidates Experience Level</span>
-                                                <span class="right">6-8 years</span>
-                                            </li>
-                                            <li>
-                                                <span class="left-align">Verified candidates</span>
-                                                <span class="right ">10</span>
-                                            </li>
-                                            <li>
-                                                <span class="left-align">Validity Period </span>
-                                                <span class="right">45 Days</span>
-                                            </li>
-                                            
-                                            <li>
-                                                <span class="left-align">Price</span>
-                                                <span class="right"> <s>$ 400</s></span>
-                                            </li>
-                                            <li>
-                                                <span class="left-align">Offer price</span>
-                                                <span class="right">$ 200</span>
-                                            </li>
+                                        
+                                        <div class="card-action ">
+                                            <ul>
+                                                <li>
+                                                    <span class="left-align">Plan Name</span>
+                                                    <span class="right"><?php echo $result->pr_name;?></span>
+                                                </li>
+                                                <li>
+                                                    <span class="left-align">Candidates Experience Level</span>
+                                                    <span class="right"><?php echo $result->exprence_level;?></span>
+                                                </li>
+                                                <li>
+                                                    <span class="left-align">Verified candidates</span>
+                                                    <span class="right "><?php echo $result->pr_cvno;?></span>
+                                                </li>
+                                                <li>
+                                                    <span class="left-align">Validity Period </span>
+                                                    <span class="right"><?php echo ($result->peried > 1)?$result->peried.' Days'  : $result->peried.' Day' ?></span>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span class="left-align">Price</span>
+                                                    <span class="right"> <s><?php echo ($result->pr_orginal != 0)? '$ '. number_format($result->pr_orginal,0): 'Free'?></s></span>
+                                                </li>
+                                                <li>
+                                                    <span class="left-align">Offer price</span>
+                                                    <span class="right"><?php echo ($result->pr_offer != 0)? '$ '. number_format($result->pr_offer,0): 'Free'?></span>
+                                                </li>
 
-                                            <li>
-                                                <span class="left-align">Premium Job</span>
-                                                <span class="right">1</span>
-                                            </li>
-                                        </ul>
-                                        <div class="center">                                                                            
-                                            <a href="" style="min-width: 180px" class=" btn btn-m white-text green waves-green  waves-effect ">Get Started</a>
+                                                <li>
+                                                    <span class="left-align">Premium <?php echo ($result->pr_limit==1)?'Job':'Jobs';?></span>
+                                                    <span class="right"><?php echo $result->pr_limit;?></span>
+                                                </li>
+                                                
+
+                                            </ul>
+                                            <div class="center">
+                                                <a href="<?php echo $this->config->base_url();?>pricing/emp-price-Edit/<?php echo $result->pr_encrypt_id;?>" style="min-width: 180px" class=" btn btn-m white-text green darken-4 waves-green  hoverable waves-effect ">Edit</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div><!-- end card  1-->
-                                </div>
+                                    </div><!-- end card  1-->
+                                </div><!-- end col -->
+                                <?php } } ?>
                             </div>
 
                         </div><!-- end right side content -->

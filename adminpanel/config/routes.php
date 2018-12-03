@@ -26,6 +26,9 @@ $route['candidates/detail/(:any)']              = "candidates/detail/$1";
 $route['blog/add-new']                          = "blog/index";
 $route['Logout']                                = "logout";
 $route['Login']                                 = "login";
+$route['pricing/emp-price-Edit/(:any)']         = "price/empPricEdite/$1";
+$route['pricing/update-emp-package']            = "price/update_emp_package";
+
 $route['PageContent']                           = "pagecontent/pagelist";
 $route['default_controller']                    = "login";
 $route['404_override']                          = 'nopage';

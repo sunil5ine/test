@@ -263,9 +263,7 @@
             </div>
          </div>
       </section>
-      <!-- end main-layout -->
-      <!-- footer -->
-      <?php $this->load->view('include/footer'); ?>
+
       <!-- end footer -->
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>

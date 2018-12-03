@@ -14,6 +14,7 @@ class price extends CI_Controller {
     {
         $data['title'] = 'Manage Pricing';
         $data['canprice'] = $this->priceModel->canprice();
+        $data['empprice'] = $this->priceModel->empPrice();
         $this->load->view('pricing/list', $data, FALSE);
     }
 
@@ -93,12 +94,56 @@ class price extends CI_Controller {
         else{
             $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p>Package updation failed!<br> please try agin later. </p></div>');
             redirect('price/update/'.$input['pid'],'refresh');
+        }     
+    }
+
+    /******************* E M P L O Y E R ********************/
+    public function empPricEdite($id){
+        $this->load->database();
+        $data['title']  = 'Edite employer package | Cherry Hire';
+        $data['emp']    = $this->db->where('pr_encrypt_id', $id)->get('ch_pricing')->row_array();
+        $this->load->view('pricing/emp-edite', $data, FALSE);         
+    }
+
+    /**
+     * Update emp package 
+    */
+    public function update_emp_package()
+    {
+        $input = $this->input->post();
+        $nifiyq = false;
+        if(!empty($this->input->post('pr_notify')))
+        {
+           $nifiyq =  $this->priceModel->empnotify();
         }
-
-
-
-
-       
+        if($this->input->post('expto') == 16){
+            $explevel = '15+ years';
+        }else{
+            $explevel = $this->input->post('expf').'-'.$this->input->post('expto').' years';
+        }
+        $data = array(
+            'pr_name'        => $this->input->post('title'), 
+            'pr_orginal'     => $this->input->post('oprice'), 
+            'pr_offer'       => $this->input->post('ofprice'), 
+            'peried'         => $this->input->post('valdity'), 
+            'pr_limit'       => $this->input->post('jobs'), 
+            'pr_cvno'        => $this->input->post('vcan'), 
+            'cp_max_ex'      => $this->input->post('expto'), 
+            'exprence_level' => $explevel, 
+        );
+        if($this->priceModel->emppckUpdate($data, $this->input->post('eid')))
+        {
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="green darken-3"><a class="close-tost ">X</a><p>Employer package updated successfully. </p></div>');
+            redirect('price','refresh');
+        }
+        elseif($nifiyq == true){
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="green darken-3"><a class="close-tost ">X</a><p>Employer package updated successfully. </p></div>');
+            redirect('price','refresh');
+        }
+        else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p>Employer package updation failed!<br> please try agin later. </p></div>');
+            redirect('pricing/emp-price-Edit/'.$input['pid'],'refresh');
+        }     
         
     }
 
