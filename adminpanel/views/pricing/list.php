@@ -116,9 +116,17 @@
                                                             </span>
                                                         </li>
 
-                                                        <?php if(!empty($plan->pr_details)){ ?>
+                                                        <?php if(!$plan->pr_gend_test == 0){ ?>
                                                             <li>
-                                                                <span class="left-align"><?php echo $plan->pr_details ?></span>
+                                                                <span class="left-align">General Aptitude Test</span>
+                                                                <span class="right green-text">
+                                                                    <i class="fas fa-check green-text"></i>
+                                                                </span>
+                                                            </li>
+                                                        <?php	}	?>
+                                                        <?php if(!$plan->pr_psy_test == 0){ ?>
+                                                            <li>
+                                                                <span class="left-align">Psychometric Test</span>
                                                                 <span class="right green-text">
                                                                     <i class="fas fa-check green-text"></i>
                                                                 </span>
@@ -205,13 +213,14 @@
                 </div>
             </div>
         </section>
+        <?php echo $this->session->flashdata('messeg'); ?> 
 
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
         <script>
             $(document).ready(function(){
-                $('.modal').modal();
+               
                     $('#plan-selector').change(function(){
                     if($(this).is(':checked'))
                     {

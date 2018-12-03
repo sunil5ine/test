@@ -32,19 +32,19 @@
 
                      <div class="card">
                         <div class="card-content">
-                           <form action="" >
+                           <form action="<?php echo base_url('price/update_package') ?>" method="post">
 
                              <div class="row m0">
                                 <div class="input-field col s12 l4">
-                                  <input type="text" id="first_name" name='title' class="validate">
+                                  <input type="text" id="first_name" required name='title' value="<?php echo $canPrice['pr_name'] ?>" class="validate">
                                   <label for="first_name">Title</label>
                                 </div>
                                 <div class="input-field col s12 l4">
-                                  <input type="number" id="last_name" name="oprice" class="validate">
+                                  <input type="number" id="last_name" required name="oprice" class="validate" value="<?php echo $canPrice['pr_orginal'] ?>">
                                   <label for="last_name">Original Price</label>
                                 </div>
                                 <div class="input-field col s12 l4">
-                                  <input type="number" id="number" name="oprice" class="validate">
+                                  <input type="number" id="number" required name="ofprice" class="validate" value="<?php echo $canPrice['pr_offer'] ?>">
                                   <label for="number" data-error="wrong" data-success="right">Offer Price</label>
                                 </div>
                              </div>
@@ -55,15 +55,15 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
-                                       <span>Most popular</span>
+                                       <input type="checkbox" value="1" name="pr_enrichment" <?php echo($canPrice['pr_enrichment'] == 1) ?'checked':'' ?> class="filled-in"  />
+                                       <span>Profile Enrichment</span>
                                        </label>
                                     </p>
                                  </div>
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
+                                       <input type="checkbox" value="1" name="pr_job_aler" <?php echo($canPrice['pr_job_aler'] == 1) ?'checked':'' ?> class="filled-in"  />
                                        <span>Personalised Job Alerts</span>
                                        </label>
                                     </p>
@@ -71,7 +71,7 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
+                                       <input type="checkbox" value="1" name="prved" <?php echo($canPrice['pr_view_employer_detail'] == 1) ?'checked':'' ?> class="filled-in"  />
                                        <span>View Employer Details</span>
                                        </label>
                                     </p>
@@ -84,7 +84,7 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
+                                       <input type="checkbox" value="1" name="pr_prfle_viewrs" <?php echo($canPrice['pr_prfle_viewrs'] == 1) ?'checked':'' ?> class="filled-in"  />
                                        <span>Who Viewd Your Profile</span>
                                        </label>
                                     </p>
@@ -92,7 +92,7 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
+                                       <input type="checkbox" value="1" name="pr_boost" <?php echo($canPrice['pr_boost'] == 1) ?'checked':'' ?> class="filled-in"  />
                                        <span>More Profile Views</span>
                                        </label>
                                     </p>
@@ -100,7 +100,7 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
+                                       <input type="checkbox" value="1" name="pr_as_jobsearch" <?php echo($canPrice['pr_as_jobsearch'] == 1) ?'checked':'' ?> class="filled-in"  />
                                        <span>Assisted Job Search</span>
                                        </label>
                                     </p>
@@ -111,7 +111,7 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
+                                       <input type="checkbox" value="1" name="pr_resume_view" <?php echo($canPrice['pr_resume_view'] == 1) ?'checked':'' ?> class="filled-in"  />
                                        <span>Resume Review</span>
                                        </label>
                                     </p>
@@ -119,15 +119,16 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
-                                       <span>Profile Enrichment</span>
+                                      
+                                       <input type="checkbox" value="1" name="pr_psy_test" <?php echo($canPrice['pr_psy_test'] == 1) ?'checked':'' ?> class="filled-in"  />
+                                       <span>Psychometric Test</span>
                                        </label>
                                     </p>
                                  </div>
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
+                                       <input type="checkbox" value="1" name="pr_gend_test" <?php echo($canPrice['pr_gend_test'] == 1) ?'checked':'' ?> class="filled-in"  />
                                        <span>General Aptitude Test</span>
                                        </label>
                                     </p>
@@ -138,18 +139,20 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       <input type="checkbox" class="filled-in"  />
-                                       <span>Psychometric Test</span>
+                                       
+                                       <input type="checkbox" value="1" name="pr_notify" <?php echo (!empty($canPrice['pr_notify']))? 'checked' :'' ?>  class="filled-in"  />
+                                       <span>Most popular</span>
                                        </label>
                                     </p>
                                  </div>
                                  <div class="input-field col s12 l4">
-                                  <input type="number" id="first_name" name='title' class="validate">
+                                  <input type="number" name="pr_limit" id="first_name" value="<?php echo $canPrice['pr_limit'] ?>" required  name='' class="validate">
                                   <label for="first_name">Package valdity in month</label>
                                 </div>
                                 <div class="input-field col s12 l4">
-                                  <input type="number" id="last_name" name="oprice" class="validate">
+                                  <input type="number" name="pr_nojob" id="last_name" name="oprice" value="<?php echo $canPrice['pr_nojob'] ?>" required class="validate">
                                   <label for="last_name">Job Applications</label>
+                                  <input type="hidden" name="pid" value="<?php echo $canPrice['pr_encrypt_id'] ?>">
                                 </div>
                              </div>
 
@@ -170,10 +173,7 @@
          </div>
          <!-- container wrap -->
       </section>
-      <?php
-        echo $this->session->flashdata('messeg'); 
-             
-      ?>
+      <?php echo $this->session->flashdata('messeg'); ?>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>

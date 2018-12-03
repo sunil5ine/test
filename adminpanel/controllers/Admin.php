@@ -184,6 +184,8 @@ class admin extends CI_Controller {
         $this->load->library('upload', $config);
         if (!file_exists($config['upload_path'])) { mkdir($config['upload_path'], 0777, true); }
         $this->upload->do_upload('pic');
+
+        
         $filename = $this->upload->data('file_name');
         $config['image_library']    = 'gd2';
         $config['source_image']     = $config['upload_path'].$filename;
