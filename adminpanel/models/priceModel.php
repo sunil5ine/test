@@ -105,6 +105,19 @@ class priceModel extends CI_Model {
                 return false;
         }   
     }
+
+    /**
+     * Add package 
+    */
+    function emppckadd($data)
+    {
+        $this->db->insert('ch_pricing', $data);
+        if($this->db->affected_rows() > 0){
+            return true;
+        }else{
+                return false;
+        }        
+    }
 }
 
 /* End of file priceModel.php */

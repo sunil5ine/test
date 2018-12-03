@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col s12 m4 ">
                                     <a href="<?php echo base_url() ?>price/add-candidate" class="waves-effect block waves-light hoverable white-text can-btn  green darken-4 btn">Add New Candidate Package</a>
-                                    <a href="<?php echo base_url() ?>price/employer"  style="display:none" class="waves-effect block waves-light hoverable white-text emp-btn  blue darken-4 btn">Add New Employer Package</a>
+                                    <a href="<?php echo base_url() ?>price/add-employer"  style="display:none" class="waves-effect block waves-light hoverable white-text emp-btn  blue darken-4 btn">Add New Employer Package</a>
                                 </div>
                             </div>
                             <div class="row" id="candidate">

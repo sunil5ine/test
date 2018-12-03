@@ -28,8 +28,9 @@ $route['Logout']                                = "logout";
 $route['Login']                                 = "login";
 $route['pricing/emp-price-Edit/(:any)']         = "price/empPricEdite/$1";
 $route['pricing/update-emp-package']            = "price/update_emp_package";
+$route['pricing/add-emp-package']               = "price/add_emp_package";
 $route['price/add-candidate']                   = "price/add_candidate";
-$route['price/employer']                        = "price/employer";
+$route['price/add-employer']                    = "price/employer";
 
 $route['PageContent']                           = "pagecontent/pagelist";
 $route['default_controller']                    = "login";

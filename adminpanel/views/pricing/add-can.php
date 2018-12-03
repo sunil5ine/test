@@ -26,7 +26,7 @@
                      <div class="row">
                         <div class="col s12 m6 l7">
                            <p class="h5-para black-text  m0">Edit candidate package</p>
-                           <h6 class="m0 bold"> <small><i>Hello, Admin. Change candidate package!</i></small> </h6>
+                           <h6 class="m0 bold"> <small><i>Hello, Admin. add new candidate package!</i></small> </h6>
                         </div>                        
                      </div>
 
@@ -152,7 +152,6 @@
                                 <div class="input-field col s12 l4">
                                   <input type="number" name="pr_nojob" id="last_name" name="oprice" value="" required class="validate">
                                   <label for="last_name">Job Applications</label>
-                                  <input type="hidden" name="pid" value="">
                                 </div>
                              </div>
 
