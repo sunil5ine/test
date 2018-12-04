@@ -231,7 +231,6 @@
       <script type="text/javascript">
             bkLib.onDomLoaded(function() {
                 new nicEditor({fullPanel : true,iconsPath : '<?php echo $this->config->item('web_url')?>assets/img/nicEditorIcons.gif'}).panelInstance('area2');
-                
             });
 	  </script>
       <!-- Tosd confirmation -->
