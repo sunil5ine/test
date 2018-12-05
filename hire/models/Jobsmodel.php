@@ -325,10 +325,10 @@ class Jobsmodel extends CI_Model {
 			'job_updated_dt'	=>date('Y-m-d H:i:s'),	
 			'hire_jobid'		=>'0',
 			'hire_status'		=>'',
-			'job_created_by'	=>$this->session->userdata('hireid')
+			'job_created_by'	=>$this->session->userdata('hireid'),
+			'nation'			=>$this->input->post('nation'),
 		);
 		
-	
 		/* reduse the jobs */
 		$this->jobposted($jdata);
 		
@@ -1307,5 +1307,32 @@ function verified_cv($id)
 	
 	return $this->db->get()->row_array();
 }
+
+
+
+/**
+ * get title
+ */
+function gettitle()
+{
+	return $this->db->select('title')->get('ch_job_subtitle')->result();	
+}
+
+/**
+ * get job 
+ */
+function getrole()
+{
+	return $this->db->select('jr_name as title')->get('ch_jobrole')->result();	
+}
+
+/**
+ * getindustry
+ */
+function getindustry()
+{
+	return $this->db->select('ind_name as title')->get('ch_industry')->result();
+}
+
 
 }

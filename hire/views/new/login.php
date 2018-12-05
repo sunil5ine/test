@@ -26,10 +26,8 @@
 			      <div class="card z-depth-2">
 			        <div class="card-content">
 			          	<div class="center">
-			          		<p class="card-title"><b>Login</b></>
+			          		<p class="card-title"><b>Employer Login</b></>
 			          	</div>
-						
-			          	
 			          	<br>
 			          	<div class="emil-contect center row">
 			          			

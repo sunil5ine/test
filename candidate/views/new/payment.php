@@ -185,6 +185,12 @@
 											</span>
 										</li>
 									<?php	}	?>
+									<li>
+					        			<span class="left-align">Video Interview </span>
+					        			<span class="right <?php echo ($plan->pr_video_interview== 1)? ' brand-text':' red-text'; ?>">
+										<i class="material-icons"><?php echo ($plan->pr_video_interview== 1)? ' done':' close'; ?></i>
+										</span>
+					        		</li>
 					        		
 					        	</ul>
 					        	<div class="center">

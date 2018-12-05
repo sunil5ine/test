@@ -54,7 +54,7 @@
 				<div class="row" id="candidate">
 				<?php 
 				if(!empty($mon_plan)){
-				foreach ($mon_plan as $plan) { 
+				foreach ($mon_plan as $key => $plan) { 
 					if ($plan->pr_gat == 1) { ?>
 					
 						<div class="col m6 l4 xl4 s12">
@@ -190,6 +190,12 @@
 											</span>
 										</li>
 									<?php	}	?>
+									<li>
+					        			<span class="left-align">Video Interview </span>
+					        			<span class="right <?php echo ($plan->pr_video_interview== 1)? ' brand-text':' red-text'; ?>">
+										<i class="material-icons"><?php echo ($plan->pr_video_interview== 1)? ' done':' close'; ?></i>
+										</span>
+					        		</li>
 					        	</ul>
 					        	<div class="center">
 					        		<a style="min-width: 180px" href="<?php echo $this->config->base_url();?>candidate" class=" btn btn-m <?php echo $btn_class ?>  btn-nc waves-green hoverable  waves-effect transparent">Get Started</a>

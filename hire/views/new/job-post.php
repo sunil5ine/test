@@ -13,14 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->config->item('web_url')?>assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo $this->config->item('web_url');?>assets/css/jquery.tagsinput-revisited.css">
 	<style type="text/css">
-		.select2-selection.select2-selection--single{border-radius: 0px}
-		.select2-container--default .select2-selection--single{height: 40px}
-		.select2-selection.select2-selection--single, input, textarea, .chips.input-field{margin-top: 2px !important;font-size: 14px;} 
-		#jobpost label {font-size: 13px; margin-bottom: 0; }
-		#jobpost input, #jobpost select, .chips.input-field{margin: 0px;border-radius: 0px !important}
-		.select2-container--default .select2-selection--multiple{border-radius: 0px}
-		.select2-search__field {margin: 0 !important; }
-		.select2-container--default .select2-selection--single .select2-selection__arrow {top: 9px; }
+		.select2-selection.select2-selection--single{border-radius: 0px} .select2-container--default .select2-selection--single{height: 40px} .select2-selection.select2-selection--single, input, textarea, .chips.input-field{margin-top: 2px !important;font-size: 14px;} #jobpost label {font-size: 13px; margin-bottom: 0; } #jobpost input, #jobpost select, .chips.input-field{margin: 0px;border-radius: 0px !important} .select2-container--default .select2-selection--multiple{border-radius: 0px} .select2-search__field {margin: 0 !important; } .select2-container--default .select2-selection--single .select2-selection__arrow {top: 9px; } #skillstags_tag { padding: 0; }
 	</style>
 </head>
 <body>
@@ -54,20 +47,20 @@
 									<form id="jobpost" name="jobpost" action="<?php echo base_url(); ?>Jobs/Add" method="post">
 										<div class="col s12 m12 l12">
 											<div class="row">
-												<div class="col s12 m6 l6">
-													<label for="jtitle">Job  Title <span class="red-text">*</span></label>
-													<input id="jtitle" name="jtitle" type="text" value="<?php echo $formdata['jtitle']; ?>" placeholder="Enter Job alert Title" class="validate" required>
+												<div class="col s12 m6 l6 input-field m0">
+													<p for="jtitle" >Job  Title <span class="red-text">*</span></p>
+													<input id="jtitle" name="jtitle" autocomplete="off" type="text" value="<?php echo $formdata['jtitle']; ?>" placeholder="Enter Job  Title" class="validate autocomplete-title" required>
 												</div>
-												<div class="col s12 m6 l6">
-													<label for="jrole">Job Role <span class="red-text">*</span></label>
-													<input id="jrole" name="jrole" value="<?php echo $formdata['jrole']; ?>" type="text" placeholder="Enter Job alert Title" class="validate" required>
+												<div class="col s12 m6 l6 input-field m0">
+													<p for="jrole">Job Role <span class="red-text">*</span></label>
+													<input id="jrole" name="jrole" autocomplete="off" value="<?php echo $formdata['jrole']; ?>" type="text" placeholder="Enter Job Role" class="validate autocomplete-role" required>
 												</div>
 											</div>
 										</div>
 										<div class="col s12 m12 l12">
 											<div class="row">
 											 	<div class="col s12 m6 l6">
-											  		<label for="jobtype">Job Type <span class="red-text">*</span></label>
+											  		<label for="jobtype">Job Type <span class="red-text">*</span></p>
 										          	<select name="jobtype" id="jobtype" class="required" required>
 													<option >Job Type</option>
                                                     <option value="Full Time" <?php echo ($formdata['jobtype'] == "Full Time")?'selected':''; ?>>Full Time</option>
@@ -78,7 +71,7 @@
 												</div>
 											  	<div class="col s12 m6 l6">
 											  		<label for="location">Location <span class="red-text">*</span></label>
-													<?php echo form_dropdown('location',$country_list,$formdata['location'],'id="location" class=" form-control has-feedback-left" tabindex="2"  required');?>
+													<?php echo form_dropdown('location',$country_list,$formdata['location'],'id="location" class=" form-control has-feedback-left"   required');?>
 											  		
 											  	</div>
 											</div>
@@ -90,7 +83,7 @@
 													<label for="minsal">Expected Work Experience Range <span class="red-text">*</span></label>
 													<div class="row">
 													 	<div class="col s6 m6 l6">
-															<select  name="minexp" id="minsal" class=" form-control has-feedback-left" tabindex="4"  required>
+															<select  name="minexp" id="minsal" class=" form-control has-feedback-left"   required>
 																<option>Min Exp</option>
 																<?php foreach ($maxexp_list as $key => $value): ?>
 																	<option value="<?php echo $key ?>"><?php echo $value ?></option>
@@ -99,7 +92,7 @@
 															</select>
 														</div>
 													  	<div class="col s6 m6 l6">
-													  		<select name="maxexp" 'id="maxsal" class=" form-control has-feedback-left" tabindex="5"  required>
+													  		<select name="maxexp" 'id="maxsal" class=" form-control has-feedback-left"   required>
 													  			<option>Max Exp</option>
 																<?php foreach ($maxexp_list as $key => $value): ?>
 																	<option value="<?php echo $key ?>"><?php echo $value ?></option>
@@ -112,7 +105,7 @@
 
 												<div class="col s12 m6 l6">
 													<label for="salrang">Offered Salary Range (Monthly) <span class="red-text">*</span></label>
-													<?php echo form_dropdown('monsal',$monsal_list,$formdata['monsal'],'id="salrang" class=" form-control has-feedback-left" tabindex="7"  required');?>
+													<?php echo form_dropdown('monsal',$monsal_list,$formdata['monsal'],'id="salrang" class=" form-control has-feedback-left"   required');?>
 												</div>
 											</div>
 										</div>
@@ -121,33 +114,38 @@
 											<div class="row">
 											 	<div class="col s12 m6 l6">
 											  		<label for="funarea">Function Area <span class="red-text">*</span></label>
-													<?php echo form_dropdown('farea',$funarea_list,$formdata['farea'],'id="funarea" class=" form-control has-feedback-left" tabindex="8" rejected required');?>
+													<?php echo form_dropdown('farea',$funarea_list,$formdata['farea'],'id="funarea" class=" form-control has-feedback-left"  rejected required');?>
 												</div>
 											  	<div class="col s12 m6 l6">
 											  		<label for="education">Educational Qualification <span class="red-text">*</span></label>
-													<?php echo form_dropdown('edu',$edu_list,$formdata['edu'],'id="education" class=" form-control has-feedback-left" tabindex="9" rejected required');?>
+													<?php echo form_dropdown('edu',$edu_list,$formdata['edu'],'id="education" class=" form-control has-feedback-left"  rejected required');?>
 											  	</div>
 											</div>
 										</div>
 										
 										<div class="col s12 m12 l12">
 											<div class="row">
-											 	<div class="col s12 m6 l6">
-											 		<input type="hidden" name="jobsite" id="jobsite" value="1">
-											  		<label for="industry">Industry </label>
-										          	
-										          	<input type="text" name="industry" value="<?php echo  $formdata['industry']?>">
+											 	<div class="col s12 m6 l6 input-field m0">
+											 		
+											  		<p for="industry">Industry <span class="red-text">*</span></p>
+										          	<input type="text" autocomplete="off" class="autocomplete-ind" name="industry" value="<?php echo  $formdata['industry']?>">
 												</div>
+												<input type="hidden" name="jobsite" id="jobsite" value="1">
 
-											  	<div class="col s12 m6 l6">
+												<div class="col s12 m6 l6 input-field m0">
+											 		
+													<p for="industry">Nationality <span class="red-text">*</span></p>
+													<?php echo form_dropdown('nation',$nation,$formdata['location'],'id="nation" class=" form-control has-feedback-left"   required');?>
+											   </div>
+											  	
+											</div>
+											<div class="row">
+												<div class="col s12 m12 l12">
 											  		<label for="skills">Skills <span class="red-text"></span></label>
-											  		
-														<input class="custom-class" id="skillstags" name="skillval" value="<?php echo $formdata['skillval']; ?> " >
-													
+													<input class="custom-class" id="skillstags" name="skillval" value="<?php echo $formdata['skillval']; ?> " >
 											  	</div>
 											</div>
 										</div>
-
 										<div class="col s12 m12 l12">
 											<br>
 											<div class="dividers"></div>
@@ -222,47 +220,15 @@
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url')?>assets/js/nicEdit.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url')?>assets/js/select2.min.js"></script>
 	
-	<script type="text/javascript">
-		bkLib.onDomLoaded(function() {
-			new nicEditor({fullPanel : true,iconsPath : '<?php echo $this->config->item('web_url')?>assets/img/nicEditorIcons.gif'}).panelInstance('area2');
-			
-		});
-	</script>
-	
 	<script>
-		$(document).ready(function(){
-			$('select').select2({width: "100%"});
-			$('#skillstags').tagsInput();
-			$("form").validate({
-			rules:{
-				industry:"required",
-				jtitle: "required",
-				jobtype: "required",
-				location: "required",
-				minsal: "required",
-				maxsal: "required",
-				salrang: "required",
-				funarea: "required",
-				education: "required",
-				jrole:"required",
-				
-			},
-			messages:{
-				industry:  "Please Select  industry",
-				jtitle: "Please enter  jobtitle",
-				jobtype: "Please select  job type",
-				location: "Please enter  location",
-				minsal: "Please enter  min salary",
-				maxsal: "Please enter  max salary",
-				salrang: "Please enter  Offered Salary Range",
-				funarea: "Please select  Function Area",
-				education: "Please select  Educational Qualification",
-				jrole:"Please select job role"
-				
-			},
-		});
-			
+		 $(document).ready(function(){
+			$(function() { $.ajax({ type: 'GET', dataType: 'json', url: '<?php echo base_url("Jobs/title") ?>', success: function(response) { var titleArray = response; var dataTitle = {}; for (var i = 0; i < titleArray.length; i++) { dataTitle[titleArray[i].title] = titleArray[i].flag; } $('input.autocomplete-title').autocomplete({ data: dataTitle, limit: 6, }); } }); });
+			$(function() { $.ajax({ type: 'GET', dataType: 'json', url: '<?php echo base_url("Jobs/roles") ?>', success: function(response) { var roleArray = response; var dataRole = {}; for (var i = 0; i < roleArray.length; i++) { dataRole[roleArray[i].title] = roleArray[i].flag; }  $('input.autocomplete-role').autocomplete({ data: dataRole, limit: 6, }); } }); });
+			$(function() { $.ajax({ type: 'GET', dataType: 'json', url: '<?php echo base_url("Jobs/industry") ?>', success: function(response) { var indArray = response; var dataind = {}; for (var i = 0; i < indArray.length; i++) { dataind[indArray[i].title] = indArray[i].flag; }  $('input.autocomplete-ind').autocomplete({ data: dataind, limit: 6, }); } }); });
 		});
 	</script>
+	<script type="text/javascript"> bkLib.onDomLoaded(function() { new nicEditor({fullPanel : true,iconsPath : '<?php echo $this->config->item('web_url')?>assets/img/nicEditorIcons.gif'}).panelInstance('area2'); }); </script>	
+	<script> $(document).ready(function(){ $('select').select2({width: "100%"}); $('#skillstags').tagsInput(); $("form").validate({ rules:{ industry:"required", jtitle: "required", jobtype: "required", location: "required", minsal: "required", maxsal: "required", salrang: "required", funarea: "required", education: "required", jrole:"required", }, messages:{ industry:  "Please Select  industry", jtitle: "Please enter  jobtitle", jobtype: "Please select  job type", location: "Please enter  location", minsal: "Please enter  min salary", maxsal: "Please enter  max salary", salrang: "Please enter  Offered Salary Range", funarea: "Please select  Function Area", education: "Please select  Educational Qualification", jrole:"Please select job role" }, }); }); </script>
+	
 </body>
 </html>

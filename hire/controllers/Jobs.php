@@ -268,7 +268,8 @@ class Jobs extends CI_Controller {
 			'jobdesc'=>'',
 			'notifyemail'=>$this->session->userdata('hireemail'),
 			'jobsite'=>'',
-			'jobnotes'=>''
+			'jobnotes'=>'',
+			'nation' => ''
 		);
 		//Form Validation
 		$this->form_validation->set_rules('jtitle', 'Job Title', 'trim|required|callback_name_check');
@@ -280,6 +281,9 @@ class Jobs extends CI_Controller {
 		$this->form_validation->set_rules('farea', 'Functional Area', 'trim|required');
 		if ($this->input->post('jrole'))	{
 			$this->form_validation->set_rules('jrole', 'Job Role', 'trim|callback_anyone_chk');
+		}
+		if ($this->input->post('nation'))	{
+			$this->form_validation->set_rules('jrole', 'Job Role', 'trim|required');
 		}
 		else {
 			$this->form_validation->set_rules('skillval', 'Skills', 'trim|callback_anyone_chk');			
@@ -318,7 +322,8 @@ class Jobs extends CI_Controller {
 					'jobdesc'=>$this->input->post('jobdesc'),
 					'notifyemail'=>$this->input->post('notifyemail'),
 					'jobsite'=>$this->input->post('jobsite'),
-					'jobnotes'=>$this->input->post('jobnotes')
+					'jobnotes'=>$this->input->post('jobnotes'),
+					'nation' => $this->input->post('nation')
 				);
 			}
 		}
@@ -328,6 +333,8 @@ class Jobs extends CI_Controller {
 		$this->data['title'] 		= 'Cherry Hire App - Add New Job';
 		$this->data['pagehead'] 	= 'Create a New Job';
 		$this->data["country_list"] = $this->jobsmodel->get_country();
+		$this->data["nation"] 		= $this->data["country_list"];
+		array_shift($this->data["nation"]);
 		$this->data["edu_list"] 	= $this->jobsmodel->get_edu();
 		$this->data["funarea_list"] = $this->jobsmodel->get_farea();
 		$this->data["ind_list"] 	= $this->jobsmodel->get_industry();
@@ -1386,10 +1393,34 @@ class Jobs extends CI_Controller {
 		$newdata = file_get_contents($file);
 		force_download($file, $newdata);
 		redirect('verified-cv','refresh');
-		
 	}
 
+	/**
+	* title auto completion  
+	*/
+	public function title()
+	{
+		$title = $this->jobsmodel->gettitle();
+		echo json_encode($title);
+	}
 
+	/**
+	 * Job role auto complition 
+	 */
+	public function roles()
+	{
+		$title = $this->jobsmodel->getrole();
+		echo json_encode($title);
+	}
+
+	/**
+	 * industry
+	 */
+	public function industry()
+	{
+		$title = $this->jobsmodel->getindustry();
+		echo json_encode($title);
+	}
 
 
 }
