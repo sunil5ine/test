@@ -17,8 +17,9 @@
                   <i class="far fa-bell font-col dropdown-trigger hide-ref" data-target='dropdown3'></i><i class="fas fa-circle red-text point1"></i>
                </li>
                <ul id='dropdown3' class='dropdown-content'>
-                  <li><a href="#!" class="black-text">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </a></li>
-                  <li><a href="#!" class="black-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</a></li>
+               <?php foreach ($nav_alerts as $key => $value) { ?>
+                  <li><a href="#!" class="black-text"><?php echo $value ?></a></li>
+               <?php } ?>  
                </ul>
                <li class="dropdown-trigger hide-ref1" data-target='dropdown2'>
                   <img src="<?php echo $this->config->item('base_url') ?>dist/img/droupdown-img.png" class="responsive-img droup-img "  alt="">
@@ -26,7 +27,7 @@
                </li>
                <!-- Dropdown Structure -->
                <ul id='dropdown2' class='dropdown-content'>
-                  <li ><a href="#!">Profile</a></li>
+                  <li ><a href="#!">Profile </a></li>
                   <li ><a href="<?php echo  base_url() ?>setting">Settings</a></li>
                   <li><a href="<?php echo base_url() ?>logout">Logout</a></li>
                </ul>
