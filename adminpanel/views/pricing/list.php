@@ -120,6 +120,13 @@
                                                             </span>
                                                         </li>
 
+                                                        <li>
+                                                            <span class="left-align">Video Interview</span>
+                                                            <span class="right <?php echo ($plan->pr_video_interview== 1)? ' green-text':' red-text'; ?>">
+                                                               <?php echo ($plan->pr_video_interview== 1)? ' <i class="fas fa-check green-text"></i>':' <i class="fas fa-times red-text"></i>'; ?>
+                                                            </span>
+                                                        </li>
+
                                                         <?php if(!$plan->pr_gend_test == 0){ ?>
                                                             <li>
                                                                 <span class="left-align">General Aptitude Test</span>

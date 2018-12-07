@@ -50,6 +50,7 @@ class price extends CI_Controller {
         $pr_resume_view = 0;
         $pr_psy_test    = 0;
         $pr_gend_test   = 0;
+        $pr_video   = 0;
         
         if(!empty($this->input->post('pr_enrichment'))){ $pr_enrichment  = $this->input->post('pr_enrichment');}
         if(!empty($this->input->post('pr_job_aler'))){ $pr_job_aler    = $this->input->post('pr_job_aler');}
@@ -59,6 +60,7 @@ class price extends CI_Controller {
         if(!empty($this->input->post('pr_resume_view'))){ $pr_resume_view = $this->input->post('pr_resume_view');}
         if(!empty($this->input->post('pr_psy_test'))){ $pr_psy_test    = $this->input->post('pr_psy_test');}
         if(!empty($this->input->post('pr_gend_test'))){ $pr_gend_test   = $this->input->post('pr_gend_test');}
+        if(!empty($this->input->post('pr_video'))){ $pr_video   = $this->input->post('pr_video');}
         $title          =   $this->input->post('title');
         $oprice         =   $this->input->post('oprice');
         $ofprice        =   $this->input->post('ofprice');
@@ -79,6 +81,8 @@ class price extends CI_Controller {
             'pr_offer'          => $ofprice, 
             'pr_limit'          => $pr_limit, 
             'pr_nojob'          => $pr_nojob, 
+            'pr_video_interview'=> $pr_video, 
+            
         );
 
         if($this->priceModel->updateFull($datas))
@@ -124,6 +128,7 @@ class price extends CI_Controller {
         $pr_resume_view = 0;
         $pr_psy_test    = 0;
         $pr_gend_test   = 0;
+        $pr_video       = 0;
         
         if(!empty($this->input->post('pr_enrichment'))){ $pr_enrichment  = $this->input->post('pr_enrichment');}
         if(!empty($this->input->post('pr_job_aler'))){ $pr_job_aler    = $this->input->post('pr_job_aler');}
@@ -132,6 +137,7 @@ class price extends CI_Controller {
         if(!empty($this->input->post('pr_as_jobsearch'))){ $pr_as_jobsearch= $this->input->post('pr_as_jobsearch');}
         if(!empty($this->input->post('pr_resume_view'))){ $pr_resume_view = $this->input->post('pr_resume_view');}
         if(!empty($this->input->post('pr_psy_test'))){ $pr_psy_test    = $this->input->post('pr_psy_test');}
+        if(!empty($this->input->post('pr_video'))){ $pr_video   = $this->input->post('pr_video');}
         if(!empty($this->input->post('pr_gend_test'))){ $pr_gend_test   = $this->input->post('pr_gend_test');}
         $title          =   $this->input->post('title');
         $oprice         =   $this->input->post('oprice');
@@ -154,6 +160,8 @@ class price extends CI_Controller {
             'pr_limit'          => $pr_limit, 
             'pr_nojob'          => $pr_nojob, 
             'pr_encrypt_id'     => 'can'.md5($title), 
+            'pr_video_interview'=> $pr_video, 
+
         );
 
         if($this->priceModel->caninsert($datas))

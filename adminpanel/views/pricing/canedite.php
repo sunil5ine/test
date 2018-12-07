@@ -134,8 +134,16 @@
                                     </p>
                                  </div>
                              </div>
-
                              <div class="row m0">
+                                 <div class="input-field col s12 l4">
+                                    <p>
+                                       <label>
+                                       
+                                       <input type="checkbox" value="1" name="pr_video" <?php echo (!empty($canPrice['pr_video_interview']))? 'checked' :'' ?>  class="filled-in"  />
+                                       <span>Video Interview</span>
+                                       </label>
+                                    </p>
+                                 </div>
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
@@ -145,6 +153,10 @@
                                        </label>
                                     </p>
                                  </div>
+                             </div>
+
+                             <div class="row m0">
+                                 
                                  <div class="input-field col s12 l4">
                                   <input type="number" name="pr_limit" id="first_name" value="<?php echo $canPrice['pr_limit'] ?>" required  name='' class="validate">
                                   <label for="first_name">Package valdity in month</label>
