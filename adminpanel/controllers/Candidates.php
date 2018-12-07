@@ -30,6 +30,7 @@ class candidates extends CI_Controller {
        $data['fun']     =  $this->candidateModel->fun($data['profile']['fun_id']);
        $data['exp']     =  $this->candidateModel->expireance($id);
        $data['edu']     =  $this->candidateModel->education($id);
+       $data['package'] =  $this->candidateModel->package($id);
 
        $this->load->view('candidate/detail', $data);
     }

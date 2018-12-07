@@ -29,9 +29,9 @@
                             <div class="card">
                                 <div class="card-content">
                                     <div class="row m0">
-                                        <div class="col s12 m6">
+                                        <div class="col s12 m4">
                                             <div class="row m0 border-r">
-                                                <div class="col s12 l3 m4 p0"> 
+                                                <div class="col s12 l4 m4 p0"> 
                                                     <center> 
                                                         <?php
                                                             if(!empty($profile['can_propic'])){
@@ -43,7 +43,7 @@
                                                         
                                                     </center> 
                                                 </div> 
-                                                <div class="col s12 l9 m8 "> 
+                                                <div class="col s12 l8 m8 "> 
                                                     <div class="ptb15 pr-container"> 
                                                         <p class="bold"><?php echo $profile['can_curr_desig'] ?></p> 
                                                         <p class="smal"><?php echo $ind['ind_name'] ?></p>
@@ -66,19 +66,23 @@
                                                                 echo '<li><a href=""><i class="fab fa-instagram"></i></a></li>';
                                                            } 
 
-                                                        ?>
-                                                        
-                                                        
-                                                        
+                                                        ?>  
                                                     </ul>
                                                 </div> 
                                             </div>
                                         </div>
-                                        <div class="col s12 m6">
-                                            <div class="resume-box center">
-                                               <p class="mb10">View Resume:</p>     
+                                        <div class="col s12 m3">
+                                            <div class="resume-box center ptb15">
+                                               <p class="mb10 bold">View Resume</p>     
                                                <p class="mb15 bold"><?php echo $cv['cv_headline'] ?></p>  
                                                <a  href="<?php echo base_url('candidates/download-resume/').$profile['can_id'] ?>" class="btn waves-effect waves-light green darken-4">View Resume</a>   
+                                            </div>
+                                        </div>
+                                        <div class="col s12 m3">
+                                            <div class="resume-box center ptb15">
+                                               <p class="mb10 bold">Active Package</p>     
+                                               <h5 class=" darken-4"><span class="red-text <?php echo ($package == 'Expired')? 'red-text' : 'green-text' ?>"><?php echo $package ?></span></h5>
+                                                  
                                             </div>
                                         </div>
                                     </div>

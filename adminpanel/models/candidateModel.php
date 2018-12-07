@@ -93,6 +93,36 @@ class candidateModel extends CI_Model {
         $this->db->where('c.can_id', $id);
         $this->db->join('ch_cv r', 'r.can_id = c.can_id', 'left');
         return $this->db->get()->row_array(); 
+    }
+
+    /**
+     * Current package 
+     */
+    function package($id)
+    {
+        $this->db->where('can_id', $id);
+        $this->db->from('ch_can_subscribe s');
+        $this->db->order_by('csub_expire_dt', 'desc');
+        $this->db->select('csub_expire_dt, pr_name');        
+        $this->db->join('ch_can_pricing p', 'p.pr_id = s.pr_id', 'left');
+        $query = $this->db->get();
+        if($query->num_rows() > 0 )
+        {
+            $result = $query->row_array();
+
+            if(date('Y-m-d H:i:s') > $result['csub_expire_dt']){
+                return 'Expired';
+            }else{
+                return $result['pr_name'];
+            }
+        }else{
+            return 'Expired';
+        }
+        
+        
+        
+       
+        
         
     }
 

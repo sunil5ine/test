@@ -147,9 +147,8 @@
                                  <div class="input-field col s12 l4">
                                     <p>
                                        <label>
-                                       
-                                       <input type="checkbox" value="1" name="pr_video"   class="filled-in"  />
-                                       <span>Video Interview</span>
+                                          <input type="checkbox" value="1" name="pr_video"   class="filled-in"  />
+                                          <span>Video Interview</span>
                                        </label>
                                     </p>
                                  </div>
