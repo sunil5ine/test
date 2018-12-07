@@ -335,6 +335,7 @@ class Jobs extends CI_Controller {
 		$this->data["country_list"] = $this->jobsmodel->get_country();
 		$this->data["nation"] 		= $this->data["country_list"];
 		array_shift($this->data["nation"]);
+		$this->data["nation"]['Any Country'] = 'Any Country';
 		$this->data["edu_list"] 	= $this->jobsmodel->get_edu();
 		$this->data["funarea_list"] = $this->jobsmodel->get_farea();
 		$this->data["ind_list"] 	= $this->jobsmodel->get_industry();

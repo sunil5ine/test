@@ -72,13 +72,16 @@ class Dashboardmodel extends CI_Model {
 	
 	public function total_cand_count() 
 	{
+		$day = date('w');
+		$week_start = date('Y-m-d H:i:s', strtotime('+'.(1-$day).' days'));
 		$this->db->select('distinct(a.can_id)');
 		$this->db->from($this->table_jobapply.' as a');
 		$this->db->join($this->table_candidate.' as c', 'c.can_id=a.can_id');
 		$this->db->join($this->table_jobs.' as j', 'j.job_id=a.job_id');
 		$this->db->join($this->table_emp.' as e', 'e.emp_id=j.job_created_by');
 		$this->db->where('c.can_status', 1);
-		$this->db->where('e.emp_id', $this->session->userdata('hireid'));
+		$this->db->where('ja_date  >=', $week_start);
+		$this->db->where('j.job_created_by', $this->session->userdata('hireid'));
 		return $this->db->count_all_results();
     }
 

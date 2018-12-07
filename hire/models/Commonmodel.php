@@ -54,8 +54,9 @@ class Commonmodel extends CI_Model {
 	*/
 	public function get_subscribe()
 	{
-		$query = $this->db->query("select sub_nojobs, sub_nocv, sub_type, sub_expire_dt  from ".$this->table_subscribe." where emp_id=".$this->session->userdata('hireid'));
-		return $query->row_array();
+		$now = date('Y-m-d H:i:s');
+		return $this->db->select('sub_nojobs , sub_nocv, sub_type, sub_expire_dt')->select_sum('sub_nojobs')->where('sub_expire_dt >=', $now)->where('emp_id', $this->session->userdata('hireid'))->get($this->table_subscribe)->row_array();
+		
 	}
 	
 	/** 
