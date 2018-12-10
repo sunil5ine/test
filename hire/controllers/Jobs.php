@@ -693,6 +693,7 @@ class Jobs extends CI_Controller {
 		$this->data['source_count_list'] 	= $this->jobsmodel->apply_count_list($this->data['jdata']['job_id']);
 		$this->data['can_count'] 			= $this->jobsmodel->apply_count($this->data['jdata']['job_id']);
 		$this->data['can_count_list'] 		= $this->jobsmodel->apply_count_list($this->data['jdata']['job_id']);
+		$this->data['cvs'] 					= $this->jobsmodel->verified_cvs($jid);
 		
 		$total_can_row 				= $this->jobsmodel->record_can_count($this->data['jdata']['job_id']);
 		$this->data["can_records"] 	= $this->jobsmodel->get_cand_record($this->data['jdata']['job_id']);
@@ -703,15 +704,6 @@ class Jobs extends CI_Controller {
 		$this->data['sid'] 		= 1;
 		$this->data['title'] 	= 'Cherry Hire - Job - View Details';
 		$this->data['pagehead'] = 'View Details';
-		
-
-
-		// $this->load->view('common/header_inner',$this->data);
-		// $this->load->view('common/leftmenu',$this->data);
-		// $this->load->view('common/topmenu',$this->data);
-		// $this->data['footer_nav'] = $this->load->view('common/footerbar',$this->data,true);
-		// $this->load->view('jobs/viewjob',$this->data);
-		// $this->load->view('common/footer_inner',$this->data);
 
 		$this->load->view('new/view-job',$this->data);
 	}

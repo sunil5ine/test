@@ -1272,7 +1272,8 @@ function verified_cv($id)
 		cv_id,
 		f.jfun_display as fun_name, 
 		j.job_url_id, j.job_title, 
-		j.job_location from ch_varified_cv a left join 
+		j.job_location
+		 from ch_varified_cv a left join 
 		".$this->table_candidate." c on c.can_id=a.can_id left join 
 		".$this->table_country." co on co.co_id = c.co_id left join 
 		ch_cv ch on ch.can_id = c.can_id left join
@@ -1334,5 +1335,22 @@ function getindustry()
 	return $this->db->select('ind_name as title')->get('ch_industry')->result();
 }
 
+
+/**
+ * Verified CVS
+*/
+Function verified_cvs($jid)
+{
+	$this->db->select('c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_experience, c.can_curr_desig, c.can_curr_loc, c.can_upd_date, co.co_name, ch.cv_path, ch.cv_headline, cv_id, f.jfun_display as fun_name, j.job_url_id, j.job_title, j.job_location');
+	$this->db->where('job_url_id', $jid);
+	$this->db->from('ch_jobs j');
+	$this->db->join('ch_varified_cv cv', 'cv.job_id = j.job_id', 'left');
+	$this->db->join('ch_candidate c', 'c.can_id = cv.can_id', 'left');
+	$this->db->join($this->table_country.' co',  ' co.co_id = c.co_id', 'left');
+	$this->db->join($this->table_farea.' f',  ' f.jfun_id = c.fun_id', 'left');
+	$this->db->join('ch_cv  ch',  ' ch.can_id = c.can_id', 'left');
+	$query = $this->db->get();	
+	return $query->result();
+}
 
 }

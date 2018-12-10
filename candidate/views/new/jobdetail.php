@@ -37,7 +37,17 @@
 					
 				</div>
 			</div><!-- end priveos button -->
+			<?php
+			$now = date('Y-m-d');
+			$dats 	= date('Y-m-d',strtotime($jdata['job_created_dt'].'+ '.$jdata['job_expaired'].' days'));
+			$diff 	= date_diff(date_create($now),date_create($dats));
+			$left 	= $diff->format("%a days left");
+
+			echo "<pre>";
+			print_r ($left);
+			echo "</pre>";
 			
+			?>
 			<!-- job header -->
 			<div class="row">
 				<div class="col s12">
@@ -50,7 +60,7 @@
 				        	</div>
 				        	<div class="col s12 l6 m8 ">
 				        		<div class="ptb15">
-					        		<h6 class=""><b><?php echo $formdata['jtitle'] ?></b></h6>
+					        		<h6 class=""><b><?php echo $formdata['jtitle'] ?></b> </h6>
 					        		<ul class="job-card">
 					        			<li>
 					        				<span class="back-icon"><i class="material-icons">card_travel</i></span>
@@ -92,7 +102,8 @@
 					        			<a class="z-depth-0 btn deep-orange lighten-1 white-text btn-m" style="margin-top: -4px; border: 1px solid #ff7043;">Saved <i class="material-icons right">done</i> </a>
 					        		<?php } ?>
 
-					        		<a class="z-depth-0  btn btn-m brand-text btn-nc  transparent " id="share-button-2" data-share-icon-style="box" data-share-networks="Twitter,Pinterest,Facebook,GooglePlus,Linkedin" style="margin-top: -2px;padding: 0px"></a>
+									<a class="z-depth-0  btn btn-m brand-text btn-nc  transparent " id="share-button-2" data-share-icon-style="box" data-share-networks="Twitter,Pinterest,Facebook,GooglePlus,Linkedin" style="margin-top: -2px;padding: 0px"></a>
+									<span class="right deep-orange-text bold"><?php echo $left ?></span>
 				        		</div>
 				        	</div>
 				        </div>

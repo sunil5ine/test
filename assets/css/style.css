@@ -821,6 +821,7 @@ span.profile-pic .label a{display: block;}
 	.inner .ptb30 { padding: 3px 0; }
 	.inner .btn.btn-large.rounded-6 { padding: 0 17px; height: 46px; line-height: 46px; }
 	.con-section{padding: 0px;margin-top: -6px}
+	.tabs.transparent .tab a{padding: 0 2px !important;font-size: 8px !important;}
 }
 #paypal-button button {background: #ffc439; margin-top: 6px}
 .stbank{background-color: #292075}

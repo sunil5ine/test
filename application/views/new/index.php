@@ -131,35 +131,41 @@
 				</div>
 				<div class="carousel" data-mixed="">
 					
-					<ul>
+					<ul style="min-height:335px">
 						<?php 
+							$now = date('Y-m-d');
 							foreach ($fetu_jobs as $fjobs) { 
-							$jpdate1 	= date("Y-m-d h:i:s",strtotime($fjobs->job_updated_dt));
-							$cdate1 	= date("Y-m-d h:i:s");
-							$jpdate 	= new DateTime($jpdate1); 
-   							$cdate   	= new DateTime($cdate1); 
-							$interval 	= $jpdate->diff($cdate);
-							$interval->format('%R%a days');
-							$pi = $interval->format("%I");
-							$ph = $interval->format("%h");
-							$pd = $interval->format("%d");
-							$pm = $interval->format("%m");
-							$py = $interval->format("%y");
-							if ($py > 0) {
-								($py>1)?$agotime =$py." Years Ago":$agotime =$py." Year Ago";
-							}
-							elseif ($pm > 0) {
-								($pm>1)?$agotime =$pm." Months Ago":$agotime =$pm." Month Ago";
-							}
-							elseif ($pd > 0) {
-								($pd>1)?$agotime =$pd." Days Ago":$agotime =$pd." Day Ago";
-							}
-							elseif ($ph > 0) {
-								($ph>1)?$agotime =$ph." Hours Ago":$agotime =$ph." Hour Ago";
-							}
-							else{
-								($pi>1)?$agotime =$pi." minutes Ago":$agotime =$pi." minute Ago";
-							}
+								$dats 	= date('Y-m-d',strtotime($fjobs->job_created_dt.'+ '.$fjobs->job_expaired.' days'));
+								if($now <= $dats) {
+								$diff 	= date_diff(date_create($now),date_create($dats));
+								$left 	= $diff->format("%a days left");
+
+							// $jpdate1 	= date("Y-m-d h:i:s",strtotime($fjobs->job_updated_dt));
+							// $cdate1 	= date("Y-m-d h:i:s");
+							// $jpdate 	= new DateTime($jpdate1); 
+   							// $cdate   	= new DateTime($cdate1); 
+							// $interval 	= $jpdate->diff($cdate);
+							// $interval->format('%R%a days');
+							// $pi = $interval->format("%I");
+							// $ph = $interval->format("%h");
+							// $pd = $interval->format("%d");
+							// $pm = $interval->format("%m");
+							// $py = $interval->format("%y");
+							// if ($py > 0) {
+							// 	($py>1)?$agotime =$py." Years Ago":$agotime =$py." Year Ago";
+							// }
+							// elseif ($pm > 0) {
+							// 	($pm>1)?$agotime =$pm." Months Ago":$agotime =$pm." Month Ago";
+							// }
+							// elseif ($pd > 0) {
+							// 	($pd>1)?$agotime =$pd." Days Ago":$agotime =$pd." Day Ago";
+							// }
+							// elseif ($ph > 0) {
+							// 	($ph>1)?$agotime =$ph." Hours Ago":$agotime =$ph." Hour Ago";
+							// }
+							// else{
+							// 	($pi>1)?$agotime =$pi." minutes Ago":$agotime =$pi." minute Ago";
+							// }
 						
 
 
@@ -171,7 +177,7 @@
 									<div class="card-content">
 										<div class="corsal-head">
 											<img src="<?php echo base_url()?>assets/img/logo.png" class="responsive-img" width="50px">
-											<span class="right font12"></span>
+											<span class="right font12"><?php echo $left ?></span>
 										</div>
 										<div class="corsul-content">
 											<p class="corsul-content-head truncate"><?php echo $fjobs->job_title; ?></p>
@@ -201,7 +207,7 @@
 								</div>
 							</div>
 						</li>
-					<?php } ?>
+					<?php } } ?>
 					</ul>
 
 					<a class="prev disabled btn-floating btn-large waves-effect waves-light white "> <i class="material-icons black-text">arrow_back</i></a>

@@ -45,8 +45,7 @@ class Site extends CI_Controller {
 		$this->data['fetu_jobs'] = $this->sitemodel->getfetured();
 		$this->load->model('jobportalmodel');
 		$this->data["country_list"] = $this->jobportalmodel->get_country();
-        $this->load->view('new/index',$this->data);
-                    
+        $this->load->view('new/index',$this->data);                 
 
                 
 	}

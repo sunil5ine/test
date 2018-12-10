@@ -70,7 +70,7 @@ class Jobportal extends CI_Controller {
 		if(!empty($this->input->get('jtype')))    { $jtype  	= $this->input->get('jtype'); }
 		if(!empty($this->input->get('sal')))      { $sal  		= $this->input->get('sal'); }
 		if(!empty($this->input->get('expr')))     { $expr  		= $this->input->get('expr'); }
-		if(!empty($this->input->get('title')))     { $jtitle  	= $this->input->get('title'); }
+		if(!empty($this->input->get('title')))    { $jtitle  	= $this->input->get('title'); }
 
 		$this->data["records"] 	= $this->jobportalmodel->get_record($jtitle,$shrt,$funarea,$location,$jtype,$sal,$expr);
 		$this->load->view('new/job-result',$this->data);
