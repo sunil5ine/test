@@ -83,17 +83,17 @@
 					$now = date('Y-m-d');
 					foreach ($records as $result) { 
 						$dats 	= date('Y-m-d',strtotime($result->job_created_dt.'+ '.$result->job_expaired.' days'));
-						if($now <= $dats){
+						// if($now <= $dats){
 						$x++; 
 						
 						$diff 	= date_diff(date_create($now),date_create($dats));
 						$left 	= $diff->format("%a days left");
 				?>
-                    <script>
+                    <!-- <script>
 						window.onload = function() {
 							document.getElementById('mjobs').innerHTML = '<?php echo $x ?>';
 						}
-					</script>                    
+					</script>                     -->
 					<div class="card z-depth-2 hoverable">
 						<a href="<?php echo $this->config->base_url().'candidate/Jobs/Viewdetails/'.$result->job_url_id.'/?js=5&source=cherryhire';?>">
 						<div class="card-content">
@@ -103,7 +103,7 @@
 								</div>
 								<div class="jrl-content col s12 m12 l10">
 									<span class="h7 list-title"> <?php echo $result->job_title;?> </span>
-									<span class="right bold teal-text "><?php echo $left ?></span>
+									<!-- <span class="right bold teal-text "><?php echo $left ?></span> -->
 									<ul class="job-card">
 						        		<li>
 						        			<span class="back-icon"><i class="material-icons">card_travel</i></span>
@@ -137,7 +137,7 @@
 						</div>
 						</a>
 					</div>
-				<?php } } }
+				<?php } } 
 					if ($records == 0) { ?>
 					
 
