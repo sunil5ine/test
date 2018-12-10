@@ -40,7 +40,7 @@
                                           <th  class="h5-para-p2">Designation</th>
                                           <th class="h5-para-p2 ">Experience</th>
                                           <th  class="h5-para-p2">Nationality</th>
-                                          <!-- <th id="g" class="h5-para-p2">PreferredLocation</th> -->
+                                          <th id="g" class="h5-para-p2">Register Date</th>
                                           <th class="h5-para-p2">Phone</th>  
                                           <th class="h5-para-p2">Action</th>  
 
@@ -48,7 +48,8 @@
                                        
                                     </thead>
                                     <tbody id="my">
-                                       <?php foreach ($candidate as $key => $val) { ?>
+                                       <?php 
+                                       foreach ($candidate as $key => $val) { ?>
                                           <tr>
                                              <td><?php echo $val->can_fname. ' '. $val->can_lname ?></td>
                                              <td><?php echo $val->can_email ?></td>
@@ -66,6 +67,7 @@
                                                 
                                              </td>
                                              <td><?php echo $val->can_curr_loc ?></td>
+                                             <td><?php echo date('d-m-Y',strtotime($val->can_reg_date)) ?></td>
                                              <td>
                                                 <?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?>
                                              </td>
