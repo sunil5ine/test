@@ -182,6 +182,52 @@ class EmployeesModel extends CI_Model {
         return $data->result();
     }
 
+    /**
+     * packagelist
+     */
+    public function packagelist()
+    {
+        $this->db->where('pr_status', 1);
+        return $this->db->get('ch_pricing')->result();  
+        
+    }
+
+    /**
+     * updrade package
+     */
+    public function updradepackage()
+    {
+        $type = $this->input->post('type');
+        $empid = $this->input->post('empid');
+        $package = $this->getpackage($type);
+        if(!empty($package))
+        {
+            $date = date('Y-m-d H:i:s',strtotime('+'.$package["peried"].' days'));
+            $data = array(
+                'emp_id'        => $empid, 
+                'sub_packid'    => $package["pr_encrypt_id"], 
+                'sub_nojobs'    => $package["pr_limit"], 
+                'sub_nocv'      => $package["pr_cvno"], 
+                'sub_ex_limits' => $package["exprence_level"], 
+                'sub_expire_dt' => $date, 
+                'sub_type'      => $package["pr_type"], 
+            );
+            $this->db->insert('ch_emp_subscribe', $data);
+            return true;            
+        }else{
+            return False;
+        }
+    }
+
+    /**
+     * single package
+     */
+    function getpackage($type)
+    {
+        $this->db->where('pr_encrypt_id', $type);
+        return $this->db->get('ch_pricing')->row_array();
+    }
+
 }
 
 /* End of file EmployeesModel.php */

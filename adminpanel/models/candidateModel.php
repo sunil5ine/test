@@ -10,7 +10,9 @@ class candidateModel extends CI_Model {
     public function getlist()
     {
         $this->db->where('can_status', 1);
-        return  $this->db->get('ch_candidate')->result();
+        $this->db->from('ch_candidate cn');
+        $this->db->join('ch_country cnt', 'cnt.co_id = cn.co_id', 'left');
+        return  $this->db->get()->result();
     }
 
     /**

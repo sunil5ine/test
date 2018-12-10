@@ -73,7 +73,7 @@ else{
                                                         </div>
                                                         <div class="col s12 m4">
                                                         <h5 class=" darken-4"><?php echo($sub_detail != 'Expired' )?'<span class="green-text">'.$sub_detail.'</span>' : '<span class="red-text">'.$sub_detail.'</span>'; ?></h5> 
-                                                           <p>Package Type <a class="blue-text " href="">[Upgrade]</a></p>
+                                                           <p>Package Type <a class="blue-text modal-trigger" href="#packagemodal">[Upgrade]</a></p>
                                                         </div>
 
                                                         <div class="col s12 center mt15">
@@ -166,21 +166,27 @@ else{
     <br>
     
         <div class="input-field col s12 m6">
-            <select name="job" required>
-                <?php foreach ($jobs as $key => $value) { 
-                    echo '<option value="'.$value->job_id.'">'.$value->job_title.'</option>';
-               } ?>                                               
+        <select name="job" required <?php echo (empty($jobs))? 'disabled' : '' ?>>
+                <?php 
+                if(empty($jobs)){ 
+                    echo '<option value="" disabled selected >No jobs posted</option>';
+                }else{
+                    foreach ($jobs as $key => $value) { 
+                       echo '<option value="'.$value->job_id.'">'.$value->job_title.'</option>';
+                    }
+                }
+                 ?>                                               
             </select>
             <label>Select Job <span class="red-text">*</span> </label>
         </div>
       <div class="input-field col s12 m6">
         <input type="hidden" name="empId" value="<?php echo $employers['emp_id'] ?>">
         <input type="hidden" id="" class="validate" value="<?php echo $this->uri->segment(3) ?>" name="uqid">
-        <input type="text" id="" class="validate" name="canId" required>
+        <input type="text" id="" class="validate" name="canId" required <?php echo (empty($jobs))? 'disabled' : '' ?>>
         <label for="last_name">Candidate Id <span class="red-text">*</span> </label>
       </div>
       <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea" name="des"></textarea>
+        <textarea id="textarea1" class="materialize-textarea" name="des" <?php echo (empty($jobs))? 'disabled' : '' ?>></textarea>
         <label for="textarea1">Description (Optional)</label>
       </div>
     
@@ -190,6 +196,34 @@ else{
     <button type="submit" class=" waves-effect waves-green  btn green darken-4 white-text hoverable">Submit</button>
   </div>
   </form>
+</div>
+
+
+
+<!-- package upgrade model -->
+<div id="packagemodal" class="modal" style="max-width:400px;overflow: visible;">
+    
+        <div class="modal-content">
+        <form action="<?php echo base_url()?>employees/packageUpdate" method="post">
+            <div class="row m0">
+                <h5 class="m0 mb10">Upgrade Package</h5>
+                <br>
+                <div class="input-field">
+                    <select name="type">
+                        <?php foreach ($package as $key => $value) {
+                            echo  '<option value="'.$value->pr_encrypt_id.'">'.$value->pr_name.'&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;'.$value->pr_offer.'</option>';
+                        } ?>
+                    </select>
+                    <label for="">Select Package<span class="red-text">*</span> </label>
+                </div>
+                <input type="hidden" value="<?php echo $employers['emp_id'] ?>" name="empid">
+                <input type="hidden" id="" class="validate" value="<?php echo $this->uri->segment(3) ?>" name="uqid">
+                <div class="input-field">
+                    <button type="submit" class=" waves-effect waves-green  btn green darken-4 white-text block hoverable">Submit</button>
+                </div>
+            </div>
+            </form>
+        </div>    
 </div>
 <?php echo $this->session->flashdata('messeg'); ?>
 

@@ -86,6 +86,8 @@ class employees extends CI_Controller {
     public function details($id)
     {
         $data['employers'] = $this->employeesModel->companyDetails($id);
+        $data['package'] = $this->employeesModel->packagelist();
+        $data['jobs'] = $this->employeesModel->postedJobs($id);
         $data['title'] = $data['employers']['emp_comp_name'] .' | CherryHire employers';
         $this->load->view('employees/detail', $data, FALSE);
     }
@@ -97,8 +99,9 @@ class employees extends CI_Controller {
     {
         $data['jobs'] = $this->employeesModel->postedJobs($id);
         $data['employers'] = $this->employeesModel->companyDetails($id);
+        $data['package'] = $this->employeesModel->packagelist();
         // $data['title'] = $data['jobs']['0']->emp_comp_name.' | CherryHire employers';
-        $data['title'] = ' | CherryHire employers';
+        $data['title'] = 'Posted Jobs | CherryHire employers';
         $this->load->view('employees/jobs', $data, FALSE);
     }
 
@@ -132,12 +135,30 @@ class employees extends CI_Controller {
     public function uploaded_resumes($var = null)
     {
         $data['title'] = ' CherryHire Employers';
+        $data['package'] = $this->employeesModel->packagelist();
+        $data['jobs'] = $this->employeesModel->postedJobs($var);
+        $data['package'] = $this->employeesModel->packagelist();
         $data['resumes'] = $this->employeesModel->uploadedResumes($var);
         $data['employers'] = $this->employeesModel->companyDetails($var);
         $this->load->view('employees/uploaded-resumes', $data, FALSE);     
     }
 
 
+    /**
+     * Update Package
+     */
+    function packageUpdate()
+    {
+        $uqid = $this->input->post('uqid');
+        if($this->employeesModel->updradepackage())
+        {
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="green"><a class="close-tost ">X</a><p>Successfully package updated</p></div>');
+            redirect('employees/posted-jobs/'.$uqid,'refresh');
+        }else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p>Package upgradation failed. Please try again later.</p></div>');
+            redirect('employees/posted-jobs/'.$uqid,'refresh');
+        }
+    }
 
 }
 
