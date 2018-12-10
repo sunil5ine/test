@@ -103,7 +103,7 @@
 					        		<?php } ?>
 
 									<a class="z-depth-0  btn btn-m brand-text btn-nc  transparent " id="share-button-2" data-share-icon-style="box" data-share-networks="Twitter,Pinterest,Facebook,GooglePlus,Linkedin" style="margin-top: -2px;padding: 0px"></a>
-									<span class="right deep-orange-text bold"><?php echo $left ?></span>
+									<!-- <span class="right deep-orange-text bold"><?php echo $left ?></span> -->
 				        		</div>
 				        	</div>
 				        </div>
