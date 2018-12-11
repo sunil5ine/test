@@ -255,7 +255,7 @@
 					</div> <!-- end social posting -->
 					<div class="card " id="job-board-posting">
 					
-					<ul class="collection with-header">
+							<ul class="collection with-header">
                                 <?php
                                     if(!empty($cvs['0']->cv_id)){
                                     foreach ($cvs as $key => $value) { ?>
@@ -322,7 +322,6 @@
 													<h5>No Verified cv found!</h5>
 													<p></p>
 													<br>
-													
 												</div>
 											</div>
 										</div>
@@ -332,7 +331,82 @@
                             </ul>			
 					</div> 
 					<div class="card " id="statistics"></div> 
-					<div class="card " id="applications"></div> 
+					<div class="card " id="applications">
+						<ul class="collection with-header">
+							<?php
+								if(!empty($application['0']->cv_id)){
+								foreach ($application as $key => $value) { ?>
+								<li class="collection-item cv-lists">
+									<div class="row m0">
+										<div class="col s12">
+											<h6 class="bold green-text "><?php echo $value->can_fname.' '.$value->can_lname?></h6>
+											<p class="bold"><u><i><?php echo $value->job_title?></i></u></p>
+										</div>
+
+										<div class="col s12 m6 l6">
+											<p>
+												<span class="cv-heading">Phone: </span>
+												<span class="cv-content"><?php echo '+'.$value->can_ccode.' '. $value->can_phone?></span>
+											</p>
+										</div>
+										<div class="col s12 m6 l6">
+											<p>
+												<span class="cv-heading">Email: </span>
+												<span class="cv-content"><?php echo $value->can_email?></span>
+											</p>
+										</div>
+										<div class="col s12 m6 l6">
+											<p>
+												<span class="cv-heading">Experience: </span>
+												<span class="cv-content"><?php echo $value->can_experience?></span>
+											</p>
+										</div>
+										<div class="col s12 m6 l6">
+											<p>
+												<span class="cv-heading">Designation: </span>
+												<span class="cv-content"><?php echo $value->can_curr_desig?></span>
+											</p>
+										</div>
+										<div class="col s12 m6 l6">
+											<p>
+												<span class="cv-heading">Location: </span>
+												<span class="cv-content"><?php echo $value->can_curr_loc?></span>
+											</p>
+										</div>
+										<div class="col s12 m6 l6">
+											<p>
+												<span class="cv-heading">Location: </span>
+												<span class="cv-content"><?php echo $value->can_curr_loc?></span>
+											</p>
+										</div>
+										<div class="col s12 m6 l6">
+											<p>
+												<span class="cv-heading">Function area: </span>
+												<span class="cv-content"><?php echo $value->fun_name?></span>
+											</p>
+										</div>
+										<div class="col s12 m6 l6">
+											<a href="<?php echo base_url('jobs/download?id=').$value->cv_id?>" class="waves-effect downloadcv waves-light btn brand">Download Cv  <i class="material-icons right">file_download</i></a>
+										</div>
+									</div>
+								</li>
+							<?php } } else{?>   
+								<li class="collection-item cv-lists">
+									<div class="row m0">
+										<div class="col s12">
+											<div class="center ptb30">
+												<img src="<?php echo $this->config->item('web_url') ?>assets/img/mange.png" class="responsive-img">
+												<h5>No candidate application found!</h5>
+												<p></p>
+												<br>
+											</div>
+										</div>
+									</div>
+								</li>
+
+							<?php } ?> 
+                        </ul>						
+					</div> 
 
 
 

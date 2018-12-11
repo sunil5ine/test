@@ -694,6 +694,7 @@ class Jobs extends CI_Controller {
 		$this->data['can_count'] 			= $this->jobsmodel->apply_count($this->data['jdata']['job_id']);
 		$this->data['can_count_list'] 		= $this->jobsmodel->apply_count_list($this->data['jdata']['job_id']);
 		$this->data['cvs'] 					= $this->jobsmodel->verified_cvs($jid);
+		$this->data['application'] 			= $this->jobsmodel->applications($jid);
 		
 		$total_can_row 				= $this->jobsmodel->record_can_count($this->data['jdata']['job_id']);
 		$this->data["can_records"] 	= $this->jobsmodel->get_cand_record($this->data['jdata']['job_id']);
