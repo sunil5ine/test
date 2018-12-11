@@ -1368,9 +1368,9 @@ public function applications($jid)
 	$this->db->join($this->table_country.' co',  ' co.co_id = c.co_id', 'left');
 	$this->db->join($this->table_farea.' f',  ' f.jfun_id = c.fun_id', 'left');
 	$this->db->join('ch_cv  ch',  ' a.can_id = ch.can_id', 'left');
-	return $this->db->get()->result();
-
+	return $this->db->get()->result(); 
 }
 
 
 }
+
