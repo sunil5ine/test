@@ -29,11 +29,22 @@
 				<?php include 'include/menu.php' ?>
 				<div class="col  s12 l9">
 					<div class="row">	
-						<div class="appl-job-heading col m8 s8 l12 ">
+						<div class="appl-job-heading col m6 s12 l7 ">
 							<p class="black-text h5">Create a new job </p>
-							<?php echo $message; 
-
-							?>
+							<?php echo $message; ?>
+						</div>
+						<div class="col m6 s12 l5">
+							<p class="right-align bold blue-text m0"><span style="font-size:17px"><?php echo (empty($subdetails['sub_nojobs']))?'0 ' : $subdetails['sub_nojobs']; ?></span> Jobs left.</p>
+							<?php
+							$now  = date('Y-m-d');
+							$expi = date('Y-m-d', strtotime($subdetails['sub_expire_dt']));
+							$left = date_diff(date_create($now),date_create($expi));
+						?>
+						<?php if($left->format("%R%a Days") > 0){ ?>
+								<p class="m0 right-align"><span class="black-text "> <?php echo $left->format("%a Days") ?> left</span> </p>
+							<?php }else{ ?>
+								<p class="red-text bold m0 right-align"><i class="fas fa-exclamation-triangle"></i> Subscription Expire</p>
+							<?php } ?>
 						</div>
 					</div>
 

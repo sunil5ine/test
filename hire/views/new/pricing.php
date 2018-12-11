@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="center title col s12">
 						<h5 class="black-text">Choose the appropriate plan for you</h5>
-						<p><?php echo $subdetails['sub_nojobs']; ?> Premium Jobs left.</p><br>
+						
 					</div>
 					<div class="col s12 m6 push-m3 l6 push-l3">
 						<?php echo $message;
@@ -32,10 +32,23 @@
 				</div><!-- end row -->
 				
 				<div class="row switch-container">
-					<div class="col s12 m7">
-						
+					<div class="col s12 m4">
+					<?php
+							$now  = date('Y-m-d');
+							$expi = date('Y-m-d', strtotime($subdetails['sub_expire_dt']));
+							$left = date_diff(date_create($now),date_create($expi));
+					?>
+					<?php if($left->format("%R%a Days") > 0){ ?>
+							<p class="m0"><span class="black-text"> <?php echo $left->format("%a Days") ?> left</span> </p>
+							<p class="m0"><span class="blue-text bold">Expaired On:</span> <?php echo date('d-m-Y', strtotime($expi)); ?></p>
+						<?php }else{ ?>
+							<p class="red-text bold "><i class="fas fa-exclamation-triangle"></i> Subscription Expire</p>
+						<?php } ?>
 					</div>
-					<div class="col s12 m5">
+					<div class="col s12 m4">
+						<p class="center-align bold blue-text"><?php echo (empty($subdetails['sub_nojobs']))?'0 ' : $subdetails['sub_nojobs']; ?> Premium Jobs left.</p>
+					</div>
+					<div class="col s12 m4">
 						<div class="right-align">
 							<h6><a href="#billing" class='blue-text billing modal-trigger'>View Billing History</a></h6>
 						</div>

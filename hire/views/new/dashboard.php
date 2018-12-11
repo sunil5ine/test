@@ -34,8 +34,12 @@
 							$left = date_diff(date_create($now),date_create($expi));
 						?>
 						<div class="col m4 s12 l4">
+						<?php if($left->format("%R%a Days") > 0){ ?>
 							<p class="m0"><span class="black-text"> <?php echo $left->format("%a Days") ?> left</span> </p>
 							<p class="m0"><span class="black-text">Expaired On:</span> <?php echo date('d-m-Y', strtotime($expi)); ?></p>
+						<?php }else{ ?>
+							<p class="red-text bold m0"><i class="fas fa-exclamation-triangle"></i> Subscription Expire</p>
+						<?php } ?>
 						</div>
 					</div>
 

@@ -19,12 +19,20 @@ class Jobs extends CI_Controller {
 		$this->clear_cache();
 		$this->load->model('jobsmodel');
 		$this->load->library('email');
+		$this->load->model('commonmodel');
+		$this->data["subsType"] = 1;
 		if (!$this->session->userdata('hireid')) { redirect($this->config->base_url().'login'); } // Handling Session
-		$this->data["subdetails"] = $this->jobsmodel->get_subscribe();
-		if($this->data["subdetails"]['sub_expire_dt']==0 || $this->data["subdetails"]['sub_nojobs']==0 || $this->data["subdetails"]['sub_expire_dt']<date('Y-m-d H:i:s')) {
+		$this->data["subdetails"] = $this->commonmodel->get_subscribe();
+		if ($this->data["subdetails"]['sub_expire_dt']==0 || $this->data["subdetails"]['sub_nojobs']==0 || $this->data["subdetails"]['sub_nocv']==0 || $this->data["subdetails"]['sub_expire_dt']<date('Y-m-d H:i:s')) {
 			$this->data["postdisable"] = 'disabled="disabled"';
 		} else {
 			$this->data["postdisable"] = '';
+		}
+		
+		if ($this->data["subdetails"]['sub_type']==1) {
+			$this->data["subsType"] = 1;
+		} else {
+			$this->data["subsType"] = 2;	
 		}
 	}
 	
