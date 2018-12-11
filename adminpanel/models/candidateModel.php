@@ -119,11 +119,74 @@ class candidateModel extends CI_Model {
             }
         }else{
             return 'Expired';
+        }       
+    }
+
+    /**
+     * Pricing list
+    */
+    function price()
+    {
+        $this->db->select('pr_encrypt_id, pr_name, pr_orginal');
+        return $this->db->get('ch_can_pricing')->result();        
+    }
+
+    /** 
+     * update package
+    */
+    function packageUpdate()
+    {
+        $type  = $this->input->post('type');
+        $canid = $this->input->post('empid');
+        if($packge = $this->getsinglePcakage($type))
+        {
+            if($this->updatepackage($canid,$packge))
+            {
+                $this->session->set_flashdata('messeg', '<div id="snackbar" class="green"><a class="close-tost ">X</a><p>Successfully Package updated</p></div>');
+                return true;
+            }else{
+                $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p><b>Sorry! </b> Package update failed.<br> Try agin.</p></div>');
+                return false;
+            }
+        }
+        else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p><b>Sorry! </b> This package is not available</p></div>');
+            return false;
         }
         
+    }
+
+    /** 
+     * Get single package 
+    */
+    function getsinglePcakage($type)
+    {
+        $this->db->where('pr_encrypt_id', $type);
+        return $this->db->get('ch_can_pricing')->row_array();        
+    }
+
+    /**
+     * update candidate package
+    */
+    function updatepackage($canid,$packge)
+    {
+        $limits = $packge['pr_limit'] * 30;   
+        $date = date('Y-m-d H:i:s',strtotime('+ '.$limits.' days'));
+        $data = array(
+            'can_id'            => $canid ,
+            'csub_nojobs'       => $packge['pr_nojob'],
+            'csub_expire_dt'    => $date,
+            'csub_type'         => $packge['pr_type'],
+            'pr_id'             => $packge['pr_id'],
+        );
+        $this->db->insert('ch_can_subscribe', $data);
+        if($this->db->affected_rows() > 0)
+        {
+            return true;
+        }else{
+            return false;
+        }
         
-        
-       
         
         
     }

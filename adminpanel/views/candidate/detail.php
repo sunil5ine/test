@@ -81,7 +81,10 @@
                                         <div class="col s12 m3">
                                             <div class="resume-box center ptb15">
                                                <p class="mb10 bold">Active Package</p>     
-                                               <h5 class=" darken-4"><span class="red-text <?php echo ($package == 'Expired')? 'red-text' : 'green-text' ?>"><?php echo $package ?></span></h5>
+                                               <h5 class=" m0  darken-4">
+                                                    <span class="red-text <?php echo ($package == 'Expired')? 'red-text' : 'green-text' ?>"><?php echo $package ?></span> 
+                                               </h5>
+                                               <p>Package <a class="blue-text modal-trigger" href="#packagemodal">[Upgrade]</a></p>
                                                   
                                             </div>
                                         </div>
@@ -319,7 +322,7 @@
 								<div class="row">
 									<div class="col m12 s12 ">
 										<div class="set-box">
-												                                        											<ul class="exp-items-box grey lighten-4">
+											<ul class="exp-items-box grey lighten-4">
 												<li class="exp-items right">
 												</li>
 												<li class="exp-items">
@@ -362,13 +365,36 @@
 							</div>
 						</div>
 					</div>
-
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
+
+    <!-- package upgrade model -->
+    <div id="packagemodal" class="modal" style="max-width:400px;overflow: visible;">
+        <div class="modal-content">
+            <form action="<?php echo base_url()?>candidates/packageUpdate" method="post">
+                <div class="row m0">
+                    <h5 class="m0 mb10">Upgrade Package</h5>
+                    <br>
+                    <div class="input-field">
+                        <select name="type">
+                            <?php foreach ($price as $key => $value) {
+                                echo  '<option value="'.$value->pr_encrypt_id.'">'.$value->pr_name.'&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;$'.$value->pr_orginal.'</option>';
+                            } ?>
+                        </select>
+                        <label for="">Select Package<span class="red-text">*</span> </label>
+                    </div>
+                    <input type="hidden" value="<?php echo $profile['can_id'] ?>" name="empid">
+                    <input type="hidden" id="" class="validate" value="<?php echo $this->uri->segment(3) ?>" name="uqid">
+                    <div class="input-field">
+                        <button type="submit" class=" waves-effect waves-green  btn green darken-4 white-text block hoverable">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>    
+    </div>
     
     <?php echo $this->session->flashdata('messeg'); ?>
       
@@ -379,6 +405,8 @@
       <script>
           $(document).ready(function(){
             $('.scrollspy').scrollSpy();
+            $('.modal').modal();
+            $('select').formSelect();
           });
       </script>
 </body>

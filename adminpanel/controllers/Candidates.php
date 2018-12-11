@@ -31,7 +31,7 @@ class candidates extends CI_Controller {
        $data['exp']     =  $this->candidateModel->expireance($id);
        $data['edu']     =  $this->candidateModel->education($id);
        $data['package'] =  $this->candidateModel->package($id);
-
+       $data['price']   =  $this->candidateModel->price();
        $this->load->view('candidate/detail', $data);
     }
 
@@ -47,8 +47,21 @@ class candidates extends CI_Controller {
             $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p><b>Sorry! </b> No CV found</p></div>');
         }
         
-        redirect('candidates/detail/'.$id,'refresh');
-        
+        redirect('candidates/detail/'.$id,'refresh'); 
+    }
+
+    public function packageUpdate()
+    {
+        $id = $this->input->post('empid');
+        if($this->candidateModel->packageUpdate())
+        {
+            
+            redirect('candidates/detail/'.$id,'refresh');
+            
+        }else{
+            redirect('candidates/detail/'.$id,'refresh');
+        }
+       
         
     }
 
