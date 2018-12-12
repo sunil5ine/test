@@ -35,10 +35,10 @@
 						?>
 						<div class="col m4 s12 l4">
 						<?php if($left->format("%R%a Days") > 0){ ?>
-							<p class="m0"><span class="black-text"> <?php echo $left->format("%a Days") ?> left</span> </p>
-							<p class="m0"><span class="black-text">Expaired On:</span> <?php echo date('d-m-Y', strtotime($expi)); ?></p>
+							<p class="m0 right-align"><span class="black-text"> <?php echo $left->format("%a Days") ?> left</span> </p>
+							<p class="m0 right-align"><span class="black-text">Expires On:</span> <?php echo date('d-m-Y', strtotime($expi)); ?></p>
 						<?php }else{ ?>
-							<p class="red-text bold m0"><i class="fas fa-exclamation-triangle"></i> Subscription Expire</p>
+							<p class="red-text bold m0 right-align"><i class="fas fa-exclamation-triangle"></i> Subscription Expire</p>
 						<?php } ?>
 						</div>
 					</div>
@@ -55,7 +55,7 @@
 														<i class="material-icons brand-text">remove_red_eye</i>
 													</div>
 													<div class="can-resume-detail">
-														<p class="title"><?php if(!empty($subdetails)) { echo $subdetails['sub_nojobs']; } else { echo 0; } ?> <?php echo ($subdetails['sub_nojobs'] > 1)?'Jobs':"Job" ?> </p>
+														<p class="title"><?php echo (empty($subdetails['sub_nojobs']))?'0 ' : $subdetails['sub_nojobs']; ?> <?php echo ($subdetails['sub_nojobs'] > 1)?'Jobs':"Job" ?> </p>
 														<p class="small"> Job Posts Remaining</p>
 													</div>
 												</div>
@@ -79,8 +79,8 @@
 														<i class="material-icons brand-text">archive</i>
 													</div>
 													<div class="can-resume-detail">
-														<p class="title">0 Resumes</p>
-														<p class="small">Resume downloads </p>
+														<p class="title"><?php echo ($totalcv['count'] <= 0) ?'0 ' : $totalcv['count']?> Resumes</p>
+														<p class="small">Verified cv's </p>
 													</div>
 												</div>
 											</div>

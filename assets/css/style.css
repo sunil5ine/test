@@ -847,3 +847,12 @@ span.profile-pic .label a{display: block;}
 .cv-content {margin-left: 10px;}
 .cv-lists .btn{margin-top:3px}
 
+/*********** cv writing *************/
+.cv-banner { background: #06060680 url(../../assets/img/cv.jpg); background-attachment: scroll; background-blend-mode: overlay; background-attachment: fixed; }
+.cv-banner a.btn{min-width: 175px;height: 40px; line-height: 40px;}
+.clipart{-webkit-clip-path: polygon(0 90%, 100% 0%, 100% 100%, 0 100%); clip-path: polygon(0 90%, 100% 0%, 100% 100%, 0 100%);background: #f6f6f6 ;height: 75px;}
+.pb0{padding-bottom: 0px !important;}
+.list-col div{padding: 5px 0 !important}
+.icircle { border: 1px solid #d8d5d5; height: 90px; width: 90px; border-radius: 139px; padding: 10px 0; margin-bottom: 20px;}
+.itodes .card .card-content { padding: 45px 24px !important;}
+.itodes h4{margin-bottom: 25px}

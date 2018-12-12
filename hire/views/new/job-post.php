@@ -43,7 +43,7 @@
 						<?php if($left->format("%R%a Days") > 0){ ?>
 								<p class="m0 right-align"><span class="black-text "> <?php echo $left->format("%a Days") ?> left</span> </p>
 							<?php }else{ ?>
-								<p class="red-text bold m0 right-align"><i class="fas fa-exclamation-triangle"></i> Subscription Expire</p>
+								<p class="red-text bold m0 right-align"><i class="fas fa-exclamation-triangle"></i> Subscription Expired</p>
 							<?php } ?>
 						</div>
 					</div>

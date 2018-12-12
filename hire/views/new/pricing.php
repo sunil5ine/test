@@ -40,9 +40,9 @@
 					?>
 					<?php if($left->format("%R%a Days") > 0){ ?>
 							<p class="m0"><span class="black-text"> <?php echo $left->format("%a Days") ?> left</span> </p>
-							<p class="m0"><span class="blue-text bold">Expaired On:</span> <?php echo date('d-m-Y', strtotime($expi)); ?></p>
+							<p class="m0"><span class="blue-text bold">Expires On:</span> <?php echo date('d-m-Y', strtotime($expi)); ?></p>
 						<?php }else{ ?>
-							<p class="red-text bold "><i class="fas fa-exclamation-triangle"></i> Subscription Expire</p>
+							<p class="red-text bold "><i class="fas fa-exclamation-triangle"></i> Subscription Expired</p>
 						<?php } ?>
 					</div>
 					<div class="col s12 m4">

@@ -185,7 +185,7 @@ class Dashboard extends CI_Controller {
 		/*************************Latest 5 jobs*********************************************************/
 		$this->data["top5_job"] 		= $this->dashboardmodel->get_job_record(5);
 		/***********************************************************************************************/
-		
+		$this->data['totalcv']  		= $this->dashboardmodel->verifiedcvs();
 		/*************************Latest 5 Application**************************************************/
 		$this->data["top5_candidate"] 	= $this->dashboardmodel->get_cand_record(5);
 		/***********************************************************************************************/

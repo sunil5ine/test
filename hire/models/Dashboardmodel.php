@@ -266,4 +266,13 @@ function update_profilepic($cid,$picpath)
 		return false;
 	}
 }
+/**total verified cvs */
+	public function verifiedcvs()
+	{
+		$this->db->where('emp_id', $this->session->userdata('hireid'));
+		$this->db->where('vc_status', 1);
+		$this->db->select('COUNT(vc_id) as count');
+		$query = $this->db->get('ch_varified_cv')->row_array();
+		return $query;
+	}
 }
