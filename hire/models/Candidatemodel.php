@@ -86,7 +86,10 @@ class Candidatemodel extends CI_Model {
        	$query=$this->db->query("select e.cedu_id, e.cedu_encrypt_id, e.can_id, e.cedu_school, e.deg_type_id, e.deg_id, e.cedu_specialization, e.cedu_startdt, e.cedu_enddt, e.cedu_status, d.deg_sdisplay, dt.deg_type_sdisplay from ".$this->table_edu_details." e left join ".$this->table_degree." d on d.deg_id=e.deg_id left join ".$this->table_degree_type." dt on dt.deg_type_id=e.deg_type_id where can_id=".$cid." order by e.cedu_enddt desc");
 		return $query->result();
     }
+	function get_subscribe()
+{
 
+}
     /*
     * Get single country
     *
@@ -96,5 +99,25 @@ class Candidatemodel extends CI_Model {
 	{
 		$query = $this->db->query("select co_id, co_code, co_name from ".$this->table_country." where co_id=".$coid);
 		return $query->row_array();
+	}
+
+	/**
+	 * applications 
+	 */
+	public function allpication()
+	{
+		$jid = $this->session->userdata('hireid');
+		$this->db->select('c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_experience, c.can_curr_desig, c.can_curr_loc, c.can_upd_date, co.co_name, ch.cv_path, ch.cv_headline, cv_id, f.jfun_display as fun_name, j.job_url_id, j.job_title, j.job_location');
+		$this->db->from('ch_jobapply a');
+		$this->db->where('job_created_by', $jid);
+		$this->db->distinct('ch.can_id');
+		$this->db->order_by('ja_date', 'desc');
+		$this->db->join('ch_jobs j', 'j.job_id = a.job_id', 'left');
+		$this->db->join('ch_candidate c', 'c.can_id = a.can_id', 'left');
+		$this->db->join($this->table_country.' co',  ' co.co_id = c.co_id', 'left');
+		$this->db->join($this->table_farea.' f',  ' f.jfun_id = c.fun_id', 'left');
+		$this->db->join('ch_cv  ch',  ' a.can_id = ch.can_id', 'left');
+		return $this->db->get()->result();
+		
 	}
 }

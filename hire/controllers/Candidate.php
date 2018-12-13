@@ -145,5 +145,19 @@ class Candidate extends CI_Controller {
     {
         $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0");
         $this->output->set_header("Pragma: no-cache");
-    }
+	}
+	
+	/**
+	 * Fetch all  applocation
+	 */
+	public function all_application()
+	{
+		if (!$this->session->userdata('hireid')) { redirect($this->config->base_url().'login'); }
+		$this->data['title'] 	= 'Cherry Hire - Application';
+		$this->data['application'] = $this->candidatemodel->allpication();
+		
+		$this->load->view('new/applications', $this->data, FALSE);
+		
+		
+	}
 }

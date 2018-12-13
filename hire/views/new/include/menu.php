@@ -18,6 +18,10 @@
 									<li>
 										<a href="#" class="waves-effect"><i class="material-icons nav-slid-icon">people_outline</i> Find Candidates</a>
 									</li>
+
+									<li>
+										<a href="<?php echo base_url() ?>application" class="waves-effect"><i class="fas fa-users "></i> All Application</a>
+									</li>
 									
 									<li>
 										<a class="waves-effect menu-main"><i class="fas fa-file-signature" style="margin-left: 3px;margin-right: 5px"></i>My Jobs</a>
