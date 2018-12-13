@@ -98,6 +98,7 @@ class Site extends CI_Controller {
 		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
 		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
 		$this->data['emid'] 	= 99;
+		$this->data['cv_package']  = $this->sitemodel->getpackagecv();
         $this->load->view('new/cvwriting',$this->data, FALSE);
 		        
           

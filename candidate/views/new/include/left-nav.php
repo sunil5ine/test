@@ -60,7 +60,7 @@
 										<a href="<?php echo base_url()?>MyJobs" class="waves-effect"><i class="material-icons nav-slid-icon">event_note</i> Recommended Jobs</a>
 									</li>
 									<li>
-										<a href="<?php echo base_url()?>cvwriting/questionnaire" class="waves-effect"><i class="fas fa-pen-nib" style="margin-left: 3px;margin-right: 5px"></i> Professional CV Writing</a>
+										<a href="<?php echo base_url()?>cvwriting/professional-cv" class="waves-effect"><i class="fas fa-pen-nib" style="margin-left: 3px;margin-right: 5px"></i> Professional CV Writing</a>
 									</li>
 									<li>
 										<a href="<?php echo base_url() ?>psychotest/plans" class="waves-effect"><i class="fas fa-file-signature" style="margin-left: 3px;margin-right: 5px"></i> Psychometric test</a>

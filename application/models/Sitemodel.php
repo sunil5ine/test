@@ -431,6 +431,10 @@ class Sitemodel extends CI_Model {
 		return false;
     }
 
+	public function getpackagecv()
+	{
+		return $this->db->where('status',1)->get('cv_package')->result();
+	}
 
 
 

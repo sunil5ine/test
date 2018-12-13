@@ -58,7 +58,7 @@ class Cvwritingmodel extends CI_Model {
 		return $query->row_array();
 	}
 
-	public function ins_questionnaire()
+	public function ins_questionnaire($packess)
 	{
 		$qdata = array(
 			'can_id'=>$this->session->userdata('cand_chid'),
@@ -74,10 +74,11 @@ class Cvwritingmodel extends CI_Model {
 			'qn10'=>$this->input->post('qn10'),
 			'qn11'=>$this->input->post('qn11'),
 			'cvw_date'=>date('Y-m-d H:i:s'),
-			'cvw_amt'=>49,
+			'cvw_amt'=>$packess['cp_price'],
 			'cvw_cover'=>0,
 			'cvw_express'=>0,
-			'cvw_status'=>1
+			'cvw_status'=>1,
+			'cv_alert' => $packess['cp_id'],
 		);
 
 		$insert_id = $this->db->insert($this->table_cvwriting, $qdata);
@@ -85,7 +86,7 @@ class Cvwritingmodel extends CI_Model {
 	}
 
 
-	public function update_questionnaire()
+	public function update_questionnaire($packess)
 	{
 		$qdata = array(
 			'qn1'=>$this->input->post('qn1'),
@@ -99,12 +100,23 @@ class Cvwritingmodel extends CI_Model {
 			'qn9'=>$this->input->post('qn9'),
 			'qn10'=>$this->input->post('qn10'),
 			'qn11'=>$this->input->post('qn11'),
+			'cvw_amt'=>$packess['cp_price'],
+			'cv_alert' => $packess['cp_id'],
 		);
 
 		$this->db->where('can_id', $this->session->userdata('cand_chid'));
 		$this->db->where('cvw_status', 1);
 	   	$this->db->update($this->table_cvwriting, $qdata);
 	}
+
+	/**
+	 * Get single cv 
+	 */
+	public function getpackgesSingle($id)
+	{
+		return $this->db->where('cp_id', $id)->get('cv_package')->row_array();
+	}
+
 
 	public function upd_questionnaire_additional()
 	{
@@ -459,6 +471,14 @@ function successdata($umid)
 	return $this->db->get('ch_cv_writing', 1)->row_array();
 }
 
+/**
+ * 
+ * CV PAKAGE 
+ */
+function cvpakage()
+{
+	return $this->db->where('status', 1)->get('cv_package')->result();
+}
 
 
 		

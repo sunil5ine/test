@@ -10,10 +10,13 @@
 	<link href="<?php echo base_url() ?>assets/fonts/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css">
     <style>
+    .plr15{padding:0 25px}
+    </style>
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css"> -->
+    <!-- <style>
         .testimonial{
     margin: 0 15px;
 }
@@ -103,7 +106,7 @@
         left: 18%;
     }
 }
-    </style>
+    </style> -->
 </head>
 <body>
 	<!-- navigation bar -->
@@ -113,11 +116,11 @@
         <div class="container-wrap">
             <div class="row">
                 <div class="col s12 center ">
-                    <div class="ptb15">
-                        <h5 class="white-text"> Lorem ipsum, dolor sit amet.</h5>
-                        <p class="white-text"><small class="white-text">Lorem ipsum dolor, sit amet !</small></p>
+                    <div class="ptb15 ">
+                        <h5 class="white-text bold"> Professional CV Writing</h5>
+                        <p class="white-text"><small class="white-text">Create a great impression on Employers</small></p>
                         <br>
-                        <a href="" class="waves-effect waves-light btn white-text   brand nav-btn"> write your own CV </a>
+                        <a href="#cvs" class="waves-effect waves-light btn white-text   brand nav-btn"> write your own CV </a>
                     </div>
                 </div>
             </div>
@@ -126,56 +129,38 @@
     </section>
 
     <!-- package -->
-    <section>
+    <section >
         <div class="container-wrap">
             <div class="row">
-                <div class="col s12 m4">
-                    <div class="card">
-                        <div class="card-content center">
-                            <h5>Entry Level</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dicta accusantium quibusdam quas repellat iure maiores optio, molestias recusandae reprehenderit!</p>
-                            <div class="pring-section">
-                                <h3>$ 19</h3>
-                                <p class="mb10">Lorem ipsum</p>
-                                <a href="" class=" btn btn-m brand-text  btn-nc waves-green hoverable  waves-effect transparent">Buy It</a>
+               <?php foreach ($cv_package as $key => $value) { ?>
+                    <div class="col s12 m4 scrollspy" id="cvs">
+                        <div class="card">
+                            <div class="card-content center">
+                                <h5 class="black-text"><?php echo $value->cp_title ?></h5>
+                                <p class="bold black-text mb10">
+                                    <?php
+                                        echo $value->cp_from;
+                                        echo ($value->cp_to == '+')? '' : ' - ';
+                                        echo $value->cp_to;
+                                    ?>
+                                     Years
+                                </p>
+                                <p>Cover Letter +$10.00 <br> Express Delivery +$10.00</p>
+                                
+                                <div class="pring-section">
+                                    <h3>$ <?php echo $value->cp_price; ?></h3>
+                                    <a href="<?php echo base_url('candidate/cvwriting/questionnaire/').$value->cp_id ?>" class=" btn plr15  brand-text  btn-nc waves-green hoverable  waves-effect transparent">Get your cv</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="card">
-                        <div class="card-content center">
-                            <h5>Mid-Level</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dicta accusantium quibusdam quas repellat iure maiores optio, molestias recusandae reprehenderit!</p>
-                            <div class="pring-section">
-                                <h3>$ 19</h3>
-                                <p class="mb10">Lorem ipsum</p>
-                                <a href="" class=" btn btn-m brand-text  btn-nc waves-green hoverable  waves-effect transparent">Buy It</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="card">
-                        <div class="card-content center">
-                            <h5>Senior-Level</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dicta accusantium quibusdam quas repellat iure maiores optio, molestias recusandae reprehenderit!</p>
-                            <div class="pring-section">
-                                <h3>$ 19</h3>
-                                <p class="mb10">Lorem ipsum</p>
-                                <a href="" class=" btn btn-m brand-text  btn-nc waves-green hoverable  waves-effect transparent">Buy It</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  <?php } ?>
             </div>
         </div>
     </section>
 
     <!-- 10 reson -->
-    <section class="white pb0">
+    <!-- <section class="white pb0">
         <div class="container-wrap">
             <div class="row m0">
                 <div class="s12">
@@ -200,10 +185,10 @@
             </div>
         </div>
         <div class="clipart"></div>
-    </section>
+    </section> -->
 
     <!-- idea to design -->
-    <section class="itodes">
+    <!-- <section class="itodes">
         <div class="container-wrap">
             <div class="row m0">
                 <div class="col s12 center">
@@ -260,10 +245,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     
     <!-- Faq -->
-    <section class="white pb0">
+    <!-- <section class="white pb0">
         <div class="container-wrap">
             <div class="row">
                 <div class="col s12 center">
@@ -306,10 +291,10 @@
             </div>
         </div>
         <div class="clipart"></div>
-    </section>
+    </section> -->
 
     <!-- Testimonial -->
-    <section>
+    <!-- <section>
         <div class="container-wrap">
             <div class="row">
                 <div class="col s12">
@@ -355,7 +340,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- footer -->
     <?php echo include'include/footer.php' ?>
@@ -363,7 +348,13 @@
 	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/materialize.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/component.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/js/script.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.scrollspy').scrollSpy();
+        });
+    </script>
+
+    <!-- <script type="text/javascript" src="<?php echo base_url() ?>assets/js/owl.carousel.min.js"></script>
     <script>
     $(document).ready(function(){
         $("#testimonial-slider").owlCarousel({
@@ -378,6 +369,6 @@
                 autoPlay:false
         });
         });
-    </script>
+    </script> -->
 </body>
 </html>

@@ -7,7 +7,7 @@
 	      <a href="#" data-target="mobile-demo" class="sidenav-trigger  black-text"><i class="material-icons">menu</i></a>
 	      <?php if(!$this->session->userdata('cand_chid')) { ?>
 		      <ul class=" hide-on-med-and-down ">
-		        <li><a href="<?php echo $this->config->item('web_url');?>Jobs" class="waves-effect">Find Jobs	</a></li>
+		        <li><a href="<?php echo $this->config->item('web_url');?>Jobs?jobs=list" class="waves-effect">Find Jobs	</a></li>
 		        <li><a href="<?php echo $this->config->item('web_url');?>Psychometric" class="waves-effect">Psychometric Test</a></li>
 		        <li><a href="<?php echo $this->config->item('web_url');?>CV_Writing" class="waves-effect">Professional CV Writing</a></li>
 		        <li><a href="<?php echo $this->config->item('web_url');?>Pricing" class="waves-effect ">Pricing</a></li>
@@ -25,8 +25,8 @@
 		      </ul> 
 		  <?php } else{ ?>
 		  	<ul class="right hide-on-med-and-down ">
-		  		<li><a href="<?php echo base_url()?>Jobs" class="waves-effect bold">Dashboard</a></li>
-		  		<li><a href="<?php echo $this->config->item('web_url');?>Jobs" class="waves-effect bold">Find Jobs	</a></li>
+		  		<li><a href="<?php echo base_url()?>Jobs?jobs=list" class="waves-effect bold">Dashboard</a></li>
+		  		<li><a href="<?php echo $this->config->item('web_url');?>Jobs?jobs=list" class="waves-effect bold">Find Jobs	</a></li>
 		  		<li><a href="<?php echo $this->config->item('web_url');?>Psychometric" class="waves-effect bold">Psychometric Test</a></li>
 		  		<li><a href="<?php echo base_url()?>Subscriptions" class="waves-effect">Pricing</a></li>
 		  		<li>|</li>

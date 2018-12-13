@@ -112,7 +112,7 @@
 
 	  	<?php if(!$this->session->userdata('cand_chid') && !$this->session->userdata('hireid')) { ?> 
 	  		<li><a href="<?php echo base_url()?>" class="brand-logo "><img src="<?php echo base_url(); ?>assets/img/logo.png" class="responsive-img"></a></li>
-	    	<li><a href="<?php echo base_url()?>Jobs" class="waves-effect">Find Jobs</a></li>
+	    	<li><a href="<?php echo base_url()?>Jobs?jobs=list" class="waves-effect">Find Jobs</a></li>
 	    	<li><a href="<?php echo base_url()?>Psychometric" class="waves-effect">Psychometric Test</a></li>
 	    	<li><a href="<?php echo base_url()?>CV_Writing" class="waves-effect">Professional CV Writing</a></li>
 		    <li><a href="<?php echo base_url()?>Pricing" class="waves-effect">Pricing</a></li>
@@ -135,7 +135,7 @@
 			</a></li>
 			<li><a href="<?php echo base_url()?>candidate/Jobs" class="waves-effect bold">Dashboard</a></li>
 			<li><a href="<?php echo base_url()?>candidate/ProfileSettings">Profile</a></li>
-		  	<li><a href="<?php echo base_url();?>Jobs" class="waves-effect bold">Find Jobs	</a></li>
+		  	<li><a href="<?php echo base_url();?>Jobs?jobs=list" class="waves-effect bold">Find Jobs	</a></li>
 		  	<li><a href="<?php echo base_url();?>Psychometric" class="waves-effect bold">Psychometric Test</a></li>
 		  	<li><a href="<?php echo base_url()?>candidate/Subscriptions" class="waves-effect bold">Pricing</a></li>
 		  	<li><a href="<?php echo  base_url()?>candidate/ProfileSettings">Settings</a></li>

@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="<?php echo $this->config->item('web_url');?>assets/css/intlTelInput.css">
 	<link rel="stylesheet" href="<?php echo $this->config->item('web_url');?>assets/css/jquery.tagsinput-revisited.css"> 
 	<style type="text/css"> 
-	.modal .datepicker-modal {min-width: 300px; max-height: none; width: 79% !important; }
+	.modal .datepicker-modal {min-width: 300px; max-height: none; width: 79% !important; }.ft10{font-size:10px}
 	form{overflow: visible !important;}
 	</style>
 </head>
@@ -49,12 +49,33 @@
 											
 										</div>
 									</div>
-									<div class="col s8 m8 l10">
+									<div class="col s8 m5 l8">
 										<p class="black-text h6 ">Resume</p>
 										<!-- <p class="mb10 font12">2.5 mb</p> -->
 										<br>
 										<a class="btn brand white-text hoverable waves-effect waves-lighten mr10" href="<?php echo $formdata['cv_path']; ?>" target="_blank"> View Resume </a>
 										<a href="#upload-resume" class="brand-text bold tooltipped modal-trigger" data-position="top" data-tooltip="Please choose only .doc, .docx and .pdf files">Upload New Resume</a>
+									</div>
+									<div class="col s12 m3 l2 grey  lighten-5 z-depth-1">
+										<div class="ptb10">
+											<?php 
+												$exp = date('Y-m-d', strtotime($subdetails['csub_expire_dt']));
+												$now = date('Y-m-d');
+												$dif = date_diff(date_create($now),date_create($exp)); 
+												$left = $dif->format('%R%a');
+												if($left > 0){ ?>
+													<h5 class=" brand-text m0 mb10"><?php echo $subdetails['pr_name'] ?></h5>
+													<p class=" black-text ft10">
+														<span style="font-size:14px" class=" bold"><?php echo $subdetails['csub_nojobs'] ?> </span><?php echo ($subdetails['csub_nojobs'] > 0)?'Jobs left':'Job left' ?>
+													</p>
+													<p class=" black-text ft10">
+														<span style="font-size:14px" class=" bold"><?php echo $dif->format('%a') ?></span> Days Left
+													</p>
+											<?php }else{ ?>
+												<h5 class=" m0 mb10 red-text">Expired</h5>
+												<a href="<?php echo base_url('Subscriptions') ?>" class="blue-text">Update Package</a>
+											<?php } ?>
+										</div>	
 									</div>
 								</div>
 							</div>

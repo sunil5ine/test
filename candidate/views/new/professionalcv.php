@@ -38,7 +38,7 @@
 
 					<div class="card ">
 						<div class="card-content">
-							<form class="form-inline " id="qnfrm" name="qnfrm" action="<?php echo base_url('cvwriting/questionnaire'); ?>" method="post" enctype="multipart/form-data">
+							<form class="form-inline " id="qnfrm" name="qnfrm" action="<?php echo base_url('cvwriting/questionnaire/').$this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label>1. What are your achievements worth adding to your resume?</label>
 									<textarea id="qn1" name="qn1" class="cv-textarea" rows="4"><?php echo $formdata['qn1']; ?></textarea>
@@ -83,10 +83,12 @@
 									<label>11. What are the interests you have that you think are worth adding to your profile?</label>
 									<textarea id="qn11" name="qn11" class="cv-textarea" rows="4"><?php echo $formdata['qn11']; ?></textarea>
 								</div>
+								<input type="hidden" name="package" value="<?php $this->uri->segment(3) ?>">
+
 								<div class="form-group  dropzone" id="my-awesome-dropzone">
 									<div class="dran-upload center">
 										<div class="block verical  grey-text darken-3 " id="filename">
-											<p><i class="fas fa-upload"></i> Drag and Drop your Resume <span class="hide-on-small-only">here or <span class="blue-text"><u>brows</u></span> To upload</span></p>
+											<p><i class="fas fa-upload"></i> Drag and Drop your Resume <span class="hide-on-small-only">here or <span class="blue-text"><u>browse</u></span> To upload</span></p>
 											
 										</div>
 										<input name="fileToUpload" required type="file" class="dropzone-input" style="cursor: crosshair;" />

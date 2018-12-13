@@ -118,7 +118,7 @@
 								</div>
 								<div class="col s6 m6 l6">
 
-									<a href="<?php echo $this->config->base_url().'cvwriting/questionnaire'; ?>" class="btn brand white-text hoverable waves-effect waves-lighten-1 mb10">Edit <i class="material-icons right" style="width: 20px">edite</i></a>
+									<a href="<?php echo $this->config->base_url().'cvwriting/professional-cv'; ?>" class="btn brand white-text hoverable waves-effect waves-lighten-1 mb10">Edit <i class="material-icons right" style="width: 20px">edite</i></a>
 								</div>
 
 								<div class="col s6 m6 l6">

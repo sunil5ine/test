@@ -102,10 +102,15 @@ class Subscriptionmodel extends CI_Model {
 	public function get_subscribe()
 
 	{
-
-		$query=$this->db->query("select s.csub_id, s.can_id, s.csub_nojobs, s.csub_expire_dt, s.csub_type, s.pr_id, s.csub_status, p.pr_name from ".$this->table_subscribe." s left join ".$this->table_pricing." p on p.pr_id=s.pr_id where s.can_id=".$this->session->userdata('cand_chid'));
-
-		return $query->row_array();
+		$now = date('Y-m-d H:i:s');
+		$this->db->select('s.csub_id, s.can_id,  s.csub_expire_dt, s.csub_type, s.pr_id, s.csub_status, p.pr_name');
+		$this->db->select_sum('csub_nojobs');
+		$this->db->where('s.can_id', $this->session->userdata('cand_chid'));
+		$this->db->from($this->table_subscribe.' as s');
+		$this->db->join($this->table_pricing.' as p', 'p.pr_id = s.pr_id', 'left');
+		$this->db->where('csub_expire_dt >=', $now);
+		$this->db->order_by('csub_expire_dt', 'desc');
+		return $this->db->get()->row_array();	
 
 	}
 

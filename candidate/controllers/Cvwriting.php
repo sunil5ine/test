@@ -36,7 +36,7 @@ class Cvwriting extends CI_Controller {
 		$this->load->view('common/footer_inner',$this->data);
 	}
 	
-	public function questionnaire()
+	public function questionnaire($id)
 	{
 
 
@@ -78,7 +78,8 @@ class Cvwriting extends CI_Controller {
 				'qn11'=>$this->data["qdata"]['qn11'],
 			);	
 		}
-		
+		$packess = $this->cvwritingmodel->getpackgesSingle($id);
+
 		$this->form_validation->set_rules('qn1', 'Fillup answer for Question 1', 'trim|required|callback_name_check');
 		$this->form_validation->set_rules('qn2', 'Fillup answer for Question 2', 'trim|required|callback_name_check');
 		$this->form_validation->set_rules('qn3', 'Fillup answer for Question 3', 'trim|required|callback_name_check');
@@ -92,9 +93,9 @@ class Cvwriting extends CI_Controller {
 		$this->form_validation->set_rules('qn11', 'Fillup answer for Question 11', 'trim|required|callback_name_check');
 		if ($this->form_validation->run() == TRUE) {
 			if (!empty($this->data["qdata"])) {
-				$this->cvwritingmodel->update_questionnaire();
+				$this->cvwritingmodel->update_questionnaire($packess);
 			} else {
-				$this->cvwritingmodel->ins_questionnaire();
+				$this->cvwritingmodel->ins_questionnaire($packess);
 			}
 
 			$this->data["qdata"] = $this->cvwritingmodel->get_questionnaire();		
@@ -173,6 +174,7 @@ class Cvwriting extends CI_Controller {
 					'qn9'=>$this->input->post('qn9'),
 					'qn10'=>$this->input->post('qn10'),
 					'qn11'=>$this->input->post('qn11'),
+					
 				);
 				$this->data['message'] = '<div style="margin-top: 16px;" class="alert alert-error"><button data-dismiss="alert" class="close" type="button">x</button>  Failed! '.validation_errors().' </div>';
 				$this->session->set_flashdata('errmsg', $this->data['message']);
@@ -191,9 +193,7 @@ class Cvwriting extends CI_Controller {
 		$this->data['title'] = 'Cherry Hire App - Cart Review';
 		$this->data['pagehead'] = 'Review Cart';		
 		$this->data["cartdata"] = $this->cvwritingmodel->get_temp_questionnaire();	
-
 		$this->load->view('new/cv-cart',$this->data);
-		
 	}
 
 	public function billingcart($errcode=null)
@@ -1374,6 +1374,7 @@ function cvsend()
 
  function deleteit()
 	{
+		if (!$this->session->userdata('cand_chid')) { redirect($this->config->base_url().'LoginProcess'); }
 		$id = $this->input->get('id');
 		$this->load->model('Cvwritingmodel');
 		if($this->Cvwritingmodel->deleteit($id))
@@ -1390,6 +1391,7 @@ function cvsend()
 
 function cvexpressup()
 {
+	if (!$this->session->userdata('cand_chid')) { redirect($this->config->base_url().'LoginProcess'); }
 	$id = $this->session->userdata('cand_chid');
 	$sataus = $this->input->get('cvexpress');
 	$this->load->model('Cvwritingmodel');
@@ -1401,6 +1403,7 @@ function cvexpressup()
 
 function cvw_coverup()
 {
+	if (!$this->session->userdata('cand_chid')) { redirect($this->config->base_url().'LoginProcess'); }
 	$id = $this->session->userdata('cand_chid');
 	$sataus = $this->input->get('cvcover');
 	$this->load->model('Cvwritingmodel');
@@ -1483,6 +1486,21 @@ function paysuccess()
 		}
 }
 
+
+/**
+ * Select cv package
+*/
+public function professional_cv()
+{
+	if (!$this->session->userdata('cand_chid')) { redirect($this->config->base_url().'LoginProcess'); }
+	$this->data['message'] = '';		
+	$this->data['sid'] = 1;
+	$this->data['title'] = 'Cherry Hire App - Upgrade';
+	$this->data['pagehead'] = 'CV WRITING';	
+	$this->data['cv_package'] = $this->cvwritingmodel->cvpakage();
+	$this->load->view('new/cvpackage', $this->data, FALSE);
+	
+}
 
 
 }
