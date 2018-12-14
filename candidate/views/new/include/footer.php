@@ -43,6 +43,7 @@
 											<li><a href="<?php echo $this->config->item('web_url')?>Contact">Contact us</a></li>
 											<li><a href="<?php echo $this->config->item('web_url')?>blog">Blog</a></li>
 											<li><a href="<?php echo $this->config->item('web_url')?>Faq">FAQs</a></li>
+											<li><a href="<?php echo $this->config->item('web_url')?>partner-with-us">Partner with us</a></li>
 											<li><a href="<?php echo $this->config->item('web_url')?>">Advertise with us</a></li>
 										</ul>
 									</div>
