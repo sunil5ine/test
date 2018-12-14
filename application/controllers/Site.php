@@ -406,7 +406,7 @@ class Site extends CI_Controller {
 				'.validation_errors().'
 			  </div>';
 		}		
-		echo $this->data['message'];
+		 $this->data['message'];
 	}
 	
 	/* Employer free trial function
@@ -899,9 +899,9 @@ class Site extends CI_Controller {
 		}
 		
 		if ($error) {
-			echo 0; //False
+			return 0; //False
 		} else {
-			echo 1; //True
+			return 1; //True
 		}
 	}
 	
@@ -914,9 +914,9 @@ class Site extends CI_Controller {
 		$email = $this->input->post('email');		
 		$result = $this->sitemodel->valid_candidate_email($email);	 
 		if ($result == 0) {
-			echo 0;//email is unique. not signed up before
+			return 0;//email is unique. not signed up before
 		} else {
-			echo 1;
+			return 1;
 		}
 	}
 	
@@ -1634,7 +1634,22 @@ $config['protocol'] 	= "mail";
     public function publish_hire($cid=null)
     {
     	$this->sitemodel->publish_hire_req($cid);
-    }
+	}
+	
+	/** 
+	 * partner_with_us
+	*/
+	public function partner_with_us()
+	{
+		$this->data['title']	= 'Partner with cherryhire|Get Resumes|Conduct Video Interviews';
+		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
+		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
+		$this->data['emid'] 	= 99;
+		$this->load->view('new/partners', $this->data, FALSE);
+		
+	}
+
+
 }
 
 /* End of file Site.php */

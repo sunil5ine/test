@@ -71,7 +71,7 @@ i.left {float: left; margin-right: 5px; }
 	.container {width: 90%; }
 }
 @media (max-width:600px) {
-.container-wrap{width: 100%; margin: 0 0;}
+.container-wrap{width: 96%; margin: 0 2%;}
 .brand-logo img {max-height: 49px; margin-top: 3px; }
 .otherlogin > .btn{width: 100%; margin:5px 0px;}
 .container{width: 98%; padding: 0 1%; }
@@ -848,7 +848,7 @@ span.profile-pic .label a{display: block;}
 .cv-lists .btn{margin-top:3px}
 
 /*********** cv writing *************/
-.cv-banner { background: #06060680 url(../../assets/img/cv.jpg); background-attachment: scroll; background-blend-mode: overlay; background-attachment: fixed; }
+.cv-banner { background: #06060680 url(../../assets/img/cv.jpg); background-blend-mode: overlay; background-attachment: fixed; }
 .cv-banner a.btn{min-width: 175px;height: 40px; line-height: 40px;}
 .clipart{-webkit-clip-path: polygon(0 90%, 100% 0%, 100% 100%, 0 100%); clip-path: polygon(0 90%, 100% 0%, 100% 100%, 0 100%);background: #fff ;height: 75px;}
 .pb0{padding-bottom: 0px !important;}
@@ -856,3 +856,23 @@ span.profile-pic .label a{display: block;}
 .icircle { border: 1px solid #d8d5d5; height: 90px; width: 90px; border-radius: 139px; padding: 10px 0; margin-bottom: 20px;}
 .itodes .card .card-content { padding: 45px 24px !important;}
 .itodes h4{margin-bottom: 25px}
+
+/*********** Partners *************/
+.ptr-nbanner{background:  url('../../assets/img/img_banner.png');background-repeat: no-repeat;}
+.mb20{margin-bottom: 20px}
+.imh4{margin-bottom: 30px}
+.wtfu{background: url(../../assets/img/img_cherryhire.png);background-repeat: no-repeat;background-position: right;	background-size: cover;}
+.disc li{color: #fff; list-style-type: disc !important; line-height: 26px; font-size: 14px; font-weight: 600; letter-spacing: 0.3px; padding-left: 10px;}
+.cirle li { list-style-type: circle !important; font-size: 13px; font-weight: 500;}
+.disc { padding-left: 13px !important; }
+.cirle { padding-left: 13px !important; }
+.imgul ul li{font-size:14px;line-height: 26px;font-weight: 600;}
+.imgul ul li:before{content: "\f058"; font-family: "Font Awesome 5 Free"; font-weight: 900; color: #16c616; font-size: 12px; margin-right: 10px;}
+.next{background: url(../../assets/img/img_nextstepcherryhire.png);background-position: left;background-repeat: no-repeat;background-size: cover;}
+.form-white input, .form-white textarea, .form-white select{background: #fff !important;margin-top: 3px !important;margin-bottom: 20px !important}
+.form-white label{font-size: 13px}
+
+@media (min-width:1048px)
+{
+	.lmt50{margin-top: 50px}
+}

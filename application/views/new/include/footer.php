@@ -43,7 +43,9 @@
 											<li><a href="<?php echo base_url()?>Contact">Contact us</a></li>
 											<li><a href="<?php echo base_url()?>blog">Blog</a></li>
 											<li><a href="<?php echo base_url()?>Faq">FAQs</a></li>
+											<li><a href="<?php echo base_url()?>partner-with-us">Partner with us</a></li>
 											<li><a href="<?php echo base_url()?>">Advertise with us</a></li>
+											
 										</ul>
 									</div>
 								</div>

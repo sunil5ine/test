@@ -53,6 +53,7 @@ $route['default_controller'] = "site";
 $route['EmailValid'] = "site/email_valid_ajax";
 $route['EmailCheck'] = "employer/email_valid_ajax";
 $route['Home'] = "site/home";
+$route['partner-with-us'] = "site/partner_with_us";
 
 $route['Psychometric'] = "site/psychometric";
 $route['blog'] = "blog/index";
