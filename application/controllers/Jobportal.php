@@ -436,15 +436,17 @@ class Jobportal extends CI_Controller {
 
 		
 
-		$this->data['cmid'] 			= 0;
+		// $this->data['cmid'] 			= 0;
 
-		$this->load->view('common/header',$this->data);
+		// $this->load->view('common/header',$this->data);
 
-		$this->load->view('common/candidate-menu',$this->data);
+		// $this->load->view('common/candidate-menu',$this->data);
 
-		$this->load->view('jobdetails',$this->data);
+		// $this->load->view('jobdetails',$this->data);
 
-		$this->load->view('common/footer',$this->data);		
+		// $this->load->view('common/footer',$this->data);		
+
+		$this->load->view('new/jobdetail',$this->data);
 
 	}
 

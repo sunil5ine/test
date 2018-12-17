@@ -20,6 +20,7 @@
 	<!-- end nav bar -->
 
 	<!-- Applied Jobs -->
+	<?php $joburl = $this->config->item('web_url').'candidate/Jobs/Viewdetails/'.$formdata['job_url_id'].'/?js=6&source=detail'; ?>
 
 	<section>
 		<div class="row">
@@ -81,7 +82,6 @@
 					        		
 				        		</div>
 				        	</div>
-
 				        	<div class="col s12 l12 m12 " >
 				        		<div class="divider mb10 "></div>
 								
@@ -89,10 +89,10 @@
 								
 									<p class=""><span class="bold">Hire for:</span> <?php echo $formdata['hcompany']; ?></p>
 									<p class="mb10"><span class="bold">Send notifications to:</span> <?php echo $formdata['notifyemail']; ?></p>
-									<!-- <p class="copy-to-clipboard"><span class="bold mr10">Job URL :</span> <i class="fas fa-clipboard copytest"></i> 
+									<p class="copy-to-clipboard"><span class="bold mr10">Job URL :</span> <i class="fas fa-clipboard copytest"></i> 
 									
-										<input readonly type="text" value="<?php echo $this->data['joburl']; ?>">
-									 </p> -->
+										<input readonly type="text" value="<?php echo $joburl ?>">
+									 </p>
 									 <div class="copied"></div>
 								</div>
 
@@ -142,6 +142,7 @@
         
 					<!-- Personal Details -->
 				
+					
 					
 					
 

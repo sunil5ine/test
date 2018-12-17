@@ -63,6 +63,7 @@ $route['Jobs/AdvanceSearch'] = "jobs/searchjob";
 $route['Jobs/SearchResult'] = "jobs/searchjob_result";
 $route['cvwriting/professional-cv'] = "Cvwriting/professional_cv";
 $route['cvwriting/questionnaire/(:any)'] = "Cvwriting/questionnaire/$1";
+$route['job-detail/(:any)'] = "detail/viewjob_details/$1";
 
 $route['Profile/Viewdetails/(:any)'] = "profile/viewdetails/$1";
 $route['Profile/GetResume/(:any)'] = "profile/downloadresume/$1";
