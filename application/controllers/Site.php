@@ -1462,7 +1462,7 @@ $config['protocol'] 	= "mail";
 		$config = Array(
                    'protocol' => 'mail',
                    'smtp_host' => 'mail.cherryhire.com',
-                   'smtp_port' => 25,
+                   'smtp_port' => 465,
                    'smtp_user' => 'no-reply@cherryhire.com',
                    'smtp_pass' => 'Chire@DNply',
                    'mailtype'  => 'html', 
@@ -1507,56 +1507,9 @@ $config['protocol'] 	= "mail";
         
         
         
-        function apicvsendmail($cid=null, $cvpath=null)
-	{
-           
-            //$session = curl_init(MAILGUN_URL.'/messages');
-            //$mgClient = new \Mailgun\Mailgun("key-xxxxxxxxxxxxxxxxxxxxxx");            
-            // $mgClient = new Mailgun('d8f3066eee1d31f39228ec8b6c5ef54e-a5d1a068-cf700220');
-            //$domain = "mailer.cherryhire.com";
-
-        /*   $domain = "mailer.cherryhire.com";
-           $result = sendMessage($domain, array(
-                    'from'    => 'postmaster@mailer.cherryhire.com',
-                    'to'      => 'cv@cherryhire.com',
-                    'bcc'     => 'anupama.bbalakrishnan8@gmail.com',
-                    'subject' => 'Hello',
-                    'text'    => 'Testing some Mailgun awesomness!'
-                ));
-            $curl = curl_init(MAILGUN_URL.'/messages');
-            curl_setopt($curl, CURLOPT_URL, 'https://api.mailgun.net/v2/mailer.cherryhire.com/messages');
-            curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-            curl_setopt($curl, CURLOPT_USERPWD, "api:d8f3066eee1d31f39228ec8b6c5ef54e-a5d1a068-cf700220");
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 10);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($curl, CURLOPT_POST, true); 
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $result);
-
-            $result = curl_exec($curl);
-            curl_close($curl);
-            print_r($result);
-            */
-            
-            
-            
-            
-                # Instantiate the client.
-                 
-                # Make the call to the client.
-//                $result = $mgClient->sendMessage($domain, array(
-//                    'from'    => 'postmaster@mailer.cherryhire.com',
-//                    'to'      => 'cv@cherryhire.com',
-//                    'bcc'     => 'anupama.bbalakrishnan8@gmail.com',
-//                    'subject' => 'Hello',
-//                    'text'    => 'Testing some Mailgun awesomness!'
-//                ));
-            
-            
-            
-            
-  $ch = curl_init();
+function apicvsendmail($cid=null, $cvpath=null)
+	{        
+  	$ch = curl_init();
 
   curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
   curl_setopt($ch, CURLOPT_USERPWD,  "api:d8f3066eee1d31f39228ec8b6c5ef54e-a5d1a068-cf700220");
@@ -1585,42 +1538,7 @@ $config['protocol'] 	= "mail";
 
   return $j;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
-	/* 404 page Function
-	 * 
-	 * return void
-	 */
-	// public function notfound()
-	// {
-	// 	$this->data['message'] 	= '';
-	// 	$this->data['title']	= 'Post Jobs Online Free|Get Resumes|Conduct Video Interviews';
-	// 	$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
-	// 	$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
-	// 	$this->data['mid'] 		= 0;
-	// 	$this->load->view('common/header',$this->data);
-	// 	$this->load->view('common/home-menu',$this->data);
-	// 	$this->load->view('404',$this->data);
-	// 	$this->load->view('common/footer',$this->data);
-	// }
-	
-	/* Cache clear Function
-	 * 
-	 * return void
-	 */
 	function clear_cache()
     {
         $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0");
@@ -1645,8 +1563,69 @@ $config['protocol'] 	= "mail";
 		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
 		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
 		$this->data['emid'] 	= 99;
+		$this->data['industry'] = $this->sitemodel->ind();
 		$this->load->view('new/partners', $this->data, FALSE);
 		
+	}
+
+	/** partner ship form */
+	public function partnerShip()
+	{
+		$this->sitemodel->partners();
+		$input = $this->input->post();
+
+		$subject 	= 'Partnership Interest Form';		
+		$to 		= 'info@cherryhire.com';
+		$from 		= 'info@cherryhire.com';
+		
+		
+		$message = "<html><head><title>Partner with Cherry Hire</title></head><body>";
+		$message = $message."<p><strong>Partnership Interest Form </strong> </p>";
+		$message = $message."<br><p> Hi Team, </p>";
+		$message = $message."<p> Please see the Details listed below </p>";
+		$message = $message."<br><p>First Name :".$input['fname']." </p>";
+		$message = $message."<p> Second Name :".$input['lname']." </p>";
+		$message = $message."<p> Organization  Name :".$input['orgName']." </p>";
+		$message = $message."<p> Organization Type :".$input['orgType']." </p>";
+		$message = $message."<p> Staff Capacity :".$input['staffCount']." </p>";
+		$message = $message."<p> Email Address :".$input['email']." </p>";
+		$message = $message."<p> Contact Number :".$input['phone']." </p>";
+		$message = $message."<p> Additional Comments or Questions  :".$input['des']." </p>";
+
+		
+		$message = $message."<p><br> Regards, ";
+		$message = $message." <br> Webmaster - Cherry Hire </p>";
+		$message = $message."</body></html></html>";
+		
+		//Mail configuration
+		$config = Array(
+                   'protocol' => 'mail',
+                   'smtp_host' => 'mail.cherryhire.com',
+                   'smtp_port' => 465,
+                   'smtp_user' => 'no-reply@cherryhire.com',
+                   'smtp_pass' => 'Chire@DNply',
+                   'mailtype'  => 'html', 
+                   'wordwrap'  =>true,
+                   'charset'   => 'utf-8'
+               );
+         $this->load->library('email'); 
+         $this->email->initialize($config);
+         $this->email->set_newline('\r\n'); 
+         // $this->email->clear(TRUE);
+   
+        $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
+		$this->email->to('sandeep@cherry.com');
+		$this->email->to('info@cherryhire.com');
+		$this->email->to('shahirkm@5ines.com');
+		$this->email->subject($subject);
+		$this->email->message($message);
+		$this->email->send();
+		$this->session->set_flashdata('success', '<div class="alert alert-info" style="top: 100px;">
+		<button data-dismiss="alert" class="close" type="button">×</button>
+		<strong>Success!</strong> Congrats! <br> Our team will get back to you as soon as possible
+		</div>');
+		
+		redirect('partner-with-us','refresh');		
 	}
 
 

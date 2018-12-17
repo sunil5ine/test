@@ -75,7 +75,6 @@
 						
 					</div>
 
-
 				<?php $this->load->model('jobportalmodel'); ?>
 				<?php 
 					if(!empty($records)){ 

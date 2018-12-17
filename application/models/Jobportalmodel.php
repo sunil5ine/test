@@ -167,9 +167,9 @@ class Jobportalmodel extends CI_Model {
     {
     	$now = date('Y-m-d');
 
-    	$this->db->select('job_url_id, job_updated_dt, hire_status, job_title, job_location, job_min_exp as minexp, job_max_exp as maxexp, job_min_sal, job_max_sal, job_industry, job_farea, job_role, job_edu, job_edu_spec, job_skills, job_company, job_desc, job_expaired, job_type, job_created_dt, job_created_by, jfun_display ');
+    	$this->db->select('job_url_id, job_updated_dt, hire_status, job_title, job_location, job_min_exp as minexp, job_max_exp as maxexp, job_min_sal, job_max_sal, job_industry, job_farea, job_role, job_edu, job_edu_spec, job_skills, job_company, job_desc, job_expaired, job_type, job_created_dt, job_created_by,fun_name as jfun_display ');
     	$this->db->from('ch_jobs');
-    	$this->db->join ( 'enum_job_function', 'enum_job_function.jfun_id = ch_jobs.job_farea' , 'left' );
+    	$this->db->join ( 'ch_funarea', 'ch_funarea.fun_id = ch_jobs.job_farea' , 'left' );
     	$this->db->join ( 'enum_experience',   'enum_experience.exp_id = ch_jobs.job_max_exp' , 'left' );
     	$this->db->join ( 'ch_jobapply',       'ch_jobapply.job_id = ch_jobs.job_id' , 'left' );
     	$this->db->join ( 'enum_industry',     'enum_industry.ind_id = ch_jobs.job_industry' , 'left' );

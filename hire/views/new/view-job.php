@@ -82,11 +82,19 @@
 				        		</div>
 				        	</div>
 
-				        	<div class="col s12 l12 m12 ">
-				        		<div class="divider mb10"></div>
-
-								<p class="mb10"><span class="bold">Hire for:</span> <?php echo $formdata['hcompany']; ?></p>
-								<p class="mb10"><span class="bold">Send notifications to:</span> <?php echo $formdata['notifyemail']; ?></p>
+				        	<div class="col s12 l12 m12 " >
+				        		<div class="divider mb10 "></div>
+								
+								<div class="font13set">
+								
+									<p class=""><span class="bold">Hire for:</span> <?php echo $formdata['hcompany']; ?></p>
+									<p class="mb10"><span class="bold">Send notifications to:</span> <?php echo $formdata['notifyemail']; ?></p>
+									<!-- <p class="copy-to-clipboard"><span class="bold mr10">Job URL :</span> <i class="fas fa-clipboard copytest"></i> 
+									
+										<input readonly type="text" value="<?php echo $this->data['joburl']; ?>">
+									 </p> -->
+									 <div class="copied"></div>
+								</div>
 
 				        	</div>
 				        	
@@ -94,19 +102,31 @@
 				        	
 				        	</div>
 				        	<div class="col s12 l4 m12 ">
-				        		<div class="ptb15 pl10 font13set">
+				        		<div class="ptb15 pl10 font13set ">
 					        		<p class="mb10"><span class="bold mr10">Created on :</span> <?php echo date('d/m/Y H:i:s', strtotime($formdata['createddt'])); ?></p>
 					        		<p class="mb10"><span class="bold mr10">Latest Updated :</span> <?php echo date('d/m/Y H:i:s', strtotime($formdata['updateddt'])); ?></p>
 					        		<p class="mb10"><span class="bold mr10">Created by :</span> <?php echo $formdata['createdby']; ?></p>
-					        		<p class="mb10"><span class="bold mr10">Job URL :</span> </p>
-									<ul class="social-share-box-myjob pt10 m0 ">
+					        		
+									<ul class="social-share-box-myjob pt10 mb10 ">
 										<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
 										<li><a href=""><i class="fab fa-twitter"></i></a></li>
 										<li><a href=""><i class="fab fa-behance"></i></a></li>
 										<li><a href=""><i class="fab fa-instagram"></i></a></li>
 									</ul>
 								
-				        		</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="divider mb10 " style="margin-top:8px"></div>
+								<div class="font13set">
+									<p class="mb10"><span class="bold">Applications:</span> <?php echo count($application)  ?></p>
+									<p class="mb10"><span class="bold">Verified cvs:</span> <?php 
+										if(empty($cvs['0']->cv_id)){
+											echo '0';
+										}else{
+											echo count($cvs);
+										}
+									?></p>
+								</div>
 				        	</div>
 				        </div>
 						</div>
@@ -433,6 +453,12 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 		    $('.tabs').tabs();
+			$('.copy-to-clipboard input, .copytest').click(function() {
+				$('.copy-to-clipboard input').focus();
+				$('.copy-to-clipboard input').select();
+				document.execCommand('copy');
+				$(".copied").text("Copied to job link").show().fadeOut(1200);
+			});
 		  });
 	</script>
 </body>

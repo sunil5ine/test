@@ -436,6 +436,27 @@ class Sitemodel extends CI_Model {
 		return $this->db->where('status',1)->get('cv_package')->result();
 	}
 
+	/** Add parnters form details */
+	public function partners()
+	{
+		$data = array(
+			'pt_fname'		=> $this->input->post('fname'),
+			'pt_lname'		=> $this->input->post('lname'),
+			'pt_orgType'	=> $this->input->post('orgType'),
+			'pt_staffCount' => $this->input->post('staffCount'),
+			'pt_email'		=> $this->input->post('email'),
+			'pt_phone'		=> $this->input->post('phone'),
+			'pt_des'		=> $this->input->post('des'),
+			'pt_orgname'	=> $this->input->post('orgName'),
+		);
+		$this->db->insert('ch_partners', $data);
+	}
+
+	/** industry list */
+	function ind()
+	{
+		return $this->db->get('ch_industry')->result(); 
+	}
 
 
 }

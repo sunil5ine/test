@@ -245,14 +245,6 @@ class Jobportal extends CI_Controller {
 		$this->data["maxexp_list"] 	= $this->jobportalmodel->get_maxexp();
 
 		
-		// $this->load->view('common/header',$this->data);
-
-		// $this->load->view('common/candidate-menu',$this->data);
-
-		// $this->load->view('jobs',$this->data);
-
-		// $this->load->view('common/footer',$this->data);
-		
 		
 		$this->load->view('new/job-result',$this->data);
 
