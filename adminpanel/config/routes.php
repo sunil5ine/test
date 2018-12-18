@@ -34,7 +34,8 @@ $route['price/add-employer']                    = "price/employer";
 $route['search/candidate']                      = "search";
 $route['testimonial/list']                      = "testimonial/index";
 $route['testimonial/delete/(:any)']             = "testimonial/delete/$1";
-$route['testimonial/edit/(:any)']             = "testimonial/edit/$1";
+$route['testimonial/edit/(:any)']               = "testimonial/edit/$1";
+$route['partners-enquiry']                      = "partnersEnquiry/index";
 
 $route['PageContent']                           = "pagecontent/pagelist";
 $route['default_controller']                    = "login";

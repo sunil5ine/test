@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="col l9 m9 s9">
                                        <p class="h5-para1 black-text m0"><?php echo $contCandidate ?>  <i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
-                                       <p class="para-p1 grey-text m0">New Candidates(+7)</p>
+                                       <p class="para-p1 grey-text m0">New Candidates</p>
                                     </div>
                                  </div>
                               </div>
@@ -51,8 +51,8 @@
                                        <div class="round deep-purple lighten-1"><i class="fas fa-users   white-text"></i></div>
                                     </div>
                                     <div class="col l9 m9 s9">
-                                       <p class="h5-para1 black-text m0"><?php echo $employers ?><i class="fas fa-chevron-circle-down red-text down-aro"></i></p>
-                                       <p class="para-p1 grey-text m0">New Employeers(-5)</p>
+                                       <p class="h5-para1 black-text m0"><?php echo $employers ?><i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
+                                       <p class="para-p1 grey-text m0">New Employeers</p>
                                     </div>
                                  </div>
                               </div>
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="col l9 m9 s9">
                                        <p class="h5-para1 black-text m0"><?php echo $jobscont ?> <i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
-                                       <p class="para-p1 grey-text m0">Total Jobs(+25)</p>
+                                       <p class="para-p1 grey-text m0">Total Jobs</p>
                                     </div>
                                  </div>
                               </div>
@@ -74,11 +74,11 @@
                               <div class="list-dashboard white z-depth-0">
                                  <div class="row m0">
                                     <div class="col l3 m3 s3">
-                                       <div class="round brown"><i class="fas fa-credit-card  white-text"></i></div>
+                                       <div class="round brown"><i class="fas white-text fa-handshake"></i></div>
                                     </div>
                                     <div class="col l9 m9 s9">
-                                       <p class="h5-para1 black-text m0">1500 <i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
-                                       <p class="para-p1 grey-text m0">Page Insights(+6%)</p>
+                                       <p class="h5-para1 black-text m0"><?php echo $partners ?> <i class="fas fa-chevron-circle-up green-text down-aro"></i></p>
+                                       <p class="para-p1 grey-text m0">Partners enquiry</p>
                                     </div>
                                  </div>
                               </div>

@@ -123,12 +123,16 @@ class dashboardModel extends CI_Model {
                 }            
             }
      
-        return $counts;
-
-       
-        
+        return $counts;  
     } 
 
+    public function partners()
+    {
+        $this->db->where('pt_status', 1);
+        $query = $this->db->get('ch_partners');
+        $cout = $query->num_rows();
+        return  $cout;
+    }
 
 
 

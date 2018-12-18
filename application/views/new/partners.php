@@ -1,3 +1,6 @@
+<?php
+$indus = array( 'Agriculture and Allied Industries', 'Automobiles', 'Auto Components', 'Aviation', 'Banking', 'Cement', 'Consumer Durables', 'Ecommerce', 'Education and Training', 'Engineering and Capital Goods', 'Financial Services', 'FMCG', 'Gems and Jewellery', 'Healthcare', 'Infrastructure', 'Insurance', 'IT & ITeS', 'Manufacturing', 'Media and Entertainment', 'Metals And Mining', 'Oil and Gas', 'Pharmaceuticals', 'Ports', 'Power', 'Railways', 'Real Estate', 'Renewable Energy', 'Retail', 'Roads', 'Science and Technology', 'Services', 'Steel', 'Telecommunications', 'Textiles', 'Tourism and Hospitality' );
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -137,7 +140,7 @@ echo $this->session->flashdata('success');
 		<div class="container-wrap">
 			<div class="row m0">
 				<div class="col s12 m7 l5 push-l7 push-m5">
-					<h5 class="bold imh4 white-text">How does it work</h5>
+					<h5 class="bold imh4 white-text">Benefits of being our partner</h5>
 					<ul class="disc white-text">
 						<li>Expansion of your line of business with no investment</li>
 						<li>Increase your customer base</li>
@@ -236,8 +239,8 @@ echo $this->session->flashdata('success');
 							<label for="first_name">Organization Type</label>
 							<select name="orgType" required class="validate">
 								<?php
-									foreach ($industry as $key => $value) {
-										echo '<option value="'.$value->ind_name.'">'.$value->ind_name.'</option>';
+									foreach ($indus as  $value) {
+										echo '<option value="'.$value.'">'.$value.'</option>';
 									}
 								?>
 							</select>

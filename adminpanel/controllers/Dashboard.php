@@ -19,6 +19,7 @@ class Dashboard extends CI_Controller {
 		$data['contCandidate'] = $this->dashboardModel->getCandidate(); 
 		$data['employers']     = $this->dashboardModel->getEmployers(); 
 		$data['jobscont']      = $this->dashboardModel->countofJobs(); 
+		$data['partners']      = $this->dashboardModel->partners(); 
 
 		/** aprovels */
 		$data['alempr']     	= $this->dashboardModel->allempr();
