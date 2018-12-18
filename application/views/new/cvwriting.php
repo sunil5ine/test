@@ -63,15 +63,15 @@
                     <div class="col s12 m4 scrollspy" id="cvs">
                         <div class="card">
                             <div class="card-content center">
-                                <h5 class="black-text"><?php //echo $value->cp_title ?> Professional CV Writing </h5>
-                                <!-- <p class="bold black-text mb10">
-                                    <?php//
-                                        //echo $value->cp_from;
-                                       // echo ($value->cp_to == '+')? '' : ' - ';
-                                        //echo $value->cp_to;
+                                <h5 class="black-text"><?php echo $value->cp_title ?>  </h5>
+                                <p class="bold black-text mb10">
+                                    <?php
+                                        echo $value->cp_from;
+                                        echo ($value->cp_to == '+')? '' : ' - ';
+                                        echo $value->cp_to;
                                     ?>
                                      Years
-                                </p> -->
+                                </p>
                                 <p>Cover Letter +$10.00 <br> Express Delivery +$10.00</p>
                                 
                                 <div class="pring-section">

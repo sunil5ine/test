@@ -32,6 +32,9 @@ $route['pricing/add-emp-package']               = "price/add_emp_package";
 $route['price/add-candidate']                   = "price/add_candidate";
 $route['price/add-employer']                    = "price/employer";
 $route['search/candidate']                      = "search";
+$route['testimonial/list']                      = "testimonial/index";
+$route['testimonial/delete/(:any)']             = "testimonial/delete/$1";
+$route['testimonial/edit/(:any)']             = "testimonial/edit/$1";
 
 $route['PageContent']                           = "pagecontent/pagelist";
 $route['default_controller']                    = "login";
