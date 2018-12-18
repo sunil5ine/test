@@ -30,7 +30,7 @@
                         </div>
                         <div class="col s12 m6 l5 ">
                            <div class="right-align">
-                              <a class="waves-effect waves-light btn white-text green darken-4 hoverable" href="<?php echo base_url() ?>testimonial/add"><i class="fas fa-plus left"></i> Add New Job</a>
+                              <a class="waves-effect waves-light btn white-text green darken-4 hoverable" href="<?php echo base_url() ?>testimonial/add"><i class="fas fa-plus left"></i> Add</a>
                            </div>
                         </div>
                      </div>

@@ -392,50 +392,30 @@
 				<h5 class="bold  center"><b>Testimonial</b></h5>
 				<div class="col l6 push-l3 s12 m10 push-m1">
 			         <div id="testimonial-slider" class="owl-carousel">
-			             <div class="testimonial">
-			                 <p class="description">
-			                    
-			                     My selection in one of the top automotive distributors is all thanks to Cherryhire. My verified profile presented to the employer must have given an added impetus to the hiring manager which was very evident during the interview process. Thank you Cherryhire for your support
-			                 
-			                 </p>
-			                 <div class="pic">
-			                     <img src="https://dummyimage.com/50x50/c2c2c2/707070" alt="" class="responsive-img circle ">
-			                 </div>
-			                 <h3 class="testimonial-title">
-			                     <a href="#">Steve</a>
-			                     <small>Senior Manager - Automotive</small>
-			                 </h3>
-			             </div>
+
+						<?php foreach ($testimonial as $key => $value) { ?>
+						
+							<div class="testimonial">
+								<p class="description"><?php echo $value->ts_content ?></p>
+								<div class="pic">
+									<?php 
+										if(empty($value->ts_pic) || $value->ts_pic == NULL){
+											echo '<img src="https://dummyimage.com/50x50/c2c2c2/707070" alt="" class="responsive-img circle ">';
+										}else{
+											echo '<img src="'.$this->config->item('ad_url').$value->ts_pic.'" alt="" width="50px" height="50px" style="width:50px" class="responsive-img circle ">';
+										}
+									?>
+									
+								</div>
+								<h3 class="testimonial-title">
+									<a href="#"><?php echo $value->ts_name ?></a>
+									<small><?php echo $value->ts_desg ?></small>
+								</h3>
+							</div>
 			 
-			             <div class="testimonial">
-			                 <p class="description">
-			                     
-			                    All kudos to Cherryhire to fetch me my first job in Bahrain. I never imagined the process to be so simple and effective. Frankly, I thought that their process of Psychometric testing is a marketing gimmick. But, I got a call from an employer in a week’s time of taking the test, and was in Bahrain within a month, working now as PHP Developer.  
-			                 
-			                 </p>
-			                 <div class="pic">
-			                     <img src="https://dummyimage.com/50x50/c2c2c2/707070" alt="" class="responsive-img circle ">
-			                 </div>
-			                 <h3 class="testimonial-title">
-			                     <a href="#">Arjun</a>
-			                     <small>PHP Developer</small>
-			                 </h3>
-			             </div>
+						<?php } ?>
 			 
-			             <div class="testimonial">
-			                 <p class="description">
-			                    
-			                     My dream job to work on construction projects came true with help from Cherryhire. Now I am relaxed and my family also is very happy.
-			                 
-			                 </p>
-			                 <div class="pic">
-			                     <img src="https://dummyimage.com/50x50/c2c2c2/707070" alt="" class="responsive-img circle ">
-			                 </div>
-			                 <h3 class="testimonial-title">
-			                     <a href="#">Abdullah  </a>
-			                     <small>Site Engineer </small>
-			                 </h3>
-			             </div>
+			             
 			         </div>
 				</div>
 			</div>

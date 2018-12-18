@@ -131,10 +131,9 @@ class Site extends CI_Controller {
 		$this->data['metakey']	= 'HR Solutions, Cherry Hire, IPF';
 		$this->data['metadesc']	= 'Online recruitment software to post jobs free to online job portals, social media websites in one click,conduct video interviews and make hiring process fast';
 		$this->data['emid'] 	= 99;
-		// $this->load->view('common/header',$this->data);
-		// $this->load->view('common/home-menu',$this->data);
+		$this->data['testimonial'] = $this->sitemodel->getTestimonials();
 		$this->load->view('new/about',$this->data);
-		// $this->load->view('common/footer',$this->data);
+		
 	}
 	
 	/* Employer features page

@@ -172,7 +172,7 @@ class Jobportalmodel extends CI_Model {
     	$this->db->join ( 'ch_funarea', 'ch_funarea.fun_id = ch_jobs.job_farea' , 'left' );
     	$this->db->join ( 'enum_experience',   'enum_experience.exp_id = ch_jobs.job_max_exp' , 'left' );
     	$this->db->join ( 'ch_jobapply',       'ch_jobapply.job_id = ch_jobs.job_id' , 'left' );
-    	$this->db->join ( 'enum_industry',     'enum_industry.ind_id = ch_jobs.job_industry' , 'left' );
+    	$this->db->join ( 'ch_industry',     	'ch_industry.ind_name = ch_jobs.job_industry' , 'left' );
 
     	/************************ title filter *************************/
 		/*function area filtering */
@@ -244,8 +244,8 @@ class Jobportalmodel extends CI_Model {
 				$this->db->group_start();
 					$this->db->like('job_title', $jtitle);
 					$this->db->or_like('job_skills', $jtitle);
-					$this->db->or_like('jfun_display', $jtitle);
-					$this->db->or_like('ind_display', $jtitle);
+					$this->db->or_like('fun_name', $jtitle);
+					$this->db->or_like('ind_name', $jtitle);
 				$this->db->group_end();
 			}
     	// $this->db->where('ch_jobs.hire_status','success');

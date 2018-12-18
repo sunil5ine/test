@@ -458,5 +458,10 @@ class Sitemodel extends CI_Model {
 		return $this->db->get('ch_industry')->result(); 
 	}
 
+	public function getTestimonials()
+	{
+		return $this->db->where('status', 1)->get('ch_testimonial')->result();
+	}
+
 
 }
