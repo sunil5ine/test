@@ -50,7 +50,7 @@
 					</div>
 					<div class="col s12 m4">
 						<div class="right-align">
-							<h6><a href="#billing" class='blue-text billing modal-trigger'>View Billing History</a></h6>
+							<h6><a href="<?php echo base_url() ?>billing-history" class='blue-text billing '>View Billing History</a></h6>
 						</div>
 					</div>
 				</div><!-- end row -->

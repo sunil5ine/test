@@ -721,4 +721,19 @@ public function subdetails($subid)
 
 }
 
+/** Billings */
+public function getbills()
+{
+	$hid = $this->session->userdata('hireid');
+	$this->db->select('sub_id, sub_expire_dt, pr_name, pr_offer, peried, pr_limit, pr_cvno, exprence_level');	
+	$this->db->from('ch_emp_subscribe s');	
+	$this->db->where('emp_id', $hid);
+	$this->db->where('sub_type', '1');
+	$this->db->join('ch_pricing p', 'p.pr_encrypt_id = s.sub_packid', 'left');
+	return $this->db->get()->result();
+}
+
+
+
+
 }

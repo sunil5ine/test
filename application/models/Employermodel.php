@@ -117,10 +117,10 @@ class Employermodel extends CI_Model {
 			'emp_id'			=>$eid,
 			'sub_nojobs'		=>$data['pr_limit'],
 			'sub_nocv'			=>$data['pr_cvno'],
-			'sub_packid'		=>'0e1ea334ea26cbedb6df7e66e8c8015d',
-			'sub_ex_limits'		=>'6-8 years',
+			'sub_packid'		=>$data['pr_encrypt_id'],
+			'sub_ex_limits'		=>$data['exprence_level'],
 			'sub_expire_dt'		=>$expdate,
-			'sub_type'			=>1,
+			'sub_type'			=>0,
 			'sub_status'		=>1
 		);
 		

@@ -31,6 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['web_url']	= 'http://localhost/cherryhire1/';
 $config['base_url']    = "http://localhost/cherryhire1/hire/";
+$config['adm_url']    = "http://localhost/cherryhire1/adminpanel/";
 /*
 |--------------------------------------------------------------------------
 | Index File

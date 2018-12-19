@@ -115,6 +115,7 @@ $route['Candidate/Delete/(:any)']       = "candidate/delete_candidate/$1";
 $route['Apply/ViewProfile/(:any)']      = "candidate/apply_profile_details/$1";
 
 $route['Apply/ViewProfile/(:any)']      = "candidate/apply_profile_details/$1";
+$route['billing-history']               = "billing_history/index";
 
 $route['Logout']                        = "logout";
 $route['Login']                         = "login";
