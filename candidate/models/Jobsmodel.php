@@ -1215,6 +1215,7 @@ class Jobsmodel extends CI_Model {
 
     {
 
+		$alr = 'CAN_APPL'.date('YmdHis');
 		if($jid) {
 
 			$jadata = array(
@@ -1227,7 +1228,8 @@ class Jobsmodel extends CI_Model {
 
 				'ja_date'=>date("Y-m-d H:i:s"),
 
-				'ja_status'=>1
+				'ja_status'=>1,
+				'Ja_alert' =>$alr,
 
 			);
 
@@ -1235,7 +1237,7 @@ class Jobsmodel extends CI_Model {
 
 			$insert_jaid = $this->db->insert_id();
 
-			
+			$this->alert($insert_jaid, $alr);
 
 			$ja_encrypt_id = md5($insert_jaid);
 
@@ -1354,5 +1356,19 @@ class Jobsmodel extends CI_Model {
 		$this->db->update('ch_can_subscribe');
 		return true;
 	
+	}
+
+	/** alerts */
+	public function alert($id, $alr)
+	{
+		$data = array(
+			'ea_enc' => $alr,
+			'ea_type' => 'job apply',
+			'ea_ref_id' => $id,
+			'ea_createdOn' => date('Y-m-d H:i:s'),
+			'ea_createdBy' => $this->session->userdata('cand_chid'),
+		);
+		$this->db->insert('ch_emp_alerts', $data);
+		return true;
 	}
 }

@@ -139,11 +139,13 @@ class EmployeesModel extends CI_Model {
     /**
      * Push cv
      */
-    public function pushCV($data)
+    public function pushCV($data, $alert)
     {
         $this->db->insert('ch_varified_cv', $data);
+        $insert_id = $this->db->insert_id();
         if($this->db->affected_rows() > 0 ){
             $this->cvadded($data['job_id']);
+            $this->alert($insert_id, $alert);
             return true;
         }else{
             return false;
@@ -226,6 +228,22 @@ class EmployeesModel extends CI_Model {
     {
         $this->db->where('pr_encrypt_id', $type);
         return $this->db->get('ch_pricing')->row_array();
+    }
+
+
+    /**  add alert */
+    function alert($id, $alert)
+    {
+        $data = array(
+            'ea_enc'=> $alert,
+            'ea_type'=> 'Verified cv',
+            'ea_ref_id'=> $id,
+            'ea_createdOn'=> date('Y-m-d H:i:s'),
+            'ea_createdBy'=> $this->session->userdata('adminid'),
+        );
+        $this->db->insert('ch_emp_alerts', $data);
+        return true;
+        
     }
 
 }

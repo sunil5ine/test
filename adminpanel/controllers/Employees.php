@@ -66,7 +66,7 @@ class employees extends CI_Controller {
 
     /**
      * Reject employees
-     */
+    */
     public function reject($id)
     {
         if($this->employeesModel->delete_employee($id))
@@ -110,15 +110,17 @@ class employees extends CI_Controller {
     */
     public function pushCv(){
         $uqid = $this->input->post('uqid');
+        $alert = 'VRD_CV_'.date('YmdHis');
         $data = array(
             'job_id'        => $this->input->post('job'), 
             'emp_id'        => $this->input->post('empId'), 
             'can_id'        => $this->input->post('canId'), 
             'vc_des'        => $this->input->post('des'), 
+            'vc_alert'      => $alert, 
             'vc_createdBy'  => $this->session->userdata('adminid'), 
         );
         
-       if($this->employeesModel->pushCV($data))       {
+       if($this->employeesModel->pushCV($data, $alert))       {
             $this->session->set_flashdata('messeg', '<div id="snackbar" class="green"><a class="close-tost ">X</a><p>Successfully verified CV submited</p></div>');
             redirect('employees/posted-jobs/'.$uqid,'refresh');
             

@@ -524,7 +524,6 @@ class Jobs extends CI_Controller {
 
 			$JobResult = $this->jobsmodel->get_single_record($jid);
 			
-			
 			if(empty($JobResult)) { redirect($this->config->base_url().'MyJobs/?Process=Apply&app=2&Stat=Failed101'); }
 
 			$this->session->set_flashdata('jobtitle', $JobResult['job_title']);
@@ -537,7 +536,7 @@ class Jobs extends CI_Controller {
 			$notify_result = $this->apply_notify($jid, $result);	
 
 			$this->applymail($this->session->userdata('cand_chid'), $jid, $JobResult['job_title']);
-exit;
+
 			redirect($this->config->base_url().'applied-jobs/?Process=Apply&app=1&Stat=Success');
 
 		}
