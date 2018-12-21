@@ -16,27 +16,36 @@ class alerts
 
     public function get_alerts()
     {
+        $newarry = array();
+        $alert = array();
         $id = $this->ci->session->userdata('hireid');
         if($this->ci->session->userdata('hireid')) {  
             $this->ci->load->database();
             /** alerts */
             $alert[] = $this->alerts($id);
             $alert[] = $this->subscribe($id);
-            foreach ($alert as $row) {
-                if (!empty($row)) {
-                    foreach ($row as $key => $value) {
-                        $newarry[] = $value;  
-                    }
             
+            
+                foreach ($alert as $row) {
+                    if (!empty($row)) {
+                        foreach ($row as $key => $value) {
+                            $newarry[] = $value;  
+                        }
+                
+                    }
+                }
+                if($newarry){
+
+                    foreach ($newarry as $nkey => $nvalue) {
+                        $filterd[$nkey] = $nvalue->date;
+
+                    }
+                
+                array_multisort($filterd, SORT_DESC, $newarry);
+                return $alerts = $newarry;
                 }
             }
-            foreach ($newarry as $nkey => $nvalue) {
-                $filterd[$nkey] = $nvalue->date;
-
-            }
-            array_multisort($filterd, SORT_DESC, $newarry);
-            return $alerts = $newarry;
-        }
+        
     }
 
 

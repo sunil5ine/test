@@ -60,6 +60,14 @@ $alert = $this->alerts->get_alerts();
 	  </nav>
 	</div>
 
+	<?php 
+	
+	echo "<pre>";
+	print_r ($alert);
+	echo "</pre>";
+	
+	?>
+
 	<ul id='alert' class='dropdown-content' style="min-width: 300px">
 
 			<?php 
@@ -69,8 +77,8 @@ $alert = $this->alerts->get_alerts();
 			while ($i <= $j) { 
 				if(!empty($alert[$i]->name) == 'Package expiry'){
 					$link = base_url('Subscriptions');
-				}elseif(!empty($alert[$i]->name) == 'verified_cv'){
-					$link = '#!';
+				}elseif(!empty($alert[$i]->ea_enc) == 'verified_cv'){
+					$link = base_url('alert/').$alert[$i]->ea_enc;
 				}else{
 					$link = '#!';
 				}
@@ -79,22 +87,23 @@ $alert = $this->alerts->get_alerts();
 				
 				<li>
 					 	<a href="<?php echo $link ?>">
-							 <?php
-							 		if(!empty($alert[$i]->ea_type)){
-										echo '<p class="bold font-15 m0">'.$alert[$i]->ea_type.'</p>';
-									}elseif(!empty($alert[$i]->name)){
-										echo '<p class="bold font-15 m0">'.$alert[$i]->name.'</p>';
-									}
+							<?php
+								if(!empty($alert[$i]->ea_type)){
+									echo '<p class="bold font-15 m0">'.$alert[$i]->ea_type.'</p>';
+								}elseif(!empty($alert[$i]->name)){
+									echo '<p class="bold font-15 m0">'.$alert[$i]->name.'</p>';
+								}
 
-									if(!empty($alert[$i]->name) == 'Package expiry'){
-										echo '<p class="font-15 m0">'.$alert[$i]->pr_name.' <span class="right alert-span"> '. $alert[$i]->days.'</span></p>';
-									}elseif(!empty($alert[$i]->ea_type) == 'job apply'){
-										echo '<p class="font-15 m0">'.$alert[$i]->job_title.'</p>';
-									}else{
-										echo '<p class="font-15 m0">'.$alert[$i]->job_title.'</p>';
-									}
-									echo '<span class="right alert-span">'.date('d-m-Y',strtotime($alert[$i]->date)).'</span>'
-							 ?>
+								if(!empty($alert[$i]->name) == 'Package expiry'){
+									echo '<p class="font-15 m0">'.$alert[$i]->pr_name.' <span class="right alert-span"> '. $alert[$i]->days.'</span></p>';
+								}elseif(!empty($alert[$i]->ea_type) == 'job apply'){
+									echo '<p class="font-15 m0">'.$alert[$i]->job_title.'</p>';
+								}else{
+									echo '<p class="font-15 m0">'.$alert[$i]->job_title.'</p>';
+								}
+								
+								echo '<span class="right alert-span">'.date('d-m-Y',strtotime($alert[$i]->date)).'</span>'
+							?>
 						</a>
 					</li>
 			<?php $i += 1; } ?>			
