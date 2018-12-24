@@ -528,7 +528,7 @@ class Jobs extends CI_Controller {
 
 			$this->session->set_flashdata('jobtitle', $JobResult['job_title']);
 
-			$result = $this->jobsmodel->applyjob($JobResult['job_id']);
+			$result = $this->jobsmodel->applyjob($JobResult['job_id'],$JobResult['emp_id']);
 			$this->jobsmodel->dcrjobs_count($this->session->userdata('cand_chid'));
 			
 			if($result == '0') { redirect($this->config->base_url().'MyJobs/?Process=Apply&app=2&Stat=Failed102'); }

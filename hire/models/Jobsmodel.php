@@ -40,7 +40,7 @@ class Jobsmodel extends CI_Model {
 		$this->table_emp 			= 'ch_employer';
 		$this->table_job 			= 'ch_jobs';
 		$this->table_country 		= 'ch_country';
-		$this->table_farea 			= 'enum_job_function';
+		$this->table_farea 			= 'ch_funarea';
 		$this->table_edu 			= 'enum_degree_type';
 		$this->table_edu_spec 		= 'ch_edu_spec';
 		$this->table_ind 			= 'enum_industry';
@@ -96,7 +96,7 @@ class Jobsmodel extends CI_Model {
 		
 		if($jtitle != '') {
 			$jtitle = $this->db->escape('%'.$jtitle.'%');
-			$where1 = " AND (c.can_curr_desig LIKE ".$jtitle." OR c.can_skills LIKE ".$jtitle." OR f.jfun_display LIKE ".$jtitle." OR ind.ind_display LIKE ".$jtitle." OR jr.jrole_display LIKE ".$jtitle.")";
+			$where1 = " AND (c.can_curr_desig LIKE ".$jtitle." OR c.can_skills LIKE ".$jtitle." OR f.fun_name LIKE ".$jtitle." OR ind.ind_display LIKE ".$jtitle." OR jr.jrole_display LIKE ".$jtitle.")";
 		}		
 		
 		if($minexp == '') {
@@ -168,7 +168,7 @@ class Jobsmodel extends CI_Model {
 			$where10 = " AND c.edu_id = ".$edu;
 		}
 		
-		$query=$this->db->query("select c.can_id, c.can_fname, c.can_lname, c.can_email, e.deg_type_display, f.jfun_display, ind.ind_display, jr.jrole_display from ".$this->table_candidate." c left join ".$this->table_ind." ind on ind.ind_id = c.ind_id left join ".$this->table_farea." f on f.jfun_id = c.fun_id left join ".$this->table_jrole." jr on jr.jrole_id = c.jr_id left join ".$this->table_edu." e on e.deg_type_id = c.edu_id where c.can_alert=1 and c.can_status=1 ".$where1.$where2.$where3.$where4.$where5.$where6.$where7.$where8.$where10.$where9." order by c.can_id asc");	
+		$query=$this->db->query("select c.can_id, c.can_fname, c.can_lname, c.can_email, e.deg_type_display, f.fun_name as jfun_display, ind.ind_display, jr.jrole_display from ".$this->table_candidate." c left join ".$this->table_ind." ind on ind.ind_id = c.ind_id left join ".$this->table_farea." f on f.fun_id = c.fun_id left join ".$this->table_jrole." jr on jr.jrole_id = c.jr_id left join ".$this->table_edu." e on e.deg_type_id = c.edu_id where c.can_alert=1 and c.can_status=1 ".$where1.$where2.$where3.$where4.$where5.$where6.$where7.$where8.$where10.$where9." order by c.can_id asc");	
 		
 		if ($query->num_rows() > 0)
 		{
@@ -183,7 +183,7 @@ class Jobsmodel extends CI_Model {
 	
 	public function get_cand_record($jid=null)
     {	
-       	$query=$this->db->query("select a.can_id, a.ja_source, a.ja_date, c.can_id, c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_hash, c.can_dob, c.can_gender, c.can_experience, c.can_curr_company, c.can_curr_loc, c.can_skills, c.can_pref_loc, c.can_curr_desig, c.can_alert, c.can_propic, c.edu_id, c.co_id, c.fun_id, c.ind_id, c.can_relocate, c.can_reg_date, c.can_upd_date, co.co_name, co.co_nationality, e.deg_type_sdisplay as edu_name, f.jfun_display as fun_name, cv.cv_headline, cv.cv_path, cv.cv_cletter, sm.sm_linkdin, sm.sm_fb, sm.sm_tw, sm.sm_gp, sum.csum_details, ind.ind_display, s.cvs_name from ".$this->table_apply." a left join ".$this->table_candidate." c on c.can_id=a.can_id left join ".$this->table_country." co on co.co_id = c.co_id left join ".$this->table_edu." e on e.deg_type_id = c.edu_id left join ".$this->table_farea." f on f.jfun_id = c.fun_id left join ".$this->table_cv." cv on cv.can_id = c.can_id  left join ".$this->table_smedia." sm on sm.can_id = c.can_id left join ".$this->table_can_summary." sum on sum.can_id = c.can_id left join ".$this->table_ind." ind on ind.ind_id = c.ind_id left join ".$this->table_cvsource." s on s.cvs_id = a.ja_source where a.job_id=".$jid." order by c.can_fname asc");
+       	$query=$this->db->query("select a.can_id, a.ja_source, a.ja_date, c.can_id, c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_hash, c.can_dob, c.can_gender, c.can_experience, c.can_curr_company, c.can_curr_loc, c.can_skills, c.can_pref_loc, c.can_curr_desig, c.can_alert, c.can_propic, c.edu_id, c.co_id, c.fun_id, c.ind_id, c.can_relocate, c.can_reg_date, c.can_upd_date, co.co_name, co.co_nationality, e.deg_type_sdisplay as edu_name, f.fun_name as fun_name, cv.cv_headline, cv.cv_path, cv.cv_cletter, sm.sm_linkdin, sm.sm_fb, sm.sm_tw, sm.sm_gp, sum.csum_details, ind.ind_display, s.cvs_name from ".$this->table_apply." a left join ".$this->table_candidate." c on c.can_id=a.can_id left join ".$this->table_country." co on co.co_id = c.co_id left join ".$this->table_edu." e on e.deg_type_id = c.edu_id left join ".$this->table_farea." f on f.fun_id = c.fun_id left join ".$this->table_cv." cv on cv.can_id = c.can_id  left join ".$this->table_smedia." sm on sm.can_id = c.can_id left join ".$this->table_can_summary." sum on sum.can_id = c.can_id left join ".$this->table_ind." ind on ind.ind_id = c.ind_id left join ".$this->table_cvsource." s on s.cvs_id = a.ja_source where a.job_id=".$jid." order by c.can_fname asc");
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $row) {
@@ -196,7 +196,7 @@ class Jobsmodel extends CI_Model {
 	
 	public function get_can_single_record($cid=null)
 	{
-		$query = $this->db->query("select c.can_id, c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_hash, c.can_dob, c.can_gender, c.can_experience, c.can_curr_company, c.can_curr_loc, c.can_skills, c.can_pref_loc, c.can_curr_desig, c.can_alert, c.can_propic, c.edu_id, c.co_id, c.fun_id, c.ind_id, c.can_relocate, c.can_reg_date, c.can_upd_date, co.co_name, co.co_nationality, e.deg_type_sdisplay as edu_name, f.jfun_display as fun_name, cv.cv_headline, cv.cv_path, cv.cv_cletter, sm.sm_linkdin, sm.sm_fb, sm.sm_tw, sm.sm_gp, sum.csum_details, ind.ind_display from ".$this->table_candidate." c left join ".$this->table_country." co on co.co_id = c.co_id left join ".$this->table_edu." e on e.deg_type_id = c.edu_id left join ".$this->table_farea." f on f.jfun_id = c.fun_id left join ".$this->table_cv." cv on cv.can_id = c.can_id  left join ".$this->table_smedia." sm on sm.can_id = c.can_id left join ".$this->table_can_summary." sum on sum.can_id = c.can_id left join ".$this->table_ind." ind on ind.ind_id = c.ind_id where c.can_id=".$cid);
+		$query = $this->db->query("select c.can_id, c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_hash, c.can_dob, c.can_gender, c.can_experience, c.can_curr_company, c.can_curr_loc, c.can_skills, c.can_pref_loc, c.can_curr_desig, c.can_alert, c.can_propic, c.edu_id, c.co_id, c.fun_id, c.ind_id, c.can_relocate, c.can_reg_date, c.can_upd_date, co.co_name, co.co_nationality, e.deg_type_sdisplay as edu_name, f.fun_name as fun_name, cv.cv_headline, cv.cv_path, cv.cv_cletter, sm.sm_linkdin, sm.sm_fb, sm.sm_tw, sm.sm_gp, sum.csum_details, ind.ind_display from ".$this->table_candidate." c left join ".$this->table_country." co on co.co_id = c.co_id left join ".$this->table_edu." e on e.deg_type_id = c.edu_id left join ".$this->table_farea." f on f.fun_id = c.fun_id left join ".$this->table_cv." cv on cv.can_id = c.can_id  left join ".$this->table_smedia." sm on sm.can_id = c.can_id left join ".$this->table_can_summary." sum on sum.can_id = c.can_id left join ".$this->table_ind." ind on ind.ind_id = c.ind_id where c.can_id=".$cid);
 		return $query->row_array();
 	}
 
@@ -221,7 +221,7 @@ class Jobsmodel extends CI_Model {
 	public function get_record()
     {	
        	$query=$this->db->query("select j.job_id, 
-       		j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_created_by, j.job_updated_dt, j.job_status, e.deg_type_display, f.jfun_display, ind.ind_display, jr.jrole_display, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, miexp.exp_display as minexp, maexp.exp_display as maxexp, (select count(ja.ja_id) from ".$this->table_apply." ja where ja.job_id=j.job_id) as job_applycount from ".$this->table_job." j left join ".$this->table_ind." ind on ind.ind_id = j.job_industry left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.jfun_id = j.job_farea left join ".$this->table_jrole." jr on jr.jrole_id = j.job_role left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_status!=0 and j.job_created_by = ".$this->session->userdata('hireid')." order by j.job_id desc");
+       		j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_created_by, j.job_updated_dt, j.job_status, e.deg_type_display, f.fun_name as jfun_display, ind.ind_display, jr.jrole_display, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, miexp.exp_display as minexp, maexp.exp_display as maxexp, (select count(ja.ja_id) from ".$this->table_apply." ja where ja.job_id=j.job_id) as job_applycount from ".$this->table_job." j left join ".$this->table_ind." ind on ind.ind_id = j.job_industry left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_jrole." jr on jr.jrole_id = j.job_role left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_status!=0 and j.job_created_by = ".$this->session->userdata('hireid')." order by j.job_id desc");
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $row) {
 				$data[] = $row;
@@ -233,7 +233,7 @@ class Jobsmodel extends CI_Model {
 
     public function get_record_bydate($startDate,$endDate)
     {	
-       	$query=$this->db->query("select j.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_created_by, j.job_updated_dt, j.job_status, e.deg_type_display, f.jfun_display, ind.ind_display, jr.jrole_display, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, miexp.exp_display as minexp, maexp.exp_display as maxexp, (select count(ja.ja_id) from ".$this->table_apply." ja where ja.job_id=j.job_id) as job_applycount from ".$this->table_job." j left join ".$this->table_ind." ind on ind.ind_id = j.job_industry left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.jfun_id = j.job_farea left join ".$this->table_jrole." jr on jr.jrole_id = j.job_role left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by
+       	$query=$this->db->query("select j.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_created_by, j.job_updated_dt, j.job_status, e.deg_type_display, f.fun_name as jfun_display, ind.ind_display, jr.jrole_display, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, miexp.exp_display as minexp, maexp.exp_display as maxexp, (select count(ja.ja_id) from ".$this->table_apply." ja where ja.job_id=j.job_id) as job_applycount from ".$this->table_job." j left join ".$this->table_ind." ind on ind.ind_id = j.job_industry left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_jrole." jr on jr.jrole_id = j.job_role left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by
 			where j.job_created_dt >= '".$startDate."' and j.job_created_dt <= '".$endDate."' and 
 
        	  j.job_status!=0 and j.job_created_by = ".$this->session->userdata('hireid')." order by j.job_id desc");
@@ -250,7 +250,7 @@ class Jobsmodel extends CI_Model {
 
     public function getclose_record_bydate($startDate,$endDate)
     {
-    	$query = $this->db->query("select j.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_created_by, j.job_updated_dt, j.job_status, e.deg_type_display, f.jfun_display, ind.ind_display, jr.jrole_display, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, miexp.exp_display as minexp, maexp.exp_display as maxexp from ".$this->table_job." j left join ".$this->table_ind." ind on ind.ind_id = j.job_industry left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.jfun_id = j.job_farea left join ".$this->table_jrole." jr on jr.jrole_id = j.job_role left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_created_dt >= '".$startDate."' and j.job_created_dt <= '".$endDate."' and j.job_status!=1 and j.job_created_by = ".$this->session->userdata('hireid')." order by j.job_id desc");
+    	$query = $this->db->query("select j.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_created_by, j.job_updated_dt, j.job_status, e.deg_type_display, f.fun_name as jfun_display, ind.ind_display, jr.jrole_display, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, miexp.exp_display as minexp, maexp.exp_display as maxexp from ".$this->table_job." j left join ".$this->table_ind." ind on ind.ind_id = j.job_industry left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_jrole." jr on jr.jrole_id = j.job_role left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_created_dt >= '".$startDate."' and j.job_created_dt <= '".$endDate."' and j.job_status!=1 and j.job_created_by = ".$this->session->userdata('hireid')." order by j.job_id desc");
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $row) {
@@ -263,7 +263,7 @@ class Jobsmodel extends CI_Model {
 	
 	public function get_exp_record()
     {	
-       	$query = $this->db->query("select j.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_created_by, j.job_updated_dt, j.job_status, e.deg_type_display, f.jfun_display, ind.ind_display, jr.jrole_display, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, miexp.exp_display as minexp, maexp.exp_display as maxexp from ".$this->table_job." j left join ".$this->table_ind." ind on ind.ind_id = j.job_industry left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.jfun_id = j.job_farea left join ".$this->table_jrole." jr on jr.jrole_id = j.job_role left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_status!=1 and j.job_created_by = ".$this->session->userdata('hireid')." order by j.job_id desc");
+       	$query = $this->db->query("select j.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_created_by, j.job_updated_dt, j.job_status, e.deg_type_display, f.fun_name as jfun_display, ind.ind_display, jr.jrole_display, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, miexp.exp_display as minexp, maexp.exp_display as maxexp from ".$this->table_job." j left join ".$this->table_ind." ind on ind.ind_id = j.job_industry left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_jrole." jr on jr.jrole_id = j.job_role left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_status!=1 and j.job_created_by = ".$this->session->userdata('hireid')." order by j.job_id desc");
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $row) {
@@ -422,7 +422,7 @@ class Jobsmodel extends CI_Model {
 
 	public function createreq($jobid=null)
 	{
-		$query = $this->db->query("select j.job_id, j.job_title, j.job_location, j.job_min_sal, j.job_max_sal, j.job_skills, j.job_industry, j.job_role, j.job_company, e.deg_type_display, f.jfun_hireid, f.jfun_display, miexp.exp_value as minexp, maexp.exp_value as maxexp from ".$this->table_job." j left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.jfun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp where j.job_status!=0  and j.job_url_id='".$jobid."' and j.job_created_by = ".$this->session->userdata('hireid'));
+		$query = $this->db->query("select j.job_id, j.job_title, j.job_location, j.job_min_sal, j.job_max_sal, j.job_skills, j.job_industry, j.job_role, j.job_company, e.deg_type_display, f.jfun_hireid, f.fun_name as jfun_display, miexp.exp_value as minexp, maexp.exp_value as maxexp from ".$this->table_job." j left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp where j.job_status!=0  and j.job_url_id='".$jobid."' and j.job_created_by = ".$this->session->userdata('hireid'));
 		$result 		= $query->row_array();
 		$skill_list 	= array();
 		$jobtitle 		= $result['job_title'];
@@ -501,8 +501,8 @@ class Jobsmodel extends CI_Model {
 		if($co_hire_name != '') {
 			$xml .= '<p name="m_country.v" disp="'.$co_hire_name.'" oper="eq" acceptmissing="false">'.$co_hire_id.'</p>';
 		}
-		if($result['jfun_display']) {
-			$xml .= '<p name="jobFunctions.v" disp="'.$result['jfun_display'].'" oper="eq" acceptmissing="false">'.$result['jfun_hireid'].'</p>';
+		if($result['fun_name']) {
+			$xml .= '<p name="jobFunctions.v" disp="'.$result['fun_name'].'" oper="eq" acceptmissing="false">'.$result['jfun_hireid'].'</p>';
 		}
 		$xml .= '</need>';
 
@@ -637,7 +637,7 @@ class Jobsmodel extends CI_Model {
 
 	public function get_single_record($jid=null)
 	{
-		$query=$this->db->query("select j.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_updated_dt, j.job_created_by, j.job_notifyemail, j.job_site, j.job_notes, j.job_status, e.deg_type_display as edu_name, f.jfun_display as fun_name, miexp.exp_display as minexp, maexp.exp_display as maxexp, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, emp.emp_desc, emp.emp_email  from ".$this->table_job." j left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.jfun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_url_id='".$jid."' and j.job_created_by = ".$this->session->userdata('hireid'));
+		$query=$this->db->query("select j.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_updated_dt, j.job_created_by, j.job_notifyemail, j.job_site, j.job_notes, j.job_status, e.deg_type_display as edu_name, f.fun_name as fun_name, miexp.exp_display as minexp, maexp.exp_display as maxexp, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, emp.emp_desc, emp.emp_email  from ".$this->table_job." j left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_url_id='".$jid."' and j.job_created_by = ".$this->session->userdata('hireid'));
 		
 		return $query->row_array();
 	}
@@ -801,11 +801,11 @@ class Jobsmodel extends CI_Model {
 	
 	public function get_farea()
     {	
-       	$query = $this->db->query("select jfun_id, jfun_display from ".$this->table_farea." order by jfun_display asc");
+       	$query = $this->db->query("select fun_id as jfun_id, fun_name from ".$this->table_farea." order by fun_name asc");
 		$fun_list = $query->result();
 		$dropDownList['']='Functional Area';
 		foreach ($fun_list as $dropdown) {
-			$dropDownList[$dropdown->jfun_id] = $dropdown->jfun_display;
+			$dropDownList[$dropdown->jfun_id] = $dropdown->fun_name;
 		}
 		return $dropDownList;
     }
@@ -1024,7 +1024,7 @@ class Jobsmodel extends CI_Model {
 
 	public function simplyjobxml()
 	{
-		$query=$this->db->query("select jp.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_updated_dt, j.job_created_by, j.job_notifyemail, j.job_site, j.job_notes, j.job_status, e.deg_type_display as edu_name, f.jfun_display as fun_name, miexp.exp_display as minexp, maexp.exp_display as maxexp, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, emp.emp_desc, emp.emp_email  from ".$this->table_jpost." jp left join ".$this->table_job." j on j.job_id=jp.job_id left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.jfun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_status=1 and jp.jp_id=4");
+		$query=$this->db->query("select jp.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_updated_dt, j.job_created_by, j.job_notifyemail, j.job_site, j.job_notes, j.job_status, e.deg_type_display as edu_name, f.fun_name as fun_name, miexp.exp_display as minexp, maexp.exp_display as maxexp, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, emp.emp_desc, emp.emp_email  from ".$this->table_jpost." jp left join ".$this->table_job." j on j.job_id=jp.job_id left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_status=1 and jp.jp_id=4");
 
 		$dom = new DOMDocument('1.0','UTF-8');
 		$dom->formatOutput = true;
@@ -1127,7 +1127,7 @@ class Jobsmodel extends CI_Model {
 	
 	public function jooblejobxml()
 	{
-		$query=$this->db->query("select jp.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_updated_dt, j.job_created_by, j.job_notifyemail, j.job_site, j.job_notes, j.job_status, e.deg_type_display as edu_name, f.jfun_display as fun_name, miexp.exp_display as minexp, maexp.exp_display as maxexp, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, emp.emp_desc, emp.emp_email  from ".$this->table_jpost." jp left join ".$this->table_job." j on j.job_id=jp.job_id left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.jfun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_status=1 and jp.jp_id=4");
+		$query=$this->db->query("select jp.job_id, j.hire_jobid, j.job_url_id, j.job_title, j.job_location, j.job_min_exp, j.job_max_exp, j.job_min_sal, j.job_max_sal, j.job_industry, j.job_farea, j.job_role, j.job_edu, j.job_edu_spec, j.job_skills, j.job_company, j.job_desc, j.job_type, j.job_noprofiles, j.job_created_dt, j.job_updated_dt, j.job_created_by, j.job_notifyemail, j.job_site, j.job_notes, j.job_status, e.deg_type_display as edu_name, f.fun_name as fun_name, miexp.exp_display as minexp, maexp.exp_display as maxexp, emp.emp_comp_name, emp.emp_fname, emp.emp_jobportal, emp.emp_desc, emp.emp_email  from ".$this->table_jpost." jp left join ".$this->table_job." j on j.job_id=jp.job_id left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp left join ".$this->table_emp." emp on emp.emp_id = j.job_created_by where j.job_status=1 and jp.jp_id=4");
 		
 		$dom = new DOMDocument('1.0','UTF-8');
 		$dom->formatOutput = true;
@@ -1270,14 +1270,14 @@ function verified_cv($id)
 		ch.cv_path,
 		ch.cv_headline,
 		cv_id,
-		f.jfun_display as fun_name, 
+		f.fun_name as fun_name, 
 		j.job_url_id, j.job_title, 
 		j.job_location
 		 from ch_varified_cv a left join 
 		".$this->table_candidate." c on c.can_id=a.can_id left join 
 		".$this->table_country." co on co.co_id = c.co_id left join 
 		ch_cv ch on ch.can_id = c.can_id left join
-		".$this->table_farea." f on f.jfun_id = c.fun_id left join ch_jobs j on j.job_id=a.job_id left join 
+		".$this->table_farea." f on f.fun_id = c.fun_id left join ch_jobs j on j.job_id=a.job_id left join 
 		".$this->table_emp." emp on emp.emp_id=j.job_created_by where c.can_status=1 and emp.emp_id=".$this->session->userdata('hireid')."  order by can_id desc ");
 
 	if ($query->num_rows() > 0) {
@@ -1341,13 +1341,13 @@ function getindustry()
 */
 Function verified_cvs($jid)
 {
-	$this->db->select('c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_experience, c.can_curr_desig, c.can_curr_loc, c.can_upd_date, co.co_name, ch.cv_path, ch.cv_headline, cv_id, f.jfun_display as fun_name, j.job_url_id, j.job_title, j.job_location');
+	$this->db->select('c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_experience, c.can_curr_desig, c.can_curr_loc, c.can_upd_date, co.co_name, ch.cv_path, ch.cv_headline, cv_id, f.fun_name as fun_name, j.job_url_id, j.job_title, j.job_location');
 	$this->db->where('job_url_id', $jid);
 	$this->db->from('ch_jobs j');
 	$this->db->join('ch_varified_cv cv', 'cv.job_id = j.job_id', 'left');
 	$this->db->join('ch_candidate c', 'c.can_id = cv.can_id', 'left');
 	$this->db->join($this->table_country.' co',  ' co.co_id = c.co_id', 'left');
-	$this->db->join($this->table_farea.' f',  ' f.jfun_id = c.fun_id', 'left');
+	$this->db->join($this->table_farea.' f',  ' f.fun_id = c.fun_id', 'left');
 	$this->db->join('ch_cv  ch',  ' ch.can_id = c.can_id', 'left');
 	$query = $this->db->get();	
 	return $query->result();
@@ -1358,7 +1358,7 @@ Function verified_cvs($jid)
  */
 public function applications($jid)
 {
-	$this->db->select('c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_experience, c.can_curr_desig, c.can_curr_loc, c.can_upd_date, co.co_name, ch.cv_path, ch.cv_headline, cv_id, f.jfun_display as fun_name, j.job_url_id, j.job_title, j.job_location');
+	$this->db->select('c.can_encrypt_id, c.can_fname, c.can_lname, c.can_ccode, c.can_phone, c.can_email, c.can_experience, c.can_curr_desig, c.can_curr_loc, c.can_upd_date, co.co_name, ch.cv_path, ch.cv_headline, cv_id, f.fun_name as fun_name, j.job_url_id, j.job_title, j.job_location');
 	$this->db->from('ch_jobapply a');
 	$this->db->where('job_url_id', $jid);
 	$this->db->distinct('ch.can_id');
@@ -1366,7 +1366,7 @@ public function applications($jid)
 	$this->db->join('ch_jobs j', 'j.job_id = a.job_id', 'left');
 	$this->db->join('ch_candidate c', 'c.can_id = a.can_id', 'left');
 	$this->db->join($this->table_country.' co',  ' co.co_id = c.co_id', 'left');
-	$this->db->join($this->table_farea.' f',  ' f.jfun_id = c.fun_id', 'left');
+	$this->db->join($this->table_farea.' f',  ' f.fun_id = c.fun_id', 'left');
 	$this->db->join('ch_cv  ch',  ' a.can_id = ch.can_id', 'left');
 	return $this->db->get()->result(); 
 }

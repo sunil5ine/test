@@ -26,6 +26,7 @@
 
                   <div class="col m12 s12 l9">
                      <p class="h5-para black-text  mtb-20">Manage Candidates</p>
+          
                      <div class="card">
                         <!-- shorting -->
                         <div class="z-depth-1 card-content">
@@ -35,6 +36,7 @@
                                  <table  class="striped" id="dynamic"  >
                                     <thead>
                                        <tr>
+                                          <th  class="h5-para-p2">Id</th>
                                           <th  class="h5-para-p2">Candidate Name</th>
                                           <th class="h5-para-p2">Email ID</th>
                                           <th  class="h5-para-p2">Designation</th>
@@ -53,6 +55,7 @@
                                        
                                        foreach ($candidate as $key => $val) { ?>
                                           <tr>
+                                             <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->can_id ?></a></td>
                                              <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->can_fname. ' '. $val->can_lname ?></a></td>
                                              <td class="td-a"><a href="mailto:<?php echo $val->can_email ?>"><?php echo $val->can_email ?></a></td>
                                              <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->co_nationality ?></a></td>

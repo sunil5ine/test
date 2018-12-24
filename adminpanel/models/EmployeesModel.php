@@ -145,7 +145,7 @@ class EmployeesModel extends CI_Model {
         $insert_id = $this->db->insert_id();
         if($this->db->affected_rows() > 0 ){
             $this->cvadded($data['job_id']);
-            $this->alert($insert_id, $alert);
+            $this->alert($data['emp_id'],$insert_id, $alert);
             return true;
         }else{
             return false;
@@ -232,14 +232,14 @@ class EmployeesModel extends CI_Model {
 
 
     /**  add alert */
-    function alert($id, $alert)
+    function alert($emp,$id, $alert)
     {
         $data = array(
             'ea_enc'=> $alert,
             'ea_type'=> 'Verified cv',
             'ea_ref_id'=> $id,
             'ea_createdOn'=> date('Y-m-d H:i:s'),
-            'ea_createdBy'=> $this->session->userdata('adminid'),
+            'ea_createdBy'=> $emp,
         );
         $this->db->insert('ch_emp_alerts', $data);
         return true;

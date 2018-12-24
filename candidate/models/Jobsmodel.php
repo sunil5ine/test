@@ -704,6 +704,7 @@ class Jobsmodel extends CI_Model {
 		emp.emp_fname, 
 		emp.emp_jobportal, 
 		emp.emp_desc, 
+		emp.emp_id,
 		emp.emp_email, 
 		(select count(ja.ja_id) from ".$this->table_apply." ja where ja.job_id=j.job_id and 
 		ja.can_id=".$this->session->userdata('cand_chid').") as job_applycount  
@@ -1211,7 +1212,7 @@ class Jobsmodel extends CI_Model {
 
     
 
-	public function applyjob($jid=null)
+	public function applyjob($jid=null, $empid = null)
 
     {
 
@@ -1237,7 +1238,7 @@ class Jobsmodel extends CI_Model {
 
 			$insert_jaid = $this->db->insert_id();
 
-			$this->alert($insert_jaid, $alr);
+			$this->alert($insert_jaid, $alr, $empid);
 
 			$ja_encrypt_id = md5($insert_jaid);
 
@@ -1359,14 +1360,14 @@ class Jobsmodel extends CI_Model {
 	}
 
 	/** alerts */
-	public function alert($id, $alr)
+	public function alert($id, $alr, $empid)
 	{
 		$data = array(
 			'ea_enc' => $alr,
 			'ea_type' => 'job apply',
 			'ea_ref_id' => $id,
 			'ea_createdOn' => date('Y-m-d H:i:s'),
-			'ea_createdBy' => $this->session->userdata('cand_chid'),
+			'ea_createdBy' => $empid,
 		);
 		$this->db->insert('ch_emp_alerts', $data);
 		return true;

@@ -34,7 +34,7 @@ $alert = $this->alerts->get_alerts();
 		  		<li><a href="<?php echo base_url()?>Subscriptions" class="waves-effect bold">Pricing</a></li>
 		  		<li>|</li>
 		  		<li>
-						<a href="<?php echo base_url()?>notification" class="waves-effect dropdown-trigger bold" data-target='alert'>
+						<a  class="waves-effect dropdown-trigger bold" data-target='alert'>
 							<i class="tiny material-icons left">notifications_none</i>
 							<?php if(count($alert) > 0){echo '<span class="new badge brand">'.count($alert).'</span>'; } ?>
 						</a>
@@ -60,53 +60,53 @@ $alert = $this->alerts->get_alerts();
 	  </nav>
 	</div>
 
-	<?php 
-	
-	echo "<pre>";
-	print_r ($alert);
-	echo "</pre>";
-	
-	?>
-
 	<ul id='alert' class='dropdown-content' style="min-width: 300px">
 
 			<?php 
 			$i = 0; 
-			if(count($alert) >= 5){$j = 5;}
+			if(count($alert) >= 5){$j = 4;}
 			elseif(count($alert) < 5){$j = count($alert)-1;}
 			while ($i <= $j) { 
 				if(!empty($alert[$i]->name) == 'Package expiry'){
-					$link = base_url('Subscriptions');
+					$link = base_url('alert/').$alert[$i]->ea_enc;
 				}elseif(!empty($alert[$i]->ea_enc) == 'verified_cv'){
 					$link = base_url('alert/').$alert[$i]->ea_enc;
 				}else{
 					$link = '#!';
 				}
 			?>
-					 
-				
 				<li>
 					 	<a href="<?php echo $link ?>">
 							<?php
 								if(!empty($alert[$i]->ea_type)){
 									echo '<p class="bold font-15 m0">'.$alert[$i]->ea_type.'</p>';
 								}elseif(!empty($alert[$i]->name)){
-									echo '<p class="bold font-15 m0">'.$alert[$i]->name.'</p>';
+									echo '<p class="bold font-15 m0">'.$alert[$i]->name.' on - '.date('d M Y',strtotime($alert[$i]->date)).'</p>';
 								}
 
 								if(!empty($alert[$i]->name) == 'Package expiry'){
-									echo '<p class="font-15 m0">'.$alert[$i]->pr_name.' <span class="right alert-span"> '. $alert[$i]->days.'</span></p>';
+									echo '<p class="font-15 m0">'.$alert[$i]->pr_name.'</p>';
 								}elseif(!empty($alert[$i]->ea_type) == 'job apply'){
 									echo '<p class="font-15 m0">'.$alert[$i]->job_title.'</p>';
 								}else{
 									echo '<p class="font-15 m0">'.$alert[$i]->job_title.'</p>';
 								}
-								
-								echo '<span class="right alert-span">'.date('d-m-Y',strtotime($alert[$i]->date)).'</span>'
+								if(!empty($alert[$i]->name) == 'Package expiry'){
+									echo ' <span class="right alert-span"> '. $alert[$i]->days.'</span>';
+								}else{
+									echo '<span class="right alert-span">'.date('d-m-Y',strtotime($alert[$i]->date)).'</span>';
+								}
 							?>
 						</a>
 					</li>
-			<?php $i += 1; } ?>			
+			<?php $i += 1; }
+				if(count($alert) == 0){
+					echo '<li><a>No new alerts found !</a></li>';
+				}
+			?>	
+				<li class="grey lighten-4">
+					<a class="center" href="<?php echo base_url('alerts') ?>">See all alerts</a>				
+				</li>		
   </ul>
 
 
