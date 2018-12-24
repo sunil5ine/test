@@ -30,7 +30,7 @@ echo $this->session->flashdata('success');
 					<h4 class="white-text ">Partner With Us</h4>
 					<p class="white-text ">
 					First platform in the region to provide verified candidates to employers through a pre-screening process of psychometric testing.<br>
-						An Hr platform that boasts of offering a unique solution to business entities through a proprietary software.
+						An HR platform that boasts of offering a unique solution to business entities through a proprietary software.
 					</p>
 				</div>
 			</div>
@@ -48,8 +48,8 @@ echo $this->session->flashdata('success');
 				</div>
 				<div class="col s12 m7">
 					<h5 class="bold lmt50">We are Cherryhire.com</h5>
-					<p> Cherryhire, a unique platform to "cherry pick" the right candidate, is a Cherryhire, a unique platform to "cherry pick" the right candidate, is a brainchild of a team of talent acquisition professionals, having extensive experience in the recruitment industrybrain child of a team of talent acquistion professionals, having extensive experience in recruitment industry. </p>
-					<p> Our main goal is to simplify in the recruitment process for both job seekers and employers.</p>
+					<p> Cherryhire,  a unique platform to "cherry pick" the right candidate, is a brainchild of a team of talent acquisition professionals, having extensive experience in the recruitment industry. </p>
+					<p> Our main goal is to simplify  the recruitment process for both job seekers and employers.</p>
 				</div>
 			</div>
 		</div>
