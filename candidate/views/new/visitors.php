@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <head>
 	<?php include 'include/titles.php'  ?>
@@ -21,69 +21,54 @@
 		<div class="row">
 			<div class="container-wrap">
 				<?php include 'include/left-nav.php'  ?>
-				<div class="col  s12 l9">
+				<div class="col  s12 l7">
 					<div class="row">	
 						<div class="appl-job-heading col m6 s8 l6 ">
-							<p class="black-text h5">Saved Jobs <span>(<?php 
-								if (!empty($savedjobs)) { echo count($savedjobs);}else{echo "0";} ?>)</span></p>
-							<small><i>View all your Recently saved Jobs</i></small>
+							<p class="black-text h5">Recruiter Visits On Your CV <span>(<?php 
+								if (!empty($cv_visitor)) { echo count($cv_visitor);}else{echo "0";} ?>)</span></p>
+							<!-- <small><i>Who  views yours Resume</i></small> -->
 						</div>
 						<div class="col m6 s8 l6 ">
 							<?php echo $this->session->flashdata('message');?>
-						</div>
-						
+						</div>						
 					</div>
+
+
 
 
 
 					<div class="card ">
-					<?php if (!empty($savedjobs)) { ?>
+                        <?php if (!empty($cv_visitor)) { ?>
 						<div class="collection">
-							<?php foreach ($savedjobs as $row) { ?>
+							<?php foreach ($cv_visitor as $row) { ?>
 							<div class="collection-item">
 								<div class="row mb0">
-									<div class="col m12 s12 l8">
-										<p class="black-text bold mb0"><?php echo $row->job_title ?></p>
-										<p class="small-text m0"><?php echo $row->job_industry ?></p>
-										<ul class="saved-jobs-list">
-											<li>
-						        				<span class="back-icon"><i class="material-icons">card_travel</i></span>
-												<span class="font12"><?php echo $row->job_company ?></span>
-						        			</li>
-						        			<li>
-												<span class="back-icon"><i class="material-icons">place</i></span>
-												<span class="font12"><?php echo $row->job_location ?></span>
-						        			</li>
-						        			<li>
-												<span class="x-smll-text">Posted on :</span>
-												<span class="font12"><?php echo date('d M Y',strtotime($row->job_created_dt)) ?></span>
-						        			</li>
-						        			
-						        			
-										</ul>
-									</div>
-									<div class="col s12 l4">
-										<div class="ptb30 svaed-job-btn">
-											<a href="<?php echo $this->config->base_url().'Jobs/ApplyJob/'.$row->job_url_id; ?>" class="btn hoverable waves-effect brand white-text">Apply</a>
-											<a href="<?php echo base_url('remove-saved-jobs/').$row->sv_encrypt_id ?>" class="btn hoverable waves-effect btn-nc transparent brand-text" >Remove</a>
-										</div>
-									</div>
+									<h6  class="bold " style="margin-top: 3px;
+                                    "><?php echo $row->emp_comp_name ?></h6>
+                                    <p class="m0">
+                                        <span><?php echo $row->emp_designation ?></span><br>
+                                        <span><i class="fas fa-map-marker-alt mr10"></i> <?php echo $row->emp_location ?></span>
+                                        <span class="right"><?php echo date('d M y', strtotime($row->createdOn)) ?> </span>
+                                    </p>
 								</div>
-							</div><!-- collection end -->
+							</div>
 							<?php }  ?>
 						</div>
-							<?php } else { ?>
+                        <?php }else{ ?>
 						<div class="valign-wrapper  empty-jobs">
 							<div class="block">
 								<center>
 									<img src="<?php echo $this->config->item('web_url');?>assets/img/empty.png" class="responsive-img ">
-									<p class="h5 typography">Oops... There are no jobs Saved</p>
-									<p class=" typography">Your recently Saved jobs will appear here</p>
+									<p class="h5 typography">Oops... There are no recuruiters visits on  your CV</p>
+									
 								</center>
 							</div>
 						</div>
-						<?php } ?>
+                    <?php } ?>
 					</div>
+
+
+
 				</div>
 			</div>
 		</div>
@@ -93,10 +78,6 @@
 
 <!-- footer -->
 	<?php echo include'include/footer.php' ?>
-
-
-
-
 	<!-- scripts -->
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/materialize.min.js"></script>

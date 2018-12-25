@@ -115,6 +115,16 @@ $route['404_override'] = 'nopage';
 $route['translate_uri_dashes'] = FALSE;
 $route['Dashboard/profile_upload/(:any)'] = "Dashboard/profile_upload/$1";
 
+/** package benifits */
+$route['cv-visitors'] = "packagebenifits/index";
+
+
+
+
+
+
+
+
 /*new routest*/
 $route['applied-jobs'] = "candidatedata/applied_jobs";
 $route['cancle-applied-jobs/(:any)'] = "candidatedata/cancle_jobs/$1";

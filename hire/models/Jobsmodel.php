@@ -1302,6 +1302,7 @@ function verified_cv($id)
 
  public function getcvd($id)
  {
+	$this->updatedownload($id); 
 	$this->db->where('cv_id', $id);
 	$this->db->from('ch_cv');
 	$this->db->join($this->table_candidate, $this->table_candidate.'.can_id = ch_cv.can_id', 'left');
@@ -1309,6 +1310,26 @@ function verified_cv($id)
 	return $this->db->get()->row_array();
 }
 
+public function updatedownload($id)
+{
+	$this->db->where('can_id', $id);
+	$this->db->where('emp_id', $this->session->userdata('hireid'));
+	$result = $this->db->get('ch_cv_download');
+	if($result > 0){
+		$this->db->where('can_id', $id);
+		$this->db->where('emp_id', $this->session->userdata('hireid'));
+		$this->db->update('ch_cv_download', array('createdOn' =>date('Y-m-d H:i:s')));
+		
+	}else{
+		$datas = array(
+			'can_id' => $id, 
+			'emp_id ' => $this->session->userdata('hireid'), 
+		);
+		$this->db->insert('ch_cv_download', $datas);
+	}
+	return true;
+	
+}
 
 
 /**

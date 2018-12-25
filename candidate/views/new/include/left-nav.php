@@ -68,6 +68,9 @@
 									<li>
 										<a href="#" class="waves-effect"><i class="material-icons nav-slid-icon" style="margin-right:10px"> move_to_inbox</i>Inbox</a>
 									</li>
+									<li>
+										<a href="<?php base_url()?>cv-visitors" class="waves-effect"><i class="material-icons nav-slid-icon" style="margin-right:10px"> move_to_inbox</i>Recruiters Visits on cv</a>
+									</li>
 								</ul>
 							</div>
 						</div>
