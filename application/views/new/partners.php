@@ -151,7 +151,8 @@ echo $this->session->flashdata('success');
 							</ul>
 						</li>
 						<li>Prohibit competition from capturing your customer</li>
-						<li>Conquest customers from competition scalable model</li>
+						<li>Conquest customers from competition.</li>
+						<li>Scalable model</li>
 						<li>Opportunity to promote your existing product offerings</li>
 						<li>Work well irrespective of market conditions</li>
 						<li>Increase revenues and profit</li>
@@ -175,7 +176,7 @@ echo $this->session->flashdata('success');
 								<li>Renewal commissions for qualified partners.</li>
 								<li>Earn up to 40% in commission fees.</li>
 								<li>No financial investment or program fees.</li>
-								<li>Short sale cycle on in-demand products.</li>
+								
 							</ul>
 						</div>
 						<div class="col s12 m12 l6">

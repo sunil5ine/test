@@ -108,10 +108,10 @@
 					        		<p class="mb10"><span class="bold mr10">Created by :</span> <?php echo $formdata['createdby']; ?></p>
 					        		
 									<ul class="social-share-box-myjob pt10 mb10 ">
-										<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-										<li><a href=""><i class="fab fa-twitter"></i></a></li>
-										<li><a href=""><i class="fab fa-behance"></i></a></li>
-										<li><a href=""><i class="fab fa-instagram"></i></a></li>
+										<li><a class="w-inline-block social-share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + '<?php echo  $joburl ?>' + '&t=' + '<?php echo  $joburl ?>'); return false;"><i class="fab fa-facebook-f"></i></a></li>
+										<li><a class="w-inline-block social-share-btn tw" href="https://twitter.com/intent/tweet?" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=%20Check%20up%20this%20awesome%20content' + '<?php echo $formdata['jtitle'] ?>' + ':%20 ' + '<?php echo  $joburl ?>'); return false;"><i class="fab fa-twitter"></i></a></li>
+										<li><a class="w-inline-block social-share-btn lnk" href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + '<?php echo  $joburl ?>' + '&title=' + '<?php echo $formdata['jtitle'] ?>'); return false;"><i class="fab fa-linkedin-in"></i></a></li>
+										<li><a class="w-inline-block social-share-btn email" href="mailto:?subject=&body=:%20" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + <?php echo $formdata['jtitle'] ?> + '&body=' + '<?php echo  $joburl ?>'); return false;"><i class="far fa-envelope"></i></a></li>
 									</ul>
 								
 								</div>

@@ -70,7 +70,7 @@
 									<div class="footer-content">
 										<ul>
 											
-											<li><a href="">Customer care centre?</a></li>
+											<li><a href="<?php echo base_url()?>About">Customer care centre</a></li>
 											<li><a href="">Guidelines</a></li>
 											<li><a href="">Cookies</a></li>
 										</ul>
