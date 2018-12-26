@@ -210,22 +210,25 @@
 			</div><!-- end wrap -->
 		</div> <!-- end row -->
 	</section>
-
-
-
+								
 	<!-- footer -->
 		<?php echo include'include/footer.php' ?>
 	<!-- mode -->
 <div id="billing" class="modal">
     <div class="modal-content  p0">
-      <table class="striped highlight responsive-table">
+	<div id="HTMLtoPDF" class="">
+		<div class="" style="display:none">
+			<h5>INVOICE</h5>
+			<h6>CherryHire</h6>
+			<p>PO Box 76056, Email: support@cherryhire.com, Phone: +973 34002887</p>
+		</div>
+      <table class="striped highlight responsive-table" id="HTMLtoPDF">
       	<thead class="center grey lighten-2" style="padding-left: 15px">
       		<th style="">Date</th>
       		<th>Order Number</th>
       		<th>Payment Details</th>
       		<th>Payment Status</th>
       		<th>Amount Paid</th>
-      		<th>PDF</th>
       	</thead>
       	<tbody>
       		<?php 
@@ -238,7 +241,7 @@
       			<td class="font-12"><?php echo $row->pr_name ?> plan</td>
       			<td class="font-12"><span class="brand-text">Success</span></td>
       			<td class="font-12"><?php echo $row->pr_offer ?></td>
-      			<td class="font-12"><a><i class="material-icons">file_download</i></a></td>
+      			
       		</tr>
 
       		<?php } }else{?>
@@ -249,7 +252,14 @@
       		<?php } ?>
 
       	</tbody>
-      </table>
+	  </table>
+	</div>
+	<hr>
+	  <div class="row" style="margin-bottom:5px">
+		<div class="col s12 right-align">
+			<a href="#" onclick="HTMLtoPDF()" class="waves-effect waves-light brand white-text btn">Download <i class="material-icons right">file_download</i></a>
+		</div>
+	  </div>
     </div>
   
   </div>
@@ -259,7 +269,12 @@
 	<!-- scripts -->
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/materialize.min.js"></script>
+	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/pdf/jspdf.js"></script>
+	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/pdf/pdfFromHTML.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/component.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/script.js"></script>
+	<script>
+	
+	</script>
 </body>
 </html>
