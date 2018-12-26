@@ -14,6 +14,7 @@
 		@media(min-width: 601px){
 			.plan-test{min-height: 464px;}
 			.plan-test .center a.btn{position: relative; top: 67px;}
+			.font-12{font-size:12px}
 		}
 	</style>
 </head>
@@ -232,12 +233,12 @@
       		foreach ($order_bills as $row) { ?>
       		
       		<tr>
-      			<td><?php echo date('d M Y',strtotime($row->ord_date)); ?></td>
-      			<td><?php echo $row->trans_id ?></td>
-      			<td><?php echo $row->ord_product ?> plan</td>
-      			<td><span class="brand-text">Success</span></td>
-      			<td class=""><?php echo $row->ord_amt ?></td>
-      			<td><a><i class="material-icons">file_download</i></a></td>
+      			<td class="font-12"><?php echo date('d M Y',strtotime($row->csub_expire_dt)); ?></td>
+      			<td class="font-12"><?php  echo 'SUB_01'.strrev($row->can_id).'_'.date('d M Y',strtotime($row->csub_expire_dt)) ?></td>
+      			<td class="font-12"><?php echo $row->pr_name ?> plan</td>
+      			<td class="font-12"><span class="brand-text">Success</span></td>
+      			<td class="font-12"><?php echo $row->pr_offer ?></td>
+      			<td class="font-12"><a><i class="material-icons">file_download</i></a></td>
       		</tr>
 
       		<?php } }else{?>

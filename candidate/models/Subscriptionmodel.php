@@ -654,18 +654,13 @@ public function get_subscribe_order()
 {
 	$cid = $this->session->userdata('cand_chid');
 	$this->db->where('can_id',$cid);
-	$this->db->order_by('ord_id','desc');
-	$query = $this->db->get($this->table_orders);
-	if ($query->num_rows() > 0) {
-		foreach ($query->result() as $row) {
-			if($row->ord_product  == 'Starter' || $row->ord_product  == 'Standard' || $row->ord_product  == 'Platinum' || $row->ord_product  == 'Premium')
-			{
-				$data[] = $row;
-			}
-		}
-		return $data;
-	}
-	return false;
+	$this->db->where('csub_type',2);
+	$this->db->order_by('csub_id','DESC');
+	$this->db->select('*');
+	$this->db->from('ch_can_subscribe sb');
+	$this->db->join('ch_can_pricing p', 'p.pr_id = sb.pr_id', 'left');
+	
+	return $this->db->get()->result();
 }
 
 		
@@ -675,11 +670,7 @@ public function get_subscribe_order()
     {	
 
        	$query=$this->db->query("select co_id, co_code, co_name from ".$this->table_country." where co_status=1 order by co_name asc");
-
-
-
 		$country_list = $query->result();
-
 		$dropDownList['']='Country';
 
 		foreach($country_list as $dropdown) {

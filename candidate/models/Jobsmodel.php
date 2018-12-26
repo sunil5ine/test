@@ -1372,4 +1372,41 @@ class Jobsmodel extends CI_Model {
 		$this->db->insert('ch_emp_alerts', $data);
 		return true;
 	}
+
+	/** jobs model */
+	function recommended()
+	{
+		$can_id = $this->session->userdata('cand_chid');
+		$this->db->where('can_id', $can_id);
+		$this->db->select('can_skills, can_curr_desig');
+		$this->db->from('ch_candidate');
+		$result = $this->db->get()->row_array();
+		$data = $this->getitjobs($result);
+		return $data;				
+	}
+
+	/** get based on skills */
+	public function getitjobs($result)
+	{
+		$skills = explode(',', $result['can_skills']);
+		$this->db->order_by('job_id', 'desc');
+		$this->db->from('ch_jobs cj');
+		$this->db->select('job_company,job_id, fun_name, job_url_id, job_skills, job_min_exp, job_max_exp, job_title, job_location, job_created_dt');
+		$this->db->like('job_title', $result['can_curr_desig']);
+		if(!empty($skills)){
+			foreach ($skills as $value) { $this->db->or_like('job_skills',$value); }
+		}
+		$this->db->join('ch_funarea f', 'f.fun_id = cj.job_farea', 'left');
+		$jobs = $this->db->get();
+		return $jobs->result();		
+	}
+
+	/** get applay cout */
+	public function job_applycount($jid)
+	{
+		$this->db->select('COUNT(can_id) as job_applycount');
+		$this->db->where('job_id', $jid);
+		$this->db->where('can_id', $this->session->userdata('cand_chid'));
+		return  $this->db->get('ch_jobapply')->row_array();	
+	}
 }

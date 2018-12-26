@@ -316,7 +316,7 @@ function updatePayment($uid)
 {
 	$this->db->where('can_id', $uid);
 	$this->db->where('psyr_status', "1");
-	$this->db->update('ch_psychotest_reg',array('psyr_status' =>0));
+	$this->db->update('ch_psychotest_reg',array('psyr_status' =>0, 'trans_id'=>'PGT_'.$uid.'_'.date('ymdhis')));
 	return true;
 }
 
