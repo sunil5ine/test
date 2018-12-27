@@ -602,6 +602,7 @@ class Candidatemodel extends CI_Model {
 		$this->db->select('ja_status,job_url_id,job_industry,ja_encrypt_id,ch_jobs.job_id,job_title,job_location,job_company,job_min_exp,job_max_exp'); 
 		$this->db->from('ch_jobapply');
 		$this->db->where('can_id',$cid);
+		$this->db->where('ja_status',1);
 		$this->db->join('ch_jobs', 'ch_jobs.job_id = ch_jobapply.job_id', 'right');
 		$query = $this->db->get();
 		if($query->num_rows() > 0){return $query->result();}else{return false;}

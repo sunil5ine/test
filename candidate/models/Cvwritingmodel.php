@@ -74,11 +74,13 @@ class Cvwritingmodel extends CI_Model {
 			'qn10'=>$this->input->post('qn10'),
 			'qn11'=>$this->input->post('qn11'),
 			'cvw_date'=>date('Y-m-d H:i:s'),
-			'cvw_amt'=>$packess['cp_price'],
 			'cvw_cover'=>0,
 			'cvw_express'=>0,
 			'cvw_status'=>1,
-			'cv_alert' => $packess['cp_id'],
+			'cvw_amt'=>$packess['cp_price'],
+			'cv_alert' => '0',
+			'cv_pac_name' => $packess['cp_title'],
+			'cv_pac_id' => $packess['cp_id'],
 		);
 
 		$insert_id = $this->db->insert($this->table_cvwriting, $qdata);
@@ -101,7 +103,9 @@ class Cvwritingmodel extends CI_Model {
 			'qn10'=>$this->input->post('qn10'),
 			'qn11'=>$this->input->post('qn11'),
 			'cvw_amt'=>$packess['cp_price'],
-			'cv_alert' => $packess['cp_id'],
+			'cv_alert' => '0',
+			'cv_pac_name' => $packess['cp_title'],
+			'cv_pac_id' => $packess['cp_id'],
 		);
 
 		$this->db->where('can_id', $this->session->userdata('cand_chid'));
@@ -151,7 +155,7 @@ class Cvwritingmodel extends CI_Model {
 	public function get_temp_questionnaire()
     {	
 		
-       	$query=$this->db->query("select cvw_id, can_id, qn1, qn2, qn3, qn4, qn5, qn6, qn7, qn8, qn9, qn10, qn11, cvw_amt, cvw_cover, cvw_express, cvw_date, trans_id, cvw_status from ".$this->table_cvwriting." where cvw_status=1 and can_id=".$this->session->userdata('cand_chid'));
+       	$query=$this->db->query("select * from ".$this->table_cvwriting." where cvw_status=1 and can_id=".$this->session->userdata('cand_chid'));
 
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $row) {
@@ -456,6 +460,7 @@ function copmletUpdate($umid)
 	$this->db->update('ch_cv_writing',array('cvw_status' =>'0',"trans_id"=> $tranid));
 	if($this->db->affected_rows() > 0)
 	{
+		$this->alertupdate($tranid, $umid);
 		return true;
 	}
 	else{
@@ -463,6 +468,17 @@ function copmletUpdate($umid)
 	}
 }
 
+public function alertupdate($tranid, $umid)
+{
+	$data = array(
+		'can_id'=>$umid,
+		'ca_type'=>'cv_write',
+		'ca_enc'=>$tranid,
+		'ca_title'=>'Professional CV Writing ',
+	);
+	$this->db->insert('ch_can_alert',$data);
+	return true;
+}
 
 function successdata($umid)
 {
@@ -480,6 +496,11 @@ function cvpakage()
 	return $this->db->where('status', 1)->get('cv_package')->result();
 }
 
-
+public function geamount($id)
+{
+	$result =  $this->db->where('cvw_id', $id)->select('cvw_amt')->get('ch_cv_writing')->row();
+	return $result->cvw_amt;
+	
+}
 		
 }

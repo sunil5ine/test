@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->config->item('web_url');?>assets/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->config->item('web_url');?>assets/css/style.css">
 </head>
-<body>
+<body style="overflow-x:hidden">
 	<!-- header -->
 	<?php include 'include/header.php'  ?>
 	<!-- End header -->
@@ -48,6 +48,7 @@
 						</div>
 						
 					</div>
+					
 					<!-- Education -->
 					<div class="card scrollspy" id="education">
 						<div class="card-content">
@@ -74,7 +75,7 @@
 										?>
                                             <tr>
                                                 <td class=" "><?php echo $x;?></td>
-                                                <td class=" ">Professional CV services</td>
+                                                <td class=" ">Professional CV services<br><b><?php echo $result->cv_pac_name ?></b></td>
                                                 <td class=" last"><i class="fa fa-usd "></i> <?php echo number_format($result->cvw_amt,2);?></td>
                                                 <td class="right-align">
                                                 	<a href="<?php echo base_url() ?>cvwriting/deleteit?id=<?php echo $result->cvw_id ?>"  class="red-text waves-effect" valt='<?php echo $result->cvw_id?>'> 

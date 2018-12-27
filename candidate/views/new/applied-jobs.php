@@ -27,7 +27,7 @@
 				<div class="col  s12 l9">
 					<div class="row">	
 						<div class="appl-job-heading col m8 s8 l12 ">
-							<p class="black-text h5">Applied Jobs <span>(<?php echo $count ?>)</span></p>
+							<p class="black-text h5">Applied Jobs <span>(<?php echo count($aplJobs) ?>)</span></p>
 							<small><i>view all your Recently Applied Jobs</i></small>
 						</div>
 						<?php echo $this->session->flashdata('message'); ?>
@@ -77,7 +77,7 @@
 						  <?php } } }?>
 						  </ul>
 						</div>
-						<?php if ($count < 1) { ?>
+						<?php if (count($aplJobs) < 1) { ?>
 							<div class="valign-wrapper  empty-jobs">
 								<div class="block">
 									<center>

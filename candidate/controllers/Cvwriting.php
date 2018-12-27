@@ -862,7 +862,8 @@ class Cvwriting extends CI_Controller {
 	public function buy()
 {
 	$name   = $this->input->get('name');
-	$price  = $this->input->get('amt');
+	$id  = $this->input->get('id');
+	$price = $this->cvwritingmodel->geamount($id);
 	$this->load->model('subscriptionmodel');
 	if (!$this->session->userdata('cand_chid')) { redirect($this->config->base_url().'LoginProcess'); }
 	$returnURL = base_url().'cvwriting/success';

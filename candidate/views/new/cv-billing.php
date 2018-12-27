@@ -26,7 +26,6 @@
 <body>
 	<!-- header -->
 	<?php include 'include/header.php'  ?>
-
 	<section>
 		<div class="container-wrap">
 			<?php echo $message; ?>
@@ -62,7 +61,6 @@
 						    </div>
 						</form>
 					</div>
-
 					<div class="col s12 m12 l8 lpl25">
 						<p class="h6">Cart Details</p>
 						<table class="highlight">
@@ -92,7 +90,7 @@
 											?> 
 											<tr> 
 												
-												<td>Professional CV services</td> 
+												<td>Professional CV services<br/><b><?php echo $result->cv_pac_name?></b></td> 
 												<td>
 													<?php if($result->cvw_cover == 1){ ?>
 														<b>$</b> 10.00
@@ -124,7 +122,7 @@
 							</tbody>
 						</table>
 						<div>
-							<div id="paypal-button" class="right"><a href="<?php echo base_url('cvwriting/buy?name=Professional CV services').'&amt='.$sumamt?>"><img src="<?php echo base_url()?>images/bye.png" style="max-width: 100%;width: 150px"></a></div>
+							<div id="paypal-button" class="right"><a class="btn hoverable" href="<?php echo base_url('cvwriting/buy?name=').$result->cv_pac_name.'&id='.$result->cvw_id ?>"><img src="<?php echo base_url()?>images/bye.png" style="max-width: 100%;width: 150px"></a></div>
 
 							<a type="button" class="btn brand white-text hoverable waves-effect waves-lighten mr10 " value="Pay with Lightbox" style="margin-top: 8px" onclick="Checkout.showPaymentPage();" >Proceed to checkout</a>
 						</div>

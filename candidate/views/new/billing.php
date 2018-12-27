@@ -112,7 +112,7 @@
 							</tbody>
 						</table>
 						<div>
-							<div id="paypal-button" class="right"><a href="<?php echo base_url('Subscription/buy');?>"><img src="<?php echo base_url()?>images/bye.png" style="max-width: 100%;width: 150px"></a></div>
+							<div id="paypal-button" class="right"><a class="btn hoverable" href="<?php echo base_url('Subscription/buy');?>"><img src="<?php echo base_url()?>images/bye.png" style="max-width: 100%;width: 150px"></a></div>
 
 							<a type="button" class="btn brand white-text hoverable waves-effect waves-lighten mr10 " value="Pay with Lightbox" style="margin-top: 8px" onclick="Checkout.showPaymentPage();" >Proceed to checkout</a>
        

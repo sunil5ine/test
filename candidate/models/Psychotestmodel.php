@@ -298,14 +298,24 @@ public function getTempldata($count,$uid)
 	foreach ($query as $key => $value) {
 		if ($value->psyp_id == 1) { $addto = 30; }
 		else{$addto = 60;}
+		$alrtid  = 'PGT_'.$uid.'_'.date('ymdhis').$key;
 		$expdate = date('Y-m-d H:i:s',strtotime($today . "+".$addto." days"));
-		$object = array(
+		$object  = array(
 			'pr_id' 		=>$value->psyp_id , 
 			'pr_encript_id' =>$value->psy_encript , 
 			'can_id' 		=>$value->can_id , 
 			'ct_validity' 	=>$expdate, 
+			'ct_alert'		=>$alrtid
+		);
+
+		$alerts = array(
+			'can_id' => $uid , 
+			'ca_type' => 'test', 
+			'ca_enc' => $alrtid, 
+			'ca_title' =>$value->psyr_name , 
 		);
 		$this->subscribe_purchase($object);
+		$this->alertupdate($alerts);
 	}
 	$this->updatePayment($uid);
 
@@ -320,6 +330,11 @@ function updatePayment($uid)
 	return true;
 }
 
+public function alertupdate($alerts)
+{
+	$this->db->insert('ch_can_alert', $alerts);
+	return true;
+}
 
 function subscribe_purchase($object)
 {

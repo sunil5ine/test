@@ -703,6 +703,7 @@ function getmuser($umid){
 		$today = date('Y-m-d H:i:s');
 		foreach ($query as $key => $value) 
 		{
+			$arid = 'SBP_'.$umid.'_'.date('YmdHis').$key;
 			$this->db->where('pr_encrypt_id', $value->temp_session);
 			$perieds = $this->db->get('ch_can_pricing')->row_array();
 			$addto =  $perieds['pr_limit'] * 30; 
@@ -712,7 +713,8 @@ function getmuser($umid){
 					'pr_id' 		=> $value->temp_pr_id, 
 					'pr_encript_id' => $value->temp_session, 
 					'can_id' 		=> $value->temp_can_id , 
-					'ct_validity' 	=> $expdate, 
+					'ct_validity' 	=> $expdate,
+					'ct_alert'      => $arid,
 					
 				);
 				$this->testSubscribers($object);
@@ -725,9 +727,18 @@ function getmuser($umid){
 					'can_id' 		=> $value->temp_can_id , 
 					'csub_expire_dt'=> $expdate,
 					"csub_type" 	=>'2',
+					'alrt_id'       =>$arid,
 					
-				);				
+				);	
+				
+				$alrt = array(
+					'can_id' => $umid,
+					'ca_type' =>'Subscription' ,
+					'ca_enc' => $arid,
+					'ca_title' => 'Package',
+				);
 				$this->updatesubscribers($object);
+				$this->alerts($alrt);
 			}
 		}
 		$this->updateCartTable($umid);
@@ -736,6 +747,12 @@ function getmuser($umid){
 		
 	}
 
+	public function alerts($alrt)
+	{
+		$this->db->insert('ch_can_alert', $alrt);
+		return true;
+		
+	}
 
 	/**
 	 * [updatesubscribers new subscribtion]

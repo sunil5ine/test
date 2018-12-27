@@ -1302,7 +1302,9 @@ function verified_cv($id)
 
  public function getcvd($id)
  {
-	$this->updatedownload($id); 
+	$alid = 'CVD_'.$id.'_'.date('YmdHis'); 
+	$this->updatedownload($id,$alid); 
+	$this->updateonalert($id,$alid);
 	$this->db->where('cv_id', $id);
 	$this->db->from('ch_cv');
 	$this->db->join($this->table_candidate, $this->table_candidate.'.can_id = ch_cv.can_id', 'left');
@@ -1310,20 +1312,43 @@ function verified_cv($id)
 	return $this->db->get()->row_array();
 }
 
-public function updatedownload($id)
+public function updateonalert($id = null,$alid)
+{
+	$this->db->where('can_id', $id);
+	$this->db->where('emp_id', $this->session->userdata('hireid'));
+	$result = $this->db->get('ch_can_alert');
+	if($result->num_rows() > 0){
+		$this->db->where('can_id', $id);
+		$this->db->where('emp_id', $this->session->userdata('hireid'));
+		$this->db->where('ca_type', 'cv_download');
+		$this->db->update('ch_can_alert', array( 'ca_date' => date('Y-m-d H:i:s'), 'ca_enc'=> $alid));
+	}else{
+		$data = array(
+			'can_id'	=>$id,
+			'emp_id'	=>$this->session->userdata('hireid'),
+			'ca_type'	=>'cv_download',
+			'ca_enc'	=>$alid,
+			'ca_title '	=>'CV Download',
+		);
+		$this->db->insert('ch_can_alert', $data);
+	}	
+}
+
+
+public function updatedownload($id,$alid)
 {
 	$this->db->where('can_id', $id);
 	$this->db->where('emp_id', $this->session->userdata('hireid'));
 	$result = $this->db->get('ch_cv_download');
-	if($result > 0){
+	if($result->num_rows() > 0){
 		$this->db->where('can_id', $id);
 		$this->db->where('emp_id', $this->session->userdata('hireid'));
-		$this->db->update('ch_cv_download', array('createdOn' =>date('Y-m-d H:i:s')));
-		
+		$this->db->update('ch_cv_download', array( 'createdOn' => date('Y-m-d H:i:s'),  'alr_id'=> $alid));
 	}else{
 		$datas = array(
-			'can_id' => $id, 
-			'emp_id ' => $this->session->userdata('hireid'), 
+			'can_id'  => $id, 
+			'emp_id ' => $this->session->userdata('hireid'),
+			'alr_id'  =>$alid, 
 		);
 		$this->db->insert('ch_cv_download', $datas);
 	}
