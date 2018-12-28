@@ -44,31 +44,32 @@
 						<div class="card">
 							<div class="card-content">
 								<ul class="dashboard-sildebar-nav">
-									<li class="">
-										<a href="<?php echo base_url()?>PostCv" class="waves-effect active"> <i class="material-icons nav-slid-icon">dashboard</i> Dashboard</a>
+									<?php $url = $this->uri->segment(1); ?>
+									<li class=" <?php echo ($url=='MyProfile')? 'activel':'' ?>" >
+										<a href="<?php echo base_url()?>PostCv" class="waves-effect "> <i class="material-icons nav-slid-icon">dashboard</i> Dashboard</a>
 									</li>
-									<li >
+									<li class=" <?php echo ($url=='applied-jobs')? 'activel':'' ?>">
 										<a href="<?php echo base_url()?>applied-jobs" class="waves-effect"> <i class="material-icons nav-slid-icon">playlist_add_check</i> Applied Jobs</a>
 									</li>
-									<li>
+									<li class=" <?php echo ($url=='saved-jobs')? 'activel':'' ?>">
 										<a href="<?php echo base_url()?>saved-jobs" class="waves-effect"><i class="material-icons nav-slid-icon">star</i> Saved Jobs</a>
 									</li>
-									<li>
+									<li class=" <?php echo ($url=='')? 'activel':'' ?>">
 										<a href="#" class="waves-effect"><i class="material-icons nav-slid-icon">format_list_bulleted</i> My Job Alert</a>
 									</li>
-									<li>
+									<li class=" <?php echo ($url=='recommended-jobs')? 'activel':'' ?>">
 										<a href="<?php echo base_url()?>recommended-jobs" class="waves-effect"><i class="material-icons nav-slid-icon">event_note</i> Recommended Jobs</a>
 									</li>
-									<li>
+									<li class=" <?php echo ($url=='cvwriting')? 'activel':'' ?>">
 										<a href="<?php echo base_url()?>cvwriting/professional-cv" class="waves-effect"><i class="fas fa-pen-nib" style="margin-left: 3px;margin-right: 5px"></i> Professional CV Writing</a>
 									</li>
-									<li>
+									<li class=" <?php echo ($url=='psychotest')? 'activel':'' ?>">
 										<a href="<?php echo base_url() ?>psychotest/plans" class="waves-effect"><i class="fas fa-file-signature" style="margin-left: 3px;margin-right: 5px"></i> Psychometric test</a>
 									</li>
-									<li>
-										<a href="#" class="waves-effect"><i class="material-icons nav-slid-icon" style="margin-right:10px"> move_to_inbox</i>Inbox</a>
+									<li class=" <?php echo ($url=='notification')? 'activel':'' ?>">
+										<a href="<?php echo base_url() ?>notification" class="waves-effect"><i class="material-icons nav-slid-icon" style="margin-right:10px"> move_to_inbox</i>Inbox</a>
 									</li>
-									<li>
+									<li class=" <?php echo ($url=='cv-visitors')? 'activel':'' ?>">
 										<a href="<?php base_url()?>cv-visitors" class="waves-effect"><i class="material-icons nav-slid-icon" style="margin-right:10px"> move_to_inbox</i>Recruiters Visits on cv</a>
 									</li>
 								</ul>

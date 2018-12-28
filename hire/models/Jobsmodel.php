@@ -329,7 +329,7 @@ class Jobsmodel extends CI_Model {
 			'nation'			=>$this->input->post('nation'),
 		);
 		
-		$this->insertalert(10, $jdata['job_title'], $jdata['job_skills'] );
+		
 
 		/* reduse the jobs */
 		$this->jobposted($jdata);
@@ -362,6 +362,7 @@ class Jobsmodel extends CI_Model {
 			$this->db->where('job_url_id', $job_url_id);
 			$this->db->update($this->table_job, $judata);
 		}
+		$this->insertalert($insert_id, $jdata['job_title'], $jdata['job_skills'] );
 
 		
 

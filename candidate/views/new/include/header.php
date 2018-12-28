@@ -61,7 +61,7 @@
 	<ul id='alert' class='dropdown-content' style="min-width: 300px">
 		<?php foreach ($alert['alerts'] as $key => $value) { ?>
 			<li>
-				<a href="">
+				<a href="<?php echo base_url('notification/').$value->ca_id ?>">
 					<?php
 					echo '<span style="font-size:13px">'.$value->ca_title.'</span><span class="right" style="font-size:12px">'.date('d M y',strtotime($value->ca_date)).'</span></p>';
 					?>
@@ -69,7 +69,7 @@
 			</li>
 		<?php } ?>
 				<li class="grey lighten-4">
-					<a class="center" href="<?php echo base_url() ?>">See all alerts</a>				
+					<a class="center" href="<?php echo base_url('notification') ?>">See all alerts</a>				
 				</li>
 	</ul>						
 

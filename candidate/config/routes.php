@@ -118,16 +118,11 @@ $route['Dashboard/profile_upload/(:any)']   = "Dashboard/profile_upload/$1";
 
 /** package benifits */
 $route['cv-visitors']                       = "packagebenifits/index";
-
-
-
-
-
-
-
-
 /*new routest*/
 $route['applied-jobs'] = "candidatedata/applied_jobs";
+$route['notification/(:any)'] = "alerts/index/$1";
+$route['notification'] = "alerts/index";
+$route['notification/get/(:any)'] = "alerts/get/$1";
 $route['cancle-applied-jobs/(:any)'] = "candidatedata/cancle_jobs/$1";
 $route['saveto-account/(:any)/(:any)'] = "candidatedata/saveto_account/$1/$2";
 $route['saved-jobs'] = "candidatedata/saved_jobs";
