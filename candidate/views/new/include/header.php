@@ -1,3 +1,4 @@
+<?php $alert = $this->alert_lib->alertsets(); ?>
 	<!-- navigation bar -->
 	<header class="nav-bar">
 		<div class="navbar-fixed">
@@ -30,7 +31,12 @@
 		  		<li><a href="<?php echo $this->config->item('web_url');?>Psychometric" class="waves-effect bold">Psychometric Test</a></li>
 		  		<li><a href="<?php echo base_url()?>Subscriptions" class="waves-effect">Pricing</a></li>
 		  		<li>|</li>
-		  		<li><a href="<?php echo base_url()?>notification" class="waves-effect bold"><i class="tiny material-icons left">notifications_none</i></a></li>
+		  		<li>
+						<a  class="waves-effect dropdown-trigger bold" data-target='alert'>
+							<i class="tiny material-icons left">notifications_none</i>
+							<?php if($alert['count'] > 0){echo '<span class="new badge brand">'.$alert['count'].'</span>'; } ?>
+						</a>
+					</li>
 		  		<li>
 		  			<a href='#' class="waves-effect waves-light dropdown-trigger" data-target='profile-dropdown' style=" line-height: 0;">
 		  				
@@ -51,6 +57,21 @@
 	    </div>
 	  </nav>
 	</div>
+
+	<ul id='alert' class='dropdown-content' style="min-width: 300px">
+		<?php foreach ($alert['alerts'] as $key => $value) { ?>
+			<li>
+				<a href="">
+					<?php
+					echo '<span style="font-size:13px">'.$value->ca_title.'</span><span class="right" style="font-size:12px">'.date('d M y',strtotime($value->ca_date)).'</span></p>';
+					?>
+				</a>
+			</li>
+		<?php } ?>
+				<li class="grey lighten-4">
+					<a class="center" href="<?php echo base_url() ?>">See all alerts</a>				
+				</li>
+	</ul>						
 
 	  	<!-- Profile -->
 		<ul id="profile-dropdown" class="dropdown-content" style="min-width: 165px">

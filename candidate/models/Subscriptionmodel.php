@@ -735,7 +735,7 @@ function getmuser($umid){
 					'can_id' => $umid,
 					'ca_type' =>'Subscription' ,
 					'ca_enc' => $arid,
-					'ca_title' => 'Package',
+					'ca_title' => 'New Package Subscribe',
 				);
 				$this->updatesubscribers($object);
 				$this->alerts($alrt);

@@ -329,6 +329,8 @@ class Jobsmodel extends CI_Model {
 			'nation'			=>$this->input->post('nation'),
 		);
 		
+		$this->insertalert(10, $jdata['job_title'], $jdata['job_skills'] );
+
 		/* reduse the jobs */
 		$this->jobposted($jdata);
 		
@@ -361,9 +363,40 @@ class Jobsmodel extends CI_Model {
 			$this->db->update($this->table_job, $judata);
 		}
 
+		
 
 		return $insert_id;
 	}
+
+	/** insert job model */
+	public function insertalert($id, $title, $skills)
+	{
+		
+		$newskills = explode(',',$skills);
+		$this->db->select('can_id');
+		$this->db->like('can_curr_desig', $title,'both');
+		if(!empty($newskills)) {
+			foreach ($newskills as $value) { $this->db->or_like('can_skills',$value,'both'); }
+		}
+		$result = $this->db->get('ch_candidate')->result();
+		
+		if(!empty($result)){
+			foreach ($result as $key => $value) {
+				$arrayName = array(
+					'can_id' =>$value->can_id , 
+					'emp_id' => $this->session->userdata('hireid'), 
+					'ca_type' =>'rocomended', 
+					'ca_enc' => $id, 
+					'ca_title' => $title, 
+				);
+				$this->db->insert('ch_can_alert', $arrayName);
+			}
+		}
+		return true;
+		
+	}
+
+
 	
 	function checkpacake()
 	{
@@ -381,9 +414,6 @@ class Jobsmodel extends CI_Model {
 
 	function jobposted($jdata)
 	{
-		
-		
-
 		$hid = $this->session->userdata('hireid');
 		$now = date('Y-m-d h:i:s');
 		$this->db->select('sub_ex_limits,sub_packid');
@@ -422,7 +452,7 @@ class Jobsmodel extends CI_Model {
 
 	public function createreq($jobid=null)
 	{
-		$query = $this->db->query("select j.job_id, j.job_title, j.job_location, j.job_min_sal, j.job_max_sal, j.job_skills, j.job_industry, j.job_role, j.job_company, e.deg_type_display, f.jfun_hireid, f.fun_name as jfun_display, miexp.exp_value as minexp, maexp.exp_value as maxexp from ".$this->table_job." j left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp where j.job_status!=0  and j.job_url_id='".$jobid."' and j.job_created_by = ".$this->session->userdata('hireid'));
+		$query = $this->db->query("select j.job_id, j.job_title, j.job_location, j.job_min_sal, j.job_max_sal, j.job_skills, j.job_industry, j.job_role, j.job_company, e.deg_type_display, f.fun_id, f.fun_name as jfun_display, miexp.exp_value as minexp, maexp.exp_value as maxexp from ".$this->table_job." j left join ".$this->table_edu." e on e.deg_type_id = j.job_edu left join ".$this->table_farea." f on f.fun_id = j.job_farea left join ".$this->table_exp." miexp on miexp.exp_id = j.job_min_exp left join ".$this->table_exp." maexp on maexp.exp_id = j.job_max_exp where j.job_status!=0  and j.job_url_id='".$jobid."' and j.job_created_by = ".$this->session->userdata('hireid'));
 		$result 		= $query->row_array();
 		$skill_list 	= array();
 		$jobtitle 		= $result['job_title'];

@@ -37,6 +37,29 @@ class alert extends CI_Controller {
         }
     }
 
+    public function canexp()
+    {
+        $data = $this->alertmodel->canexp();
+
+        if(!empty($data)){
+            foreach ($data as $key => $value) {
+                $id = $value->csub_id;
+                $alid = 'CAN_PCK_'.random_string('alnum', 4).'_'.date('YmdHis');
+                if($this->alertmodel->updatecanAlert($id,$alid)){
+                    $dataarry = array(
+                        'can_id' => $value->can_id, 
+                        'ca_type' =>'package-exp', 
+                        'ca_enc' => $alid, 
+                        'ca_date' =>date('Y-m-d H:i:s') , 
+                        'ca_title' => 'Subscription package expired', 
+                    );
+                    $this->alertmodel->insertalertcan($dataarry);
+                }
+            }
+        }
+        
+    }
+
 }
 
 /* End of file alert.php */

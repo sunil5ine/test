@@ -70,10 +70,66 @@ class alertmodel extends CI_Model {
        return true;       
     }
 
+   /********************* CAN EXP  ************************/
+    public function canexp()
+    {
+        $now = date('Y-m-d H:i:s');
+        $wheredate = date('Y-m-d H:i:s',strtotime($now.'+ 3 days'));
+        $this->db->select('*');
+        $this->db->from('ch_can_subscribe s');
+        $this->db->where('csub_expire_dt <=', $wheredate);
+        $this->db->where('csub_expire_dt >=', $now);
+        $this->db->join('ch_can_pricing p', 'p.pr_id = s.pr_id', 'left');
+        $result =  $this->db->get();
+        if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $key => $value) { $newVal[] = $value; }
+            foreach($newVal as $element) { 
+                
+                $diff=date_diff(
+                    date_create($now)
+                    ,date_create($element->csub_expire_dt)
+                );
+                $element->name ='Package expiry';
+                switch ($diff->format("%a")) {
+                    case '1':
+                        $element->days ='1 Day left';
+                        break;
+                    case '2':
+                        $element->days ='2 Day left';
+                        break;
+                    case '3':
+                        $element->days ='3 Day left';
+                    default:
+                        $element->days ='Expired today';
+                }              
+            }            
+            return $newVal;
+        }else{
+            return false;
+        }     
+    }
    
-
-   
-
+    /** update can alert    */
+    public function updatecanAlert($id,$alid)
+    {
+        
+        $this->db->where('csub_id', $id);
+        $this->db->update('ch_can_subscribe', array('alrt_id'=>$alid)); 
+        if($this->db->affected_rows() > 0){
+            return true;
+        }else{
+            return 0;
+        }     
+    }
+    
+    public function insertalertcan($dataarry)
+    {
+        $this->db->insert('ch_can_alert', $dataarry);
+        return true;
+    }
 }
+
+
 
 /* End of file package.php */

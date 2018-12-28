@@ -118,7 +118,7 @@ $autoload['packages'] = array();
 
 */
 
-$autoload['libraries'] = array('database', 'session', 'form_validation', 'pagination', 'encrypt', 'encryption', 'email');
+$autoload['libraries'] = array('database', 'session', 'form_validation', 'pagination', 'encrypt', 'encryption', 'email','alert_lib');
 
 /*
 

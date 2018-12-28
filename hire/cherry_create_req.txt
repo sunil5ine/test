@@ -188,3 +188,10 @@ HW Req Status: fail
 *************************************************************************** 
 
 
+Cherry Hire Search JobID:814 
+ <need object="hire" id="xml_need_container" type="1"><range oper="lteq" name="m_experience.v">12</range> <range oper="gteq" name="m_experience.v">0</range><p name="m_skill" oper="ineq"><i forv="518b8574ba36fb112e6e3f96"><skillarea priority="1" oper="eq" disp="HTML">518b8574ba36fb112e6e3f96</skillarea></i><i forv="51c43d1f2caa38a15f24b849"><skillarea priority="1" oper="eq" disp="CSS">51c43d1f2caa38a15f24b849</skillarea></i><i forv="5325a5eefa1f8d92cb68723b"><skillarea priority="1" oper="eq" disp="jQuery">5325a5eefa1f8d92cb68723b</skillarea></i><i forv="518b8574ba36fb112e6e3fa9"><skillarea priority="1" oper="eq" disp="JavaScript">518b8574ba36fb112e6e3fa9</skillarea></i><i forv="518b8574ba36fb112e6e3fd5"><skillarea priority="1" oper="eq" disp="Python">518b8574ba36fb112e6e3fd5</skillarea></i><i forv="-1"> <skillarea priority="1" oper="eq" disp="dijango">-1</skillarea> </i></p><p es_oper="p" plaintext="true" name="pg_m_role.m_role.search_terms.display" oper="eq">Graphic/Web Designer</p></need>
+HW Req Id: 0
+HW Req Status: fail
+*************************************************************************** 
+
+
