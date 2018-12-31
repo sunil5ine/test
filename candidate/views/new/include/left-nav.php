@@ -11,7 +11,10 @@
 							<div class="card-content">
 								<div class="profile-detail center">
 									<div class="profile-pic " style="min-height: 80px">
-										<?php if (!empty($formdata['can_propic'])) { ?>
+										<?php 
+											if($this->session->userdata('type') == 'linkedin'){ ?>
+												<img src="<?php echo $formdata['can_propic']?>" class="responsive-img prf-pic circle" width="75px" height="75px">
+											<?php } else if (!empty($formdata['can_propic'])) { ?>
 											
 										<img src="<?php echo $this->config->base_url().$formdata['can_propic'];?>" class="responsive-img prf-pic circle" width="75px" height="75px">
 									<?php } else { ?>

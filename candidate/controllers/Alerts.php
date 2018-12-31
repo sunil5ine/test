@@ -22,6 +22,8 @@ class alerts extends CI_Controller {
 	    $this->data['sid'] 	 = 0;
         $this->data['title'] = 'Cherry Hire - Cndidate Notification';
         $this->data['alert'] = array();
+        $data['count'] = '';
+        $alert = array();
         if(!empty($id)){
             $data = $this->notification->getsingle($id);
         }else{

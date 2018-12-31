@@ -125,13 +125,15 @@
 
 		elseif($this->session->userdata('cand_chid')){ ?>
 			<li><a href="<?php echo base_url(); ?>" class="brand-logo " style="height: 65px">
-				<?php if (!empty($this->session->userdata('propics'))) { ?>
-											
-							<img src="<?php echo $this->config->base_url().'candidate/'.$this->session->userdata('propics') ?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
-						<?php } else { ?>
-							<img src="<?php echo $this->config->item('web_url');?>assets/img/person.png" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
-		
-						<?php } ?>
+			<?php  if(!empty($this->session->userdata('propics'))) { 
+				if($this->session->userdata('type') == 'linkedin'){
+			?>
+				<img src="<?php echo $this->session->userdata('propics')?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
+			<?php } else{ ?>				
+				<img src="<?php echo $this->config->base_url().$this->session->userdata('propics') ?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
+			<?php } } else{ ?>
+				<img src="<?php echo $this->config->item('web_url');?>assets/img/person.png" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
+			<?php } ?>
 			</a></li>
 			<li><a href="<?php echo base_url()?>candidate/Jobs" class="waves-effect bold">Dashboard</a></li>
 			<li><a href="<?php echo base_url()?>candidate/ProfileSettings">Profile</a></li>

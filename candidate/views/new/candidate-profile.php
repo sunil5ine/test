@@ -52,8 +52,9 @@
 									<div class="col s8 m5 l8">
 										<p class="black-text h6 ">Resume</p>
 										<!-- <p class="mb10 font12">2.5 mb</p> -->
-										<br>
-										<a class="btn brand white-text hoverable waves-effect waves-lighten mr10" href="<?php echo $formdata['cv_path']; ?>" target="_blank"> View Resume </a>
+										<br><?php if(!empty($formdata['cv_path'])){ ?>
+											<a class="btn brand white-text hoverable waves-effect waves-lighten mr10" href="<?php echo $formdata['cv_path']; ?>" target="_blank"> View Resume </a>
+										<?php } ?>		
 										<a href="#upload-resume" class="brand-text bold tooltipped modal-trigger" data-position="top" data-tooltip="Please choose only .doc, .docx and .pdf files">Upload New Resume</a>
 									</div>
 									<div class="col s12 m3 l2 grey  lighten-5 z-depth-1">

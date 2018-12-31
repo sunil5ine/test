@@ -10,6 +10,7 @@
 	<link href="<?php echo $this->config->item('web_url');?>assets/fonts/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->config->item('web_url');?>assets/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->config->item('web_url');?>assets/css/style.css">
+	
 </head>
 <body>
 	<!-- navigation bar -->
@@ -29,22 +30,16 @@
 			          		<h5 class=""><b>Candidate Login</b></h5>
 			          	</div>
 			          	<div class="clearfix"> </div>
-			          	<div><?php echo $errmsg; ?></div>
-                        <div class="clearfix"> </div>
-						<!-- <br>
-			          	<div class="center otherlogin">
-							<a class=" mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-2 rounded-6">
-								<i class="fab fa-twitter"></i>
-							</a>
-							<a class=" mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-4 rounded-6">
-								<i class="fab fa-facebook-f"></i>
-							</a>
-							<a class=" mlr10 waves-effect z-depth-2 waves-green  btn btn-large transparent black-text rounded-6">
-								<img src="<?php echo $this->config->item('web_url');?>assets/img/google.png" class="responsive-img" style="max-height: 40px;margin-top: 5px; float: left; margin-right: 4px;">
-								<span>Google</span>
-							</a>
-			          	</div> -->
-			          	<br>
+			          	<div><?php echo $errmsg;  echo $this->session->flashdata('error');
+						  ?></div>
+						<div class="clearfix"> </div>
+						
+						<center>
+							<a href="<?php echo base_url() ?>login/linkedin" ><img class="hoverable responsive-img" width="50%" src="<?php echo $this->config->item('web_url') ?>assets/img/linkedin.png" alt=""></a>
+							<br>
+							<span>OR</span>
+						</center>
+			          
 			          	<div class="emil-contect  row">
 			          		<!-- <h6 class="center-align">OR USING EMAIL</h6> -->
 			          		<form method="post" name="signinfrm" action="<?php echo base_url()?>LoginProcess/" data-toggle="validator" role="form">
@@ -70,7 +65,7 @@
 						        </div>
 			          		</form>
 			          		<p class="center">New to Cherryhire? <a href="<?php echo $this->config->item('web_url').'PostCV';?>" class="blue-text">Create Account</a></p>
-							  <div class="center"><span>or</span></div>
+							  <div class="center"><span>OR</span></div>
 			          		<p class="center"><a href="<?php echo $this->config->item('web_url').'hire/login';?>" class="blue-text">Employer Login</a></p>
 			          	</div>
 			        </div>
@@ -99,7 +94,7 @@
   </div>
 
 <!-- footer -->
-		<?php echo include'include/footer.php' ?>
+	<?php echo include'include/footer.php' ?>
 
 
 
@@ -109,5 +104,7 @@
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/materialize.min.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/component.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/script.js"></script>
+
+	
 </body>
 </html>

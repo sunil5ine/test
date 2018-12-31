@@ -525,3 +525,15 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+/*
+| Linkd in loggin 
+| client id required
+| client secrete id required
+| enter the exact redirect url
+| scop of app 
+*/
+$config['CLIENT_ID']        = '81gv41iyrd8oz8';
+$config['CLIENT_SECRET']    = 'fPBlLbAdThTEV0gB';
+$config['REDIRECT_URI']     = 'user/index';
+$config['SCOPE']            = 'r_basicprofile r_emailaddress';

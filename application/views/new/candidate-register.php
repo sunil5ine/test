@@ -38,18 +38,12 @@
 			          	<!-- <div>
 			          		<?php //echo $message ?>
 			          	</div> -->
-						<br>
-			          	<!-- <div class="center otherlogin">
-							<a class="mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-2 rounded-6">
-								<i class="fab fa-twitter"></i>
-							</a>
-							<a class="mlr10 waves-effect z-depth-2 waves-light btn btn-large light-blue darken-4 rounded-6">
-								<i class="fab fa-facebook-f"></i>
-							</a>
-							<a class="mlr10 waves-effect z-depth-2 waves-light btn btn-large transparent black-text rounded-6">
-								<img src="<?php echo base_url() ?>assets/img/google.png" class="responsive-img" style="max-height: 40px;float: left; margin-top: 5px;"> Google </a>
-			          	</div>
-			          	<br> -->
+						
+						<center>
+							<a href="<?php echo base_url() ?>candidate/login/linkedin" ><img class="hoverable responsive-img" width="30%" src="<?php echo base_url() ?>assets/img/linkedin.png" alt=""></a>
+							<br>
+							<span>OR</span>
+						</center>
 			          	<div class="emil-contect  row">
 			          		<!-- <h6 class="center">OR USING EMAIL</h6> -->
 							<br>

@@ -41,10 +41,14 @@
 		  			<a href='#' class="waves-effect waves-light dropdown-trigger" data-target='profile-dropdown' style=" line-height: 0;">
 		  				
 
-		  				<?php if (!empty($this->session->userdata('propics'))) { ?>
-											
-							<img src="<?php echo $this->config->base_url().$this->session->userdata('propics') ?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
-						<?php } else { ?>
+								
+							<?php  if(!empty($formdata['can_propic'])) { 
+										if($this->session->userdata('type') == 'linkedin'){
+							?>
+							<img src="<?php echo $formdata['can_propic']?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
+							<?php } else{ ?>				
+									<img src="<?php echo $this->config->base_url().$this->session->userdata('propics') ?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
+						<?php } } else{ ?>
 							<img src="<?php echo $this->config->item('web_url');?>assets/img/person.png" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
 		
 						<?php } ?>

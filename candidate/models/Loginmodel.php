@@ -323,11 +323,64 @@ class Loginmodel extends CI_Model {
 			return 0;	
 
 		}
-
-
-
-
-
 	}
 
+	public function linkedin($user)
+	{
+		$email	 	="";	
+		$fname		= "";
+		$lname		= "";
+		$location	= "";
+		$id			= "";
+		$pic		= "";
+
+		if(!empty($user->emailAddress)){ $email	 	= $user->emailAddress; }	
+		if(!empty($user->firstName)){ $fname		= $user->firstName;}
+		if(!empty($user->lastName)){ $lname		= $user->lastName;}
+		if(!empty($user->location->name)){ $location	= $user->location->name;}
+		if(!empty($user->id)){ $id			= $user->id;}
+		if(!empty($user->pictureUrl)){ $pic		= $user->pictureUrl;}
+		
+		$this->db->select('can_id, can_fname, can_lname, can_email, can_propic');
+		$this->db->where('can_email',$email);
+		$result = $this->db->get('ch_candidate');
+		if($result->num_rows() > 0)
+		{ 
+			return $result->row();
+		}else{
+			$data = array(
+				'can_email ' 	=> $email, 
+				'can_fname' 	=> $fname, 
+				'can_curr_loc'  => $location,
+				'can_encrypt_id '=> $id, 
+				'can_lname' 	=> $lname, 
+				'can_propic' 	=> $pic, 
+			);
+
+			if($this->db->insert('ch_candidate',$data)){
+				$insert_sumid = $this->db->insert_id();
+				$this->subscribe($insert_sumid);
+				$this->db->select('can_id, can_fname, can_lname, can_email, can_propic');
+				$this->db->where('can_email',$email);
+				return $this->db->get('ch_candidate')->row();
+			}
+		}		
+	}
+
+
+	public function subscribe($canid = null)
+	{
+		$expdt = date('Y-m-d H:i:s');
+		
+		$newxpdt = date('Y-m-d H:i:s',(strtotime(date("Y-m-d H:i:s", strtotime($expdt)) . " +7 days")));
+		$csdata=array(
+			'can_id'=>$canid,
+			'csub_nojobs'=>1,
+			'csub_expire_dt'=>$newxpdt,
+			'csub_type'=>1,
+			'csub_status'=>1
+		);
+		$this->db->insert('ch_can_subscribe', $csdata);
+		return true;
+	}
 }

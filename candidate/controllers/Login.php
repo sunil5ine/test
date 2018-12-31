@@ -167,7 +167,6 @@ class Login extends CI_Controller {
 
 					'cand_chemail' => $row->can_email,
 
-					'cand_chpwd' => $row->can_hash,
 					'propics' => $row->can_propic,
 
 					'cand_chlogged_in' => TRUE
@@ -572,7 +571,88 @@ class Login extends CI_Controller {
 
         $this->output->set_header("Pragma: no-cache");
 
-    }
+	}
+	
+
+	public function linkedin()
+	{
+		if (empty($_GET["action"])) {
+			require_once 'config.php';
+			require ('oauth/http.php');
+			require ('oauth/oauth_client.php');
+			
+			if (!empty($_GET["oauth_problem"])) {
+				$error1 = $_GET["oauth_problem"];
+			}
+			
+			$client = new oauth_client_class();
+			
+			$client->debug = false;
+			$client->debug_http = true;
+			$client->redirect_uri = REDIRECT_URI;
+			$client->server = "LinkedIn";
+			$client->client_id = CLIENT_ID;
+			$client->client_secret = CLIENT_SECRET;
+			$client->scope = SCOPE;
+			
+			if (($success = $client->Initialize())) {
+				if (($success = $client->Process())) {
+					if (strlen($client->authorization_error)) {
+						$client->error = $client->authorization_error;
+						$success = false;
+					} elseif (strlen($client->access_token)) {
+						$success = $client->CallAPI('http://api.linkedin.com/v1/people/~:(id,email-address,location,first-name,last-name,picture-url,public-profile-url,formatted-name,specialties,summary,industry,positions,num-connections,honors-awards,educations,skills)', 'GET', array(
+							'format' => 'json'
+						), array(
+							'FailOnAccessError' => true
+						), $user);
+					}
+				}
+				$success = $client->Finalize($success);
+				
+			}
+			if ($client->exit) {
+				exit();
+			}
+			if ($success) {
+				$insert = $this->loginmodel->linkedin($user);
+				$sess_array = array(
+
+					'cand_chid' => $insert->can_id,
+
+					'cand_chname' => $insert->can_fname.' '.$insert->can_lname,
+
+					'cand_chemail' => $insert->can_email,
+
+					'propics' => $insert->can_propic,
+
+					'cand_chlogged_in' => TRUE,
+					'type'	=>'linkedin',
+
+				);
+
+				$this->session->set_userdata($sess_array);
+
+				
+				redirect('login','refresh');
+				
+								
+			} else {
+				$error = $client->error;
+				
+				$this->session->set_flashdata('error', '<div style="margin-top: 16px;" class="alert alert-success"><button data-dismiss="alert" class="close" type="button">&times;</button> Something went wrong. Please try agin </div>');
+				redirect('login','refresh');
+				
+			}
+		} 
+		
+		else {
+			$_SESSION = array();
+			unset($_SESSION);
+			session_destroy();
+			redirect('login','refresh');
+		}
+	}
 
 }
 
