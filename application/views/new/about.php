@@ -438,18 +438,16 @@
 						<h5 class="white-text"><b>Companies With CherryHire</b></h5>
 						<div class="row m0">
 							<div class="">
-
-   <section class="customer-logos ">
-      <div class="">
-      	<img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg"></div>
-      <div class=""><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg"></div>
-      <div class=""><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg"></div>
-      <div class=""><img src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg"></div>
-      <div class=""><img src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg"></div>
-      <div class=""><img src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg"></div>
-      <div class=""><img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg"></div>
-      <div class=""><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"></div>
-   </section>
+								<section class="customer-logos ">
+									<div class=""> <img src="<?php echo base_url()?>assets/img/brand1.jpg"></div>
+									<div class=""><img src="<?php echo base_url()?>assets/img/brand2.jpg"></div>
+									<div class=""><img src="<?php echo base_url()?>assets/img/brand3.jpg"></div>
+									<div class=""><img src="<?php echo base_url()?>assets/img/brand4.jpg"></div>
+									<div class=""><img src="<?php echo base_url()?>assets/img/brand5.jpg"></div>
+									<div class=""><img src="<?php echo base_url()?>assets/img/brand6.jpg"></div>
+									<div class=""><img src="<?php echo base_url()?>assets/img/brand8.jpg"></div>
+									<div class=""><img src="<?php echo base_url()?>assets/img/brand9.jpg"></div>
+								</section>
 							</div>
 						</div>
 					</div>
