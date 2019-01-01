@@ -23,6 +23,7 @@ class candidatedata extends CI_Controller {
 		$cid = $this->session->userdata('cand_chid');
 		$this->data['aplJobs'] = $this->Candidatemodel->applied_jobs($cid);
 		// foreach ($this->data['aplJobs'] as $row) {if($row->ja_status == 1){$icount = $icount + 1; } }
+		
 		$this->data['count'] = $icount;
 		$this->load->view('new/applied-jobs',$this->data);
 

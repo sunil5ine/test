@@ -394,9 +394,10 @@ function getsingle_work_experience($canid, $enid)
 function update_works($work_data,$can_en,$cid)
 {
 	$this->db->where('can_id',$cid);
+	$this->db->where('cexp_encrypt_id',$can_en);
 	$this->db->set('cexp_encrypt_id',$can_en);
 	$this->db->update('ch_candidate_exp',$work_data);
-	if($this->db->affected_rows() == '1'){return true;}else{return false;}
+	if($this->db->affected_rows() > 0){return true;}else{return false;}
 }
 
 /* delete education */
@@ -427,10 +428,12 @@ function edite_edution($cid, $eudid)
 /* update education */
 function update_education($data, $ceid, $cid)
 {
+	
 	$this->db->where('can_id',$cid);
+	$this->db->where('cedu_encrypt_id',$ceid);
 	$this->db->set('cedu_encrypt_id',$ceid);
 	$this->db->update($this->table_edu_details, $data);
-	if($this->db->affected_rows() == '1'){return true;}else{return false;}
+	if($this->db->affected_rows() > 0){return true;}else{return false;}
 }
 
 

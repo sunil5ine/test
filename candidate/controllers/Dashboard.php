@@ -354,7 +354,7 @@ public function addwork($can_en=null)
 			'cexp_key_role'	=>$keyrol,
 			'cexp_present'	=>$crc,
 			'cexp_updatedt'	=>date('Y-m-d H:i:s'),
-			'cexp_encrypt_id' =>$can_en,
+			'cexp_encrypt_id' =>$cid.date('YmdHis'),
 		);
 	if($this->dashboardmodel->addwork($work_data))
 		{
@@ -546,7 +546,7 @@ function update_education()
 {
 	if(!$this->session->userdata('cand_chid')) { redirect($this->config->base_url().'LoginProcess'); }
 	$cid    		= $this->session->userdata('cand_chid');
-	$ceid 			= $this->input->post('ceid');
+	$ceid 			= $this->input->post('edid');
 	$school 		= $this->input->post('school');
 	$degree_type 	= $this->input->post('degree_type');
 	$degree 		= $this->input->post('degree');

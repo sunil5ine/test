@@ -1185,7 +1185,11 @@ class Candidate extends CI_Controller {
 				
 
 				$picid = $this->candidatemodel->update_profilepic($cid,$picpath);					
-
+				$picpaths = 'profilepic/'. basename($picpath);
+				$sess_array = array('propics' => $picpaths);
+				$this->session->set_userdata( $sess_array );
+				
+				
 				//$mailstatus = $this->cvsendmail($cid,$cvpath);
 
 				$this->data['message'] = '<div style="margin-top: 16px;" class="alert alert-success">

@@ -327,6 +327,10 @@ class Candidatemodel extends CI_Model {
 		);
 		$this->db->where('can_id', $cid);
 		$this->db->update($this->table_cv, $cvdata);
+		if($this->db->affected_rows() < 1){
+			$this->db->insert($this->table_cv, $cvdata);
+			
+		}
 		
 		$can_up_data=array(
 			'can_upd_date'=>date('Y-m-d H:i:s'),
@@ -605,7 +609,8 @@ class Candidatemodel extends CI_Model {
 		$this->db->where('ja_status',1);
 		$this->db->join('ch_jobs', 'ch_jobs.job_id = ch_jobapply.job_id', 'right');
 		$query = $this->db->get();
-		if($query->num_rows() > 0){return $query->result();}else{return false;}
+		return $query->result();
+		// if($query->num_rows() > 0){return $query->result();}else{return false;}
 	}
 
 	/*cancel apply jobs*/

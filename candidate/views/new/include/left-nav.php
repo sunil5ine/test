@@ -12,7 +12,7 @@
 								<div class="profile-detail center">
 									<div class="profile-pic " style="min-height: 80px">
 										<?php 
-											if($this->session->userdata('type') == 'linkedin'){ ?>
+											if(substr($formdata['can_propic'],0,4) == 'https'){ ?>
 												<img src="<?php echo $formdata['can_propic']?>" class="responsive-img prf-pic circle" width="75px" height="75px">
 											<?php } else if (!empty($formdata['can_propic'])) { ?>
 											
@@ -56,9 +56,6 @@
 									</li>
 									<li class=" <?php echo ($url=='saved-jobs')? 'activel':'' ?>">
 										<a href="<?php echo base_url()?>saved-jobs" class="waves-effect"><i class="material-icons nav-slid-icon">star</i> Saved Jobs</a>
-									</li>
-									<li class=" <?php echo ($url=='')? 'activel':'' ?>">
-										<a href="#" class="waves-effect"><i class="material-icons nav-slid-icon">format_list_bulleted</i> My Job Alert</a>
 									</li>
 									<li class=" <?php echo ($url=='recommended-jobs')? 'activel':'' ?>">
 										<a href="<?php echo base_url()?>recommended-jobs" class="waves-effect"><i class="material-icons nav-slid-icon">event_note</i> Recommended Jobs</a>

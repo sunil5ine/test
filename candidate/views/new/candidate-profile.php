@@ -57,7 +57,7 @@
 										<?php } ?>		
 										<a href="#upload-resume" class="brand-text bold tooltipped modal-trigger" data-position="top" data-tooltip="Please choose only .doc, .docx and .pdf files">Upload New Resume</a>
 									</div>
-									<div class="col s12 m3 l2 grey  lighten-5 z-depth-1">
+									<div class="col s12 m3 l2 grey  lighten-5 z-depth-2">
 										<div class="ptb10">
 											<?php 
 												$exp = date('Y-m-d', strtotime($subdetails['csub_expire_dt']));
@@ -65,7 +65,7 @@
 												$dif = date_diff(date_create($now),date_create($exp)); 
 												$left = $dif->format('%R%a');
 												if($left > 0){ ?>
-													<h5 class=" brand-text m0 mb10"><?php echo $subdetails['pr_name'] ?></h5>
+													<h5 class=" brand-text m0 mb10"><?php echo (!empty($subdetails['pr_name']))?$subdetails['pr_name'] :'Free Package' ?></h5>
 													<p class=" black-text ft10">
 														<span style="font-size:14px" class=" bold"><?php echo $subdetails['csub_nojobs'] ?> </span><?php echo ($subdetails['csub_nojobs'] > 0)?'Jobs left':'Job left' ?>
 													</p>

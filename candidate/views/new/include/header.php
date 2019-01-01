@@ -40,12 +40,10 @@
 		  		<li>
 		  			<a href='#' class="waves-effect waves-light dropdown-trigger" data-target='profile-dropdown' style=" line-height: 0;">
 		  				
-
-								
-							<?php  if(!empty($formdata['can_propic'])) { 
-										if($this->session->userdata('type') == 'linkedin'){
+							<?php  if(!empty($this->session->userdata('propics'))) { 
+										if(substr($this->session->userdata('propics'),0,4) == 'https'){
 							?>
-							<img src="<?php echo $formdata['can_propic']?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
+							<img src="<?php echo $this->session->userdata('propics')?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
 							<?php } else{ ?>				
 									<img src="<?php echo $this->config->base_url().$this->session->userdata('propics') ?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
 						<?php } } else{ ?>

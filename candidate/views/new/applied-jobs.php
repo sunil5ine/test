@@ -32,15 +32,12 @@
 						</div>
 						<?php echo $this->session->flashdata('message'); ?>
 					</div>
-
 					<div class="card applied-joblist">
 						<div class="">
 							<ul class="collection">
 							<?php 
 								if (!empty($aplJobs)) {
 								foreach ($aplJobs as $rows) {
-								if($rows->ja_status == 1){
-								
 							?>
 						      <li class="collection-item row hoverable">
 						      	<div class="col s12 l9 m9 ">
@@ -74,7 +71,7 @@
 						        		</div>
 						        	</div>						      	
 						      </li>
-						  <?php } } }?>
+						  <?php }  }?>
 						  </ul>
 						</div>
 						<?php if (count($aplJobs) < 1) { ?>

@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->config->item('web_url');?>assets/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->config->item('web_url');?>assets/css/style.css">
 </head>
-<body>
+<body style="overflow-x:hidden">
 	<!-- header -->
 	<?php include 'include/header.php'  ?>
 	<!-- End header -->
