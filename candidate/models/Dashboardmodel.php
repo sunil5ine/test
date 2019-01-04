@@ -451,4 +451,18 @@ function update_profilepic($cid,$picpath)
 	}
 }
 
+public function qtest($id)
+{
+	$this->db->where('can_id', $id);
+	$query = $this->db->get('ch_can_test');
+	if($query->num_rows() > 0){
+		return 0;
+	}else{
+		return 1;
+	}
+	
+	
+	
+}
+
 }

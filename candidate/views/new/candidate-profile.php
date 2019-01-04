@@ -832,6 +832,20 @@
 
 
 
+  <!-- Modal Trigger -->
+
+  <!-- Modal Structure -->
+  <div id="mds" class="modal">
+    <div class="modal-content">
+      <!-- <h4>Modal Header</h4> -->
+	  <h6 class="">Take a psychometric test. psychometric will increez your profile view.</h6>
+	  <div>
+	  	<a href="#!" class="modal-close waves-effect mb-20 btn red white-text waves-green right">Close</a>
+	  	<a href="<?php echo base_url() ?>questionnaire" class="waves-effect mb-20 btn brand white-text waves-green right mr10">Take test</a>
+	  </div>
+    </div>
+   
+  </div>
 
 
 <!-- end popup -->
@@ -850,8 +864,14 @@
 
 	<script>
 	$(document).ready(function(){
-
-		 $('.datepicker').datepicker();
+		if('<?php echo $this->session->userdata("tectcheck") ?>' == 1)
+		{
+			$('.datepicker').datepicker();
+			setTimeout(function(){
+				$('#mds').modal('open');
+			}, 3000);
+		}
+		 
 		
 		 
 		$('select').formSelect();
@@ -905,6 +925,10 @@
 
 		$("#phone").intlTelInput({autoHideDialCode: true, nationalMode: true});
 		$("#phone").on("countrychange", function(e, countryData) {$('#cntrycode').val(countryData['dialCode']) });
+	</script>
+
+	<script>
+	
 	</script>
 </body>
 </html>

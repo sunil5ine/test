@@ -112,7 +112,6 @@ class Login extends CI_Controller {
 
 				$this->data['errmsg']='';
 				redirect($this->config->base_url().'MyProfile');
-
 			}
 
 		}
@@ -617,18 +616,12 @@ class Login extends CI_Controller {
 			if ($success) {
 				$insert = $this->loginmodel->linkedin($user);
 				$sess_array = array(
-
-					'cand_chid' => $insert->can_id,
-
-					'cand_chname' => $insert->can_fname.' '.$insert->can_lname,
-
-					'cand_chemail' => $insert->can_email,
-
-					'propics' => $insert->can_propic,
-
-					'cand_chlogged_in' => TRUE,
-					'type'	=>'linkedin',
-
+					'cand_chid' 		=> $insert->can_id,
+					'cand_chname' 		=> $insert->can_fname.' '.$insert->can_lname,
+					'cand_chemail' 		=> $insert->can_email,
+					'propics' 			=> $insert->can_propic,
+					'cand_chlogged_in' 	=> TRUE,
+					'type'				=>'linkedin',
 				);
 
 				$this->session->set_userdata($sess_array);
@@ -637,12 +630,11 @@ class Login extends CI_Controller {
 				redirect('login','refresh');
 				
 								
-			} else {
+			} 
+			else {
 				$error = $client->error;
-				
 				$this->session->set_flashdata('error', '<div style="margin-top: 16px;" class="alert alert-success"><button data-dismiss="alert" class="close" type="button">&times;</button> Something went wrong. Please try agin </div>');
 				redirect('login','refresh');
-				
 			}
 		} 
 		

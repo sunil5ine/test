@@ -103,18 +103,22 @@ class Dashboard extends CI_Controller {
 		$this->data['sid'] 				= 0;
 		$this->data['title'] 			= 'Cherry Hire - Candidate Dashboard';
 		
-		$this->data["degree_list"] = $this->dashboardmodel->get_degree();
-		$this->data["degree_type_list"] = $this->dashboardmodel->get_degreetype();
-		$this->data["country_list"] = $this->dashboardmodel->get_country();
-		$this->data["pre_country_list"] = $this->dashboardmodel->get_pref_country();
-		$this->data["nation_list"] = $this->dashboardmodel->get_nationality();
-		$this->data["edu_list"] = $this->dashboardmodel->get_edu();
-		$this->data["funarea_list"] = $this->dashboardmodel->get_farea();
-		$this->data["ind_list"] = $this->dashboardmodel->get_industry();
-		$this->data["year_list"] = $this->dashboardmodel->get_year();
-		$this->data["month_list"] = $this->dashboardmodel->get_month();
-		
-		$this->load->view('new/candidate-profile',$this->data);
+		$this->data["degree_list"] 			= $this->dashboardmodel->get_degree();
+		$this->data["degree_type_list"] 	= $this->dashboardmodel->get_degreetype();
+		$this->data["country_list"]	 		= $this->dashboardmodel->get_country();
+		$this->data["pre_country_list"] 	= $this->dashboardmodel->get_pref_country();
+		$this->data["nation_list"] 			= $this->dashboardmodel->get_nationality();
+		$this->data["edu_list"] 			= $this->dashboardmodel->get_edu();
+		$this->data["funarea_list"] 		= $this->dashboardmodel->get_farea();
+		$this->data["ind_list"] 			= $this->dashboardmodel->get_industry();
+		$this->data["year_list"] 			= $this->dashboardmodel->get_year();
+		$this->data["month_list"] 			= $this->dashboardmodel->get_month();
+		$this->data['qtest'] 				= $this->dashboardmodel->qtest($this->session->userdata('cand_chid'));
+		$session = array(
+			'tectcheck' => $this->data['qtest']
+		);
+		$this->session->set_userdata($session);
+ 		$this->load->view('new/candidate-profile',$this->data);
 		
 	}
 	

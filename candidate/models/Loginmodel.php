@@ -367,6 +367,12 @@ class Loginmodel extends CI_Model {
 		}		
 	}
 
+	// test taken check
+	public function qtestCheck()
+	{
+		# code...
+	}
+
 
 	public function subscribe($canid = null)
 	{

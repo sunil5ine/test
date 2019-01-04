@@ -25,7 +25,7 @@
 					<div class="row">
 						<div class="title col s12">
 							<h5 class="bold black-text mb10">Blogs</h5>
-							<p class="m0"><small>Lorem ipsum dolor sit amet consectetur.</small></p>
+							<!-- <p class="m0"><small>Lorem ipsum dolor sit amet consectetur.</small></p> -->
 						</div>
 					</div>
 				</div>
