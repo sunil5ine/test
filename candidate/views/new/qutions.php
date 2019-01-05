@@ -1,3 +1,6 @@
+<?php 
+$this->load->model('m_questionnaire');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,10 +34,37 @@
 				<div class="row">
 					<div class="col s12 m6 appl-job-heading">
 						<p class="black-text h5">Questionnaire</p>
-						<small><i>view all your Recently Applied Jobs</i></small>
+						<!-- <small><i>view all your Recently Applied Jobs</i></small> -->
 					</div>
 					<div class="col s12 m6 appl-job-heading">
 						<p class="black-text h5 right">Time left: 45 min</p>
+					</div>
+				</div>
+			<form action="<?php echo base_url() ?>questionnaire/validate" method="post">
+				<div class="row">
+					<div class="col s12">
+						<div class="card">
+							<div class="card-content">
+								<?php $count = 0; 
+									foreach ($verbal as $key => $value) {  $leter = ord('A');
+										$anw = $this->m_questionnaire->getansw($value->tq_uid);
+								?>
+									<div class="quetion-sets">
+										<p class="quetion"><?php echo '<span class="slno">'.$count += 1; echo '.</span>  <span>'.$value->tq_quetion ?></span></p>
+										<div class="answ">
+											<?php foreach ($anw as $keys => $anws) {  ?>
+												<p>
+													<label>
+														<input class="with-gap" name="<?php echo $value->tq_uid ?>" value="<?php echo chr($leter) ?>" type="radio"  />
+														<span><?php echo $anws->tq_option ?></span>
+													</label>
+												</p>
+											<?php $leter++; } ?>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -42,282 +72,104 @@
 					<div class="col s12">
 						<div class="card">
 							<div class="card-content">
-
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
+								<?php 
+									foreach ($logical as $key => $value) {  $leter = ord('A');
+										$anw = $this->m_questionnaire->getansw($value->tq_uid);
+								?>
+									<div class="quetion-sets">
+										<p class="quetion"><?php echo '<span class="slno">'.$count += 1; echo '.</span>  <span>'.$value->tq_quetion ?></p>
+										<div class="answ">
+											<?php foreach ($anw as $keys => $anws) {  ?>
+												<p>
+													<label>
+														<input class="with-gap" name="<?php echo $value->tq_uid ?>" value="<?php echo chr($leter) ?>" type="radio"  />
+														<span><?php echo $anws->tq_option ?></span>
+													</label>
+												</p>
+											<?php $leter++; } ?>
+										</div>
 									</div>
-								</div>
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
-									</div>
-								</div>
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
-									</div>
-								</div>
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
-									</div>
-								</div>
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
-									</div>
-								</div>
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
-									</div>
-								</div>
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
-									</div>
-								</div>
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
-									</div>
-								</div>
-
-								<div class="quetion-sets">
-									<p class="quetion">1.Find the error</p>
-									<div class="answ">
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>We discussed about the problem so thoroughly</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>On the eve of the examination</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>That I found it very easy to work it out.</span>
-											</label>
-										</p>
-										<p>
-											<label>
-												<input class="with-gap" name="group1" type="radio"  />
-												<span>No error.</span>
-											</label>
-										</p>
-									</div>
-								</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
 				</div>
 
+				<div class="row">
+					<div class="col s12">
+						<div class="card">
+							<div class="card-content">
+								<?php  
+									foreach ($numerical as $key => $value) {  $leter = ord('A');
+										$anw = $this->m_questionnaire->getansw($value->tq_uid);
+								?>
+									<div class="quetion-sets">
+										<p class="quetion"><?php echo '<span class="slno">'.$count += 1; echo '.</span>  <span>'.$value->tq_quetion ?></p>
+										<?php if(!empty($value->tq_qimg)) {
+											echo '<img src="'.$this->config->item('web_url').'assets/qut-img/'.$value->tq_qimg.'" alt="" class="responsive-img"/>';
+										}?>
+										<div class="answ">
+											<?php foreach ($anw as $keys => $anws) {  ?>
+												<p>
+													<label>
+														<input class="with-gap" name="<?php echo $value->tq_uid ?>" value="<?php echo chr($leter) ?>" type="radio"  />
+														<span><?php echo $anws->tq_option ?></span>
+													</label>
+												</p>
+											<?php $leter++; } ?>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col s12">
+						<div class="card">
+							<div class="card-content">
+								<?php  
+									foreach ($resability as $key => $value) {  $leter = ord('A');
+										$anw = $this->m_questionnaire->getansw($value->tq_uid);
+								?>
+									<div class="quetion-sets">
+										<p class="quetion"><?php echo '<span class="slno">'.$count += 1; echo '.</span>  <span>'.$value->tq_quetion ?></p>
+										<?php if(!empty($value->tq_type) && $value->tq_type =="text/image") {
+											echo '<img src="'.$this->config->item('web_url').'assets/qut-img/'.$value->tq_qimg.'" alt="" class="responsive-img" style="max-height: 326px;"/>';
+										}?>
+										<div class="answ">
+										<?php 
+											if($anw['0']->tq_top != 0){
+												$op = ord('A');
+												for ($i=1; $i <= $anw['0']->tq_top ; $i++) { 
+													
+													echo '<p>
+													<label>
+														<input class="with-gap" name="'.$value->tq_uid.'" value="'.chr($op).'" type="radio"  />
+														<span>'.chr($op).'</span>
+													</label>
+												</p>';
+												$op++;
+												}
+											} 
+										?>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col s12">
+						<button class="btn waves-effect brand white-text waves-light" type="submit" name="action">Submit
+							<i class="material-icons right">send</i>
+						</button>
+					</div>
+				</div>
+			</form>								
 			</div><!-- end wrap -->
 		</div> <!-- end row -->
 	</section>

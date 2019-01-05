@@ -899,7 +899,7 @@ span.profile-pic .label a{display: block;}
 }
 .activel{background: #e1e1e1;}
 .activel a{color: green}
-.quetion{font-size: 18px; font-weight: 400; margin-bottom: 5px !important}
+.quetion{font-size: 18px; font-weight: 400; margin-bottom: 5px !important;padding-left: 29px}
 .quetion-sets p label span{font-size: 14px; font-weight: 400;}
 .quetion-sets .answ p { padding: 3px 12px; }
 .quetion-sets { margin-bottom: 24px; }
@@ -911,3 +911,4 @@ strong { font-weight: 700; }
 .footer { margin-bottom: -17px; }
 .mb-20{margin-bottom: 20px;}
 .btn:hover { color: rgba(203, 203, 203, 0.9) !important; box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15); }
+.slno{margin-left: -29px}
