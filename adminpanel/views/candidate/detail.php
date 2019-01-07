@@ -29,15 +29,18 @@
                             <div class="card">
                                 <div class="card-content">
                                     <div class="row m0">
-                                        <div class="col s12 m4">
+                                        <div class="col s12 m5">
                                             <div class="row m0 border-r">
                                                 <div class="col s12 l4 m4 p0"> 
                                                     <center> 
                                                         <?php
-                                                            if(!empty($profile['can_propic'])){
+                                                            if(substr(trim($profile['can_propic']),0,5) == 'https' || substr(trim($profile['can_propic']),0,4) == 'http'){
+                                                                echo ' <img src="'.$profile['can_propic'].'" class="responsive-img responsive-img circle" style="margin-top: 17px;" width="100%">' ;
+                                                            }
+                                                            elseif(!empty($profile['can_propic'])){
                                                                echo ' <img src="'.$this->config->item('canurl').'/'.$profile['can_propic'].'" class="responsive-img responsive-img circle" style="margin-top: 17px;" width="100%">' ;        
                                                             }else{
-                                                                echo ' <img src="http://localhost/cherryhire1/assets/img/logo.png" class="responsive-img responsive-img circle" style="margin-top: 17px;" width="100%">';
+                                                                echo ' <img src="'.$this->config->item('canurl').'assets/img/logo.png" class="responsive-img responsive-img circle" style="margin-top: 17px;" width="100%">';
                                                             }
                                                         ?>
                                                         
@@ -46,7 +49,7 @@
                                                 <div class="col s12 l8 m8 "> 
                                                     <div class="ptb15 pr-container"> 
                                                         <p class="bold"><?php echo $profile['can_curr_desig'] ?></p> 
-                                                        <p class="smal"><?php echo $ind['ind_name'] ?></p>
+                                                        <p class="smal"><?php echo $fun['fun_name'] ?></p>
                                                         <p class="smal"> <a href="mailto:"><?php echo $profile['can_email'] ?></a></p>
                                                         <p class="smal"><a href="tel:"><?php echo (!empty($profile['can_ccode']))?'+'.$profile['can_ccode'].' '.$profile['can_phone'] : $profile['can_phone']?></a></p>
                                                     </div> 
@@ -225,10 +228,13 @@
                                         <?php 
                                         if(!empty($exp['cexp_from_mon'])){
                                             $from = date('M',strtotime($exp['cexp_from_mon'])).' '.$exp['cexp_from_yr'];
-                                            if(!$exp['cexp_present'] == 1){ $to = date('M',strtotime($exp['cexp_to_mon'])).' '.$exp['cexp_to_yr']; }
-                                                else{ $to = 'present'; }
+                                            if($exp['cexp_present'] == 1){ $to = 'present'; }
+                                                else{  $to = date('M',strtotime($exp['cexp_to_mon'])).' '.$exp['cexp_to_yr']; }
                                         }else{
-                                            $from ='';$to = '';
+                                            $from ='';
+                                        }
+                                        if(empty($exp['cexp_to_mon'])){
+                                            $to = "";    
                                         }
                                         ?>								
 										<tr>

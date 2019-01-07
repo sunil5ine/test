@@ -64,7 +64,7 @@
                                             <td ><?php echo $value->emp_email ?></td>
                                             <td ><?php echo date('d M Y', strtotime($value->emp_reg_date)) ?></td>
                                             <td class="action-btn  center-align">
-                                              <a href="<?php echo base_url('employees/approve/30').$value->emp_authkey ?>" class="waves-effect waves-light green tooltipped" data-position="top" data-tooltip="Approve Employer"><i class="fas fa-user-check"></i></a>
+                                              <a href="<?php echo base_url('employees/approve/').$value->emp_authkey ?>" class="waves-effect waves-light green tooltipped" data-position="top" data-tooltip="Approve Employer"><i class="fas fa-user-check"></i></a>
                                               <a href="<?php echo base_url('employees/reject/').$value->emp_authkey ?>" class="waves-effect waves-light red tooltipped reject" data-position="top" data-tooltip="Reject Employer"><i class="fas fa-user-times"></i></a>
                                               <a href="<?php echo base_url('employees/details/').$value->emp_authkey ?>" class="blue  tooltipped" data-position="top" data-tooltip="View employer Details"><i class="fas fa-eye "></i></i></a>
                                             </td>

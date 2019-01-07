@@ -30,8 +30,9 @@ class candidateModel extends CI_Model {
     */
     public function canInd($id)
     {
+        $this->db->select('ind_sdisplay as ind_name,ind_id');
         $this->db->where('ind_id', $id);
-        return $this->db->get('ch_industry')->row_array();    
+        return   $this->db->get('enum_industry')->row_array();    
     }
 
     /**
@@ -69,7 +70,7 @@ class candidateModel extends CI_Model {
     */
     public function expireance($id)
     {
-        $this->db->select('cexp_company, cexp_location,cexp_from_mon,cexp_from_yr,cexp_from_yr,cexp_to_yr,cexp_position,cexp_present ');
+        $this->db->select('cexp_company, cexp_location,cexp_to_mon,cexp_from_mon,cexp_from_yr,cexp_from_yr,cexp_to_yr,cexp_position,cexp_present ');
         $this->db->where('can_id', $id);
         return $this->db->get('ch_candidate_exp')->row_array();
     }

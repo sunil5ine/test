@@ -183,7 +183,7 @@ class Employer extends CI_Controller {
 			{
 				$this->data['status'] = 'fail';
 				
-				$this->session->set_flashdata('msg', '<div class="alert alert-danger fade in">
+				$this->session->set_flashdata('msg', '<div style="position:relative;right:0px" class="alert alert-danger fade in">
 				<strong>Failed!</strong> Please Use  Comapany email id only.
 				</div>');
 				redirect($this->config->base_url().'PostJob');
@@ -252,7 +252,7 @@ class Employer extends CI_Controller {
 
 			$this->data['status'] = 'fail';
 
-			$this->data['message'] = '<div class="alert alert-danger fade in">
+			$this->data['message'] = '<div style="position:relative;right:0px" class="alert alert-danger fade in">
 
 			<strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
 
@@ -288,7 +288,7 @@ class Employer extends CI_Controller {
 		if($this->employermodel->getspammail($email[1]))
 		{
 
-			$this->data['message'] = '<div class="alert alert-danger fade in"> <strong>Failed!</strong> Please use Valid company email Id </div>';
+			$this->data['message'] = '<div style="position:relative;right:0px" class="alert alert-danger fade in"> <strong>Failed!</strong> Please use Valid company email Id </div>';
 			// $this->load->view('new/employer-registration',$this->data);
 			echo "Please use Valid company email Id ";
 
@@ -435,7 +435,7 @@ class Employer extends CI_Controller {
 
 			$this->data['status'] = 'fail';
 
-			$this->data['message'] = '<div class="alert alert-danger fade in">
+			$this->data['message'] = '<div style="position:relative;right:0px" class="alert alert-danger fade in">
 
 			<strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
 
@@ -595,7 +595,7 @@ class Employer extends CI_Controller {
 
 			$this->data['status'] = 'fail';
 
-			$this->data['message'] = '<div class="alert alert-danger fade in">
+			$this->data['message'] = '<div style="position:relative;right:0px" class="alert alert-danger fade in">
 
 			<strong>Failed!</strong> Sorry, we are unable to process your request. Please try again.
 

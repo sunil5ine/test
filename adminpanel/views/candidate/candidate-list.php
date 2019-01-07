@@ -39,9 +39,9 @@
                                           <th  class="h5-para-p2">Id</th>
                                           <th  class="h5-para-p2">Candidate Name</th>
                                           <th class="h5-para-p2">Email ID</th>
+                                          <th  class="h5-para-p2">Nationality</th>
                                           <th  class="h5-para-p2">Designation</th>
                                           <th class="h5-para-p2 ">Experience</th>
-                                          <th  class="h5-para-p2">Nationality</th>
                                           <th  class="h5-para-p2">Current Location</th>
                                           <th id="g" class="h5-para-p2">Register Date</th>
                                           <th class="h5-para-p2">Phone</th>  
@@ -59,7 +59,7 @@
                                              <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->can_fname. ' '. $val->can_lname ?></a></td>
                                              <td class="td-a"><a href="mailto:<?php echo $val->can_email ?>"><?php echo $val->can_email ?></a></td>
                                              <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->co_nationality ?></a></td>
-                                             <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->can_curr_desig ?></a></td>
+                                             <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo (!empty($val->can_curr_desig)) ? $val->can_curr_desig : 'Not mention' ?></a></td>
                                              <td class="td-a">
                                                 <?php if($val->can_experience == 'Fresher')
                                                 {
