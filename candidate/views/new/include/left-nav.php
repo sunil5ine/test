@@ -12,7 +12,7 @@
 								<div class="profile-detail center">
 									<div class="profile-pic " style="min-height: 80px">
 										<?php 
-											if(substr($formdata['can_propic'],0,4) == 'https'){ ?>
+											if(substr($formdata['can_propic'],0,4) == 'http' || substr($formdata['can_propic'],0,5) == 'https'){ ?>
 												<img src="<?php echo $formdata['can_propic']?>" class="responsive-img prf-pic circle" width="75px" height="75px">
 											<?php } else if (!empty($formdata['can_propic'])) { ?>
 											

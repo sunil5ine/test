@@ -41,7 +41,7 @@
 		  			<a href='#' class="waves-effect waves-light dropdown-trigger" data-target='profile-dropdown' style=" line-height: 0;">
 		  				
 							<?php  if(!empty($this->session->userdata('propics'))) { 
-										if(substr($this->session->userdata('propics'),0,4) == 'https'){
+										if(substr($formdata['can_propic'],0,4) == 'http' || substr($formdata['can_propic'],0,5) == 'https'){
 							?>
 							<img src="<?php echo $this->session->userdata('propics')?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
 							<?php } else{ ?>				
