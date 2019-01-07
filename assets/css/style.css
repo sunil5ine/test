@@ -905,7 +905,7 @@ span.profile-pic .label a{display: block;}
 .quetion-sets { margin-bottom: 24px; }
 
 @media (min-width: 501px){
-	#mds { width: 500px; }
+	.test-popup{ width: 500px; }
 }
 strong { font-weight: 700; } 
 .footer { margin-bottom: -17px; }

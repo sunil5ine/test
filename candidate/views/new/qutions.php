@@ -33,7 +33,7 @@ $this->load->model('m_questionnaire');
 
 				<div class="row">
 					<div class="col s12 m6 appl-job-heading">
-						<p class="black-text h5">Questionnaire</p>
+						<p class="black-text h5">General Aptitude Test</p>
 						<!-- <small><i>view all your Recently Applied Jobs</i></small> -->
 					</div>
 					<div class="col s12 m6 appl-job-heading">

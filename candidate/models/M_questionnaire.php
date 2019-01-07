@@ -241,7 +241,19 @@ class m_questionnaire extends CI_Model {
     {
         $id = $this->session->userdata('cand_chid');
         $this->db->insert('test_result', array('can_id' => $id, 'tr_marks' => $mark));
-        
+    }
+
+    // get candidate
+    public function getcan()
+    {
+        $id = $this->session->userdata('cand_chid');
+        $this->db->where('can_id', $id);
+        $query = $this->db->get('test_result');
+        if($query->num_rows() > 0){
+            return true;
+        }else{
+            return False;
+        }   
     }
 
 }

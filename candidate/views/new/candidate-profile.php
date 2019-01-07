@@ -835,18 +835,53 @@
   <!-- Modal Trigger -->
 
   <!-- Modal Structure -->
-  <div id="mds" class="modal">
+  <div id="mds" class="modal test-popup">
     <div class="modal-content">
       <!-- <h4>Modal Header</h4> -->
-	  <h6 class="">Take a psychometric test. psychometric will increez your profile view.</h6>
+	  	<h6 class="">
+		  	Thank you for registering on www.cherryhire.com
+			 
+		</h6>
+		<p>
+			Get your profile verified by clicking on “Get Verified” tab and taking the Free General Aptitude Test.										
+		</p>
+		
 	  <div>
 	  	<a href="#!" class="modal-close waves-effect mb-20 btn red white-text waves-green right">Close</a>
 	  	<a href="<?php echo base_url() ?>questionnaire" class="waves-effect mb-20 btn brand white-text waves-green right mr10">Take test</a>
 	  </div>
     </div>
-   
   </div>
 
+    <!-- Modal Structure -->
+	<div id="thank" class="modal test-popup">
+		<div class="modal-content">
+			<!-- <h4>Modal Header</h4> -->
+			<?php if($this->session->flashdata("mark") >= 35){ ?>
+				<h6 class="">Congratulations!</h6>
+				<p>
+					You have successfully cleared the test and your profile is now <b>"Verified"</b>. 
+					Your test score has been sent on your registered email address.
+				</p>
+				<div>
+					<a href="#!" class="modal-close waves-effect mb-20 btn brand white-text waves-green right">Close</a>
+				</div>
+			<?php } else{ ?>
+				<h6 class="">Thank you for taking the General Aptitude Test.</h6>
+				<p>
+					Your score does not qualify you to be recommended as a <b>"Verified"</b> candidate to employers. Your test score has been sent on your registered email address.
+				</p>
+				<p>
+					We recommend that you take some more time to prepare and take a re-test. <br>
+					The charge for re-test is US$ 10 only.
+				</p>
+				<div>
+					<a href="#!" class="modal-close waves-effect mb-20 btn red white-text waves-green right">Close</a>
+					<a href="<?php echo base_url() ?>psychotest/plans" class="waves-effect mb-20 btn brand white-text waves-green right mr10">Take Retest</a>
+				</div>
+			<?php } ?>
+		</div>
+  	</div>
 
 <!-- end popup -->
 
@@ -871,9 +906,12 @@
 				$('#mds').modal('open');
 			}, 3000);
 		}
-		 
-		
-		 
+		if('<?php  echo $this->session->flashdata("mark")?>'){
+			$('.datepicker').datepicker();
+			setTimeout(function(){
+				$('#thank').modal('open');
+			}, 3000);
+		}
 		$('select').formSelect();
 		$('.tooltipped').tooltip();
 		$('#skillstags').tagsInput();
