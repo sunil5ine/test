@@ -843,12 +843,12 @@
 			 
 		</h6>
 		<p>
-			Get your profile verified by clicking on “Get Verified” tab and taking the Free General Aptitude Test.										
+			Get your profile verified by clicking on "Get Verified" tab and taking the Free General Aptitude Test.										
 		</p>
 		
 	  <div>
 	  	<a href="#!" class="modal-close waves-effect mb-20 btn red white-text waves-green right">Close</a>
-	  	<a href="<?php echo base_url() ?>questionnaire" class="waves-effect mb-20 btn brand white-text waves-green right mr10">Take test</a>
+	  	<a href="<?php echo base_url() ?>questionnaire" class="waves-effect mb-20 btn brand white-text waves-green right mr10">Get Verified</a>
 	  </div>
     </div>
   </div>

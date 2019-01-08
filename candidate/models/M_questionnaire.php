@@ -256,6 +256,8 @@ class m_questionnaire extends CI_Model {
         }   
     }
 
+    // get user detail
+
 }
 
 /* End of file M_questionnaire.php */

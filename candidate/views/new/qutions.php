@@ -36,8 +36,8 @@ $this->load->model('m_questionnaire');
 						<p class="black-text h5">General Aptitude Test</p>
 						<!-- <small><i>view all your Recently Applied Jobs</i></small> -->
 					</div>
-					<div class="col s12 m6 appl-job-heading">
-						<p class="black-text h5 right">Time left: 45 min</p>
+					<div class="col s12 m6 appl-job-heading " id="countdowntimer">
+						<p  class="black-text h5 right">Time left: <span id="ms_timer"></span></p>
 					</div>
 				</div>
 			<form action="<?php echo base_url() ?>questionnaire/validate" method="post">
@@ -173,7 +173,14 @@ $this->load->model('m_questionnaire');
 			</div><!-- end wrap -->
 		</div> <!-- end row -->
 	</section>
-								
+	
+	<div id="over-test" class="modal test-popup">
+		<div class="modal-content center">
+		<h4 class=""><i class="large material-icons red-text">access_alarms</i><br>Times Up</h4>
+		<p class="">Your test time is over thank you for taking the test</p>
+		</div>
+	</div>
+
 	<!-- footer -->
 	<?php echo include'include/footer.php' ?>
 	<!-- scripts -->
@@ -183,8 +190,8 @@ $this->load->model('m_questionnaire');
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/pdf/pdfFromHTML.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/component.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/script.js"></script>
-	<script>
-	
-	</script>
+	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/jquery.countdownTimer.min.js"></script>
+	<script> $(function(){ $('#ms_timer').countdowntimer({ minutes :45, seconds : 00, timeUp :timeisUp }); function timeisUp() { $('#over-test').modal('open'); setTimeout(function(){ $('form').submit(); },1500); } }); </script>
+	<script type="text/javascript"> var areYouReallySure = false; function areYouSure() { if(allowPrompt){ if (!areYouReallySure && true) { areYouReallySure = true; var confMessage = "Are you sure you want to leave this page? " return confMessage; } }else{ allowPrompt = true; } } var allowPrompt = true; window.onbeforeunload = areYouSure; </script>
 </body>
 </html>

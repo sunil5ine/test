@@ -43,9 +43,6 @@
 			$diff 	= date_diff(date_create($now),date_create($dats));
 			$left 	= $diff->format("%a days left");
 
-			echo "<pre>";
-			print_r ($left);
-			echo "</pre>";
 			
 			?>
 			<!-- job header -->
@@ -89,7 +86,7 @@
 										<?php if($applposible->csub_nojobs <= 0) { ?> 
                                 	 		<a href="<?php echo $this->config->base_url();?>Subscriptions" class="z-depth-0 btn brand waves-effect waves-light white-text btn-m"><i class="fa fa-arrow-circle-up left"></i> Upgrade Now!</a>
                                 		<?php } else{ ?>
-					        			<a href="<?php echo $this->config->base_url().'Jobs/ApplyJob/'.$formdata['job_url_id']; ?>" class="z-depth-0 btn brand waves-effect waves-light white-text btn-m">Apply Job</a>
+					        			<a href="<?php echo $this->config->base_url().'Jobs/ApplyJob/'.$formdata['job_url_id']; ?>"  class="z-depth-0 appl-btn btn brand waves-effect waves-light white-text btn-m">Apply Job</a>
 
 					        			
 					        		<?php } } else {?>
@@ -222,7 +219,23 @@
 		</div>
 	</div>
 
-
+	<!-- Modal Structure -->
+	<div id="mds" class="modal test-popup">
+    <div class="modal-content">
+      <!-- <h4>Modal Header</h4> -->
+	  	<h6 class="">
+		  	Sorry, you can't apply for this job. Please verify your profile to apply.
+		</h6>
+		<p>
+			Get your profile verified by clicking on "Get Verified" tab and taking the General Aptitude Test.										
+		</p>
+		
+	  <div>
+	  	<a href="#!" class="modal-close waves-effect mb-20 btn red white-text waves-green right">Close</a>
+	  	<a href="<?php echo base_url() ?>questionnaire" class="waves-effect mb-20 btn brand white-text waves-green right mr10">Get Verified</a>
+	  </div>
+    </div>
+  </div>
 
 
 	<!-- footer -->
@@ -237,7 +250,19 @@
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/script.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/needsharebutton.js"></script>
 	<script>  
-			new needShareDropdown(document.getElementById('share-button-2'));
-		</script>
+		new needShareDropdown(document.getElementById('share-button-2'));
+		$(document).ready(function() {
+			$('.appl-btn').click(function(e){ 
+				if('<?php echo $this->session->userdata("tectcheck") ?>' == 1)
+				{	
+					e.preventDefault();
+					$('#mds').modal('open');
+				}
+				else{
+					return true;
+				}
+			});
+		});
+	</script>
 </body>
 </html>

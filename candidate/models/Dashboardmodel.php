@@ -462,6 +462,7 @@ public function qtest($id)
 	else
 	{
 		$this->db->where('can_id', $id);
+		$this->db->where('tr_marks >', 35);
 		$query1 = $this->db->get('test_result');
 		if($query1->num_rows() > 0){
 			return 0;
