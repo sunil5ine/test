@@ -9,10 +9,29 @@ class candidateModel extends CI_Model {
      */
     public function getlist()
     {
+        $this->db->distinct('r.can_id');
+        $this->db->select('cn.can_id, can_encrypt_id, can_fname, can_lname, can_ccode, can_phone, can_email, can_password, can_hash, can_dob, can_gender, edu_id, cn.co_id, can_experience, can_curr_company, can_curr_desig, can_curr_loc, can_pref_loc, can_curr_sal, fun_id, ind_id, jr_id, can_skills, can_relocate, can_alert, can_propic, can_reg_date, can_upd_date, can_vcode, can_hireid, can_status, co_code, co_iso_code, co_name, co_nationality, co_priority, co_status, tr_id, tr_marks, CreatedOn');
         $this->db->where('can_status', 1);
         $this->db->from('ch_candidate cn');
         $this->db->join('ch_country cnt', 'cnt.co_id = cn.co_id', 'left');
-        return  $this->db->get()->result();
+        $this->db->join('test_result r', 'r.can_id = cn.can_id', 'left');
+        return $this->db->get()->result();
+        
+    }
+
+    /**
+     * check varified candtate
+     * @param  [type] $id [can id]
+     * @return [type]     [fetch verified candidate marks]
+     */
+    public function vrifycheck($id)
+    {
+        $this->db->select('tr_id, tr_marks, CreatedOn');
+        $this->db->where('r.can_id', $id);
+        $this->db->where('tr_marks >=', 35);
+        $this->db->from('test_result r');
+        $this->db->join('ch_candidate c', 'c.can_id = r.can_id', 'left');
+        return $this->db->get()->row_array();
     }
 
     /**
@@ -186,12 +205,33 @@ class candidateModel extends CI_Model {
             return true;
         }else{
             return false;
-        }
-        
-        
-        
+        }  
     }
 
+    /** 
+     * Make candidate verified
+    */
+    public function makeverify($data)
+    {
+        $this->db->where('can_id', $data['can_id']);
+        $qu = $this->db->get('test_result');
+        if($qu->num_rows() > 0){
+            $this->db->where('can_id', $data['can_id']);
+            $this->db->update('test_result', array('tr_marks'=>$data['tr_marks']));
+            if($this->db->affected_rows() > 0){
+                return true;
+            }else{
+                return false;
+            } 
+        }else{
+            $query = $this->db->insert('test_result', $data);
+            if($this->db->affected_rows() > 0){
+                return true;
+            }else{
+                return false;
+            } 
+        }    
+    }
 }
 
 /* End of file candidateModel.php */

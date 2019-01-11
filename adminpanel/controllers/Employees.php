@@ -88,6 +88,9 @@ class employees extends CI_Controller {
         $data['employers'] = $this->employeesModel->companyDetails($id);
         $data['package'] = $this->employeesModel->packagelist();
         $data['jobs'] = $this->employeesModel->postedJobs($id);
+        $data['subscr'] = $this->employeesModel->subscr($id);
+        $data['pending'] = $this->employeesModel->pendingcv($id);
+        $data['uploades'] = $this->employeesModel->resumecount($id);
         $data['title'] = $data['employers']['emp_comp_name'] .' | CherryHire employers';
         $this->load->view('employees/detail', $data, FALSE);
     }
@@ -100,6 +103,9 @@ class employees extends CI_Controller {
         $data['jobs'] = $this->employeesModel->postedJobs($id);
         $data['employers'] = $this->employeesModel->companyDetails($id);
         $data['package'] = $this->employeesModel->packagelist();
+        $data['subscr'] = $this->employeesModel->subscr($id);
+        $data['pending'] = $this->employeesModel->pendingcv($id);
+        $data['uploades'] = $this->employeesModel->resumecount($id);
         // $data['title'] = $data['jobs']['0']->emp_comp_name.' | CherryHire employers';
         $data['title'] = 'Posted Jobs | CherryHire employers';
         $this->load->view('employees/jobs', $data, FALSE);
@@ -142,6 +148,9 @@ class employees extends CI_Controller {
         $data['package'] = $this->employeesModel->packagelist();
         $data['resumes'] = $this->employeesModel->uploadedResumes($var);
         $data['employers'] = $this->employeesModel->companyDetails($var);
+        $data['subscr'] = $this->employeesModel->subscr($var);
+        $data['pending'] = $this->employeesModel->pendingcv($var);
+        $data['uploades'] = $this->employeesModel->resumecount($var);
         $this->load->view('employees/uploaded-resumes', $data, FALSE);     
     }
 

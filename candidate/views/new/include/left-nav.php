@@ -1,10 +1,10 @@
 				<div class="col l3 m12 s12">
-					<div class="show-on-med-and-down row grey darken-1 bashboard-nav right-align">
+					<!-- <div class="show-on-med-and-down row grey darken-1 bashboard-nav right-align">
 							<a class="white-text m0 p10 dashboard-button waves-effect">Dashboard 
 								<i class="material-icons arrow-down back-icon">keyboard_arrow_down</i>
 								<i class="material-icons arrow-up back-icon" style="display: none">keyboard_arrow_up</i>
 							</a>
-					</div>
+					</div> -->
 					<div class="dashboard-sildebar">
 						<?php if(!empty($formdata['cmail'])) { ?>
 						<div class="card mb25 profile-card">
@@ -70,7 +70,7 @@
 										<a href="<?php echo base_url() ?>notification" class="waves-effect"><i class="material-icons nav-slid-icon" style="margin-right:10px"> move_to_inbox</i>Inbox</a>
 									</li>
 									<li class=" <?php echo ($url=='cv-visitors')? 'activel':'' ?>">
-										<a href="<?php base_url()?>cv-visitors" class="waves-effect"><i class="material-icons nav-slid-icon" style="margin-right:10px"> move_to_inbox</i>Recruiters Visits on cv</a>
+										<a href="<?php base_url()?>cv-visitors" class="waves-effect"><i class="material-icons nav-slid-icon" style="margin-right:10px"> people_outline</i>Recruiters Visits on cv</a>
 									</li>
 								</ul>
 							</div>

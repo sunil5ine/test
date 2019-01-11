@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="container-wrap">
 					<div class="col m12 s12 l4">
-						<div class="footer-container">
+						<div class="footer-container footer-container-center">
 							<img src="<?php echo base_url()?>assets/img/logo.png " class="responsive-img footerlogo" alt="" width="95px">
 							<div class="footer-heading">
 								<p>Have a question? We are here to help</p>
@@ -15,16 +15,16 @@
 								</ul>
 								<ul class="footer-social-icons ">
 									<li>
-										<a class="fab fa-twitter fit" href="https://twitter.com/hashtag/cherryhire"></a>
+										<a target="_blank" class="fab fa-twitter fit" href="https://twitter.com/hashtag/cherryhire"></a>
 									</li>
 									<li>
-										<a class="fab fa-facebook fif" href="https://www.facebook.com/cherryhire/"></a>
+										<a target="_blank" class="fab fa-facebook fif" href="https://www.facebook.com/cherryhire/"></a>
 									</li>
 									<li>
-										<a class="fab fa-instagram fii" href="https://www.instagram.com/cherryhire/"></a>
+										<a target="_blank" class="fab fa-instagram fii" href="https://www.instagram.com/cherryhire/"></a>
 									</li>
 									<li>
-										<a class="fab fa-linkedin fil" href="https://www.linkedin.com/company/6616120"></a>
+										<a target="_blank" class="fab fa-linkedin fil" href="https://www.linkedin.com/company/6616120"></a>
 									</li>
 								</ul>
 							</div>
@@ -32,7 +32,7 @@
 					</div>
 					<div class="col m12 s12 l8">
 						<div class="row">
-							<div class="col s12 m4 l4">
+							<div class="col s6 m4 l4">
 								<div class="footer-container">
 									<div class="footer-heading">
 										<p>CherryHire</p>
@@ -49,7 +49,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col s12 m4 l4">
+							<div class="col s6 m4 l4">
 								<div class="footer-container">
 									<div class="footer-heading">
 										<p>Employers</p>
@@ -77,7 +77,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col s12 m4 l4">
+							<div class="col s6 m4 l4 top37up"> 
 								<div class="footer-container">
 									<div class="footer-heading">
 										<p>Job Seekers</p>

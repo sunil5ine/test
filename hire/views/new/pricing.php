@@ -45,12 +45,12 @@
 							<p class="red-text bold "><i class="fas fa-exclamation-triangle"></i> Subscription Expired</p>
 						<?php } ?>
 					</div>
-					<div class="col s12 m4">
-						<p class="center-align bold blue-text"><?php echo (empty($subdetails['sub_nojobs']))?'0 ' : $subdetails['sub_nojobs']; ?> Premium Jobs left.</p>
+					<div class="col s6 m4">
+						<p class="center-align  blue-text"><?php echo (empty($subdetails['sub_nojobs']))?'0 ' : $subdetails['sub_nojobs']; ?> Premium Jobs left.</p>
 					</div>
-					<div class="col s12 m4">
+					<div class="col s6 m4">
 						<div class="right-align">
-							<h6><a href="<?php echo base_url() ?>billing-history" class='blue-text billing '>View Billing History</a></h6>
+							<p><a href="<?php echo base_url() ?>billing-history" class='blue-text billing '>View Billing History</a></p>
 						</div>
 					</div>
 				</div><!-- end row -->

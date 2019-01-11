@@ -40,7 +40,7 @@
 			          	</div> -->
 						
 						<center>
-							<a href="<?php echo base_url() ?>candidate/login/linkedin" ><img class="hoverable responsive-img" width="30%" src="<?php echo base_url() ?>assets/img/linkedin.png" alt=""></a>
+							<a href="<?php echo base_url() ?>candidate/login/linkedin" ><img class="hoverable responsive-img" width="200px" src="<?php echo base_url() ?>assets/img/linkedin.png" alt=""></a>
 							<br>
 							<span>OR</span>
 						</center>

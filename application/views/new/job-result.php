@@ -165,7 +165,7 @@
 	<script type="text/javascript" src="<?php echo base_url()?>assets/js/component.js"></script>
 	<script type="text/javascript" src="<?php echo base_url()?>assets/js/nouislider.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url()?>assets/js/script.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>assets/js/filters.js"></script>
 	<script type="text/javascript" src="<?php echo base_url()?>assets/js/select2.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>assets/js/filters.js"></script>
 </body>
 </html>

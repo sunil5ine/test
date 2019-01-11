@@ -193,7 +193,7 @@ echo $this->session->flashdata('success');
 	</section>
 
 	<!-- next -->
-	<section class="next">
+	<section class="nexts">
 		<div class="container-wrap">
 			<div class="row m0">
 				<div class="col s12 m12 l10 push-l1">

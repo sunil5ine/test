@@ -35,7 +35,7 @@
 						<div class="clearfix"> </div>
 						
 						<center>
-							<a href="<?php echo base_url() ?>login/linkedin" ><img class="hoverable responsive-img" width="50%" src="<?php echo $this->config->item('web_url') ?>assets/img/linkedin.png" alt=""></a>
+							<a href="<?php echo base_url() ?>login/linkedin" ><img class="hoverable responsive-img" width="200px" src="<?php echo $this->config->item('web_url') ?>assets/img/linkedin.png" alt=""></a>
 							<br>
 							<span>OR</span>
 						</center>
@@ -44,21 +44,21 @@
 			          		<!-- <h6 class="center-align">OR USING EMAIL</h6> -->
 			          		<form method="post" name="signinfrm" action="<?php echo base_url()?>LoginProcess/" data-toggle="validator" role="form">
 			          			<div class=" col s12 m0">
-						          	<label for="last_name">Email</label>
-						          	<input id="last_name" type="email" class="validate" name="emailid" required="">
+						          	<label for="emailid">Email</label>
+						          	<input id="emailid" type="email" class="validate" name="emailid" >
 						        </div>
 						        <div class=" col s12 m0 mb10">
-						          	<label for="last_name">Password</label>
-						          	<input id="last_name" type="password" class="validate" name="pwd"  required>
+						          	<label for="pwd">Password</label>
+						          	<input id="pwd" type="password" class="validate" name="pwd"  >
 						        </div>
-						        <div class="col s12 m6">
+						        <div class="col s6 m6">
 									<label>
 								        <input type="checkbox" />
 								        <span>Remember me</span>
 								    </label>
 						        </div>
-						        <div class="col s12 m6">
-									<a href="#forgot-password"  class="modal-trigger blue-text" >Forgot Password</a>
+						        <div class="col s6 m6 ">
+									<a href="#forgot-password"  class="modal-trigger right blue-text" >Forgot Password</a>
 						        </div>
 						        <div class="input-field col s12">
 						        	<button class="waves-effect z-depth-2 waves-light btn white-text  brand login-btn block btn-md">Login</button>
@@ -104,7 +104,29 @@
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/materialize.min.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/component.js"></script>
 	<script type="text/javascript" src="<?php echo $this->config->item('web_url');?>assets/js/script.js"></script>
-
+	<script src="<?php echo $this->config->item('web_url') ?>assets/js/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("form").validate({
+				rules: {
+					pwd: "required",
+					emailid: {
+						required: true,
+						email: true
+					}
+				},
+				messages: {
+					emailid: {
+						required: "Please provide an email address.",
+						email: "Please enter a valid email address.",
+							
+					},
+					pwd: "Please provide a password",
+				}
+				
+			});
+		});
+	</script>
 	
 </body>
 </html>

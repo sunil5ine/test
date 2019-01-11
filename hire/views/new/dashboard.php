@@ -24,7 +24,7 @@
 				<?php include 'include/menu.php' ?>
 				<div class="col  s12 l9">
 					<div class="row">	
-						<div class="appl-job-heading col m8 s8 l8 ">
+						<div class="appl-job-heading col m8 s6 l8 ">
 							<p class="black-text h5">Dashboard </p>
 							<small><!-- <i>Hello,Jithin Ajith! Check out what's happening!</i> --></small>
 						</div>
@@ -33,7 +33,7 @@
 							$expi = date('Y-m-d', strtotime($subdetails['sub_expire_dt']));
 							$left = date_diff(date_create($now),date_create($expi));
 						?>
-						<div class="col m4 s12 l4">
+						<div class="col m4 s6 l4">
 						<?php if($left->format("%R%a Days") > 0){ ?>
 							<p class="m0 right-align"><span class="black-text"> <?php echo $left->format("%a Days") ?> left</span> </p>
 							<p class="m0 right-align"><span class="black-text">Expires On:</span> <?php echo date('d-m-Y', strtotime($expi)); ?></p>

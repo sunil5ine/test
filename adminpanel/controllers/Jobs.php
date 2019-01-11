@@ -86,7 +86,7 @@ class jobs extends CI_Controller {
             'jp_cvs'            => $input['cv'],
             'hire_status'       => 'success',
             'job_url_id'        => random_string('alnum', 26),
-            'job_created_by'    => '0',
+            'job_created_by'    => '10',
             'job_created_dt'    => date('Y-m-d H:i:s'),
             'hire_jobid'        =>'0',
             'job_updated_dt'    => date('Y-m-d H:i:s'),

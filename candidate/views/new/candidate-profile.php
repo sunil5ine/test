@@ -463,7 +463,7 @@
 
 <!-- personal-detail -->
 
-  <div id="personal-detail-popup" class="modal" style="overflow: visible;">
+  <div id="personal-detail-popup" class="modal" >
     <div class="modal-content1">
     	<div class="presonal-head-required">
 		<h6 class="gray-text pre-text-control">Personal Detail</h6>

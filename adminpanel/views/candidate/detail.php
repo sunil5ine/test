@@ -11,6 +11,11 @@
       <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/style.css">
       <!-- bar -->
       <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/short.css">
+      <style>
+        @media (min-width:600px){
+            .mymodel{width:400px}
+        }
+      </style>
    </head>
    <body>
     <!-- headder -->
@@ -22,8 +27,40 @@
                <div class="row">
                     <?php $this->load->view('include/menu'); ?> 
                     <div class="col m12 s12 l9 pofile-details-table-card">
-                        <p class="h5-para black-text m0 ">Candidates Details</p>
-                        <small><i>Hello, Admin! Check out what's Happening!</i></small>
+                        <div class="row">
+                            <div class="col s6 m6">
+                                <p class="h5-para black-text m0 ">Candidates Details</p>
+                                <small><i>Hello, Admin! Check out what's Happening!</i></small>
+                            </div>
+                            <div class="col s6 m6 ">
+                                <?php  
+                                if(!empty($verify)) { echo'<i class="fas fa-circle green-text right"></i>' ;}else{
+                                    echo '<a class="btn right waves-effect  modal-trigger waves-light green darken-4" href="#modal1">Verify</a>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                                
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal mymodel">
+                          <div class="modal-content">
+                            <h5>Verify the candidate</h5>
+                            <form action="<?php echo base_url('candidates/makeverify') ?>" method="post">
+                              <div class="input-field col s12 l12">
+                                <input type="number" id="first_name" name="mark" class="validate">
+                                <label for="first_name">Mark in percentage</label>
+                                <input type="hidden" name="id" value="<?php echo $profile['can_id'] ?>">
+                              </div>
+                              <div class="input-field col s12 l12">
+                                <button class="btn block waves-effect waves-light" type="submit" name="action">Submit
+                                    
+                                </button>
+                              </div>
+                              
+                            </form>
+                          </div>
+                          
+                        </div>
                     
                         <div class="row">
                             <div class="card">

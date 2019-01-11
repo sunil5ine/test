@@ -40,14 +40,14 @@
 						          	<input id="last_name" type="password" placeholder="Enter your password" class="validate" name="password" required>
 						          	
 						        </div>
-						        <div class="col s12 m6">
-									<label>
+						        <div class="col s6 m6">
+									<label class="left">
 								        <input type="checkbox" />
 								        <span>Remember me</span>
 								    </label>
 						        </div>
-						        <div class="col s12 m6">
-									<a href="#forgot-password"  class="modal-trigger blue-text" >Forgot Password</a>
+						        <div class="col s6 m6">
+									<a href="#forgot-password"  class="modal-trigger right blue-text" >Forgot Password</a>
 						        </div>
 						        <div class="input-field col s12">
 						        	<button class="waves-effect z-depth-2 waves-light btn white-text  brand login-btn block btn-md" type="submit">Login</button>

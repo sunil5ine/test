@@ -34,9 +34,8 @@
 					<div class="row">	
 						<div class="appl-job-heading col m8 s8 l12 ">
 							<p class="black-text h5"><?php echo $pagehead; ?></p>
-							<?php if($subdetails['sub_expire_dt']==0 || $subdetails['sub_nojobs']==0 || $subdetails['sub_expire_dt']<date('Y-m-d H:i:s')) { ?>
-								<small class="red-text"><i>Please <a href="<?php echo $this->config->base_url();?>Subscriptions" ><strong>upgrade your plan</strong></a> inorder to have internal jobs posted on Free and Paid Boards.</i></small>
-							<?php } echo $message; ?>
+							
+							<?php  echo $message; ?>
 						</div>
 					</div>
 

@@ -65,7 +65,7 @@ class EmployeesModel extends CI_Model {
         // $this->db->select_sum('jp_cvs');
         $this->db->from('ch_employer');
         $this->db->where('emp_authkey', $id);
-        $this->db->order_by('sub_expire_dt', 'desc');
+        // $this->db->order_by('sub_expire_dt', 'desc');
         // $this->db->join('ch_jobs', 'ch_jobs.job_created_by = ch_employer.emp_id', 'left');
         $this->db->join('ch_emp_subscribe', 'ch_emp_subscribe.emp_id = ch_employer.emp_id', 'left');
         $this->db->join('ch_emp_social',  'ch_emp_social.emp_id = ch_employer.emp_id', 'left');
@@ -77,15 +77,29 @@ class EmployeesModel extends CI_Model {
         
     }
 
+
+    public function subscr($id)
+    {
+        $this->db->select('SUM(sub_nocv) as totalcv');
+        // $this->db->select_sum('sub_nocv');
+        $this->db->from('ch_emp_subscribe s');
+        $this->db->where('emp_authkey', $id);
+        $this->db->join('ch_employer e', 'e.emp_id = s.emp_id', 'left');
+        $result = $this->db->get()->row_array();
+        return   $result;  
+    }
+
     /**
      * Pending cv
      */
     public function pendingcv($id){
-        $this->db->select_sum('jp_cvs');
-        $this->db->from('ch_employer');
+        $this->db->select('SUM(jp_cvs) as pending');
+        // $this->db->select('*');
+        $this->db->from('ch_jobs');
         $this->db->where('emp_authkey', $id);
-        $this->db->join('ch_jobs', 'ch_jobs.job_created_by = ch_employer.emp_id', 'left');
+        $this->db->join('ch_employer', 'ch_employer.emp_id = ch_jobs.job_created_by', 'right');
         $query = $this->db->get()->row_array();
+        return  $query;
         
     }
 
@@ -165,6 +179,19 @@ class EmployeesModel extends CI_Model {
         else{
             return false;
         }    
+    }
+
+    /** 
+     * uploaded resume count
+    */
+
+    function resumecount($id){
+
+        $this->db->where('emp_authkey',$id);
+        $this->db->from('ch_varified_cv v');
+        $this->db->join('ch_employer e', 'e.emp_id = v.emp_id', 'left');
+        $data = $this->db->get();
+        return $data->num_rows(); 
     }
 
     /**

@@ -43,6 +43,8 @@
                                           <th  class="h5-para-p2">Designation</th>
                                           <th class="h5-para-p2 ">Experience</th>
                                           <th  class="h5-para-p2">Current Location</th>
+                                          <th  class="h5-para-p2">Verified</th>
+                                          <th  class="h5-para-p2">Test marks</th>
                                           <th id="g" class="h5-para-p2">Register Date</th>
                                           <th class="h5-para-p2">Phone</th>  
                                           <th class="h5-para-p2">Action</th>  
@@ -73,6 +75,13 @@
                                                 
                                              </td>
                                              <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->can_curr_loc ?></a></td>
+                                             <td class="center">
+                                                <a href="<?php echo base_url('candidates/detail/').$val->can_id ?>">
+                                                   <?php if($val->tr_marks >= 35){ $cls = 'green-text';}else{$cls = 'red-text';} ?>
+                                                   <i class="fas fa-circle <?php echo $cls ?>"></i>
+                                                </a>
+                                             </td>
+                                             <td><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo (!empty($val->tr_marks))?$val->tr_marks : 'Not attend' ?></a></td>
                                              <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo date('d-m-Y',strtotime($val->can_reg_date)) ?></a></td>
                                              <td class="td-a"><a href="tel:<?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?>" >
                                                 <?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?>

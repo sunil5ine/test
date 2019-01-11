@@ -46,18 +46,20 @@ class questionnaire extends CI_Controller {
 		$this->m_questionnaire->resultinsert($mark);
 		if($mark >= 35){
 			$sess = array( 'tectcheck' => '0' );
-			$this->session->set_userdata( $sess );
-			$this->successmail();
+			$this->session->set_userdata($sess);
+			$this->successmail($result);
 		}else{
-			$this->faildmail();
+			$this->faildmail($result);
 		}
 		$this->session->set_flashdata('mark', $mark);
 		redirect('MyProfile','refresh');
 	}
 
 	
-	function successmail()
+	function successmail($result)
 	{
+		$mark = $result * 100 / 25;
+		$wron = $result - 25;
 		$this->load->model('subscriptionmodel');
 		$umid = $this->session->userdata('cand_chid');
 		$candata = $this->subscriptionmodel->getmuser($umid);
@@ -73,17 +75,19 @@ class questionnaire extends CI_Controller {
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 			<style>
 				#t11,#t11 th,#t11 td {
-												border: 1px solid black;
-												border-collapse: collapse;
-											}
-											#t11 th, #t11 td {
-												padding: 15px;
-												text-align: left;
-											}
-											table#t01 {
-												width: 100%;    
-												background-color: #f1f1c1;
-											}
+														border: 1px solid black;
+														border-collapse: collapse;
+													}
+													#t11 th, #t11 td {
+														padding: 15px;
+														text-align: left;
+													}
+													table#t01 {
+														width: 100%;    
+														background-color: #f1f1c1;
+													}
+										   .brtable td, .brtable th{border: 1px solid black;
+														border-collapse: collapse;}
 			</style>
 		</head>
 		
@@ -118,15 +122,35 @@ class questionnaire extends CI_Controller {
 					<td style="background:#F0EFEC; width:36px; height:122px;"></td>
 					<td colspan="3" style="background:#F0EFEC; width:488px; height:122px; line-height:30px;padding:0px 0px 0px 10px;">
 						<p>Hi '.$candata["can_fname"].',</p>
-						<p>	Thank you for taking the General Aptitude Test administered through <a href="https://www.cherryhire.com/candidate">www.cherryhire.com</a>, the first platform in the region to provide verified profiles to employers.<br><br>
-							We are pleased to inform that you have successfully cleared the test and your profile is now registered as "Verified" on our platform. Your test score sheet is attached for your ready reference.<br><br>
-							You will now start receiving intimations from Cherryhire team about any job position that matches your profile to enable you apply against the same. We also request you to regularly visit your "Dashboard" and view the complete job listing.<br><br>
-							Wishing you the best in your career.
-						</p>
+						<p>Thank you for taking the General Aptitude Test administered through <a href="https://www.cherryhire.com/candidate">www.cherryhire.com</a>, the first platform in the region to provide verified profiles to employers.
+							<br>
+							<br>We are pleased to inform that you have successfully cleared the test and your profile is now registered as "Verified" on our platform. Your test score sheet is attached for your ready reference.
+							<br>
+							<br>You will now start receiving intimations from Cherryhire team about any job position that matches your profile to enable you apply against the same. We also request you to regularly visit your "Dashboard" and view the complete job listing.
+							<br>
+							<br>Wishing you the best in your career.</p>
 					</td>
+					
 					<td style="background:#F0EFEC; width:40px; height:122px;"></td>
 					<td rowspan="9" style="background:#FFF; width:11px; height:643px;"></td>
 				</tr>
+				<tr>
+				<td style="background:#F0EFEC;  height:122px; line-height:30px;padding:0px 0px 0px 10px;"></td>
+						<td colspan="4" style="background:#F0EFEC;  height:122px; line-height:30px;padding:0px 0px 0px 10px;">
+							<table width="90%" class="brtable">
+								<tr >
+									<th >Correct answers</th>
+									<th>Wrong answers</th>
+									<th>Total score</th>
+								</tr>
+								<tr>
+									<td style="text-align:center">'.$result.'</td>
+									<td style="text-align:center">'.$wron.'</td>
+									<td style="text-align:center">'.$mark.' %</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
 				<tr>
 					<td style="background:#F0EFEC; width:36px; height:104px;"></td>
 					<td colspan="3" style="background:#F0EFEC; width:488px; height:104px; padding:0px 0px 0px 10px; line-height:21px; font-size:12px;">Best regards.
@@ -135,6 +159,7 @@ class questionnaire extends CI_Controller {
 				</tr>
 			</table>
 		</body>
+		
 		</html>';
 		$config = Array(
 			'protocol' => 'mail',
@@ -164,8 +189,10 @@ class questionnaire extends CI_Controller {
 	}
 
 
-	function faildmail()
+	function faildmail($result)
 	{
+		$mark = $result * 100 / 25;
+		$wron = $result - 25;
 		$this->load->model('subscriptionmodel');
 		$umid = $this->session->userdata('cand_chid');
 		$candata = $this->subscriptionmodel->getmuser($umid);
@@ -235,6 +262,23 @@ class questionnaire extends CI_Controller {
 					<td style="background:#F0EFEC; width:40px; height:122px;"></td>
 					<td rowspan="9" style="background:#FFF; width:11px; height:643px;"></td>
 				</tr>
+				<tr>
+				<td style="background:#F0EFEC;  height:122px; line-height:30px;padding:0px 0px 0px 10px;"></td>
+						<td colspan="4" style="background:#F0EFEC;  height:122px; line-height:30px;padding:0px 0px 0px 10px;">
+							<table width="90%" class="brtable">
+								<tr >
+									<th >Correct answers</th>
+									<th>Wrong answers</th>
+									<th>Total score</th>
+								</tr>
+								<tr>
+									<td style="text-align:center">'.$result.'</td>
+									<td style="text-align:center">'.$wron.'</td>
+									<td style="text-align:center">'.$mark.' %</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
 				<tr>
 					<td style="background:#F0EFEC; width:36px; height:104px;"></td>
 					<td colspan="3" style="background:#F0EFEC; width:488px; height:104px; padding:0px 0px 0px 10px; line-height:21px; font-size:12px;">Best regards.

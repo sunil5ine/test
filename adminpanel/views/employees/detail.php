@@ -61,15 +61,19 @@ else{
 
                                                 <div class="col s12 m8">
                                                     <div class="row m0">
-                                                        <div class="col s12 m4">
-                                                           <h5 class="green-text darken-3"><?php echo (!empty($employers['sub_nocv'])) ? $employers['sub_nocv']  : '0' ?></h5> 
-                                                           <p>Number of CV Pending</p>
+                                                        <div class="col s12 center m3">
+                                                           <h5 class="green-text darken-3"><?php echo (!empty($subscr['totalcv'])) ? $subscr['totalcv']  : '0' ?></h5> 
+                                                           <p>Total cv's</p>
                                                         </div>
-                                                        <div class="col s12 m4">
-                                                        <h5 class="green-text darken-4"><?php echo (!empty($employers['sub_pending_cv'])) ? $employers['sub_pending_cv']  : '0' ?></h5> 
-                                                           <p>Number of CV Uploaded</p>
+                                                        <div class="col s12 center m3">
+                                                           <h5 class="green-text darken-3"><?php echo (!empty($pending['pending'])) ? $pending['pending']  : '0' ?></h5> 
+                                                           <p>Pending cv's </p>
                                                         </div>
-                                                        <div class="col s12 m4">
+                                                        <div class="col s12 center m3">
+                                                        <h5 class="green-text  darken-4"><?php echo $uploades ?></h5> 
+                                                           <p>Uploaded cv's</p>
+                                                        </div>
+                                                        <div class="col s12 m3">
                                                         <h5 class=" darken-4"><?php echo($sub_detail != 'Expired' )?'<span class="green-text">'.$sub_detail.'</span>' : '<span class="red-text">'.$sub_detail.'</span>'; ?></h5> 
                                                            <p>Package Type <a class="blue-text modal-trigger" href="#packagemodal">[Upgrade]</a></p>
                                                         </div>

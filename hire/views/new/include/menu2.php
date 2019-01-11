@@ -1,11 +1,4 @@
 <div class="col l3 m12 s12">
-					<div class="show-on-med-and-down row grey darken-1 bashboard-nav right-align">
-							<a class="white-text m0 p10 dashboard-button waves-effect">Dashboard 
-								<i class="material-icons arrow-down back-icon">keyboard_arrow_down</i>
-								<i class="material-icons arrow-up back-icon" style="display: none">keyboard_arrow_up</i>
-							</a>
-					</div>
-					
 					<div class="dashboard-sildebar">
 						<div class="card mb25 profile-card">
 							<div class="card-content">

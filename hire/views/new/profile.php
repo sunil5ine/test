@@ -35,6 +35,32 @@
 				<div class="col m12  s12 l9 pofile-details-table-card">
 					<?php echo $message; ?>
 					<!-- Personal Details -->
+					<div class="hide-on-large-only">
+						<div class="card mb25 profile-card">
+							<div class="card-content">
+								<div class="profile-detail center">
+									<span class="profile-pic ">
+										<?php if (!empty($this->session->userdata('profile'))){ ?>
+											<img src="<?php echo base_url().$this->session->userdata('profile')?>" class="responsive-img circle image" width="75px" height="75px">
+										<?php }else{ ?>
+											<img src="<?php echo $this->config->item('web_url')?>assets/img/person.png" class="responsive-img circle image" width="75px" height="75px">
+										<?php } ?>
+											<p class="label"><a href="#modal2" class="edite-layout center waves-effect modal-trigger white-text"><i class="material-icons ">create</i></a></p>
+										
+									</span>
+									<div class="profile-content">
+										<p class="bold black-text mb10"><?php echo $formdata['fname']; ?></p>
+										<p class="can-designation mb10"><?php echo $formdata['designation']; ?></p>
+										<div class="dividers mb10"></div>
+										<p class="small-text"><small><?php echo $formdata['notifyemail']; ?></small></p>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<br>
+					</div>
+
 					<div class="card scrollspy" id="personal-detail">
 						<div class="card-content">
 							

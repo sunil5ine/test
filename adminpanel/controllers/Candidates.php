@@ -20,7 +20,7 @@ class candidates extends CI_Controller {
         $this->load->view('candidate/candidate-list', $data, FALSE); 
     }
 
-    public function detail($id)
+    public function detail($id = null)
     {
        $data['title']   = 'Candidates Detail';
        $data['profile'] =  $this->candidateModel->getSingleCandidate($id);
@@ -31,6 +31,7 @@ class candidates extends CI_Controller {
        $data['exp']     =  $this->candidateModel->expireance($id);
        $data['edu']     =  $this->candidateModel->education($id);
        $data['package'] =  $this->candidateModel->package($id);
+       $data['verify'] =  $this->candidateModel->vrifycheck($id);
        $data['price']   =  $this->candidateModel->price();
        $this->load->view('candidate/detail', $data);
     }
@@ -55,14 +56,31 @@ class candidates extends CI_Controller {
         $id = $this->input->post('empid');
         if($this->candidateModel->packageUpdate())
         {
-            
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="green"><a class="close-tost ">X</a><p>Successfully new package updated/p></div>');
             redirect('candidates/detail/'.$id,'refresh');
             
         }else{
+            $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p><b>Sorry! </b> Please try again</p></div>');
             redirect('candidates/detail/'.$id,'refresh');
-        }
-       
-        
+        }  
+    }
+
+    /**
+     * make candidate verified 
+    */
+    public function makeverify()
+    {
+      $id   = $this->input->post('id');
+      $mark = $this->input->post('mark');
+      $data = array('can_id' =>$id , 'tr_marks'=>$mark );
+      if($this->candidateModel->makeverify($data))
+      {
+        $this->session->set_flashdata('messeg', '<div id="snackbar" class="green"><a class="close-tost ">X</a><p>Verification updated</p></div>');
+        redirect('candidates/detail/'.$id,'refresh');
+      }else{
+        $this->session->set_flashdata('messeg', '<div id="snackbar" class="red"><a class="close-tost ">X</a><p><b>Sorry! </b> Please try agin later</p></div>');
+        redirect('candidates/detail/'.$id,'refresh');
+      }
     }
 
 }

@@ -20,6 +20,42 @@
 <!-- End header -->
 
 	<!-- section -->
+	<div class="brand show-on-small">
+		<div class="container ">
+			<div class="result-serach-bar nomargin ptb10">
+					<div class="row m0">
+						<p class=" mb10"><small class="white-text ">Find your dream job here! </small></p>
+						<form class="white" style="overflow: visible" method="GET" action="<?php echo base_url()?>Jobs">
+							<div class="white serach-box-container">	
+							<div class="col l6 s12 p0 m0 m6 input-field  white ">
+							    <i class="material-icons search-icon">search</i>
+							    <input id="search"  name="title" type="search" required placeholder="Search..."  style="height: 3rem !important;">
+							</div>
+							<div class="col l4 s12 input-field p0 m0 m6 white location-serach" id="">
+								<i class="material-icons ">location_on</i>
+								<select  name="location[]" style="height: 3rem !important;" class="sel-location"  id="">
+								  <option value="" > Location </option>
+								  <option value="Bahrain" > Bahrain </option>
+								  <option value="Kuwait" > Kuwait </option>
+								  <option value="Oman" > Oman </option>
+								  <option value="Qatar" > Qatar </option>
+								  <option value="Bahrain" > Saudi Arabia </option>
+								  <option value="United Arab Emirates" > United Arab Emirates </option>
+								</select>
+							</div>
+							<div class="col l2 s12 p0 input-field m0 m6">
+								<div class="mxw-box">
+								<button class="btn red darken-2 waves-effect btn-search  block" style="margin: 2px;height: 45px">
+									SEARCH
+								</button>
+								</div>
+							</div>
+						</div>
+						</form>
+					</div>
+				</div>
+		</div>
+	</div><!-- end section -->
 
 	<section class="p0 banner">
 		<div class="row m0 ">
@@ -28,7 +64,7 @@
 					<div class="ptb30 plr50">
 						<h4 class="white-text"><b>Employers</b></h4>
 						<p class="white-text">Thousands of companies like yours have succeeded hiring the verified trusted candidates through CherryHire.</p>
-						<a href="<?php echo base_url()?>PostJob" class="btn brand white-text waves-effect">Post job for FREE <i class="fas fa-angle-right right"></i></a>
+						<a href="<?php echo base_url()?>hire/login" class="btn brand white-text waves-effect">Post a job <i class="fas fa-angle-right right"></i></a>
 					</div>
 				</div>
 				<div class="col s12 m6">
@@ -42,7 +78,8 @@
 		</div>
 
 	</section>
-	<div class="brand">
+
+	<div class="brand hide-on-small-only">
 		<div class="container ">
 			<div class="result-serach-bar ptb10">
 					<div class="row m0">
@@ -55,7 +92,7 @@
 							</div>
 							<div class="col l4 s12 input-field p0 m0 m6 white" id="location-serach">
 								<i class="material-icons ">location_on</i>
-								<select  name="location[]" style="height: 3rem !important;"  id="sel-location">
+								<select  class="sel-location" name="location[]" style="height: 3rem !important;"  id="sel-location">
 								  <option value="" > Location </option>
 								  <option value="Bahrain" > Bahrain </option>
 								  <option value="Kuwait" > Kuwait </option>
@@ -124,14 +161,14 @@
 		
 	<section class="white">
 		<div class="container-wrap">
-			<div class="row">
+			<div class="row m0">
 
 				<div class="h-title center">
 					<h4 class="mb30"><b>Featured Jobs</b></h4>
 				</div>
-				<div class="carousel" data-mixed="">
+				<div class="carousel noheiht" data-mixed="">
 					
-					<ul style="min-height:335px">
+					<ul style="min-height:335px" class="m0">
 						<?php 
 							$now = date('Y-m-d');
 							foreach ($fetu_jobs as $fjobs) { 
@@ -173,11 +210,12 @@
 						
 						<li>
 							<div class="feturjob-item">
+								<a href="<?php echo $this->config->base_url().'candidate/Jobs/Viewdetails/'.$fjobs->job_url_id.'/?js=5&source=cherryhire';?>" >
 								<div class="card ">
 									<div class="card-content">
 										<div class="corsal-head">
 											<img src="<?php echo base_url()?>assets/img/logo.png" class="responsive-img" width="50px">
-											<span class="right font12"><?php echo $left ?></span>
+											<!-- <span class="right font12"><?php echo $left ?></span> -->
 										</div>
 										<div class="corsul-content">
 											<p class="corsul-content-head truncate"><?php echo $fjobs->job_title; ?></p>
@@ -195,16 +233,20 @@
 													<?php echo (!empty($fjobs->job_industry))?$fjobs->job_industry:'Not mention'; ?>
 												</p>
 											</div>
-											<p class="crs-des"><b>Skills: </b><?php echo 
-											
-												substr($fjobs->job_skills, 0, 60) .((strlen($fjobs->job_skills) > 60) ? '...' : '');
-											
+											<p class="crs-des"><b>Skills: </b><?php 
+												$skills = explode(',', $fjobs->job_skills);
+												$newskills = "";
+												foreach ($skills as $key => $value) {
+													$newskills .=$value.', ';
+												}
+												echo substr($newskills, 0, 60) .((strlen($newskills) > 60) ? '...' : '');
 											 ?></p>
 											
 											<a href="<?php echo $this->config->base_url().'candidate/Jobs/Viewdetails/'.$fjobs->job_url_id.'/?js=5&source=cherryhire';?>" class="btn brand white-text waves-effect block">View Job</a>
 										</div>
 									</div>
 								</div>
+							</a>
 							</div>
 						</li>
 					<?php } } ?>
@@ -493,7 +535,7 @@
 				responsiveAt:800,
 			});
 			$('select').select2({width: "100%"});
-			$('#sel-location').change(function(){
+			$('.sel-location').change(function(){
 		       var val = $(this).val();
 		       $(this).attr('name','location['+val+']');
 		    });

@@ -42,17 +42,19 @@
 							
 							?>
 							<div class="col s12 m6 l3">
-								<div class="card blog grey lighten-5">
-									<div class="card-image" style="overflow: hidden;">
-										<?php $file = explode('/',$value->file) ?>
-										<img src="<?php echo $this->config->item('ad_url').$file['0'].'/tumb/'.$file['1'] ?>" alt="<?php echo $value->title ?>" style="height:173px;max-wdth:100%;"  class="materialboxed"/>
-										<span class="card-title"></span>
+								<a href="<?php echo base_url('blog/').$title.'/'.$value->id ?>" class="">
+									<div class="card blog grey lighten-5">
+										<div class="card-image" style="overflow: hidden;">
+											<?php $file = explode('/',$value->file) ?>
+											<img src="<?php echo $this->config->item('ad_url').$file['0'].'/tumb/'.$file['1'] ?>" alt="<?php echo $value->title ?>" style="height:173px;max-wdth:100%;"  class=""/>
+											<span class="card-title"></span>
+										</div>
+										<div class="card-content">
+											<p class="mb10 bold black-text truncate"><?php echo $value->title ?></p>
+											<a href="<?php echo base_url('blog/').$title.'/'.$value->id ?>" class="bold blue-text">Read More</a>
+										</div>
 									</div>
-									<div class="card-content">
-										<p class="mb10 bold black-text truncate"><?php echo $value->title ?></p>
-										<a href="<?php echo base_url('blog/').$title.'/'.$value->id ?>" class="bold blue-text">Read More</a>
-									</div>
-								</div>
+								</a>	
 							</div>
 						<?php } ?>
 						

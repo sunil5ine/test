@@ -17,10 +17,8 @@
 	<!-- navigation bar -->
 	<?php include 'include/header.php'  ?><!-- end nav bar -->
 
-	<!-- Banner -->
 
-	<section class="pys-banner-section">
-		<div class="row">
+	<section class="pys-banner-section pb0">
 			<div class="container-wrap">
 				<div class="center banner-content col l8 push-l2 ">
 					<div class="ptb30">
@@ -36,6 +34,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="clipart"></div>
 	</section>
 
 	<!-- what are -->
