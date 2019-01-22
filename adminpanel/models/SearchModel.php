@@ -22,8 +22,8 @@ class searchModel extends CI_Model {
    function searchResult($des= null, $edu= null, $exf= null, $ext= null, $ind= null, $gend= null, $na= null, $lct= null, $skills= null)
    {
        $this->db->where('can_status', 1);
-       $this->db->select('*');
-       $this->db->from('ch_candidate');
+       $this->db->select('c.can_id, can_encrypt_id, can_fname, can_lname, can_ccode, can_phone, can_email, can_dob, can_gender, co_id, can_experience, can_curr_company, can_curr_desig, can_curr_loc,tr_marks');
+       $this->db->from('ch_candidate c');
        if($ext != NULL){
            
         if($exf == null){ $exf = 0; }
@@ -44,7 +44,7 @@ class searchModel extends CI_Model {
                 $this->db->or_like('can_skills', $value);
             }
         }
-       
+        $this->db->join('test_result t', 't.can_id = c.can_id', 'left');
        return $this->db->get()->result();
        
     //    $this->db->join('ch_country cn', 'cn.co_id = c.co_id', 'left');

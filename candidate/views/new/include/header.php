@@ -7,10 +7,10 @@
 	      	<a href="<?php echo $this->config->item('web_url'); ?>" class="brand-logo "><img src="<?php echo $this->config->item('web_url'); ?>assets/img/logo.png" class="responsive-img"></a>
 	      	<a href="#" data-target="mobile-demo" class="sidenav-trigger  black-text"><i class="material-icons">menu</i></a>
 	      	<?php if(!$this->session->userdata('cand_chid')) { ?>
-	     	 	<a href="<?php echo $this->config->item('web_url') ?>PostCV" class="white-text brand btn right hide-on-med-and-up mr10 mt10">Sign up</a>
+	     	 	<a href="<?php echo $this->config->item('web_url') ?>PostCV" class="white-text brand btn right hide-on-large-only mr10 mt10">Sign up</a>
 	     	 <?php } else{ ?>
 
-	      		<a href='#' class="waves-effect right waves-light dropdown-trigger hide-on-med-and-up" data-target='profile-dropdown1' style=" line-height: 0;">
+	      		<a href='#' class="waves-effect right waves-light dropdown-trigger hide-on-large-only" data-target='profile-dropdown1' style=" line-height: 0;">
 		  			
 					<?php  if(!empty($this->session->userdata('propics'))) { 
 									if(substr($this->session->userdata('propics'),0,4) == 'http' || substr($this->session->userdata('propics'),0,5) == 'https'){
@@ -46,7 +46,7 @@
 		      </ul> 
 		  <?php } else{ ?>
 		  	<ul class="right hide-on-med-and-down ">
-		  		<li><a href="<?php echo base_url()?>Jobs?jobs=list" class="waves-effect bold">Dashboard</a></li>
+		  		<li><a href="<?php echo base_url()?>MyProfile" class="waves-effect bold">Dashboard</a></li>
 		  		<li><a href="<?php echo $this->config->item('web_url');?>Jobs?jobs=list" class="waves-effect bold">Find Jobs	</a></li>
 		  		<li><a href="<?php echo $this->config->item('web_url');?>Psychometric" class="waves-effect bold">Psychometric Test</a></li>
 		  		<li><a href="<?php echo base_url()?>Subscriptions" class="waves-effect">Pricing</a></li>
@@ -99,7 +99,7 @@
 
 	  	<!-- Profile -->
 		<ul id="profile-dropdown" class="dropdown-content" style="min-width: 165px">
-		  <li><a href="<?php echo base_url()?>Jobs">Profile</a></li>
+		  <li><a href="<?php echo base_url()?>MyProfile">Profile</a></li>
 		  <li><a href="<?php echo  base_url()?>ProfileSettings">Settings</a></li>
 		  <li><a href="<?php echo  base_url()?>Support">Help</a></li>
 		  <li class="divider"></li>
@@ -181,7 +181,7 @@
 	  </ul>
 
 	  	<ul id="profile-dropdown1" class="dropdown-content" style="min-width: 165px">
-		  <li><a href="<?php echo base_url()?>Jobs">Profile</a></li>
+		  <li><a href="<?php echo base_url()?>MyProfile">Profile</a></li>
 		  <li><a href="<?php echo  base_url()?>ProfileSettings">Settings</a></li>
 		  <li><a href="<?php echo  base_url()?>Support">Help</a></li>
 		  <li class="divider"></li>

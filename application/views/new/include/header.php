@@ -5,8 +5,8 @@
 			<div class="nav-wrapper container-wrap"> <a href="<?php echo base_url(); ?>" class="brand-logo "><img src="<?php echo base_url(); ?>assets/img/logo.png" class="responsive-img"></a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger  black-text"><i class="material-icons">menu</i></a>
 				<?php if($this->session->userdata('cand_chid')) { ?>
-				<a href='#' class="waves-effect right waves-light dropdown-trigger hide-on-med-and-up" data-target='profile-dropdown1' style=" line-height: 0;">
-					<?php if(!empty($this->session->userdata('propics'))) { if(substr($this->session->userdata('propics'),0,4) == 'http' || substr($this->session->userdata('propics'),0,5) == 'https'){ ?>
+				<a href='#' class="waves-effect right waves-light dropdown-trigger hide-on-large-only" data-target='profile-dropdown1' style=" line-height: 0;">
+				<?php if(!empty($this->session->userdata('propics'))) { if(substr($this->session->userdata('propics'),0,4) == 'http' || substr($this->session->userdata('propics'),0,5) == 'https'){ ?>
 					<img src="<?php echo $this->session->userdata('propics')?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 3px">
 					<?php } else{ ?>
 					<img src="<?php echo $this->config->base_url().'candidate/'.$this->session->userdata('propics') ?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 3px">
@@ -16,7 +16,7 @@
 				</a>
 				<?php } ?>
 				<?php if($this->session->userdata('hireid')) { ?>
-				<a href='#' class="waves-effect waves-light dropdown-trigger right mr10 hide-on-med-and-up" data-target='profile-dropdown2' style=" line-height: 0;">
+				<a href='#' class="waves-effect waves-light dropdown-trigger right mr10 hide-on-large-only" data-target='profile-dropdown2' style=" line-height: 0;">
 					<?php if (!empty($this->session->userdata('profile'))) { ?>
 					<img src="<?php echo $this->config->base_url().'hire/'.$this->session->userdata('profile');?>" class="responsive-img circle left" width="45px" height="45px" style="margin-top: 7px">
 					<?php } else { ?>
@@ -49,7 +49,7 @@
 				</ul>
 				<?php } elseif($this->session->userdata('cand_chid')){ ?>
 				<ul class="right hide-on-med-and-down ">
-					<li><a href="<?php echo base_url()?>candidate/Jobs" class="waves-effect bold">Dashboard</a>
+					<li><a href="<?php echo base_url()?>candidate/MyProfile" class="waves-effect bold">Dashboard</a>
 					</li>
 					<li><a href="<?php echo base_url()?>Jobs?jobs=list" class="waves-effect bold">Find Jobs	</a>
 					</li>
@@ -62,11 +62,14 @@
 					</li>
 					<li>
 						<a href='#' class="waves-effect waves-light dropdown-trigger" data-target='profile-dropdown' style=" line-height: 0;">
-							<?php if (!empty($this->session->userdata('propics'))) { ?>
-							<img src="<?php echo $this->config->base_url().'candidate/'.$this->session->userdata('propics') ?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
-							<?php } else { ?>
-							<img src="<?php echo $this->config->item('web_url');?>assets/img/person.png" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
-							<?php } ?>	<i class="tiny material-icons left">arrow_drop_down</i>
+						<?php if(!empty($this->session->userdata('propics'))) { if(substr($this->session->userdata('propics'),0,4) == 'http' || substr($this->session->userdata('propics'),0,5) == 'https'){ ?>
+							<img src="<?php echo $this->session->userdata('propics')?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 3px">
+							<?php } else{ ?>
+							<img src="<?php echo $this->config->base_url().'candidate/'.$this->session->userdata('propics') ?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 3px">
+							<?php } } else{ ?>
+							<img src="<?php echo base_url();?>assets/img/person.png" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 3px">
+							<?php } ?>	
+							<i class="tiny material-icons left">arrow_drop_down</i>
 						</a>
 					</li>
 				</ul>
@@ -89,7 +92,8 @@
 							<img src="<?php echo $this->config->base_url().'hire/'.$this->session->userdata('profile');?>" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
 							<?php } else { ?>
 							<img src="<?php echo $this->config->item('web_url');?>assets/img/person.png" class="responsive-img circle left" width="50px" height="50px" style="margin-top: 7px">
-							<?php } ?>	<i class="tiny material-icons left">arrow_drop_down</i>
+							<?php } ?>	
+							<i class="tiny material-icons left">arrow_drop_down</i>
 						</a>
 					</li>
 				</ul>
@@ -100,7 +104,7 @@
 	<?php if($this->session->userdata('cand_chid')){ ?>
 	<!-- Profile -->
 	<ul id="profile-dropdown" class="dropdown-content" style="min-width: 165px">
-		<li><a href="<?php echo base_url()?>candidate/Jobs">Profile</a>
+		<li><a href="<?php echo base_url()?>candidate/MyProfile">Profile</a>
 		</li>
 		<li><a href="<?php echo  base_url()?>candidate/ProfileSettings">Settings</a>
 		</li>
@@ -113,7 +117,7 @@
 	<!-- -->
 	<?php } if ($this->session->userdata('hireid')) { ?>
 	<ul id="profile-dropdown" class="dropdown-content" style="min-width: 165px">
-		<li><a href="<?php echo base_url()?>hire/Jobs">Dashboard</a>
+		<li><a href="<?php echo base_url()?>hire/Dashboard">Dashboard</a>
 		</li>
 		<li><a href="<?php echo  base_url()?>hire/AccountSettings">Profile</a>
 		</li>

@@ -11,7 +11,10 @@
       <link rel="stylesheet" href="<?php echo base_url() ?>dist/dataTable/datatables.min.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>dist/dataTable/button/css/buttons.dataTables.css">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/style.css">
-      
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+      <style>
+         .datepicker { width: auto !important; border: 1px solid #c6c4c4 !important; padding: 7px 5px !important; height: auto !important;margin-right: 15px !important; }
+      </style>   
    </head>
    <body>
       <!-- headder -->
@@ -25,7 +28,28 @@
                <?php $this->load->view('include/menu'); ?> 
 
                   <div class="col m12 s12 l9">
-                     <p class="h5-para black-text  mtb-20">Manage Candidates</p>
+                     <div class="row m0">
+                        <div class="col s12 m12 l4">
+                           <p class="h5-para black-text  mtb-20">Manage Candidates</p>
+                        </div>
+                        <div class="col s12 m12 l8">
+                           <div class="row m0">
+                              <form id="" action="<?php echo base_url('candidates/datefilter') ?>" method="post">
+                                 <div class="col s12 m4 l5">
+                                    <label for="">Start Date</label><br>
+                                    <input type="text" value="<?php echo (!empty($start)?$start:'') ?>" id="startdate" name="start" class="datepicker">
+                                 </div>
+                                 <div class="col s12 m4 l5">
+                                    <label for="">End Date</label><br>
+                                    <input type="text" name="end" value="<?php echo (!empty($end)?$end:'') ?>" id="enddate" class="datepicker">
+                                 </div>
+                                 <div class="col s12 m4 l2"><br>
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Filter</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
           
                      <div class="card">
                         <!-- shorting -->
@@ -77,8 +101,8 @@
                                              <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->can_curr_loc ?></a></td>
                                              <td class="center">
                                                 <a href="<?php echo base_url('candidates/detail/').$val->can_id ?>">
-                                                   <?php if($val->tr_marks >= 35){ $cls = 'green-text';}else{$cls = 'red-text';} ?>
-                                                   <i class="fas fa-circle <?php echo $cls ?>"></i>
+                                                   <?php if($val->tr_marks >= 35){ $cls = 'green-text';$nums=1;}else{$cls = 'red-text';$nums=2;} ?>
+                                                   <i class="fas fa-circle <?php echo $cls ?>"><span style="font-size: 0.1px; opacity: 0;"><?php echo $nums ?></span></i>
                                                 </a>
                                              </td>
                                              <td><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo (!empty($val->tr_marks))?$val->tr_marks : 'Not attend' ?></a></td>
@@ -109,6 +133,8 @@
       <?php echo $this->session->flashdata('messeg'); ?>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
+      <!-- date picker -->
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
          <!-- data table -->
       <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/datatables.min.js"></script>
@@ -117,15 +143,37 @@
       <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/buttons.html5.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/pdfmake.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/vfs_fonts.js"></script>
+      
       <script>
             $(document).ready( function () {
-                $('#dynamic').DataTable({
+               
+               var tbles = $('#dynamic').DataTable({
                     dom: 'Bfrtip',
                     buttons: [
                         'copy', 'csv', 'excel', 'pdf'
                     ], 
                 });
                 $('select').formSelect();
+                $(".datepicker").datepicker();
+
+               //  date filter
+               // $('#datefilter').submit(function(e) { 
+               //    e.preventDefault();
+               //    var star = $('#startdate').val();
+               //    var end  = $('#enddate').val();
+               //    $.ajax({
+               //       type: "get",
+               //       url: "<?php echo base_url() ?>candidates/datefilter",
+               //       data: {start: star, end: end},
+               //       dataType: 'html',
+               //       success: function (response) {
+               //         $('#my').html(response);
+               //         tbles.ajax.reload();
+               //       }
+               //    });
+                  
+               // });
+               
             } );
       </script>
       

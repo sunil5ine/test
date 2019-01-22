@@ -164,7 +164,6 @@ class jobs extends CI_Controller {
         $data['candidate'] = $this->jobsModel->getapplication($id);
         $data['title'] = 'Job applied list | Cherryhire';
         $this->load->view('jobs/applied-list', $data, FALSE);
-        
     }
 }
 

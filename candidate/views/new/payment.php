@@ -35,11 +35,11 @@
 				</div><!-- end row -->
 
 				<div class="row switch-container">
-					<div class="col s12 m6"> 
+					<div class="col s12 l4 m6"> 
 						<?php echo $this->session->flashdata('message'); ?>
 					</div>
-					<div class="col s12 m6">
-						<div class="right-align">
+					<div class="col l4 s12 m6">
+						<div class="center-align">
 							<h6><a href="#billing" class='blue-text billing modal-trigger'>View Billing History</a></h6>
 						</div>
 					</div>
@@ -52,7 +52,7 @@
 				foreach ($mon_plan as $plan) { 
 					if ($plan->pr_gat == 1) { ?>
 					
-						<div class="col m6 l4  s12">
+						<div class="col m6 l4 push-l4  s12">
 						<!-- card start -->
 						<div class="card-panel plans plan-test">
 							<?php  if (!empty($plan->pr_notify)) { $btn_class = 'white-text brand'; ?>
@@ -106,7 +106,7 @@
 
 					<?php  } if ($plan->pr_gat == 0) { ?>
 				
-					<div class="col m6 l4  s12">
+					<div class="col m6 l4 push-l4 s12">
 						<!-- card start -->
 						<div class="card-panel plans">
 							<?php  if (!empty($plan->pr_notify)) { $btn_class = 'white-text brand'; ?>
@@ -133,7 +133,7 @@
 					        		</li>
 					        		<li>
 					        			<span class="left-align">Job Applications</span>
-					        			<span class="right"><?php echo $plan->pr_nojob ?></span>
+					        			<span class="right"><?php echo ($plan->pr_nojob >= 9999) ? 'Unlimited': $plan->pr_nojob?></span>
 					        		</li>
 					        		<li>
 					        			<span class="left-align">Personalised Job Alerts</span>

@@ -68,7 +68,7 @@ else{
                                                            <p>Total cv's</p>
                                                         </div>
                                                         <div class="col s12 center m3">
-                                                           <h5 class="green-text darken-3"><?php echo (!empty($pending['pending'])) ? $pending['pending']  : '0' ?></h5> 
+                                                           <h5 class="green-text darken-3"><?php echo $subscr['totalcv'] - $uploades ?></h5> 
                                                            <p>Pending cv's </p>
                                                         </div>
                                                         <div class="col s12 center m3">

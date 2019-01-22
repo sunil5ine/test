@@ -133,10 +133,11 @@ class jobsModel extends CI_Model {
     function getapplication($id)
     {
         $this->db->where('a.job_id', $id);
-        $this->db->select('job_role, job_title, a.job_id, a.can_id, can_fname, can_lname, can_ccode, can_phone, can_email, can_experience, can_curr_loc, can_curr_desig');
+        $this->db->select('job_role, job_title, a.job_id, a.can_id, can_fname, can_lname, can_ccode, can_phone, can_email, can_experience, can_curr_loc, can_curr_desig,tr_marks');
         $this->db->from('ch_jobapply a');
         $this->db->join('ch_candidate c', 'c.can_id = a.can_id', 'left');
         $this->db->join('ch_jobs j', 'j.job_id = a.job_id', 'left');
+        $this->db->join('test_result t', 't.can_id = c.can_id', 'left');
         return $this->db->get()->result();    
     }
 }

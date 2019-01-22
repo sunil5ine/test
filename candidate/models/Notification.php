@@ -26,6 +26,10 @@ class notification extends CI_Model {
         $this->db->order_by('ca_date', 'desc');
         $result['alerts'] =  $this->db->get('ch_can_alert')->result();
 
+        $this->db->where('can_id', $this->session->userdata('cand_chid'));
+        $this->db->where('ca_status', 1);
+        $result['count'] =  $this->db->get('ch_can_alert')->num_rows();
+
         return $result;
         
     }

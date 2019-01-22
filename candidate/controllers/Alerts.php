@@ -22,13 +22,14 @@ class alerts extends CI_Controller {
 	    $this->data['sid'] 	 = 0;
         $this->data['title'] = 'Cherry Hire - Cndidate Notification';
         $this->data['alert'] = array();
-        $data['count'] = '';
+        $data = array('count'=>'');
         $alert = array();
         if(!empty($id)){
             $data = $this->notification->getsingle($id);
         }else{
             $data = $this->notification->getall();
         }
+        
         $this->data['counts'] = $data['count'];
         foreach ($data['alerts'] as $key => $value) {
             $cid = $value->ca_id;

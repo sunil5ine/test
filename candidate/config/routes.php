@@ -54,6 +54,7 @@ $route['MyProfile']                         = "dashboard/index";
 $route['ProfileSettings']                   = "dashboard/profile";
 $route['Support']                           = "dashboard/support";
 $route['PasswordValid']                     = "dashboard/chk_curr_password";
+$route['Jobs']                              = "dashboard/index";
 
 $route['MyJobs']                            = "jobs/viewlist";
 $route['Jobs/Viewdetails/(:any)']           = "jobs/viewjob_details/$1";

@@ -39,6 +39,7 @@
                                           <th class="h5-para-p2">Email ID</th>
                                           <th class="h5-para-p2">Designation</th>
                                           <th class="h5-para-p2 ">Experience</th>
+                                          <th  class="h5-para-p2">Verified</th>
                                           <th class="h5-para-p2">Phone</th>  
                                           <th class="h5-para-p2">Action</th>  
 
@@ -62,6 +63,12 @@
                                                 }
                                              ?>
                                                 
+                                             </td>
+                                             <td class="center">
+                                                <a href="<?php echo base_url('candidates/detail/').$val->can_id ?>">
+                                                   <?php if($val->tr_marks >= 35){ $cls = 'green-text';$nums=1;}else{$cls = 'red-text';$nums=2;} ?>
+                                                   <i class="fas fa-circle <?php echo $cls ?>"><span style="font-size: 0.1px; opacity: 0;"><?php echo $nums ?></span></i>
+                                                </a>
                                              </td>
                                              <td>
                                                 <?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?>

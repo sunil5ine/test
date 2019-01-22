@@ -47,6 +47,7 @@
                                           <th id="e" class="h5-para-p2 ">Experience</th>
                                           <th  class="h5-para-p2">Nationality</th>
                                           <!-- <th id="g" class="h5-para-p2">PreferredLocation</th> -->
+                                          <th  class="h5-para-p2">Verified</th>
                                           <th class="h5-para-p2">Phone</th>  
                                           <th class="h5-para-p2" style="width:66px">Action</th>  
 
@@ -59,7 +60,7 @@
                                              <td  class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>" ><?php echo $val->can_fname. ' '. $val->can_lname ?></a></td>
                                              <td  class="td-a"><a href="mailto:<?php echo $val->can_email ?>"><?php echo $val->can_email ?></a></td>
                                              <td  class="td-a"><?php echo $val->can_curr_desig ?></td>
-                                             <td  class="td-a">
+                                             <td  class="td-a center">
                                                 <?php if($val->can_experience == 'Fresher')
                                                 {
                                                    echo $val->can_experience;
@@ -71,7 +72,13 @@
                                              ?>
                                                 
                                              </td>
-                                             <td  class="td-a"><?php echo $val->can_curr_loc ?></td>
+                                             <td  class="td-a center"><?php echo $val->can_curr_loc ?></td>
+                                             <td class="center">
+                                                <a href="<?php echo base_url('candidates/detail/').$val->can_id ?>">
+                                                   <?php if($val->tr_marks >= 35){ $cls = 'green-text';$nums=1;}else{$cls = 'red-text';$nums=2;} ?>
+                                                   <i class="fas fa-circle <?php echo $cls ?>"><span style="font-size: 0.1px; opacity: 0;"><?php echo $nums ?></span></i>
+                                                </a>
+                                             </td>
                                              <td  class="td-a">
                                                 <a href="tel:<?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.$val->can_phone:$val->can_phone ?>"><?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?></a>
                                              </td>

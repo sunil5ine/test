@@ -67,7 +67,14 @@
 												if($left > 0){ ?>
 													<h5 class=" brand-text m0 mb10"><?php echo (!empty($subdetails['pr_name']))?$subdetails['pr_name'] :'Free Package' ?></h5>
 													<p class=" black-text ft10">
-														<span style="font-size:14px" class=" bold"><?php echo $subdetails['csub_nojobs'] ?> </span><?php echo ($subdetails['csub_nojobs'] > 0)?'Jobs left':'Job left' ?>
+														<span style="font-size:14px" class=" bold"><?php echo $subdetails['csub_nojobs'] ?> </span><?php 
+														if($subdetails['csub_nojobs'] >= 9999){
+															echo 'Unlimited';	
+														}else{
+															echo ($subdetails['csub_nojobs'] > 0)?'Jobs left':'Job left';
+														}
+														 
+														?>
 													</p>
 													<p class=" black-text ft10">
 														<span style="font-size:14px" class=" bold"><?php echo $dif->format('%a') ?></span> Days Left

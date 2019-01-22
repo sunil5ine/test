@@ -35,7 +35,6 @@ class search extends CI_Controller {
         $data['result'] = $this->searchModel->searchResult($des, $edu, $exf, $ext, $ind, $gend, $nat, $lct,$skills);
         $data['title']    = 'Canadidate Search result | Cherry Hire';
         $this->load->view('search/result', $data, FALSE);
-        
     }
 
 }
