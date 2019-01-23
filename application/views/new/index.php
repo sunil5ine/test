@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/style.css">
+	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/08e8400f2a017f75248ca3150/51800c7df4b7fa0ff3b694943.js");</script>
 	
 </head>
 <body>

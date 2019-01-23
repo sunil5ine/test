@@ -12,16 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/materialize.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/intlTelInput.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/style.css">
-	<style type="text/css">
-		.alert {margin-bottom: 0px; }
-		select, input, .selection, .select2-container--default .select2-selection--single{margin: 3px 0 !important;}
-		label {font-size: 13px; font-weight: 600; color: #5a5757; }
-		.intl-tel-input.allow-dropdown .flag-container, .intl-tel-input.separate-dial-code .flag-container {margin-top: 5px !important; } 
-		@media (min-width: 1024px) {
-			form{padding: 0px 50px;}
-			form .row{margin:0px}
-		}
-	</style>
+	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/08e8400f2a017f75248ca3150/51800c7df4b7fa0ff3b694943.js");</script>
+	<style type="text/css"> .alert {margin-bottom: 0px; } select, input, .selection, .select2-container--default .select2-selection--single{margin: 3px 0 !important;} label {font-size: 13px; font-weight: 600; color: #5a5757; } .intl-tel-input.allow-dropdown .flag-container, .intl-tel-input.separate-dial-code .flag-container {margin-top: 5px !important; } @media (min-width: 1024px) { form{padding: 0px 50px;} form .row{margin:0px} } </style>
 </head>
 <body>
 	<!-- navigation bar -->
