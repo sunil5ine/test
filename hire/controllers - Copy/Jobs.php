@@ -868,19 +868,21 @@ class Jobs extends CI_Controller {
 	function mailjob($list=null,$subject=null, $mailcontent=null)
 	{
 		$from = 'do-not-reply@cherryhire.com';
-		//Mail configuration
-		$config['protocol']     = 'smtp';
-		$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-		$config['smtp_port']    = 587;
-		$config['smtp_user']    = 'no-reply@cherryhire.net';
-		$config['smtp_pass']    = 'Startup2019#';
-		$config['charset']      = 'utf-8';
-
-		$this->load->library('email'); 
-		$this->email->set_mailtype("html");
-		$this->email->set_newline('\r\n');
-
-		$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+		$config = Array(
+                   'protocol' => 'mail',
+                   'smtp_host' => 'mail.cherryhire.com',
+                   'smtp_port' => 587,
+                   'smtp_user' => 'no-reply@cherryhire.com',
+                   'smtp_pass' => 'Chire@DNply',
+                   'mailtype'  => 'html', 
+                   'wordwrap'  =>true,
+                   'charset'   => 'utf-8'
+               );
+         $this->load->library('email'); 
+         $this->email->initialize($config);
+         $this->email->set_newline('\r\n');
+		
+		$this->email->from($from, 'CherryHire');
 		$this->email->to($list);
 		$this->email->subject($subject);
 		$this->email->message($mailcontent);
@@ -950,19 +952,21 @@ class Jobs extends CI_Controller {
 					</body>
 					</html>';
 					
-		//Mail configuration
-		$config['protocol']     = 'smtp';
-		$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-		$config['smtp_port']    = 587;
-		$config['smtp_user']    = 'no-reply@cherryhire.net';
-		$config['smtp_pass']    = 'Startup2019#';
-		$config['charset']      = 'utf-8';
-
-		$this->load->library('email'); 
-		$this->email->set_mailtype("html");
-		$this->email->set_newline('\r\n');
-
-		$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+		$config['protocol'] 	= "mail";
+		$config['smtp_crypto']	= "ssl"; 
+		$config['smtp_host'] 	= "smtp.zoho.com";
+		$config['smtp_user'] 	= "do-not-reply@cherryhire.com";
+		$config['smtp_pass'] 	= "Chire@DNply";
+		$config['smtp_port'] 	= "465"; //587
+		$config['charset']		= "utf-8";
+		$config['newline']		= "\r\n";
+		$config['crlf'] 		= "\r\n";
+		$config['mailtype'] 	= 'html';
+		
+		$this->email->initialize($config);
+		$this->email->clear(TRUE);
+		$this->email->set_newline("\r\n");
+		$this->email->from($from, 'CherryHire');
 		$this->email->to($to);
 		$this->email->subject($subject);
 		$this->email->message($message);
@@ -1338,19 +1342,22 @@ class Jobs extends CI_Controller {
 											</td>
 										</tr>
 	</table></body></html>';
-			//Mail configuration
-			$config['protocol']     = 'smtp';
-			$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-			$config['smtp_port']    = 587;
-			$config['smtp_user']    = 'no-reply@cherryhire.net';
-			$config['smtp_pass']    = 'Startup2019#';
-			$config['charset']      = 'utf-8';
-
-			$this->load->library('email'); 
-			$this->email->set_mailtype("html");
-			$this->email->set_newline('\r\n');
-
-			$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+			//Mail configuration						
+			$config['protocol'] 	= "mail";
+			$config['smtp_crypto']	= "ssl"; 
+			$config['smtp_host'] 	= "smtp.zoho.com";
+			$config['smtp_user'] 	= "do-not-reply@cherryhire.com";
+			$config['smtp_pass'] 	= "Chire@DNply";
+			$config['smtp_port'] 	= "465"; //587
+			$config['charset']		= "utf-8";
+			$config['newline']		= "\r\n";
+			$config['crlf'] 		= "\r\n";
+			$config['mailtype'] 	= 'html';
+			
+			$this->email->initialize($config);		
+			$this->email->clear(TRUE);
+			$this->email->set_newline("\r\n");
+			$this->email->from($from, 'Cherry Hire');
 			$this->email->to($to);
 			$this->email->subject($subject);
 			$this->email->message($jobmessage);

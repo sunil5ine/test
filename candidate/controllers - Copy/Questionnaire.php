@@ -161,19 +161,21 @@ class questionnaire extends CI_Controller {
 		</body>
 		
 		</html>';
-		//Mail configuration
-		$config['protocol']     = 'smtp';
-		$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-		$config['smtp_port']    = 587;
-		$config['smtp_user']    = 'no-reply@cherryhire.net';
-		$config['smtp_pass']    = 'Startup2019#';
-		$config['charset']      = 'utf-8';
-
+		$config = Array(
+			'protocol' => 'mail',
+			'smtp_host' => 'mail.cherryhire.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'no-reply@cherryhire.com',
+			'smtp_pass' => 'Chire@DNply',
+			'mailtype'  => 'html', 
+			'wordwrap'  =>true,
+			'charset'   => 'utf-8'
+		);
 		$this->load->library('email'); 
-		$this->email->set_mailtype("html");
-		$this->email->set_newline('\r\n');
-
-		$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+		$this->email->initialize($config);
+		$this->email->set_newline('\r\n'); 
+		// $this->email->clear(TRUE);
+		$this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
 		$this->email->to($to);
 		// $this->email->cc('jitinajithk@gmail.com');
 		$this->email->subject('General Aptitude Test'); 
@@ -286,19 +288,21 @@ class questionnaire extends CI_Controller {
 			</table>
 		</body>
 		</html>';
-		//Mail configuration
-		$config['protocol']     = 'smtp';
-		$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-		$config['smtp_port']    = 587;
-		$config['smtp_user']    = 'no-reply@cherryhire.net';
-		$config['smtp_pass']    = 'Startup2019#';
-		$config['charset']      = 'utf-8';
-
+		$config = Array(
+			'protocol' => 'mail',
+			'smtp_host' => 'mail.cherryhire.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'no-reply@cherryhire.com',
+			'smtp_pass' => 'Chire@DNply',
+			'mailtype'  => 'html', 
+			'wordwrap'  =>true,
+			'charset'   => 'utf-8'
+		);
 		$this->load->library('email'); 
-		$this->email->set_mailtype("html");
-		$this->email->set_newline('\r\n');
-
-		$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+		$this->email->initialize($config);
+		$this->email->set_newline('\r\n'); 
+		// $this->email->clear(TRUE);
+		$this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
 		$this->email->to($to);
 		// $this->email->cc('jitinajithk@gmail.com');
 		$this->email->subject('General Aptitude Test'); 

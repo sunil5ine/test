@@ -88,7 +88,7 @@
 					        			<span class="right"><?php echo $result->exprence_level;?></span>
 					        		</li>
 					        		<li>
-					        			<span class="left-align">Verified candidates</span>
+					        			<span class="left-align">Verified Candidate Profiles</span>
 					        			<span class="right "><?php echo $result->pr_cvno;?></span>
 					        		</li>
 					        		<li>

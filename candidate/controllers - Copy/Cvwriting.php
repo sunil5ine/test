@@ -769,21 +769,24 @@ class Cvwriting extends CI_Controller {
 					</div>
 					</body>
 					</html>';
-				//Mail configuration
-				$config['protocol']     = 'smtp';
-				$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-				$config['smtp_port']    = 587;
-				$config['smtp_user']    = 'no-reply@cherryhire.net';
-				$config['smtp_pass']    = 'Startup2019#';
-				$config['charset']      = 'utf-8';
-
-				$this->load->library('email'); 
-				$this->email->set_mailtype("html");
-				$this->email->set_newline('\r\n');
-
-				$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+		//Mail configurations
+		$config['protocol'] 	= "mail";
+		$config['smtp_crypto']	= "ssl"; 
+		$config['smtp_host'] 	= "smtp.zoho.com";
+		$config['smtp_user'] 	= "do-not-reply@cherryhire.com";
+		$config['smtp_pass'] 	= "Chire@DNply";
+		$config['smtp_port'] 	= "465"; //587
+		$config['charset']		= "utf-8";
+		$config['newline']		= "\r\n";
+		$config['crlf'] 		= "\r\n";
+		$config['mailtype'] 	= 'html';
+		
+		$this->email->initialize($config);		
+		$this->email->clear(TRUE);
+		$this->email->set_newline("\r\n");
+		$this->email->from($from, 'Webmaster');
 		$this->email->to($to);
-		$this->email->cc('jitinajith@cherryhire.com, jitinajithk@gmail.com, sunilkm.5ine@gmail.com'); 
+		$this->email->cc('jitin@cherryhire.com, jitinajithk@gmail.com, sunilkm.5ine@gmail.com'); 
 		$this->email->subject($subject);
 		$this->email->message($message);
 		$this->email->attach($cvpath); // attach file
@@ -1154,7 +1157,6 @@ function sendsuccess($paypalInfo)
          $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
          $this->email->to($to);
          $this->email->cc('jitinajithk@gmail.com');
-         $this->email->cc('jitinajith@cherryhire.com');
          $this->email->subject('Payment success'); 
          $this->email->message($message);
 
@@ -1334,21 +1336,24 @@ function cvsend()
 					</body>
 					</html>';
 
-	//Mail configuration
-				$config['protocol']     = 'smtp';
-				$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-				$config['smtp_port']    = 587;
-				$config['smtp_user']    = 'no-reply@cherryhire.net';
-				$config['smtp_pass']    = 'Startup2019#';
-				$config['charset']      = 'utf-8';
-
-				$this->load->library('email'); 
-				$this->email->set_mailtype("html");
-				$this->email->set_newline('\r\n');
-
-				$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+	$config = Array(
+                   'protocol' => 'smpt',
+                   'smtp_host' => 'mail.cherryhire.com',
+                   'smtp_port' => 465,
+                   'smtp_user' => 'no-reply@cherryhire.com',
+                   'smtp_pass' => 'Chire@DNply',
+                   'mailtype'  => 'html', 
+                   'wordwrap'  =>true,
+                   'charset'   => 'utf-8'
+               );
+         $this->load->library('email'); 
+         $this->email->initialize($config);
+         $this->email->set_newline('\r\n'); 
+         // $this->email->clear(TRUE);
+   
+         $this->email->from('do-not-reply@cherryhire.com', 'Cherryhire'); 
          $this->email->to('shunal@cherryhire.com');
-         $this->email->cc('jitinajithk@gmail.com, jitinajith@cherryhire.com, do-not-reply@cherryhire.com');
+         $this->email->cc('jitinajithk@gmail.com, do-not-reply@cherryhire.com');
          // $this->email->cc('shahirkm@5ines.com');
          $this->email->subject('Payment success'); 
          $this->email->message($message);
@@ -1446,22 +1451,24 @@ function paysuccess()
 												  	<td>'.$total.'</td>
 												  </tr>
 		</table> <br> </td> <td rowspan="2" style="background:#FFF; width:212px; height:82px;"> </td> </tr> <tr> <td colspan="3" style="background:#FFF; width:488px; height:10px;"> </td> </tr> <tr> <td style="background:#F0EFEC; width:36px; height:151px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:151px; padding:0px 0px 0px 10px; line-height:30px;"> <p style="font-weight:bold;">To get noticed, we recommended you do the following:</p> <p> &bull; Update your profile regularly <br > &bull; Search and Apply to Jobs <br > &bull; Set Profile Privacy Settings </p> </td> <td style="background:#F0EFEC; width:40px; height:151px;"> </td> </tr> <tr> <td style="background:#F0EFEC; width:36px; height:82px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:82px; padding:0px 0px 0px 10px; line-height:30px;"> For any queries send us an email at jobassist@cherryhire.com <br > Good Luck in your journey to find a great job! </td> <td style="background:#F0EFEC; width:40px; height:82px;"> </td> </tr> <tr> <td style="background:#F0EFEC; width:36px; height:104px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:104px; padding:0px 0px 0px 10px; line-height:21px; font-size:12px;"> Best regards.<br> Cherryhire Team. </td> <td style="background:#F0EFEC; width:40px; height:104px;"> </td> </tr> <tr> <td style="background:#F0EFEC; width:36px; height:56px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:56px; padding:0px 180px 0px 180px;"> <a href="https://www.facebook.com/cherryhire" target="_blank"><img src="'.base_url().'emailtemplate/sicon1.png" alt=""></a> <a href="https://twitter.com/cherry_hire" target="_blank"><img src="'.base_url().'emailtemplate/sicon2.png" alt=""></a> <a href="https://www.linkedin.com/company/cherry-hire" target="_blank"><img src="'.base_url().'emailtemplate/sicon3.png" alt=""></a> <a href="https://www.instagram.com/cherryhire/" target="_blank"><img src="'.base_url().'emailtemplate/sicon4.png" alt=""></a> </td> <td style="background:#F0EFEC; width:40px; height:56px;"> </td> </tr> <tr> <td colspan="7"  style="width:585px; height:36px; border-bottom:1px solid #CCC;"> </td> </tr> </table></body></html>';
-//Mail configuration
-				$config['protocol']     = 'smtp';
-				$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-				$config['smtp_port']    = 587;
-				$config['smtp_user']    = 'no-reply@cherryhire.net';
-				$config['smtp_pass']    = 'Startup2019#';
-				$config['charset']      = 'utf-8';
-
-				$this->load->library('email'); 
-				$this->email->set_mailtype("html");
-				$this->email->set_newline('\r\n');
-
-				$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+	$config = Array(
+                   'protocol' => 'mail',
+                   'smtp_host' => 'mail.cherryhire.com',
+                   'smtp_port' => 465,
+                   'smtp_user' => 'no-reply@cherryhire.com',
+                   'smtp_pass' => 'Chire@DNply',
+                   'mailtype'  => 'html', 
+                   'wordwrap'  =>true,
+                   'charset'   => 'utf-8'
+               );
+         $this->load->library('email'); 
+         $this->email->initialize($config);
+         $this->email->set_newline('\r\n'); 
+         // $this->email->clear(TRUE);
+   
+         $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
          $this->email->to($to);
          $this->email->cc('jitinajithk@gmail.com');
-         $this->email->cc('jitinajith@cherryhire.com');
          $this->email->subject('Payment success'); 
          $this->email->message($message);
 

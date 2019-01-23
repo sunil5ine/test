@@ -53,26 +53,20 @@
 				<!-- payment -->
 				<div class="row" id="candidate">
 				<?php 
-				if(!empty($mon_plan)){
-				foreach ($mon_plan as $key => $plan) { 
-					if ($plan->pr_gat == 1) { ?>
-					
-						<div class="col m6  l4 push-l4  s12">
+				if(!empty($mon_plan)){ ?>
+
+					<div class="col m6   l4 offset-l2  s12 ">
 						<!-- card start -->
-						<div class="card-panel plans plan-test">
-							<?php  if (!empty($plan->pr_notify)) { $btn_class = 'white-text brand'; ?>
-								<div class="center" style="margin-top: -37px;">
-									<div class="chip brand white-text ">
-							    		<?php  echo $plan->pr_notify; ?>
-							    	</div>
-								</div>
-							<?php }else{ $btn_class = 'brand-text';} ?>
+						<div class="card-panel plans">
+							
+								
+							
 							<div class="card-title-box">
-						        <span class="card-title left-align"> <?php echo $plan->pr_name ?> </span>
-						        <span class="card-title right"> $ <?php echo $plan->pr_offer ?> </span>
+						        <span class="card-title left-align">Free  </span>
+						        <span class="card-title right"> $ 0 </span>
 							    <div class="card-sub-title">
 									<span class="left-align"></span>
-									
+									<span class="right">/ 12 months</span>
 						        </div>
 					        </div>
 					        
@@ -80,38 +74,79 @@
 					        	<ul>
 					        		<li>
 					        			<span class="left-align">Validity Period </span>
-					        			<span class="right"><?php echo $plan->pr_limit;echo ($plan->pr_id>1)? ' months':' month';?></span>
-					        		</li>
-					        		
-					        		<li>
-					        			<span class="left-align ">Test Reasoning Skills </span>
-					        			<span class="right brand-text"><i class="material-icons">done</i></span>
+					        			<span class="right">12 months</span>
 					        		</li>
 					        		<li>
-					        			<span class="left-align ">Test Numerical Ability </span>
-					        			<span class="right brand-text"><i class="material-icons">done</i></span>
+					        			<span class="left-align">Job Applications</span>
+					        			<span class="right">1</span>
+					        		</li>
+									<li>
+					        			<span class="left-align">Video Interview </span>
+					        			<span class="right ">
+											<i class="material-icons green-text">done</i>
+										</span>
 					        		</li>
 					        		<li>
-					        			<span class="left-align ">Test Verbal Ability </span>
-					        			<span class="right brand-text"><i class="material-icons">done</i></span>
+					        			<span class="left-align">Personalised Job Alerts</span>
+					        			<span class="right">
+					        				<i class="material-icons red-text">close</i>
+					        			</span>
 					        		</li>
 					        		<li>
-					        			<span class="left-align ">Test Data Analysis Skills </span>
-					        			<span class="right brand-text"><i class="material-icons">done</i></span>
+					        			<span class="left-align">View Employer  Details</span>
+					        			<span class="right ">
+											<i class="material-icons red-text">close</i>
+					        			</span>
 					        		</li>
-					        		
+					        		<li>
+					        			<span class="left-align">Who Viewd Your Profile</span>
+					        			<span class="right ">
+											<i class="material-icons red-text">close</i>
+					        			</span>
+					        		</li>
+					        		<li>
+					        			<span class="left-align">More Profile Views</span>
+					        			<span class="right ">
+											<i class="material-icons red-text">close</i>
+					        			</span>
+					        		</li>
+					        		<li>
+					        			<span class="left-align">Assisted Job Search</span>
+					        			<span class="right ">
+											<i class="material-icons red-text">close</i>
+					        			</span>
+					        		</li>
+					        		<li>
+					        			<span class="left-align">Resume Review</span>
+					        			<span class="right ">
+					        				<i class="material-icons red-text">close</i>
+					        			</span>
+					        		</li>
+					        		<li>
+					        			<span class="left-align">Profile Enrichment</span>
+					        			<span class="right ">
+											<i class="material-icons red-text">close</i>
+					        			</span>
+					        		</li>
+									
+									<li>
+					        			<span class="left-align">Video Interview </span>
+					        			<span class="right ">
+											<i class="material-icons red-text">close</i>
+										</span>
+					        		</li>
 					        	</ul>
 					        	<div class="center">
-					        		<a style="min-width: 180px" href="<?php echo $this->config->base_url();?>candidate" class=" btn btn-m <?php echo $btn_class ?>  btn-nc waves-green hoverable  waves-effect transparent">Get Started</a>
+					        		<a style="min-width: 180px" href="<?php echo $this->config->base_url();?>candidate" class=" btn btn-m brand-text  btn-nc waves-green hoverable  waves-effect transparent">Get Started</a>
 					        	</div>
 					    	</div>
 					    </div><!-- end card  1-->
 					</div><!-- end col -->
-
-
-					<?php  } if ($plan->pr_gat == 0) { ?>
+				<?php foreach ($mon_plan as $key => $plan) {  ?>
+					
+					<?php  if($plan->pr_gat == 0) { ?>
 				
-					<div class="col m6 push-m3  l4 push-l4  s12 ">
+					<div class="col m6  l4  ">
 						<!-- card start -->
 						<div class="card-panel plans">
 							<?php  if (!empty($plan->pr_notify)) { $btn_class = 'white-text brand'; ?>
@@ -242,7 +277,7 @@
 					        			<span class="right"><?php echo $result->exprence_level;?></span>
 					        		</li>
 					        		<li>
-					        			<span class="left-align">Verified candidates</span>
+					        			<span class="left-align">Verified Candidate Profiles</span>
 					        			<span class="right "><?php echo $result->pr_cvno;?></span>
 					        		</li>
 					        		<li>

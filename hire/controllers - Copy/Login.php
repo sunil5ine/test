@@ -377,19 +377,21 @@ class Login extends CI_Controller {
 						</table>
 						</body></html>';		
 		
-	//Mail configuration
-				$config['protocol']     = 'smtp';
-				$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-				$config['smtp_port']    = 587;
-				$config['smtp_user']    = 'no-reply@cherryhire.net';
-				$config['smtp_pass']    = 'Startup2019#';
-				$config['charset']      = 'utf-8';
-
-				$this->load->library('email'); 
-				$this->email->set_mailtype("html");
-				$this->email->set_newline('\r\n');
-
-				$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+		$config = Array(
+                   'protocol' => 'mail',
+                   'smtp_host' => 'mail.cherryhire.com',
+                   'smtp_port' => 587,
+                   'smtp_user' => 'no-reply@cherryhire.com',
+                   'smtp_pass' => 'Chire@DNply',
+                   'mailtype'  => 'html', 
+                   'wordwrap'  =>true,
+                   'charset'   => 'utf-8'
+               );
+         $this->load->library('email'); 
+         $this->email->initialize($config);	
+		$this->email->clear(TRUE);
+		$this->email->set_newline("\r\n");
+		$this->email->from($from, 'Cherry Hire');
 		$this->email->to($to);
 		//$this->email->cc('sreejith@aatoon.com');
 		$this->email->subject($subject);

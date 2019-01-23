@@ -933,7 +933,7 @@ class Site extends CI_Controller {
 	function cvsendmail($name,$emailid)
 	{
 	
-	$from = 'do-not-reply@cherryhire.com';
+	$from = 'no-reply@cherryhire.net';
 	$to   = $emailid;
 	// $subject 	= 'Payment Success';
 	$message    = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -1082,22 +1082,19 @@ class Site extends CI_Controller {
 
 
 
-	$config = Array(
-                   'protocol' => 'mail',
-                   'smtp_host' => 'mail.cherryhire.com',
-                   'smtp_port' => 465,
-                   'smtp_user' => 'no-reply@cherryhire.com',
-                   'smtp_pass' => 'Chire@DNply',
-                   'mailtype'  => 'html', 
-                   'wordwrap'  =>true,
-                   'charset'   => 'utf-8'
-               );
-         $this->load->library('email'); 
-         $this->email->initialize($config);
-         $this->email->set_newline('\r\n'); 
-         // $this->email->clear(TRUE);
-   
-         $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
+			//Mail configuration
+			$config['protocol']     = 'smtp';
+			$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
+			$config['smtp_port']    = 587;
+			$config['smtp_user']    = 'no-reply@cherryhire.net';
+			$config['smtp_pass']    = 'Startup2019#';
+			$config['charset']      = 'utf-8';
+
+			$this->load->library('email'); 
+			$this->email->set_mailtype("html");
+			$this->email->set_newline('\r\n');
+
+			$this->email->from($from , 'Cherryhire'); 
          $this->email->to($to);
          $this->email->subject('Thank you for registering on cherryhire.com'); 
          $this->email->message($message);
@@ -1124,7 +1121,7 @@ class Site extends CI_Controller {
 	{
 		$result 	= $this->sitemodel->get_candidate($cid);
 		$subject 	= 'Welcome to Cherryhire.com';
-		$from 		= 'do-not-reply@cherryhire.com';
+		$from 		= 'no-reply@cherryhire.net';
 		
 		$FName 		= $result['can_fname'];
 		$LName 		= $result['can_lname'];
@@ -1245,7 +1242,7 @@ class Site extends CI_Controller {
 								             
 								            Jithin Ajith Kumar | Digital Head <br >
 								             <b>phone:</b> +973 33313551<br>
-											<b>Mail:</b> jithinajith@cherryhire.com
+											<b>Mail:</b> jitinajith@cherryhire.com
 								        </td>
 								        <td style="background:#F0EFEC; width:40px; height:104px;">
 								        </td>
@@ -1268,53 +1265,20 @@ class Site extends CI_Controller {
 								    </tr>
 								</table></body></html>';
 		
-$config['protocol'] 	= "mail";
+			//Mail configuration
+			$config['protocol']     = 'smtp';
+			$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
+			$config['smtp_port']    = 587;
+			$config['smtp_user']    = 'no-reply@cherryhire.net';
+			$config['smtp_pass']    = 'Startup2019#';
+			$config['charset']      = 'utf-8';
 
-		$config['smtp_crypto']	= "ssl"; 
+			$this->load->library('email'); 
+			$this->email->set_mailtype("html");
+			$this->email->set_newline('\r\n');
 
-		$config['smtp_host'] 	= "smtp.zoho.com";
-
-		$config['smtp_user'] 	= "do-not-reply@cherryhire.com";
-
-		$config['smtp_pass'] 	= "Chire@DNply";
-
-		$config['smtp_port'] 	= "465"; //587
-
-		$config['charset']		= "utf-8";
-
-		$config['newline']		= "\r\n";
-
-		$config['crlf'] 		= "\r\n";
-
-		$config['mailtype'] 	= 'html';
-
-		
-
-		$this->email->initialize($config);
-
-		$this->email->clear(TRUE);
-
-		$this->email->set_newline("\r\n");
-
-		
-		
-		// $config = Array(
-  //                  'protocol' => 'mail',
-  //                  'smtp_host' => 'mail.cherryhire.com',
-  //                  'smtp_port' => 587,
-  //                  'smtp_user' => 'no-reply@cherryhire.com',
-  //                  'smtp_pass' => 'Chire@DNply',
-  //                  'mailtype'  => 'html', 
-  //                  'wordwrap'  =>true,
-  //                  'charset'   => 'utf-8'
-  //              );
-  //        $this->load->library('email'); 
-  //        $this->email->initialize($config);
-  //        $this->email->set_newline('\r\n'); 
-         // $this->email->clear(TRUE);
-   
-         $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
-         $this->email->to($to);
+			$this->email->from($from , 'Cherryhire'); 
+         	$this->email->to($to);
    
          // $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
          // $this->email->to('testing@5ines.com');
@@ -1327,6 +1291,7 @@ $config['protocol'] 	= "mail";
 			return 1;
 			// echo "email sent";
 		} else {
+			echo $this->email->print_debugger();exit;
 			return 0;
 			// echo $this->email->print_debugger();
 		}
@@ -1336,11 +1301,11 @@ $config['protocol'] 	= "mail";
 	 * @param array $formdata
 	 * return int
 	 */
-	function contact_sendmail($formdata=null)
+	function contact_sendmail($formdata = null)
 	{
 		$subject 	= 'Enquiry from Cherry Hire Website';		
 		$to 		= 'info@cherryhire.com';
-		$from 		= 'do-not-reply@cherryhire.com';
+		$from 		= 'no-reply@cherryhire.net';
 		
 		$cemail = $formdata['cemail'];
 		$cname 	= $formdata['cname'];
@@ -1359,29 +1324,26 @@ $config['protocol'] 	= "mail";
 		$message = $message." <br> Webmaster - Cherry Hire </p>";
 		$message = $message."</body></html></html>";
 		
-		//Mail configuration
-		$config = Array(
-                   'protocol' => 'mail',
-                   'smtp_host' => 'mail.cherryhire.com',
-                   'smtp_port' => 465,
-                   'smtp_user' => 'no-reply@cherryhire.com',
-                   'smtp_pass' => 'Chire@DNply',
-                   'mailtype'  => 'html', 
-                   'wordwrap'  =>true,
-                   'charset'   => 'utf-8'
-               );
-         $this->load->library('email'); 
-         $this->email->initialize($config);
-         $this->email->set_newline('\r\n'); 
-         // $this->email->clear(TRUE);
-   
-         $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
+		// Mail configuration
+		$config['protocol']     = 'smtp';
+		$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
+		$config['smtp_port']    = 587;
+		$config['smtp_user']    = 'no-reply@cherryhire.net';
+		$config['smtp_pass']    = 'Startup2019#';
+		$config['charset']      = 'utf-8';
+
+		$this->load->library('email'); 
+		$this->email->set_mailtype("html");
+		$this->email->set_newline('\r\n');
+
+        $this->email->from($from , 'Cherryhire'); 
 		$this->email->to($to);
 		$this->email->subject($subject);
 		$this->email->message($message);
 		if ($this->email->send()) {
 			return 1;
 		} else {
+			// echo $this->email->print_debugger();exit;
 			return 0;
 		}
 	}
@@ -1394,7 +1356,7 @@ $config['protocol'] 	= "mail";
 	function contact_thankumail($name=null, $emailid=null)
 	{
 		$subject 	= 'Greetings from Cherry Hire';		
-		$from 		= 'do-not-reply@cherryhire.com';		
+		$from 		= 'no-reply@cherryhire.net';		
 		$FName 		= $name;		
 		$to 		= $emailid;
 		
@@ -1457,31 +1419,28 @@ $config['protocol'] 	= "mail";
 									</tr>
 								</table>
 								</body></html>';
-		//Mail configuration
-		$config = Array(
-                   'protocol' => 'mail',
-                   'smtp_host' => 'mail.cherryhire.com',
-                   'smtp_port' => 465,
-                   'smtp_user' => 'no-reply@cherryhire.com',
-                   'smtp_pass' => 'Chire@DNply',
-                   'mailtype'  => 'html', 
-                   'wordwrap'  =>true,
-                   'charset'   => 'utf-8'
-               );
-         $this->load->library('email'); 
-         $this->email->initialize($config);
-         $this->email->set_newline('\r\n'); 
-         // $this->email->clear(TRUE);
-   
-         $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
-         $this->email->to($to);
-         $this->email->subject($subject); 
-         $this->email->message($thanksmessage); 
-		if ($this->email->send()) {
-			return 1;
-		} else {
-			return 0;
-		}
+			//Mail configuration
+			$config['protocol']     = 'smtp';
+			$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
+			$config['smtp_port']    = 587;
+			$config['smtp_user']    = 'no-reply@cherryhire.net';
+			$config['smtp_pass']    = 'Startup2019#';
+			$config['charset']      = 'utf-8';
+
+			$this->load->library('email'); 
+			$this->email->set_mailtype("html");
+			$this->email->set_newline('\r\n');
+
+			$this->email->from($from , 'Cherryhire');
+			$this->email->to($to);
+			$this->email->subject($subject); 
+			$this->email->message($thanksmessage); 
+			if ($this->email->send()) {
+				return 1;
+			} else {
+				// echo $this->email->print_debugger();exit;
+				return 0;
+			}
 	}
 	
 	/* 404 page Function
@@ -1575,7 +1534,7 @@ function apicvsendmail($cid=null, $cvpath=null)
 
 		$subject 	= 'Partnership Interest Form';		
 		$to 		= 'info@cherryhire.com';
-		$from 		= 'info@cherryhire.com';
+		$from 		= 'no-reply@cherryhire.net';
 		
 		
 		$message = "<html><head><title>Partner with Cherry Hire</title></head><body>";
@@ -1597,25 +1556,21 @@ function apicvsendmail($cid=null, $cvpath=null)
 		$message = $message."</body></html></html>";
 		
 		//Mail configuration
-		$config = Array(
-                   'protocol' => 'mail',
-                   'smtp_host' => 'mail.cherryhire.com',
-                   'smtp_port' => 465,
-                   'smtp_user' => 'no-reply@cherryhire.com',
-                   'smtp_pass' => 'Chire@DNply',
-                   'mailtype'  => 'html', 
-                   'wordwrap'  =>true,
-                   'charset'   => 'utf-8'
-               );
-         $this->load->library('email'); 
-         $this->email->initialize($config);
-         $this->email->set_newline('\r\n'); 
-         // $this->email->clear(TRUE);
-   
-        $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
+		$config['protocol']     = 'smtp';
+		$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
+		$config['smtp_port']    = 587;
+		$config['smtp_user']    = 'no-reply@cherryhire.net';
+		$config['smtp_pass']    = 'Startup2019#';
+		$config['charset']      = 'utf-8';
+
+		$this->load->library('email'); 
+		$this->email->set_mailtype("html");
+		$this->email->set_newline('\r\n');
+
+		$this->email->from($from , 'Cherryhire');
 		$this->email->to('sandeep@cherry.com');
 		$this->email->to('info@cherryhire.com');
-		$this->email->to('shahirkm@5ines.com');
+		
 		$this->email->subject($subject);
 		$this->email->message($message);
 		$this->email->send();
