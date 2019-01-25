@@ -35,7 +35,7 @@
 							<div class="col l4 s12 input-field p0 m0 m6 white location-serach" id="">
 								<i class="material-icons ">location_on</i>
 								<select  name="location[]" style="height: 3rem !important;" class="sel-location"  id="">
-								  <option value="" > Location </option>
+								  <option value="" >  Location </option>
 								  <option value="Bahrain" > Bahrain </option>
 								  <option value="Kuwait" > Kuwait </option>
 								  <option value="Oman" > Oman </option>
@@ -95,12 +95,12 @@
 								<i class="material-icons ">location_on</i>
 								<select  class="sel-location" name="location[]" style="height: 3rem !important;"  id="sel-location">
 								  <option value="" > Location </option>
-								  <option value="Bahrain" > Bahrain </option>
-								  <option value="Kuwait" > Kuwait </option>
-								  <option value="Oman" > Oman </option>
-								  <option value="Qatar" > Qatar </option>
-								  <option value="Bahrain" > Saudi Arabia </option>
-								  <option value="United Arab Emirates" > United Arab Emirates </option>
+								  <option value="Bahrain" ><span class="flagbahrain"></span> Bahrain </option>
+								  <option value="Kuwait" ><span class="flagkuwait"></span> Kuwait </option>
+								  <option value="Oman" ><span class="flagoman"></span> Oman </option>
+								  <option value="Qatar" ><span class="flagquater"></span> Qatar </option>
+								  <option value="Bahrain" ><span class="flagsud"></span> Saudi Arabia </option>
+								  <option value="United Arab Emirates" ><span class="flaguae"></span> United Arab Emirates </option>
 								</select>
 							</div>
 							<div class="col l2 s12 p0 input-field m0 m6">

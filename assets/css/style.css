@@ -965,10 +965,20 @@ h5 {font-size: 1.3rem;}
  * ********* 980 below screens
 */
 
-
-
 @media (min-width: 601px){
 	.show-on-small {
     display: none !important;
 }
 }
+
+/* seo changes */
+.flagbahrain, .flagkuwait, .flagoman, .flagquater, .flagsud, 
+.flaguae
+{ display: inline-block; background: url('../../assets/img/lflag.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+ 
+.flagbahrain { background-position: -1px -0px; width: 50px; height: 30px; }
+.flagkuwait { background-position: -52px -0px; width: 50px; height: 30px; }
+.flagoman { background-position: -1px -31px; width: 50px; height: 25px; }
+.flagquater { background-position: -52px -31px; width: 50px; height: 30px; }
+.flagsud { background-position: -1px -57px; width: 50px; height: 30px; }
+.flaguae { background-position: -52px -62px; width: 50px; height: 30px; }

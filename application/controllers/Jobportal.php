@@ -60,7 +60,7 @@ class Jobportal extends CI_Controller {
 		$minexp		= 0; 
 		$maxexp 	= 99; 
 		$jtype		= '';
-		$this->data["country_list"] = $this->jobportalmodel->get_country();
+		$this->data["country_list"] = $this->jobportalmodel->get_country1();
 		$this->data["funarea_list"] = $this->sitemodel->get_farea();
 		$this->data["monsal_list"] 	= $this->jobportalmodel->getsalary_list();
 		/*shorting*/

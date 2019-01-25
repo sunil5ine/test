@@ -178,14 +178,14 @@ class Jobportalmodel extends CI_Model {
 		/*function area filtering */
 			foreach ($funarea as $key => $value) {
 				if(!empty($funarea[$key])) {
-					$this->db->where('ch_jobs.job_farea',$value);
+					$this->db->where_in('ch_jobs.job_farea',$value);
 				}
 			}
 
 		/*location filtering */
 			foreach ($location as $key => $value) {
 				if(!empty($location[$key])) {
-					$this->db->where('ch_jobs.job_location',$value);
+					$this->db->where_in('ch_jobs.job_location',$value);
 				}
 			}
 
@@ -564,6 +564,17 @@ class Jobportalmodel extends CI_Model {
 	public function get_country()
     {	
        	$query 			= $this->db->query("select co_id, co_name, co_nationality from ".$this->table_country." order by co_name asc");
+		$country_list 	= $query->result();
+		$dropDownList[''] = 'Location';
+		foreach($country_list as $dropdown) {
+			$dropDownList[$dropdown->co_name] = $dropdown->co_name;
+		}
+		return $dropDownList;
+	}
+	
+	public function get_country1()
+    {	
+       	$query 			= $this->db->query("select co_id, co_name, co_nationality from ".$this->table_country." where job_cnt=1  order by co_name asc");
 		$country_list 	= $query->result();
 		$dropDownList[''] = 'Location';
 		foreach($country_list as $dropdown) {

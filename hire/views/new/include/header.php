@@ -33,7 +33,7 @@ $alert = $this->alerts->get_alerts();
 
 	      <?php if(!$this->session->userdata('hireid')) { ?>
 		      <ul class=" hide-on-med-and-down ">
-		        <li><a href="<?php echo $this->config->item('web_url');?>Jobs" class="waves-effect">Find Jobs	</a></li>
+		        <li><a href="<?php echo $this->config->item('web_url');?>Jobs?jobs=list" class="waves-effect">Find Jobs	</a></li>
 		        <li><a href="<?php echo $this->config->item('web_url');?>Psychometric" class="waves-effect">Psychometric Test</a></li>
 		        <li><a href="<?php echo $this->config->item('web_url');?>CV_Writing" class="waves-effect">Professional CV Writing</a></li>
 		        <li><a href="<?php echo $this->config->item('web_url');?>Pricing" class="waves-effect">Pricing</a></li>

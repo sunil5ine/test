@@ -57,22 +57,20 @@
 									<div class="footer-content">
 										<ul>
 											<li><a href="<?php echo $this->config->item('web_url')?>hire/login">Get a free account</a></li>
-											<li><a href="<?php echo $this->config->item('web_url')?>">Employer Center</a></li>
-											<li><a href="<?php echo $this->config->item('web_url')?>hire/login">Post  jobs</a></li>
+											<li><a href="<?php echo $this->config->item('web_url')?>hire/Jobs/Add">Post  jobs</a></li>
 											
 										</ul>
 									</div>
 								</div>
 								<div class="footer-container">
 									<div class="footer-heading">
-										<p>Community</p>
+										<p>Job Seekers</p>
 									</div>
 									<div class="footer-content">
 										<ul>
-											
-											<li><a href="<?php echo base_url()?>About">Customer care centre</a></li>
-											<li><a href="">Guidelines</a></li>
-											<li><a href="">Cookies</a></li>
+										<li><a href="<?php echo $this->config->item('web_url') ?>Jobs?jobs=list">Find Jobs</a></li>
+											<li><a href="<?php echo base_url() ?>cvwriting/professional-cv">Professional CV Writing</a></li>
+											<li><a href="<?php echo base_url() ?>psychotest/plans">Psychometric Test</a></li>
 										</ul>
 									</div>
 								</div>
@@ -80,15 +78,16 @@
 							<div class="col s6 m4 l4 top37up">
 								<div class="footer-container">
 									<div class="footer-heading">
-										<p>Job Seekers</p>
+										<p>Jobs</p>
 									</div>
 									<div class="footer-content">
 										<ul>
-											<li><a href="">Resume Review</a></li>
-											<li><a href="">Create  Job Alert</a></li>
-											<li><a href="">Career Advice</a></li>
-											<li><a href="">Community</a></li>
-											<li><a href="">Courses</a></li>
+											<li><a href="<?php echo $this->config->item('web_url') ?>Jobs?location[Bahrain]=Bahrain">Jobs in Bahrain</a></li>
+											<li><a href="<?php echo $this->config->item('web_url') ?>Jobs?location[Kuwait]=Kuwait">Jobs in Kuwait</a></li>
+											<li><a href="<?php echo $this->config->item('web_url') ?>Jobs?location[Oman]=Oman">Jobs in Oman</a></li>
+											<li><a href="<?php echo $this->config->item('web_url') ?>Jobs?location[Qatar]=Qatar">Jobs in Qatar</a></li>
+											<li><a href="<?php echo $this->config->item('web_url') ?>Jobs?location[Saudi Arabia]=Saudi Arabia">Jobs in Saudi Arabia</a></li>
+											<li><a href="<?php echo $this->config->item('web_url') ?>Jobs?location[United Arab Emirates]=United Arab Emirates">Jobs in United Arab Emirates</a></li>
 										</ul>
 									</div>
 								</div>
