@@ -30,7 +30,7 @@ class questionnaire extends CI_Controller {
 		$data['verbal'] 	= $this->m_questionnaire->verble();
 		$data['logical']	= $this->m_questionnaire->logical();
 		$data['numerical']  = $this->m_questionnaire->numerical();
-		$data['resability'] = $this->m_questionnaire->resability();
+		// $data['resability'] = $this->m_questionnaire->resability();
 		if($this->m_questionnaire->getcan()){
 			redirect('psychotest/plans','refresh');
 		}else{
@@ -42,7 +42,7 @@ class questionnaire extends CI_Controller {
 	{
 		$input = $this->input->post();
 		$result = $this->m_questionnaire->countanw($input);
-		$mark = $result * 100 / 25;
+		$mark = $result * 100 / 20;
 		$this->m_questionnaire->resultinsert($mark);
 		if($mark >= 35){
 			$sess = array( 'tectcheck' => '0' );
@@ -58,8 +58,8 @@ class questionnaire extends CI_Controller {
 	
 	function successmail($result)
 	{
-		$mark = $result * 100 / 25;
-		$wron = $result - 25;
+		$mark = $result * 100 / 20;
+		$wron = $result - 20;
 		$this->load->model('subscriptionmodel');
 		$umid = $this->session->userdata('cand_chid');
 		$candata = $this->subscriptionmodel->getmuser($umid);
@@ -189,8 +189,8 @@ class questionnaire extends CI_Controller {
 
 	function faildmail($result)
 	{
-		$mark = $result * 100 / 25;
-		$wron = $result - 25;
+		$mark = $result * 100 / 20;
+		$wron = $result - 20;
 		$this->load->model('subscriptionmodel');
 		$umid = $this->session->userdata('cand_chid');
 		$candata = $this->subscriptionmodel->getmuser($umid);

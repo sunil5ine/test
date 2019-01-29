@@ -42,7 +42,7 @@
 			          
 			          	<div class="emil-contect  row">
 			          		<!-- <h6 class="center-align">OR USING EMAIL</h6> -->
-			          		<form method="post" name="signinfrm" action="<?php echo base_url()?>LoginProcess/" data-toggle="validator" role="form">
+			          		<form method="post" name="signinfrm" id="signinfrm" action="<?php echo base_url()?>LoginProcess/" data-toggle="validator" role="form">
 			          			<div class=" col s12 m0">
 						          	<label for="emailid">Email</label>
 						          	<input id="emailid" type="email" class="validate" name="emailid" >
@@ -107,7 +107,7 @@
 	<script src="<?php echo $this->config->item('web_url') ?>assets/js/jquery.validate.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("form").validate({
+			$("#signinfrm").validate({
 				rules: {
 					pwd: "required",
 					emailid: {

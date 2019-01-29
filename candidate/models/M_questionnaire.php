@@ -12,6 +12,7 @@ class m_questionnaire extends CI_Model {
         $data[] = $this->v_totf();
         $data[] = $this->v_tstf();
         $data[] = $this->v_teotf();
+        $data[] = $this->v_fte();
         foreach ($data as $key => $value) {
             foreach ($value as $key1 => $value1) {
                 $result[$key] = $value1;
@@ -27,6 +28,7 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 1);
         $this->db->where('tq_id <=', 5);
+
         return $this->db->get('ch_test_quetion', 1)->result();
     }
     // 6- 10
@@ -34,8 +36,8 @@ class m_questionnaire extends CI_Model {
     {
         $this->db->select('tq_id, tq_uid, tq_qsets, tq_type, tq_quetion,tq_qimg');
         $this->db->order_by('tq_id', 'RANDOM');
-        $this->db->where('tq_id >=', 1);
-        $this->db->where('tq_id <=', 5);
+        $this->db->where('tq_id >=', 6);
+        $this->db->where('tq_id <=', 10);
         return $this->db->get('ch_test_quetion', 1)->result();
     }
     // 11- 20
@@ -44,6 +46,14 @@ class m_questionnaire extends CI_Model {
         $this->db->select('tq_id, tq_uid, tq_qsets, tq_type, tq_quetion,tq_qimg');
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 11);
+        $this->db->where('tq_id <=', 15);
+        return $this->db->get('ch_test_quetion', 1)->result();
+    }
+    public function v_fte()
+    {
+        $this->db->select('tq_id, tq_uid, tq_qsets, tq_type, tq_quetion,tq_qimg');
+        $this->db->order_by('tq_id', 'RANDOM');
+        $this->db->where('tq_id >=', 15);
         $this->db->where('tq_id <=', 20);
         return $this->db->get('ch_test_quetion', 1)->result();
     }
@@ -108,6 +118,7 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 36);
         $this->db->where('tq_id <=', 55);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion', 1)->result();
     }
     // 21-26
@@ -117,6 +128,7 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 56);
         $this->db->where('tq_id <=', 61);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion', 1)->result();
     }
     // 27-30
@@ -126,6 +138,7 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 62);
         $this->db->where('tq_id <=', 65);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion', 1)->result();
     }
     // 31-50
@@ -135,6 +148,7 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 66);
         $this->db->where('tq_id <=', 85);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion', 1)->result();
     }
     // 51-60
@@ -144,6 +158,7 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 86);
         $this->db->where('tq_id <=', 95);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion', 1)->result();
     }
     // 61-70
@@ -153,6 +168,7 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 96);
         $this->db->where('tq_id <=', 105);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion', 1)->result();
     }
     // 71-74
@@ -162,6 +178,7 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 106);
         $this->db->where('tq_id <=', 109);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion', 1)->result();
     }
 
@@ -171,7 +188,7 @@ class m_questionnaire extends CI_Model {
     {
         $count = 0;
         $data[] = $this->nuconetote();
-        $data[] = $this->nuctntostoe();
+        // $data[] = $this->nuctntostoe();
 
         foreach ($data as $key => $value) {
             foreach ($value as $key1 => $value1) {
@@ -189,7 +206,8 @@ class m_questionnaire extends CI_Model {
         $this->db->order_by('tq_id', 'RANDOM');
         $this->db->where('tq_id >=', 110);
         $this->db->where('tq_id <=', 137);
-        $this->db->limit(3);
+        $this->db->limit(8);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion')->result();
     }
 
@@ -201,6 +219,7 @@ class m_questionnaire extends CI_Model {
         $this->db->where('tq_id >=', 138);
         $this->db->where('tq_id <=', 172);
         $this->db->limit(4);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion')->result();
     }
 
@@ -212,6 +231,7 @@ class m_questionnaire extends CI_Model {
         $this->db->where('tq_id >=', 173);
         $this->db->where('tq_id <=', 187);
         $this->db->limit(5);
+        $this->db->distinct();
         return $this->db->get('ch_test_quetion')->result();
     }
 

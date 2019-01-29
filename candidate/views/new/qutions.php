@@ -125,21 +125,22 @@ $this->load->model('m_questionnaire');
 					</div>
 				</div>
 
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col s12">
 						<div class="card">
 							<div class="card-content">
-								<?php  
+								<?php  /*
+								if(!empty($resability)){
 									foreach ($resability as $key => $value) {  $leter = ord('A');
 										$anw = $this->m_questionnaire->getansw($value->tq_uid);
 								?>
 									<div class="quetion-sets">
-										<p class="quetion"><?php echo '<span class="slno">'.$count += 1; echo '.</span>  <span>'.$value->tq_quetion ?></p>
+										<p class="quetion"><?php /* echo '<span class="slno">'.$count += 1; echo '.</span>  <span>'.$value->tq_quetion ?></p>
 										<?php if(!empty($value->tq_type) && $value->tq_type =="text/image") {
 											echo '<img src="'.$this->config->item('web_url').'assets/qut-img/'.$value->tq_qimg.'" alt="" class="responsive-img" style="max-height: 326px;"/>';
 										}?>
 										<div class="answ">
-										<?php 
+										<?php /*
 											if($anw['0']->tq_top != 0){
 												$op = ord('A');
 												for ($i=1; $i <= $anw['0']->tq_top ; $i++) { 
@@ -152,15 +153,15 @@ $this->load->model('m_questionnaire');
 												</p>';
 												$op++;
 												}
-											} 
+											}  */
 										?>
 										</div>
 									</div>
-								<?php } ?>
+								<?php /*} } */?>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="row">
 					<div class="col s12">
