@@ -574,7 +574,7 @@ class Jobportalmodel extends CI_Model {
 	
 	public function get_country1()
     {	
-       	$query 			= $this->db->query("select co_id, co_name, co_nationality from ".$this->table_country." where job_cnt=1  order by co_name asc");
+       	$query 			= $this->db->query("select co_id, co_name, co_nationality from ".$this->table_country."  order by co_name asc");
 		$country_list 	= $query->result();
 		$dropDownList[''] = 'Location';
 		foreach($country_list as $dropdown) {
