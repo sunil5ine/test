@@ -715,18 +715,19 @@ function sendsuccess($paypalInfo)
 	$message    = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html><head><title>Candidate_Register</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style> #t11,#t11 th,#t11 td {border: 1px solid black; border-collapse: collapse; } #t11 th, #t11 td {padding: 15px; text-align: left; } table#t01 {width: 100%; background-color: #f1f1c1; } </style> </head> <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"> <table id="Table_01" width="642" height="933" border="0" cellpadding="0" cellspacing="0" align="center" style="background:#FFF; font-size:14px; font-family:Arial, Helvetica, sans-serif;"> <tr> <td colspan="9" style="width:642px; height:30px;"> </td> </tr> <tr> <td rowspan="13" style="width:28px; height:903px; border-top:1px solid #CCC; border-left:1px solid #CCC; border-bottom:1px solid #CCC;"> </td> <td colspan="7" style="width:585px; height:103px; border-top:1px solid #CCC;"> <a href="http://www.cherryhire.com" target="_blank"><img src="http://staging.cherryhire.com/site/images/logo.png" alt=""></a> </td> <td rowspan="13" style="width:29px; height:903px; border-top:1px solid #CCC; border-right:1px solid #CCC; border-bottom:1px solid #CCC;"> </td> </tr> <tr> <td colspan="7" style="background:#AD1E24; width:585px; height:111px; vertical-align:middle; color:#FFF; padding:10px 0px 0px 30px; font-size:28px; font-weight:bold;"> Payment Detail </td> </tr> <tr> <td style="width:10px; height:10px; line-height:0px;" valign="top"> <img src="'.base_url().'emailtemplate/Candidate_Register_06.png" alt=""> </td> <td colspan="5" style="background:#F0EFEC; width:564px; height:10px; line-height:0px;"> </td> <td style="width:11px; height:10px; line-height:0px;" valign="top"> <img src="'.base_url().'emailtemplate/Candidate_Register_08.png" alt=""> </td> </tr> <tr> <td rowspan="9" style="background:#FFF; width:10px; height:643px;"> </td> <td style="background:#F0EFEC; width:36px; height:122px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:122px; line-height:30px;padding:0px 0px 0px 10px;"> <p>Hi '.$candata["can_fname"].',</p> <p>Greetings from <a href="www.cherryhire.com"> www.cherryhire.com</a> <br> Thank you for the payment for your Subscription. <br> </p> </td> <td style="background:#F0EFEC; width:40px; height:122px;"> </td> <td rowspan="9" style="background:#FFF; width:11px; height:643px;"> </td> </tr> <tr> <td rowspan="4" style="background:#F0EFEC; width:36px; height:128px;"> </td> <td colspan="3" style="background:#FFF; width:488px; height:36px; padding:0px 0px 0px 16px; font-weight:bold; line-height:30px;"> <p>Payment Details</p> <td rowspan="4" style="background:#F0EFEC; width:36px; height:128px;"> </td> </tr> <tr> <td style="background:#FFF; width:55px; height:40px;"> <img src="'.base_url().'emailtemplate/Candidate_Register_17.png" alt=""> </td> <td style=" width:100% "> <table style="width:96%;padding-left:2%;padding-right:2%;background:#FFF;" id="t11"> <tr> <th>Item</th> <th>Tax-Id</th> <th>Currency</th> <th>Payment Amount</th> </tr> <tr> <td>'.$paypalInfo["item_name"].'</td> <td>'.$paypalInfo["txn_id"].'</td> <td>'.$paypalInfo["mc_currency"].'</td> <td>'.$paypalInfo["mc_gross"].'</td> </tr> </table> <br> </td> <td rowspan="2" style="background:#FFF; width:212px; height:82px;"> </td> </tr> <tr> <td colspan="3" style="background:#FFF; width:488px; height:10px;"> </td> </tr> <tr> <td style="background:#F0EFEC; width:36px; height:151px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:151px; padding:0px 0px 0px 10px; line-height:30px;"> <p style="font-weight:bold;">To get noticed, we recommended you do the following:</p> <p> &bull; Update your profile regularly <br > &bull; Search and Apply to Jobs <br > &bull; Set Profile Privacy Settings </p> </td> <td style="background:#F0EFEC; width:40px; height:151px;"> </td> </tr> <tr> <td style="background:#F0EFEC; width:36px; height:82px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:82px; padding:0px 0px 0px 10px; line-height:30px;"> For any queries send us an email at jobassist@cherryhire.com <br > Good Luck in your journey to find a great job! </td> <td style="background:#F0EFEC; width:40px; height:82px;"> </td> </tr> <tr> <td style="background:#F0EFEC; width:36px; height:104px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:104px; padding:0px 0px 0px 10px; line-height:21px; font-size:12px;"> Best regards.<br> Cherryhire Team. </td> <td style="background:#F0EFEC; width:40px; height:104px;"> </td> </tr> <tr> <td style="background:#F0EFEC; width:36px; height:56px;"> </td> <td colspan="3" style="background:#F0EFEC; width:488px; height:56px; padding:0px 180px 0px 180px;"> <a href="https://www.facebook.com/cherryhire" target="_blank"><img src="'.base_url().'emailtemplate/sicon1.png" alt=""></a> <a href="https://twitter.com/cherry_hire" target="_blank"><img src="'.base_url().'emailtemplate/sicon2.png" alt=""></a> <a href="https://www.linkedin.com/company/cherry-hire" target="_blank"><img src="'.base_url().'emailtemplate/sicon3.png" alt=""></a> <a href="https://www.instagram.com/cherryhire/" target="_blank"><img src="'.base_url().'emailtemplate/sicon4.png" alt=""></a> </td> <td style="background:#F0EFEC; width:40px; height:56px;"> </td> </tr> <tr> <td colspan="7"  style="width:585px; height:36px; border-bottom:1px solid #CCC;"> </td> </tr> </table></body></html>';
 
 	//Mail configuration
-	$config['protocol']     = 'smtp';
-	$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-	$config['smtp_port']    = 587;
-	$config['smtp_user']    = 'no-reply@cherryhire.net';
-	$config['smtp_pass']    = 'Startup2019#';
-	$config['charset']      = 'utf-8';
-
-	$this->load->library('email'); 
-	$this->email->set_mailtype("html");
-	$this->email->set_newline('\r\n');
-
-	$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+	$config = Array(
+		'protocol' => 'smtp',
+		'smtp_host' => 'ssl://smtp.googlemail.com',
+		'smtp_port' => 465,
+		'smtp_user' => 'no-reply@cherryhire.com',
+		'smtp_pass' => 'vbgtstahuubtwsbj',
+		'mailtype'  => 'html', 
+		'charset'   => 'utf-8'
+		 );
+	$this->email->initialize($config);
+	$this->load->library('email');
+	$this->email->set_newline("\r\n");
+	$this->email->from('no-reply@cherryhire.com' , 'Cherryhire');
          $this->email->to($to);
          $this->email->cc('jitinajithk@gmail.com');
          // $this->email->cc('shahirkm@5ines.com');
@@ -808,18 +809,19 @@ function paymentSuccess($catrData)
 
 
 	//Mail configuration
-				$config['protocol']     = 'smtp';
-				$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-				$config['smtp_port']    = 587;
-				$config['smtp_user']    = 'no-reply@cherryhire.net';
-				$config['smtp_pass']    = 'Startup2019#';
-				$config['charset']      = 'utf-8';
-
-				$this->load->library('email'); 
-				$this->email->set_mailtype("html");
-				$this->email->set_newline('\r\n');
-
-				$this->email->from('no-reply@cherryhire.net' , 'Cherryhire');
+	$config = Array(
+		'protocol' => 'smtp',
+		'smtp_host' => 'ssl://smtp.googlemail.com',
+		'smtp_port' => 465,
+		'smtp_user' => 'no-reply@cherryhire.com',
+		'smtp_pass' => 'vbgtstahuubtwsbj',
+		'mailtype'  => 'html', 
+		'charset'   => 'utf-8'
+		 );
+	$this->email->initialize($config);
+	$this->load->library('email');
+	$this->email->set_newline("\r\n");
+	$this->email->from('no-reply@cherryhire.com' , 'Cherryhire');
          $this->email->to($to);
          $this->email->cc('jitinajithk@gmail.com');
          // $this->email->cc('shahirkm@5ines.com');

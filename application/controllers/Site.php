@@ -1083,18 +1083,19 @@ class Site extends CI_Controller {
 
 
 			//Mail configuration
-			$config['protocol']     = 'smtp';
-			$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-			$config['smtp_port']    = 587;
-			$config['smtp_user']    = 'no-reply@cherryhire.net';
-			$config['smtp_pass']    = 'Startup2019#';
-			$config['charset']      = 'utf-8';
-
-			$this->load->library('email'); 
-			$this->email->set_mailtype("html");
-			$this->email->set_newline('\r\n');
-
-			$this->email->from($from , 'Cherryhire'); 
+			$config = Array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
+				'smtp_port' => 465,
+				'smtp_user' => 'no-reply@cherryhire.com',
+				'smtp_pass' => 'vbgtstahuubtwsbj',
+				'mailtype'  => 'html', 
+				'charset'   => 'utf-8'
+				 );
+			$this->email->initialize($config);
+			$this->load->library('email');
+			$this->email->set_newline("\r\n");
+			$this->email->from('no-reply@cherryhire.com' , 'Cherryhire'); 
          $this->email->to($to);
          $this->email->subject('Thank you for registering on cherryhire.com'); 
          $this->email->message($message);
@@ -1266,18 +1267,19 @@ class Site extends CI_Controller {
 								</table></body></html>';
 		
 			//Mail configuration
-			$config['protocol']     = 'smtp';
-			$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-			$config['smtp_port']    = 587;
-			$config['smtp_user']    = 'no-reply@cherryhire.net';
-			$config['smtp_pass']    = 'Startup2019#';
-			$config['charset']      = 'utf-8';
-
-			$this->load->library('email'); 
-			$this->email->set_mailtype("html");
-			$this->email->set_newline('\r\n');
-
-			$this->email->from($from , 'Cherryhire'); 
+			$config = Array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
+				'smtp_port' => 465,
+				'smtp_user' => 'no-reply@cherryhire.com',
+				'smtp_pass' => 'vbgtstahuubtwsbj',
+				'mailtype'  => 'html', 
+				'charset'   => 'utf-8'
+				 );
+			$this->email->initialize($config);
+			$this->load->library('email');
+			$this->email->set_newline("\r\n");
+			$this->email->from('no-reply@cherryhire.com' , 'Cherryhire');
          	$this->email->to($to);
    
          // $this->email->from('no-reply@cherryhire.com', 'Cherryhire'); 
@@ -1325,18 +1327,19 @@ class Site extends CI_Controller {
 		$message = $message."</body></html></html>";
 		
 		// Mail configuration
-		$config['protocol']     = 'smtp';
-		$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-		$config['smtp_port']    = 587;
-		$config['smtp_user']    = 'no-reply@cherryhire.net';
-		$config['smtp_pass']    = 'Startup2019#';
-		$config['charset']      = 'utf-8';
-
-		$this->load->library('email'); 
-		$this->email->set_mailtype("html");
-		$this->email->set_newline('\r\n');
-
-        $this->email->from($from , 'Cherryhire'); 
+		$config = Array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'no-reply@cherryhire.com',
+			'smtp_pass' => 'vbgtstahuubtwsbj',
+			'mailtype'  => 'html', 
+			'charset'   => 'utf-8'
+			 );
+		$this->email->initialize($config);
+		$this->load->library('email');
+		$this->email->set_newline("\r\n");
+		$this->email->from('no-reply@cherryhire.com' , 'Cherryhire'); 
 		$this->email->to($to);
 		$this->email->subject($subject);
 		$this->email->message($message);
@@ -1420,18 +1423,19 @@ class Site extends CI_Controller {
 								</table>
 								</body></html>';
 			//Mail configuration
-			$config['protocol']     = 'smtp';
-			$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-			$config['smtp_port']    = 587;
-			$config['smtp_user']    = 'no-reply@cherryhire.net';
-			$config['smtp_pass']    = 'Startup2019#';
-			$config['charset']      = 'utf-8';
-
-			$this->load->library('email'); 
-			$this->email->set_mailtype("html");
-			$this->email->set_newline('\r\n');
-
-			$this->email->from($from , 'Cherryhire');
+			$config = Array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
+				'smtp_port' => 465,
+				'smtp_user' => 'no-reply@cherryhire.com',
+				'smtp_pass' => 'vbgtstahuubtwsbj',
+				'mailtype'  => 'html', 
+				'charset'   => 'utf-8'
+				 );
+			$this->email->initialize($config);
+			$this->load->library('email');
+			$this->email->set_newline("\r\n");
+			$this->email->from('no-reply@cherryhire.com' , 'Cherryhire');
 			$this->email->to($to);
 			$this->email->subject($subject); 
 			$this->email->message($thanksmessage); 
@@ -1556,18 +1560,20 @@ function apicvsendmail($cid=null, $cvpath=null)
 		$message = $message."</body></html></html>";
 		
 		//Mail configuration
-		$config['protocol']     = 'smtp';
-		$config['smtp_host']    = 'ssl://smtp.cherryhire.net';
-		$config['smtp_port']    = 587;
-		$config['smtp_user']    = 'no-reply@cherryhire.net';
-		$config['smtp_pass']    = 'Startup2019#';
-		$config['charset']      = 'utf-8';
+		$config = Array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'no-reply@cherryhire.com',
+			'smtp_pass' => 'vbgtstahuubtwsbj',
+			'mailtype'  => 'html', 
+			'charset'   => 'utf-8'
+			 );
+		$this->email->initialize($config);
+		$this->load->library('email');
+		$this->email->set_newline("\r\n");
+		$this->email->from('no-reply@cherryhire.com' , 'Cherryhire');
 
-		$this->load->library('email'); 
-		$this->email->set_mailtype("html");
-		$this->email->set_newline('\r\n');
-
-		$this->email->from($from , 'Cherryhire');
 		$this->email->to('sandeep@cherry.com');
 		$this->email->to('info@cherryhire.com');
 		
