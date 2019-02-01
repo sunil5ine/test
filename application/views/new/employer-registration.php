@@ -109,10 +109,24 @@
 						        </div>
 								</div>
 						        <div class="row">
-								<div class="form-group col s12 m12">
+								<div class="form-group col s12 m6">
 						          	<label for="last_name">Company Website</label>
 						          	 <input type="text" class="" placeholder="www.example.com" name="url" id="url" value="<?php echo $formdata['url']; ?>" tabindex="12" required>
 						        </div>
+									<div class="form-group col s12 m6">
+										<label for="last_name">How did you hear about Cherryhire</label>
+										<select name="hear" id="hear" tabindex="10" required>
+											<option value="">----------</option>
+											<option value="Email alert">Email alert</option>
+											<option value="Friends/family">Friends/family</option>
+											<option value="Facebook">Facebook</option>
+											<option value="Got a call">Got a call</option>
+											<option value="Instagram">Instagram</option>
+											<option value="LinkedIn">LinkedIn</option>
+											<option value="Saw an online ad">Saw an online ad</option>
+											<option value="Others">Others</option>
+										</select>
+									</div>
 								</div>
 						        <div class="row">
 						        <div class="form-group col s12 m12">

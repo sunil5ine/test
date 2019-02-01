@@ -75,7 +75,8 @@ class Employermodel extends CI_Model {
 			'emp_verify'		=>0,
 			'emp_reg_date'		=>date('Y-m-d'),
 			'emp_update_date'	=>date('Y-m-d H:i:s'),
-			'emp_status'		=>0
+			'emp_status'		=>0,
+			'why_here'			=>$this->input->post('hear'),
 		);
 		
 		$this->db->insert($this->table_employer, $data);

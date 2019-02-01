@@ -654,7 +654,7 @@ i.daterange,.search-icont{position: absolute; margin-left: 4px; margin-top: 17px
 
 
  
-.alert {right: 15px;position: absolute; z-index: 9; min-width: 320px;padding: 16px; border-radius: 3px; color: white ; margin-bottom: 15px; -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2); box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);}
+.alert {right: 0px;position: absolute; z-index: 9; min-width: 320px;padding: 16px; border-radius: 3px; color: white ; margin-bottom: 15px; -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2); box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);}
 .closebtn { margin-left: 15px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer; transition: 0.3s; } 
 .closebtn:hover { color: black;cursor: pointer; } 
 .alert-danger, .alert-error{background: #f44336}
@@ -982,3 +982,5 @@ h5 {font-size: 1.3rem;}
 .flagquater { background-position: -52px -31px; width: 50px; height: 30px; }
 .flagsud { background-position: -1px -57px; width: 50px; height: 30px; }
 .flaguae { background-position: -52px -62px; width: 50px; height: 30px; }
+#notification { overflow: visible; padding: 0; }
+#notification .modal-close{display: none}

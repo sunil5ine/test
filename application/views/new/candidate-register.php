@@ -175,6 +175,39 @@
 									</select>
 						        </div>
 								</div>
+
+								<div class="row m0">
+									<div class="  col s12 m6">
+											<label for="last_name " class="block" style="display:block;">Upload CV</label>
+											<div class="file-field input-field m0">
+											<div class="btn white-text upload-btn" >
+											File
+											<input type="file" name="fileToUpload" tabindex="17" required>
+											</div>
+											<div class="file-path-wrapper">
+											<input class="file-path validate" type="text" placeholder="Upload one or more files" style="width: 90%">
+											</div>
+											<span class="helper-text" data-error="wrong" data-success="right"><small><b>Note: </b> Please choose only .doc, .docx and .pdf files</small></span>
+										</div>
+									</div>
+									<div class="form-group col s12 m6">
+										<label for="last_name">How did you hear about Cherryhire</label>
+										<select name="hear" id="hear" tabindex="10" required>
+											<option value="">----------</option>
+											<option value="Email alert">Email alert</option>
+											<option value="Friends/family">Friends/family</option>
+											<option value="Facebook">Facebook</option>
+											<option value="Got a call">Got a call</option>
+											<option value="Instagram">Instagram</option>
+											<option value="LinkedIn">LinkedIn</option>
+											<option value="Saw an online ad">Saw an online ad</option>
+											<option value="Others">Others</option>
+										</select>
+									</div>
+
+								</div>
+
+
 								<div class="row m0">
 									<div class="form-group col s12 m6">
 										<div class="" style="padding-bottom: 29px;"><b>Gender</b></div>
@@ -194,24 +227,7 @@
 									    </div>
 									</div>
 		
-							        <div class="  col s12 m6">
-
-							        	
-							        
-							        	<label for="last_name " class="block" style="display:block;">Upload CV</label>
-									    	<div class="file-field input-field m0">
-									      <div class="btn white-text upload-btn" >
-									        File
-									        <input type="file" name="fileToUpload" tabindex="17" required>
-									      </div>
-									      <div class="file-path-wrapper">
-									        <input class="file-path validate" type="text" placeholder="Upload one or more files" style="width: 90%">
-									      </div>
-									      <span class="helper-text" data-error="wrong" data-success="right"><small><b>Note: </b> Please choose only .doc, .docx and .pdf files</small></span>
-									  </div>
-									   
-
-									</div>
+									
 								</div>
 								<div class="row m0">
 									<div class="form-group  col s12 reg-checkbox">
@@ -253,13 +269,11 @@
 <!-- notification  -->
 <?php if(isset($status) && ($status=='success' || $status=='fail' || $status=='cvfail')) {  ?> 
   	<div id="notification" class="modal opend">
-	    <div class="modal-content">
-	      <h4>Notification</h4>
+	    
+	     
 	      <p><?php echo $message; ?></p>
-	    </div>
-	    <div class="modal-footer">
-	      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-	    </div>
+	    
+	    
   </div>
 <?php } ?>
 

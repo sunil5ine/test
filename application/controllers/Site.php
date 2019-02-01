@@ -651,7 +651,8 @@ class Site extends CI_Controller {
 			'funarea'=>'',
 			'industry'=>'',
 			'currdesig'=>'',
-			'jobalert'=>'1'
+			'jobalert'=>'1',
+			'hear' =>''
 		);
 		
 		//Form validation

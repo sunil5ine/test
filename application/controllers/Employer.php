@@ -107,7 +107,7 @@ class Employer extends CI_Controller {
 	public function create_account()
 
 	{
-
+		
 		$this->data['message'] = '';
 
 		$this->data['status'] = '';
@@ -139,6 +139,7 @@ class Employer extends CI_Controller {
 			'empcnt'=>'',
 
 			'descr'=>'',
+			'hear'=>'',
 
 			'emptype'=>'1'
 

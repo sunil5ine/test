@@ -106,7 +106,7 @@
                                                 </a>
                                              </td>
                                              <td><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo (!empty($val->tr_marks))?$val->tr_marks : 'Not attend' ?></a></td>
-                                             <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo date('d-m-Y',strtotime($val->can_reg_date)) ?></a></td>
+                                             <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><span style="display:none"><?php echo date('Ymd',strtotime($val->can_reg_date)) ?> &nbsp;&nbsp;&nbsp;</span><?php echo date('d-m-Y',strtotime($val->can_reg_date)) ?></a></td>
                                              <td class="td-a"><a href="tel:<?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?>" >
                                                 <?php echo (!empty($val->can_ccode))?'+'.$val->can_ccode.' '.$val->can_phone:$val->can_phone ?>
                                              </a></td>

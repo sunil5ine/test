@@ -151,7 +151,8 @@ class Sitemodel extends CI_Model {
 			'can_propic'=>'profilepic/cand_no_pic.png',
 			'can_reg_date'=>date('Y-m-d'),
 			'can_upd_date'=>date('Y-m-d H:i:s'),
-			'can_status'=>1
+			'can_status'=>1,
+			'why_here'=>$this->input->post('hear'),
 		);
 		
 		$this->db->insert($this->table_candidate, $data);
