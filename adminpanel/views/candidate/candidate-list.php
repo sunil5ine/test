@@ -67,6 +67,7 @@
                                           <th  class="h5-para-p2">Designation</th>
                                           <th class="h5-para-p2 ">Experience</th>
                                           <th  class="h5-para-p2">Current Location</th>
+                                          <th  class="h5-para-p2">How did you hear</th>
                                           <th  class="h5-para-p2">Verified</th>
                                           <th  class="h5-para-p2">Test marks</th>
                                           <th id="g" class="h5-para-p2">Register Date</th>
@@ -99,6 +100,7 @@
                                                 
                                              </td>
                                              <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>"><?php echo $val->can_curr_loc ?></a></td>
+                                             <td class="td-a"><a href="<?php echo base_url('candidates/detail/').$val->can_id ?>" style="100px;"><?php echo $val->why_here?></a></td>
                                              <td class="center">
                                                 <a href="<?php echo base_url('candidates/detail/').$val->can_id ?>">
                                                    <?php if($val->tr_marks >= 35){ $cls = 'green-text';$nums=1;}else{$cls = 'red-text';$nums=2;} ?>

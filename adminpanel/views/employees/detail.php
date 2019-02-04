@@ -29,6 +29,7 @@ else{
    </head>
    <body>
       <!-- headder -->
+      
       <?php $this->load->view('include/header'); ?>
       <!-- end headder -->
         <section class="sec-top">

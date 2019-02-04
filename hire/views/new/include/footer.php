@@ -4,7 +4,7 @@
 				<div class="container-wrap">
 					<div class="col m12 s12 l4">
 						<div class="footer-container footer-container-center">
-							<img src="<?php echo base_url()?>assets/img/logo.png " class="responsive-img footerlogo" alt="" width="95px">
+							<img src="<?php echo $this->config->item('web_url') ?>assets/img/logo.png " class="responsive-img footerlogo" alt="" width="95px">
 							<div class="footer-heading">
 								<p>Have a question? We are here to help</p>
 							</div>

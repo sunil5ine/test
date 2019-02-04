@@ -8,7 +8,7 @@ class EmployeesModel extends CI_Model {
      */
     public function getActiveLists()
     {
-        $this->db->select('emp_id, emp_comp_name, emp_fname, emp_lname, emp_ccode, emp_phone, emp_email, emp_authkey, emp_reg_date, emp_update_date');
+        $this->db->select('emp_id, emp_comp_name, emp_fname, emp_lname, emp_ccode, emp_phone, emp_email, emp_authkey, emp_reg_date, emp_update_date, why_here');
         $this->db->where('emp_status', 1);
         $this->db->where('emp_verify', 1);
         return $this->db->get('ch_employer')->result();   
@@ -61,7 +61,7 @@ class EmployeesModel extends CI_Model {
     public function companyDetails($id)
     {
        
-        $this->db->select('*');
+        $this->db->select('ch_employer.emp_id, emp_comp_name, emp_fname, emp_lname, emp_designation, emp_ccode, emp_phone, emp_email, emp_website, emp_number, emp_desc, emp_type, emp_location, emp_jobportal, emp_jobportal, why_here, emp_authkey, emp_verify, emp_reg_date, emp_update_date, emp_encrypt_id, emp_status, sub_id, sub_packid, sub_nojobs, sub_nocv, sub_pending_cv, sub_ex_limits, sub_expire_dt, sub_type, sub_status, sub_alert, esm_id, esm_linkdin, esm_fb, esm_tw, esm_gp, esm_blog, esm_status, ep_id, ep_dispaly_name, ep_logo, ep_welcome_msg, ep_notify_email');
         // $this->db->select_sum('jp_cvs');
         $this->db->from('ch_employer');
         $this->db->where('emp_authkey', $id);
@@ -184,7 +184,6 @@ class EmployeesModel extends CI_Model {
     /** 
      * uploaded resume count
     */
-
     function resumecount($id){
 
         $this->db->where('emp_authkey',$id);
@@ -271,6 +270,19 @@ class EmployeesModel extends CI_Model {
         $this->db->insert('ch_emp_alerts', $data);
         return true;
         
+    }
+
+    /** 
+     * Filter by datewise
+    */
+    public function filterdate($start, $end)
+    {
+        $this->db->select('emp_id, emp_comp_name, emp_fname, emp_lname, emp_ccode, emp_phone, emp_email, emp_authkey, emp_reg_date, emp_update_date, why_here');
+        $this->db->where('emp_reg_date >= ', $start);
+        $this->db->where('emp_reg_date <=', $end);
+        $this->db->where('emp_status', 1);
+        $this->db->where('emp_verify', 1);
+        return $this->db->get('ch_employer')->result();   
     }
 
 }

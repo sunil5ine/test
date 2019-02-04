@@ -344,7 +344,7 @@ class Jobsmodel extends CI_Model {
 		$this->db->where('job_id', $insert_id);
 	   	$this->db->update($this->table_job, $jurldata);
 		
-		$hirejob = $this->createreq($job_url_id);
+		// $hirejob = $this->createreq($job_url_id);
 		
 		if(!empty($hirejob)) {
 			if(isset($hirejob->needid)) {
@@ -532,8 +532,8 @@ class Jobsmodel extends CI_Model {
 		if($co_hire_name != '') {
 			$xml .= '<p name="m_country.v" disp="'.$co_hire_name.'" oper="eq" acceptmissing="false">'.$co_hire_id.'</p>';
 		}
-		if($result['fun_name']) {
-			$xml .= '<p name="jobFunctions.v" disp="'.$result['fun_name'].'" oper="eq" acceptmissing="false">'.$result['jfun_hireid'].'</p>';
+		if($result['jfun_display']) {
+			$xml .= '<p name="jobFunctions.v" disp="'.$result['jfun_display'].'" oper="eq" acceptmissing="false">'.$result['jfun_hireid'].'</p>';
 		}
 		$xml .= '</need>';
 

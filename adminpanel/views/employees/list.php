@@ -11,6 +11,10 @@
       <link rel="stylesheet" href="<?php echo base_url() ?>dist/dataTable/datatables.min.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>dist/dataTable/button/css/buttons.dataTables.css">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>dist/css/style.css">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+      <style>
+         .datepicker { width: auto !important; border: 1px solid #c6c4c4 !important; padding: 7px 5px !important; height: auto !important;margin-right: 15px !important; }
+      </style> 
    </head>
    <body>
       <!-- headder -->
@@ -23,7 +27,31 @@
                <div class="row">
                <?php $this->load->view('include/menu'); ?>
                   <div class="col m12 s12 l9">
-                     <p class="h5-para black-text  mtb-20">Manage Employers</p>
+
+                     <div class="row m0">
+                        <div class="col s12 m12 l4">
+                           <p class="h5-para black-text  mtb-20">Manage Employers</p>
+                        </div>
+                        <div class="col s12 m12 l8">
+                           <div class="row m0">
+                              <form id="" action="<?php echo base_url('employees/datefilter') ?>" method="post">
+                                 <div class="col s12 m4 l5">
+                                    <label for="">Start Date</label><br>
+                                    <input type="text" value="<?php echo (!empty($start)?$start:'') ?>" id="startdate" name="start" class="datepicker">
+                                 </div>
+                                 <div class="col s12 m4 l5">
+                                    <label for="">End Date</label><br>
+                                    <input type="text" name="end" value="<?php echo (!empty($end)?$end:'') ?>" id="enddate" class="datepicker">
+                                 </div>
+                                 <div class="col s12 m4 l2"><br>
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Filter</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+
+
                      <div class="white m0 tab-list-view">
                         <div class="row m0">
                            <div class="col l3 m6 s12">
@@ -51,6 +79,7 @@
                                           <th id="b" class="h5-para-p2">Company Person</th>
                                           <th id="c" class="h5-para-p2">Contact No</th>
                                           <th id="d" class="h5-para-p2">Email ID</th>
+                                          <th id="d" class="h5-para-p2">How did you hear</th>
                                           <th id="e" class="h5-para-p2">Reg Date</th>
                                           <th id="f" class="h5-para-p2">Last Update</th>
                                           <th style="width: 65px;" class="h5-para-p2">Action</th>
@@ -63,7 +92,8 @@
                                             <td ><?php echo $value->emp_fname." ". $value->emp_lname ?></td>
                                             <td ><?php echo '+'.$value->emp_ccode. ' '. $value->emp_phone ?></td>
                                             <td ><?php echo $value->emp_email ?></td>
-                                            <td ><?php echo date('d M Y', strtotime($value->emp_reg_date)) ?></td>
+                                            <td > <a href="<?php echo base_url('employees/details/').$value->emp_authkey ?>" style="width:100px;display:block" class=""><?php echo $value->why_here ?></a></td>
+                                            <td ><span style="display:none"><?php echo date('Ymd', strtotime($value->emp_reg_date)) ?> </span> <?php echo date('d M Y', strtotime($value->emp_reg_date)) ?></td>
                                             <td class=""><?php echo date('d M Y', strtotime($value->emp_update_date)) ?></td>
                                             <td class="action-btn  center-align">
                                               <a href="<?php echo base_url('employees/details/').$value->emp_authkey ?>" class="blue hoverable"><i class="fas fa-eye "></i></i></a>
@@ -92,6 +122,8 @@
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/materialize.min.js"></script>
       <script type="text/javascript" src="<?php echo base_url() ?>dist/js/script.js"></script>
+       <!-- date picker -->
+       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <!-- data table -->
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/datatables.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/dataTables.buttons.min.js"></script>
@@ -101,6 +133,7 @@
         <script type="text/javascript" src="<?php echo base_url() ?>dist/dataTable/button/js/vfs_fonts.js"></script>
         <script>
             $(document).ready( function () {
+               $(".datepicker").datepicker();
                 $('#dynamic').DataTable({
                     dom: 'Bfrtip',
                     buttons: [

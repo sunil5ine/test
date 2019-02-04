@@ -1,7 +1,7 @@
 <div class="navbar-fixed">
       <nav class="white">
          <div class="nav-wrapper container-wrap">
-            <a href="http://5ineprojects.com/cherryhire/" class="brand-logo">
+            <a href="<?php echo base_url() ?>" class="brand-logo">
             <img src="<?php echo $this->config->item('web_url') ?>assets/img/logo.png" class="responsive-img" alt="logo">
             </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
