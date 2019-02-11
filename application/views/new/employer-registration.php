@@ -117,13 +117,14 @@
 										<label for="last_name">How did you hear about Cherryhire</label>
 										<select name="hear" id="hear" tabindex="10" required>
 											<option value="">----------</option>
-											<option value="Email alert">Email alert</option>
-											<option value="Friends/family">Friends/family</option>
-											<option value="Facebook">Facebook</option>
-											<option value="Got a call">Got a call</option>
-											<option value="Instagram">Instagram</option>
 											<option value="LinkedIn">LinkedIn</option>
 											<option value="Saw an online ad">Saw an online ad</option>
+											<option value="Facebook">Facebook</option>
+											<option value="Ad on google">Ad on google</option>
+											<option value="Email alert">Email alert</option>
+											<option value="Friends/family">Friends/family</option>
+											<option value="Got a call">Got a call</option>
+											<option value="Instagram">Instagram</option>
 											<option value="Others">Others</option>
 										</select>
 									</div>
